@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NRSG106 Quiz Bank — Week 7</title>
+<style>[hidden]{display:none!important} img{max-width:100%}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    --paper: #F6F8FA;
+    --card: #FFFFFF;
+    --ink: #1B2A41;
+    --ink-soft: #4A5A70;
+    --ink-faint: #8593A6;
+    --rule: #D9DFE7;
+    --rule-strong: #B8C2CF;
+    --teal: #0F7B8A;
+    --teal-ink: #0B5F6B;
+    --teal-wash: #E3F1F3;
+    --mark: #F9D65C;
+    --mark-wash: #FFF6D2;
+    --good: #2E8B57;
+    --good-wash: #E4F3EA;
+    --bad: #C8463A;
+    --bad-wash: #FBE7E4;
+    --plum: #6B4E9B;
+    --plum-wash: #EEE9F7;
+    --focus: #0F7B8A;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12181F;
+      --card: #1A222B;
+      --ink: #E7ECF2;
+      --ink-soft: #B3BFCD;
+      --ink-faint: #7C8A9B;
+      --rule: #2C3743;
+      --rule-strong: #3E4B5A;
+      --teal: #3FB2C1;
+      --teal-ink: #6FCBD7;
+      --teal-wash: #16323A;
+      --mark: #E8C64A;
+      --mark-wash: #3A3316;
+      --good: #4FBF7F;
+      --good-wash: #16321F;
+      --bad: #E8746A;
+      --bad-wash: #3D1F1B;
+      --plum: #B49BE0;
+      --plum-wash: #2A2138;
+      --focus: #3FB2C1;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12181F;
+    --card: #1A222B;
+    --ink: #E7ECF2;
+    --ink-soft: #B3BFCD;
+    --ink-faint: #7C8A9B;
+    --rule: #2C3743;
+    --rule-strong: #3E4B5A;
+    --teal: #3FB2C1;
+    --teal-ink: #6FCBD7;
+    --teal-wash: #16323A;
+    --mark: #E8C64A;
+    --mark-wash: #3A3316;
+    --good: #4FBF7F;
+    --good-wash: #16321F;
+    --bad: #E8746A;
+    --bad-wash: #3D1F1B;
+    --plum: #B49BE0;
+    --plum-wash: #2A2138;
+    --focus: #3FB2C1;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    padding-block: 0 64px;
+    padding-inline: clamp(16px, 4vw, 40px);
+  }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif; text-wrap: balance; margin: 0; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  header { padding-block: 28px 20px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+  .eyebrow { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-ink); font-weight: 700; }
+  h1 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; margin-top: 6px; }
+  .sub { color: var(--ink-soft); margin: 6px 0 0; max-width: 60ch; }
+
+  /* Deck tabs */
+  .decks { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
+  .deck-tab {
+    flex: 1 1 240px; text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 14px 16px; display: grid; gap: 2px; transition: border-color .15s, background .15s;
+  }
+  .deck-tab .eyebrow { color: var(--ink-faint); }
+  .deck-tab strong { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; }
+  .deck-tab small { color: var(--ink-soft); font-size: 14px; }
+  .deck-tab[aria-selected="true"] { border-color: var(--teal); background: var(--teal-wash); box-shadow: inset 0 0 0 1px var(--teal); }
+  .deck-tab[aria-selected="true"] .eyebrow { color: var(--teal-ink); }
+
+  /* Toolbar */
+  .toolbar {
+    position: sticky; top: 0; z-index: 5; background: var(--paper);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding-block: 14px; border-bottom: 1px solid var(--rule); margin-top: 8px;
+  }
+  .score { display: flex; align-items: baseline; gap: 8px; font-variant-numeric: tabular-nums; }
+  .score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; font-weight: 700; line-height: 1; }
+  .score span { color: var(--ink-soft); font-size: 14px; }
+  .bar { flex: 1 1 160px; height: 8px; border-radius: 99px; background: var(--rule); overflow: hidden; display: flex; min-width: 120px; }
+  .bar i { display: block; height: 100%; transition: width .25s; }
+  .bar .g { background: var(--good); }
+  .bar .b { background: var(--bad); }
+  .tools { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+  .btn { border: 1px solid var(--rule-strong); background: var(--card); border-radius: 8px; padding: 7px 12px; font-size: 14.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
+  .btn:hover { border-color: var(--teal); }
+  .btn.on { background: var(--mark-wash); border-color: var(--mark); }
+  .btn .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule-strong); }
+  .btn.on .dot { background: var(--mark); }
+  .btn.ghost { border-color: transparent; background: transparent; color: var(--ink-soft); }
+  .btn.ghost:hover { color: var(--bad); }
+  .btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .btn.primary:hover { background: var(--teal-ink); border-color: var(--teal-ink); }
+
+  /* Sections */
+  section { margin-top: 40px; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: 22px; font-weight: 700; }
+  .sec-head .hint { color: var(--ink-soft); font-size: 14.5px; }
+  .sec-tally { font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: 14.5px; }
+  section.ext .sec-head { border-bottom-color: var(--plum); }
+  section.ext .sec-head h2 { color: var(--plum); }
+  .ext-note {
+    margin-top: 14px; padding: 12px 16px; border-radius: 10px; background: var(--plum-wash); color: var(--ink);
+    border-left: 3px solid var(--plum); font-size: 15px; line-height: 1.45;
+  }
+  .ext-note b { color: var(--plum); }
+
+  .q { display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; padding-block: 20px; border-bottom: 1px solid var(--rule); }
+  .q .num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 18px; color: var(--ink-faint); font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .q.right .num { color: var(--good); }
+  .q.wrong .num { color: var(--bad); }
+  .q .body { display: grid; gap: 12px; min-width: 0; }
+  .q .stem { font-size: 17.5px; line-height: 1.45; margin: 0; }
+  .q .ref { font-size: 12.5px; color: var(--ink-faint); letter-spacing: .04em; text-transform: uppercase; }
+  .ref.src { text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--plum); }
+  .ref.src::before { content: "Outside source · "; font-weight: 700; }
+
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.35;
+    transition: border-color .12s, background .12s;
+  }
+  .opt:hover { border-color: var(--teal); }
+  .opt .key { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--rule-strong); display: grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+  .opt.picked { border-color: var(--teal); background: var(--teal-wash); }
+  .opt.is-right { border-color: var(--good); background: var(--good-wash); }
+  .opt.is-right .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.is-wrong { border-color: var(--bad); background: var(--bad-wash); }
+  .opt.is-wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .6; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--rule); }
+  .locked .opt.is-right:hover { border-color: var(--good); }
+  .locked .opt.is-wrong:hover { border-color: var(--bad); }
+
+  .verdict { font-size: 15px; display: flex; gap: 8px; align-items: flex-start; }
+  .verdict b { flex: 0 0 auto; }
+  .verdict.ok b { color: var(--good); }
+  .verdict.no b { color: var(--bad); }
+  .verdict .why { color: var(--ink-soft); }
+
+  /* Short answer */
+  .sa-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .answer {
+    background: var(--mark-wash); border-left: 3px solid var(--mark); padding: 10px 14px; border-radius: 0 8px 8px 0;
+    font-size: 16px; line-height: 1.45;
+  }
+  .answer ul, .answer ol { margin: 4px 0 0; padding-left: 20px; }
+  .answer li { margin: 2px 0; }
+  .grade { display: flex; gap: 8px; flex-wrap: wrap; }
+  .grade .opt { padding: 8px 12px; }
+  .grade .opt.g-yes.picked { border-color: var(--good); background: var(--good-wash); }
+  .grade .opt.g-no.picked { border-color: var(--bad); background: var(--bad-wash); }
+
+  /* Answer-key mode */
+  .keymode .answer[hidden] { display: block !important; }
+  .keymode .opt.correct-key { border-color: var(--mark); background: var(--mark-wash); }
+  .keymode .opt.correct-key .key { background: var(--mark); border-color: var(--mark); color: #1B2A41; }
+
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--ink-faint); font-size: 13.5px; }
+  footer p { margin: 6px 0; }
+
+  /* Name field */
+  .who { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-soft); }
+  .who input { font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 6px 10px; width: 9ch; }
+  .who input:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; }
+
+  /* Past rounds */
+  .rounds-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .rounds-head h2 { font-size: 22px; font-weight: 700; }
+  .rounds-empty { color: var(--ink-faint); padding: 18px 0; font-size: 15.5px; }
+  .round { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding-block: 14px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .round .r-top { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+  .round .r-name { font-weight: 700; }
+  .round .r-date { color: var(--ink-soft); font-size: 14.5px; }
+  .round .r-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; text-align: right; line-height: 1.1; }
+  .round .r-score small { display: block; font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 13px; color: var(--ink-soft); }
+  .round .r-missed { grid-column: 1 / -1; font-size: 15px; color: var(--ink-soft); }
+  .round details summary { cursor: pointer; color: var(--teal-ink); font-weight: 600; }
+  .round details ul { margin: 6px 0 0; padding-left: 20px; }
+  .round details li { margin: 3px 0; color: var(--ink); }
+  .round .r-actions { grid-column: 1 / -1; display: flex; gap: 8px; }
+  .round .r-actions .btn { font-size: 13px; padding: 4px 9px; }
+  .log-box { margin-top: 18px; padding: 14px 16px; border: 1px dashed var(--rule-strong); border-radius: 10px; display: grid; gap: 8px; }
+  .log-box label { font-weight: 600; font-size: 15px; }
+  .log-box p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+  .log-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .log-row input { flex: 1 1 240px; font: inherit; font-size: 14px; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 8px 10px; }
+  .log-msg { font-size: 14px; min-height: 1.2em; }
+  .log-msg.ok { color: var(--good); } .log-msg.no { color: var(--bad); }
+  .trend { display: flex; gap: 6px; align-items: flex-end; height: 44px; margin-top: 12px; }
+  .trend i { flex: 0 0 18px; background: var(--teal); border-radius: 3px 3px 0 0; opacity: .85; position: relative; }
+  .trend i.g { background: var(--plum); }
+  .trend i span { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--ink-faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Finish-round dialog */
+  .modal-bg { position: fixed; inset: 0; z-index: 60; background: rgba(10, 16, 24, .55); display: grid; place-items: center; padding: 16px; }
+  .modal-bg[hidden] { display: none; }
+  .modal { background: var(--card); color: var(--ink); border-radius: 14px; width: min(640px, 100%); max-height: 92vh; overflow: auto; padding: 22px 24px 20px; box-shadow: 0 20px 60px rgba(0,0,0,.25); display: grid; gap: 14px; }
+  .modal h2 { font-size: 24px; }
+  .modal .m-score { display: flex; align-items: baseline; gap: 10px; }
+  .modal .m-score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modal .m-score span { color: var(--ink-soft); }
+  .modal textarea { width: 100%; min-height: 150px; font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; resize: vertical; }
+  .modal .m-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .modal .m-note { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .modal .m-msg { font-size: 14px; color: var(--good); min-height: 1.2em; }
+
+  /* Presenter mode — one question, big type, for screen sharing */
+  body.presenting { overflow: hidden; }
+  .present {
+    position: fixed; inset: 0; z-index: 50; background: var(--paper); color: var(--ink);
+    display: grid; grid-template-rows: auto 1fr auto; padding: clamp(16px, 3vw, 36px) clamp(16px, 5vw, 72px);
+  }
+  .present[hidden], .btn[hidden] { display: none; }
+  .p-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .p-top .eyebrow { font-size: clamp(13px, 1.3vw, 17px); }
+  .p-top .eyebrow.is-ext { color: var(--plum); }
+  .p-top .p-deck { color: var(--ink-faint); font-weight: 600; font-size: clamp(13px, 1.3vw, 17px); }
+  .p-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(18px, 2vw, 26px); font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 12px; }
+  .p-score .btn { font-size: clamp(13px, 1.2vw, 16px); }
+  .p-body { display: grid; align-content: center; gap: clamp(18px, 3vh, 36px); max-width: 1200px; width: 100%; margin: 0 auto; min-height: 0; overflow: auto; }
+  .p-stem { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 48px); line-height: 1.2; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  .p-opts { display: grid; gap: clamp(8px, 1.4vh, 14px); }
+  .p-opts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-opts .opt { font-size: clamp(19px, 2.2vw, 30px); padding: clamp(12px, 1.8vh, 18px) clamp(14px, 1.6vw, 22px); border-radius: 12px; gap: 14px; }
+  .p-opts .opt .key { width: 1.35em; height: 1.35em; font-size: .7em; border-radius: 8px; }
+  .p-answer { font-size: clamp(19px, 2.1vw, 28px); padding: clamp(14px, 2vh, 22px) clamp(18px, 2vw, 28px); }
+  .p-answer .lead { font-weight: 700; display: block; margin-bottom: 4px; }
+  .p-answer ol, .p-answer ul { columns: 1; }
+  @media (min-width: 900px) { .p-answer ol.two, .p-answer ul.two { columns: 2; column-gap: 40px; } }
+  .p-verdict { font-size: clamp(19px, 2.1vw, 28px); }
+  .p-verdict.ok b { color: var(--good); } .p-verdict.no b { color: var(--bad); }
+  .p-verdict .why { color: var(--ink-soft); }
+  .p-wait { color: var(--ink-faint); font-size: clamp(17px, 1.8vw, 24px); font-style: italic; }
+  .p-body .ref { font-size: clamp(13px, 1.2vw, 15px); }
+  .p-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; }
+  .p-nav .btn { font-size: clamp(15px, 1.4vw, 19px); padding: 10px 18px; }
+  .p-keys { color: var(--ink-faint); font-size: clamp(12px, 1.1vw, 14px); }
+  .p-keys kbd { font-family: inherit; border: 1px solid var(--rule-strong); border-radius: 4px; padding: 0 5px; margin: 0 2px; background: var(--card); }
+  .p-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--rule); }
+  .p-progress i { display: block; height: 100%; background: var(--teal); transition: width .2s; }
+
+  @media (max-width: 480px) {
+    .q { grid-template-columns: 34px 1fr; }
+    .tools { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">NRSG106 · Health Assessment · AdventHealth University</div>
+      <h1>NRSG106 Quiz Bank</h1>
+      <p class="sub">Multiple choice and short answer sets built from each week's slides, plus a clearly marked “Beyond the Slides” section drawn from outside nursing sources. Tap an answer to check it, or turn on the answer key to read aloud.</p>
+    </div>
+  </header>
+
+  <div class="decks" role="tablist" aria-label="Choose a presentation" id="decks"></div>
+
+  <div class="toolbar">
+    <div class="score"><b id="score-num">0 / 0</b><span id="score-txt">answered</span></div>
+    <div class="bar" aria-hidden="true"><i class="g" id="bar-g" style="width:0%"></i><i class="b" id="bar-b" style="width:0%"></i></div>
+    <div class="tools">
+      <label class="who">Answering as <input id="who" type="text" placeholder="name" maxlength="24" autocomplete="off"></label>
+      <button class="btn primary" id="present-btn">Present one at a time</button>
+      <button class="btn" id="key-toggle" aria-pressed="false"><span class="dot"></span>Answer key</button>
+      <button class="btn" id="finish-btn">Finish round</button>
+      <button class="btn ghost" id="reset-btn">Clear without saving</button>
+    </div>
+  </div>
+
+  <main id="quiz"></main>
+
+  <section id="rounds"></section>
+
+  <footer>
+    <p>Slide references point to the slide number in the matching PowerPoint so she can go back and re-read anything she missed. Answers and past rounds are saved in this browser only — use <b>Finish round</b> to get a summary and code you can text to someone else, and <b>Log a round</b> to add theirs to your history.</p>
+    <p>“Beyond the Slides” questions were not taken from the class presentations. They come from published nursing references (CDC, American Heart Association, NCSBN, StatPearls/NCBI, and open nursing textbooks from OpenStax and Pressbooks) chosen to match the slide topics. Where a source differs from the slides, the slide value is treated as the class answer and the difference is pointed out.</p>
+  </footer>
+</div>
+
+<div class="present" id="present" hidden role="dialog" aria-label="Presenter mode">
+  <div class="p-top">
+    <div>
+      <div class="eyebrow" id="p-section"></div>
+      <div class="p-deck" id="p-deck"></div>
+    </div>
+    <div class="p-score"><span id="p-score"></span><button class="btn" id="p-exit">Exit (Esc)</button></div>
+  </div>
+  <div class="p-body" id="p-body"></div>
+  <div class="p-nav">
+    <button class="btn" id="p-prev">← Previous</button>
+    <span class="p-keys"><kbd>←</kbd><kbd>→</kbd> move · <kbd>A</kbd>–<kbd>D</kbd> her answer · <kbd>Space</kbd> reveal / next · <kbd>Y</kbd>/<kbd>N</kbd> grade short answer</span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="p-reveal">Reveal answer (Space)</button>
+      <button class="btn primary" id="p-next">Next →</button>
+    </div>
+  </div>
+  <div class="p-progress" aria-hidden="true"><i id="p-bar" style="width:0%"></i></div>
+</div>
+
+<div class="modal-bg" id="finish" hidden role="dialog" aria-label="Finish round">
+  <div class="modal">
+    <h2 id="f-title">Round finished</h2>
+    <div class="m-score"><b id="f-score"></b><span id="f-sub"></span></div>
+    <p class="m-note">Copy or share this summary — the code at the bottom lets someone else add this round to their history with <b>Log a round</b>.</p>
+    <textarea id="f-text" readonly></textarea>
+    <div class="m-actions">
+      <button class="btn" id="f-copy">Copy summary</button>
+      <button class="btn" id="f-share">Share…</button>
+      <button class="btn primary" id="f-save">Save round &amp; start fresh</button>
+      <button class="btn ghost" id="f-cancel">Back</button>
+    </div>
+    <div class="m-msg" id="f-msg"></div>
+  </div>
+</div>
+
+<script>
+const DECKS = {"wk7a":{"title":"Nutritional Status & Abdomen (Chapters 13 & 23)","short":"Week 7 · Chapters 13 & 23","mc":[{"q":"Which of the following is NOT one of the six essential nutrients listed on the slides?","o":["Carbohydrates","Water","Minerals","Fiber"],"a":3,"ref":"Slide 5","why":"The six: carbohydrates, proteins, fats, vitamins, minerals, and water."},{"q":"Nutritional status results from the balance between nutrient intake and the body's requirements, AND the body's ability to:","o":["Store excess fat","Burn calories during exercise","Digest, absorb, and use the nutrients","Produce vitamins on its own"],"a":2,"ref":"Slide 5"},{"q":"Malnutrition includes:","o":["Undernutrition only","Both undernutrition and overnutrition","Obesity only","Dehydration and overhydration"],"a":1,"ref":"Slide 6"},{"q":"Which client has the most risk factors for undernutrition?","o":["A client with Crohn disease who has been on several fad diets","A 30-year-old who eats a balanced diet and exercises","A client whose intake matches metabolic demand","A pregnant client taking prenatal vitamins with a normal appetite"],"a":0,"ref":"Slide 6","why":"Risk factors include chronic dieting (especially fad diets), chronic disease (Crohn disease, cirrhosis, cancer), mental health disorders, lower socioeconomic status, fast food and vending machines."},{"q":"Overnutrition occurs when:","o":["Nutrient reserves are depleted","Nutrient intake exceeds the body's metabolic needs","The client cannot absorb nutrients","The client drinks too much water"],"a":1,"ref":"Slide 6","why":"Obesity, an excessive accumulation of body fat, is the example on the slide."},{"q":"Which client is MOST at risk for dehydration?","o":["An older adult taking a diuretic during a heat wave","A healthy adult working indoors in air conditioning","A client drinking water with every meal","A client with a cool environmental temperature"],"a":0,"ref":"Slide 7","why":"High environmental temperatures, no access to fluids, excess alcohol, diuretics, diabetes, and high fevers all threaten hydration."},{"q":"Overhydration is usually not a problem in healthy people. Which client IS at risk?","o":["A teenager after soccer practice","A college student who drinks 8 glasses of water a day","A client with heart failure","A marathon runner"],"a":2,"ref":"Slide 7","why":"Clients with kidney, liver, and cardiac disease are at risk for overhydration."},{"q":"A client reports gas, bloating, and diarrhea after drinking milk, with no hives or trouble breathing. This is most consistent with:","o":["A milk allergy","Anaphylaxis","A food–drug interaction","Lactose intolerance (a food intolerance)"],"a":3,"ref":"Slide 8","why":"An intolerance is digestive irritation or inability to digest a food. An allergy is an immune response that can range from mild to anaphylaxis."},{"q":"A food allergy differs from a food intolerance because an allergy:","o":["Involves an immune system response and can be anaphylactic","Only causes gas and bloating","Results from the inability to digest the food","Never causes a serious reaction"],"a":0,"ref":"Slide 8"},{"q":"A client taking warfarin should be asked about intake of which foods?","o":["Citrus fruits","Green leafy vegetables","Red meat","Whole grains"],"a":1,"ref":"Slide 8","why":"Green leafy vegetables are rich in vitamin K and can lessen the effectiveness of warfarin."},{"q":"Asking a client to complete a 24-hour food recall is part of collecting:","o":["Objective data: anthropometric measurements","Family history","Laboratory data","Subjective data: history of present health concern (diet)"],"a":3,"ref":"Slide 9"},{"q":"Which question belongs under lifestyle and health practices in a nutritional history?","o":["Do you have any food allergies?","Does anyone in your family have obesity?","What is your weekly budget for food?","Have you had any recent vomiting?"],"a":2,"ref":"Slide 9","why":"Lifestyle also covers religious or cultural dietary rules, food storage and preparation, eating out, and exercise. Allergies are personal history; obesity in relatives is family history; vomiting is the present concern."},{"q":"For a nutritional physical assessment, the client should be:","o":["Supine with knees flexed","In a comfortable sitting position, wearing an examination gown","Standing on one foot","In the lithotomy position"],"a":1,"ref":"Slide 10","why":"Equipment: balance beam scale, metric measuring tape, marking pencil, and skinfold calipers."},{"q":"Anthropometric measurements include:","o":["Skin turgor and edema","Albumin and hemoglobin","Height, weight, BMI, and waist circumference","A 24-hour food recall"],"a":2,"ref":"Slide 11"},{"q":"A client at risk for hydration changes should be weighed:","o":["Daily","Only on admission","Weekly","Only if edema appears"],"a":0,"ref":"Slide 12"},{"q":"Laboratory tests are valuable in a nutritional assessment because they can:","o":["Replace the health history","Only be used for clients with obesity","Measure body fat directly","Identify malnutrition before clinical signs are evident"],"a":3,"ref":"Slide 13","why":"Malnutrition affects the body's protein stores, such as albumin, transport proteins, and immunoglobulins."},{"q":"High cholesterol and triglyceride values in a nutritional assessment indicate:","o":["Undernutrition","Dehydration","Risk factors for disease","Anemia"],"a":2,"ref":"Slide 13","why":"Low hemoglobin or protein levels may point to anemia or a nutritional disorder."},{"q":"Why does the nurse document normal nutritional findings as well as abnormal ones?","o":["Because abnormal findings are documented elsewhere","To establish a baseline for future assessments","To meet billing requirements only","Normal findings do not need to be documented"],"a":1,"ref":"Slide 14","why":"Validate by asking more questions and comparing objective with subjective data."},{"q":"“Risk for dehydration due to nausea, vomiting, and frequent urination” is an example of:","o":["A risk for client concern","An actual client concern","An opportunity to improve health","A medical diagnosis"],"a":0,"ref":"Slide 15","why":"Actual: “poor hydration due to nausea and vomiting.” Opportunity: “to improve knowledge about blood glucose testing.”"},{"q":"The four abdominal quadrants are formed by:","o":["The costal margins and the iliac crests","The midclavicular lines","Three horizontal lines across the abdomen","Two imaginary lines that cross at the umbilicus"],"a":3,"ref":"Slide 17","why":"A vertical midline and a horizontal (lateral) line, centered at the umbilicus."},{"q":"The liver, gallbladder, and duodenum are located in the:","o":["Right lower quadrant","Left upper quadrant","Right upper quadrant","Left lower quadrant"],"a":2,"ref":"Slide 18"},{"q":"A client has pain over the appendix. Which quadrant is the nurse assessing?","o":["Right upper quadrant","Right lower quadrant","Left upper quadrant","Left lower quadrant"],"a":1,"ref":"Slide 18","why":"RLQ also holds the cecum, ascending colon, the lower pole of the right kidney, and the right ovary and tube."},{"q":"The spleen and stomach are located in the:","o":["Right upper quadrant","Right lower quadrant","Left lower quadrant","Left upper quadrant"],"a":3,"ref":"Slide 19"},{"q":"The sigmoid colon is located in the:","o":["Left lower quadrant","Left upper quadrant","Midline","Right lower quadrant"],"a":0,"ref":"Slide 19"},{"q":"Which structures are found at the midline of the abdomen?","o":["Liver and gallbladder","Bladder, uterus, and prostate gland","Spleen and pancreas","Appendix and cecum"],"a":1,"ref":"Slide 20"},{"q":"The hypogastric region is also called the:","o":["Epigastric region","Umbilical region","Suprapubic region","Hypochondriac region"],"a":2,"ref":"Slide 21","why":"The three regions commonly used are epigastric, umbilical, and hypogastric (suprapubic)."},{"q":"The innermost layer of the abdominal wall muscles is the:","o":["External abdominal oblique","Internal abdominal oblique","Rectus abdominis","Transverse abdominis"],"a":3,"ref":"Slide 22","why":"Outer to inner: external oblique, internal oblique, transverse abdominis."},{"q":"The layer of peritoneum that covers most of the internal organs is the:","o":["Visceral peritoneum","Parietal peritoneum","Mesentery","Omentum"],"a":0,"ref":"Slide 23","why":"The parietal peritoneum lines the abdominal cavity itself."},{"q":"Which finding is expected in a healthy adult?","o":["A palpable spleen below the left costal margin","A palpable left kidney","A palpable gallbladder","Visible or palpable pulsation of the abdominal aorta"],"a":3,"ref":"Slide 24","why":"Liver, spleen, stomach, pancreas, gallbladder, small intestine, and kidneys are normally not palpable. Aortic and iliac pulsations are frequently visible and palpable."},{"q":"Heartburn is also called:","o":["Dysphagia","Anorexia","Pyrosis","Borborygmus"],"a":2,"ref":"Slide 25","why":"Anorexia is loss of appetite; borborygmus is loud, hyperactive bowel sounds."},{"q":"A client describes dull, crampy abdominal pain that comes and goes and is hard to pinpoint. This is most consistent with:","o":["Visceral pain","Referred pain","Parietal pain","Somatic skin pain"],"a":0,"ref":"Slide 26","why":"Visceral pain comes from distended or forcefully contracting hollow organs, or stretched capsules of solid organs."},{"q":"Severe, steady abdominal pain that localizes to its source suggests inflammation of the:","o":["Hollow organs","Parietal peritoneum","Liver capsule","Abdominal skin"],"a":1,"ref":"Slide 26"},{"q":"Pain from the gallbladder may be referred to the:","o":["Left shoulder","Umbilicus","Lower midline back","Right shoulder and right scapula"],"a":3,"ref":"Slide 26 (diagram)","why":"On the diagram, the pancreas or spleen refers pain to the left shoulder; appendix pain starts periumbilical and moves to the RLQ."},{"q":"The correct sequence for examining the abdomen is:","o":["Inspection, auscultation, percussion, palpation","Palpation, percussion, auscultation, inspection","Inspection, palpation, percussion, auscultation","Auscultation, inspection, palpation, percussion"],"a":0,"ref":"Slide 27","why":"IAPP instead of the usual IPPA."},{"q":"To prepare a client for the abdominal exam, the nurse should:","o":["Have the client sit with legs dangling","Position the client prone with arms overhead","Have the client empty the bladder, then position supine with knees slightly flexed on a pillow","Have the client drink water first so the bladder is full"],"a":2,"ref":"Slide 27","why":"Arms across the chest or at the side, a flat pillow under the head, warm hands and stethoscope."},{"q":"When should the nurse assess an area the client says is painful?","o":["First, to get it over with","Last","Only with deep palpation","Never; skip that area"],"a":1,"ref":"Slide 27"},{"q":"Old striae on the abdomen normally appear:","o":["Pink or bluish","Purple and raised","Silvery, white, and linear","Yellow"],"a":2,"ref":"Slide 28","why":"New striae are pink or bluish."},{"q":"Which umbilicus finding is normal?","o":["Enlarged and everted","Midline, similar in tone to the surrounding skin, protruding no more than 0.5 cm","Bluish in color","Deviated to one side"],"a":1,"ref":"Slide 28"},{"q":"Which is NOT one of the 6 Fs that cause abdominal distention?","o":["Fat","Fluid","Flatulence","Fever"],"a":3,"ref":"Slide 28","why":"The 6 Fs: fat, feces, fetus, fibroids, flatulence, and fluid."},{"q":"Which abdominal contour is described as USUALLY abnormal?","o":["Distended/protuberant","Rounded","Scaphoid","Flat"],"a":0,"ref":"Slides 28–29","why":"Scaphoid (sunken) MAY be abnormal; distended or protuberant is usually abnormal."},{"q":"When measuring abdominal girth daily, the nurse should:","o":["Change the client's position each day","Measure at the iliac crests whenever convenient","Measure at the xiphoid process","Measure at the umbilicus, at the same time of day, with the client in the same position"],"a":3,"ref":"Slide 30","why":"Standing is the ideal position."},{"q":"When auscultating bowel sounds, the nurse begins in the:","o":["LUQ and moves counterclockwise, using the bell","RLQ and moves clockwise, using the diaphragm with light pressure","Epigastrium, using the bell","LLQ only"],"a":1,"ref":"Slide 31"},{"q":"Before documenting that bowel sounds are absent, the nurse must listen for at least:","o":["30 seconds","1 minute","2 minutes","5 minutes"],"a":3,"ref":"Slides 31–32"},{"q":"To listen for bruits over the abdominal aorta and the renal, iliac, and femoral arteries, the nurse uses:","o":["The bell","The diaphragm with firm pressure","Percussion","Deep palpation"],"a":0,"ref":"Slide 31","why":"A bruit is a low-pitched, murmur-like sound."},{"q":"Normoactive bowel sounds occur at approximately:","o":["1–4 per minute","35–50 per minute","5–30 per minute","More than 60 per minute"],"a":2,"ref":"Slide 32","why":"Soft clicks and gurgles, typically every 5–15 seconds."},{"q":"On postoperative day 1 after abdominal surgery, a client's bowel sounds are decreased in frequency and intensity. A possible cause is:","o":["Paralytic ileus","Diarrhea","A large meal","Normal motility"],"a":0,"ref":"Slide 32","why":"These are hypoactive bowel sounds: diminished motility."},{"q":"Loud, high-pitched, frequent gurgling (borborygmus) is classified as:","o":["Normoactive","Hypoactive","Hyperactive","Absent"],"a":2,"ref":"Slide 32","why":"Can be normal after a large meal, or abnormal with diarrhea."},{"q":"When percussing the abdomen, the expected tone over most of the abdomen is ______, and over the liver and spleen is ______.","o":["Dullness; tympany","Tympany; dullness","Resonance; flatness","Hyperresonance; dullness"],"a":1,"ref":"Slide 33"},{"q":"The normal liver span at the right midclavicular line is:","o":["2–4 cm","4–8 cm","6–12 cm","12–16 cm"],"a":2,"ref":"Slide 33","why":"At the midsternal line the normal span is 4–8 cm."},{"q":"Tenderness or sharp pain with blunt percussion over the costovertebral angle (CVA) suggests:","o":["Kidney infection","Appendicitis","Gallbladder inflammation","Splenomegaly"],"a":0,"ref":"Slide 33"},{"q":"During light palpation, the nurse begins in a nontender quadrant and compresses to a depth of about:","o":["1 cm","3 cm","5–6 cm","8–10 cm"],"a":0,"ref":"Slide 34","why":"Deep palpation uses two hands to a maximum depth of 5–6 cm."},{"q":"A bounding pulse felt when palpating the abdominal aorta may indicate:","o":["Normal finding","Abdominal aortic aneurysm (AAA)","Ascites","Hepatomegaly"],"a":1,"ref":"Slide 34","why":"The aorta is palpated deeply in the epigastrium, slightly left of midline. Normal is a strong, regular pulse."},{"q":"A smooth, round, somewhat firm mass in the lower abdomen extending toward the umbilicus is most likely:","o":["An enlarged liver","The sigmoid colon","A normal kidney","A distended urinary bladder"],"a":3,"ref":"Slide 35","why":"An empty bladder is neither palpable nor tender."},{"q":"The test for shifting dullness and the fluid wave test are used to assess for:","o":["Appendicitis","Cholecystitis","Ascites","Kidney infection"],"a":2,"ref":"Slide 36","why":"Definitive testing is by ultrasound."},{"q":"Pain in the RLQ when the nurse presses deeply in the LLQ is:","o":["Murphy sign","Blumberg sign","Obturator sign","Rovsing sign"],"a":3,"ref":"Slides 37–38"},{"q":"To test for the psoas sign, the nurse:","o":["Presses under the right costal margin while the client inhales","Has the client lie on the left side and hyperextends the right leg","Flexes the right hip and knee and rotates the leg","Presses deeply at McBurney point and suddenly releases"],"a":1,"ref":"Slides 37–38","why":"Flexing and rotating the hip is the obturator sign; press-and-release at McBurney point is rebound tenderness (Blumberg sign); pressing under the right costal margin is Murphy sign."},{"q":"Rebound tenderness, where the client feels sharp pain as the examiner releases pressure, is called:","o":["Rovsing sign","Psoas sign","Murphy sign","Blumberg sign"],"a":3,"ref":"Slides 37–38","why":"It indicates peritoneal irritation."},{"q":"A client catches their breath in sharp pain when the nurse presses under the right costal margin during deep inspiration. This is a positive:","o":["Murphy sign, associated with acute cholecystitis","Rovsing sign, associated with appendicitis","Psoas sign, associated with appendicitis","Blumberg sign, associated with peritonitis"],"a":0,"ref":"Slide 39"},{"q":"A client with peptic ulcer disease reports black, tarry stools. This finding suggests:","o":["Normal iron intake only","GI bleeding","Constipation","Gallbladder disease"],"a":1,"ref":"Slide 40","why":"Bloody or coffee-ground emesis also signals bleeding. There is no routine screening for PUD."},{"q":"On the slides, which is listed as a NONMODIFIABLE risk factor for peptic ulcer disease?","o":["NSAID use","Smoking","Presence of H. pylori in the GI tract","Drinking alcohol"],"a":2,"ref":"Slide 41","why":"The slides list H. pylori as nonmodifiable. In practice it can be treated with antibiotics; see Beyond the Slides."},{"q":"Chronic GERD can lead to:","o":["Appendicitis","Barrett esophagus or esophageal stricture","Gallstones","Hepatomegaly"],"a":1,"ref":"Slide 43"},{"q":"Which teaching is correct for a client with GERD?","o":["Lie down right after meals to aid digestion","Eat 2 large meals a day","Sleep on the right side","Do not lie down for at least 2 hours after eating, and raise the head of the bed 6 to 8 inches"],"a":3,"ref":"Slide 45","why":"Also eat 5–6 small meals, avoid late snacks, try sleeping on the left side, and avoid tight clothes around the waist."}],"sa":[{"q":"List the six essential nutrients.","a":["Carbohydrates","Proteins","Fats","Vitamins","Minerals","Water"],"ref":"Slide 5"},{"q":"Name the four anthropometric measurements on the slides.","a":["Height","Weight","Body mass index (BMI)","Waist circumference"],"ref":"Slide 11"},{"q":"List at least six ways the nurse collects objective data on hydration.","a":["Measure intake and output (I & O)","Weigh at-risk clients daily","Take vital signs","Check skin turgor","Check for pitting edema","Observe skin moisture","Observe neck veins","Check the condition of the tongue","Observe eye position and surrounding coloration","Auscultate lung sounds"],"ref":"Slide 12"},{"q":"Name the three types of client concerns and give one example of each.","a":["Actual: e.g., poor nutrition due to nausea, vomiting, and lack of appetite","Risk for: e.g., risk for obesity due to sedentary lifestyle","Opportunity to improve health: e.g., improve knowledge about blood glucose testing"],"ref":"Slide 15"},{"q":"Name at least five structures in the right upper quadrant.","a":["Liver","Gallbladder","Duodenum","Pancreatic head","Pylorus","Hepatic flexure of colon","Ascending and transverse colon","Right adrenal gland","Right kidney (upper pole)"],"ref":"Slide 18"},{"q":"Name at least four structures in the left lower quadrant.","a":["Descending and sigmoid colon","Left kidney (lower pole)","Left ovary and tube","Left ureter","Left spermatic cord"],"ref":"Slide 19"},{"q":"Name the three layers of abdominal wall muscle from outermost to innermost, and their purpose.","a":["External abdominal oblique (outermost)","Internal abdominal oblique (middle)","Transverse abdominis (innermost)","Purpose: protect internal organs and allow normal compression for coughing, sneezing, urination, defecation, and childbirth"],"ordered":true,"ref":"Slide 22"},{"q":"Compare visceral, parietal, and referred abdominal pain.","a":["Visceral: from distended or contracting hollow organs or stretched organ capsules; dull, aching, burning, cramping or colicky; poorly localized and intermittent","Parietal: from inflamed parietal peritoneum; more severe and steady; localizes to the source","Referred: felt at a distant site, where it becomes highly localized"],"ref":"Slide 26"},{"q":"State the order of the abdominal exam, and describe how to prepare and position the client.","a":["Order: inspection, auscultation, percussion, palpation (IAPP)","Have the client empty the bladder and put on a gown","Supine with arms across the chest or at the sides, flat pillow under the head","Knees slightly flexed on a pillow or rolled blanket","Warm hands and stethoscope; explain each step; slow, gentle movements","Ask about painful areas and assess them last"],"ref":"Slide 27"},{"q":"List the 6 Fs that cause abdominal distention.","a":["Fat","Feces","Fetus","Fibroids","Flatulence","Fluid"],"ref":"Slide 28"},{"q":"Describe the four types of bowel sounds and what each means.","a":["Normoactive: soft clicks and gurgles every 5–15 seconds (about 5–30 per minute); typical motility","Hyperactive: loud, high-pitched, frequent (borborygmus); rapid motility, after a large meal or with diarrhea","Hypoactive: decreased frequency and intensity; diminished motility, e.g., paralytic ileus after surgery","Absent: none heard after at least 5 minutes; may signal a serious condition needing prompt evaluation"],"ref":"Slide 32"},{"q":"How does the nurse percuss the liver span, and what are the normal values?","a":["At the right midclavicular line, start in the RLQ and percuss upward from tympany to dullness to find the lower border","Start in the upper right chest and percuss downward from resonance to dullness to find the upper border","Normal span at the MCL: 6–12 cm","Repeat at the midsternal line: normal 4–8 cm","An enlarged liver is hepatomegaly"],"ref":"Slide 33"},{"q":"Describe the test for shifting dullness and what indicates ascites.","a":["Client supine: percuss outward from the umbilicus toward the flanks and mark the point where the tone changes between tympany and dullness","Turn the client onto the side: percuss from the bed upward and mark where dullness changes to tympany","Normal: the borders stay about the same with position change","Ascites: dullness in the flanks and tympany at the umbilicus when supine, and the border shifts when the client turns because fluid moves to the dependent side","Ultrasound is needed for definitive testing"],"ref":"Slide 36"},{"q":"Name four signs tested for appendicitis or peritoneal irritation and how each is performed.","a":["Blumberg (rebound tenderness): press deeply at 90° at McBurney point and suddenly release; sharp pain on release","Rovsing: press deeply in the LLQ; pain is felt in the RLQ","Psoas: client lies on the left side and the right leg is hyperextended; RLQ pain","Obturator: support the right knee and ankle, flex hip and knee, rotate the leg internally and externally; RLQ pain"],"ref":"Slides 37–38"},{"q":"List modifiable and nonmodifiable risk factors for peptic ulcer disease.","a":["Modifiable: NSAIDs (especially with steroids, anticoagulants, low-dose aspirin, SSRIs, alendronate, risedronate)","Modifiable: smoking or chewing tobacco, untreated stress, spicy foods, alcohol","Nonmodifiable (per slides): H. pylori in the GI tract","Nonmodifiable: personal or family history, possible genetic link","Nonmodifiable: radiation treatments"],"ref":"Slide 41"},{"q":"List at least six teaching points for a client with GERD.","a":["Avoid alcohol and tobacco","Eat 5 to 6 small meals a day; eat slowly and chew well","Do not lie down for at least 2 hours after eating; avoid late evening snacks","Raise the head of the bed 6 to 8 inches; try sleeping on the left side","Avoid bending, stooping, or heavy lifting after eating","Avoid tight clothes around the waist; lose weight if overweight","Avoid trigger foods: very hot or cold, fatty or fried, peppermint, caffeine, spicy, tomato-based, citrus, chocolate"],"ref":"Slide 45"}],"ext":[{"kind":"mc","q":"Using the CDC adult categories, a BMI of 27.4 is classified as:","o":["Overweight","Healthy weight","Obesity class 1","Underweight"],"a":0,"src":"CDC — Adult BMI Categories","why":"Underweight < 18.5 · healthy 18.5 to < 25 · overweight 25 to < 30 · obesity ≥ 30 (class 1: 30 to < 35, class 2: 35 to < 40, class 3: ≥ 40)."},{"kind":"sa","q":"How is BMI calculated, and what are its main limitations?","a":["BMI = weight (kg) ÷ height (m)²","In pounds and inches: weight (lb) ÷ height (in)² × 703","It does not measure body fat directly","It can misclassify muscular people, older adults, and some ethnic groups, so pair it with waist circumference and other assessment"],"src":"CDC — About Adult BMI"},{"kind":"mc","q":"A waist circumference above which value signals increased health risk for a nonpregnant adult woman?","o":["25 inches (64 cm)","30 inches (76 cm)","35 inches (88 cm)","45 inches (114 cm)"],"a":2,"src":"NHLBI — Assessing Your Weight and Health Risk; CDC","why":"The thresholds are > 35 in (88 cm) for women and > 40 in (102 cm) for men."},{"kind":"mc","q":"A client gains 2 kg (about 4.4 lb) between yesterday's and today's morning weights. This most likely represents about how much retained fluid?","o":["200 mL","500 mL","1 L","2 L"],"a":3,"src":"Nursing Fundamentals (Open RN, NCBI Bookshelf) — Fluids and Electrolytes","why":"1 kg of body weight ≈ 1 L of fluid. That is why daily weights, same scale, same time, same clothing, are the best measure of fluid change."},{"kind":"mc","q":"Which lab value reflects RECENT changes in protein nutrition best because its half-life is only about 2–3 days?","o":["Albumin","Hemoglobin","Prealbumin (transthyretin)","Total cholesterol"],"a":2,"src":"StatPearls (NCBI) — Prealbumin; Albumin","why":"Albumin's half-life is about 20 days, so it changes slowly (normal ~3.5–5.0 g/dL). Both drop with inflammation and illness, so neither is a pure nutrition marker."},{"kind":"mc","q":"Why is skin turgor a less reliable sign of dehydration in older adults?","o":["Skin loses elasticity with age, so tenting can occur even with normal hydration","Older adults never become dehydrated","Turgor can only be checked on children","Older adults have more subcutaneous fluid"],"a":0,"src":"Nursing Skills (Open RN, NCBI Bookshelf) — Integumentary Assessment","why":"Use it together with other signs: mucous membranes, intake and output, daily weight, vital signs, and labs."},{"kind":"mc","q":"Which food became the 9th major food allergen under U.S. labeling law in 2023?","o":["Corn","Sesame","Mustard","Strawberries"],"a":1,"src":"U.S. FDA — Food Allergies (FASTER Act)","why":"The nine: milk, eggs, fish, crustacean shellfish, tree nuts, peanuts, wheat, soybeans, and sesame."},{"kind":"mc","q":"What is the best dietary teaching for a client starting warfarin?","o":["Stop eating all green vegetables","Keep vitamin K intake consistent from day to day","Eat as many leafy greens as possible","Take a vitamin K supplement daily"],"a":1,"src":"MedlinePlus (NIH) — Taking Warfarin","why":"The slide says leafy greens can lessen warfarin's effect. The goal is consistency, not avoidance, so the dose can be adjusted to a steady diet."},{"kind":"mc","q":"Grapefruit juice is a well-known food–drug interaction because it:","o":["Can increase blood levels of certain drugs, such as some statins, by blocking an intestinal enzyme","Speeds up the absorption of all drugs","Contains vitamin K","Neutralizes stomach acid"],"a":0,"src":"U.S. FDA — Grapefruit Juice and Some Drugs Don't Mix"},{"kind":"mc","q":"Why is the abdomen auscultated BEFORE it is percussed or palpated?","o":["Auscultation is the fastest step","It is required by law","The stethoscope must be warmed first","Percussion and palpation can stimulate the bowel and change the bowel sounds"],"a":3,"src":"Nursing Skills (Open RN, NCBI Bookshelf) — Abdominal Assessment"},{"kind":"mc","q":"McBurney point is classically described as about ONE-THIRD of the way from the anterior superior iliac spine to the umbilicus. How do the class slides describe it?","o":["Exactly at the umbilicus","Just under the right costal margin","Halfway between the umbilicus and the anterior iliac crest","In the left lower quadrant"],"a":2,"src":"StatPearls (NCBI) — Appendicitis; McBurney Point","why":"Use the slide wording on the class exam. Both descriptions put the point in the RLQ, over the usual location of the appendix."},{"kind":"mc","q":"Bluish discoloration around the umbilicus (Cullen sign) or on the flanks (Grey Turner sign) suggests:","o":["Normal pregnancy changes","Bleeding into the abdominal wall or retroperitoneum, as in severe acute pancreatitis or a ruptured ectopic pregnancy","Liver enlargement","Old striae"],"a":1,"src":"StatPearls (NCBI) — Cullen Sign; Grey Turner Sign","why":"This is why a bluish umbilicus is listed as abnormal on the inspection slide."},{"kind":"mc","q":"Dilated, tortuous veins radiating from the umbilicus (caput medusae) are associated with:","o":["Appendicitis","Normal aging","Peptic ulcer disease","Portal hypertension, as in cirrhosis"],"a":3,"src":"StatPearls (NCBI) — Caput Medusae"},{"kind":"mc","q":"Purple or dark-red, wide striae on the abdomen (rather than pink or silvery ones) should make the nurse think of:","o":["Cushing syndrome (excess cortisol)","Recent pregnancy only","Dehydration","Peptic ulcer disease"],"a":0,"src":"StatPearls (NCBI) — Cushing Syndrome"},{"kind":"mc","q":"The USPSTF recommends a one-time ultrasound screening for abdominal aortic aneurysm for which group?","o":["All adults over 40","Women over 50","Men ages 65 to 75 who have ever smoked","Anyone with GERD"],"a":2,"src":"U.S. Preventive Services Task Force — Abdominal Aortic Aneurysm: Screening (2019)","why":"If a pulsatile mass is found, avoid deep, repeated palpation and report it."},{"kind":"mc","q":"The two most common causes of peptic ulcer disease are:","o":["Spicy food and stress","H. pylori infection and NSAID use","Coffee and alcohol","Genetics and radiation"],"a":1,"src":"NIDDK (NIH) — Peptic Ulcers; StatPearls — Peptic Ulcer Disease","why":"The slides list H. pylori as nonmodifiable, but it is treated and cured with antibiotics plus acid suppression. Spicy food and stress can worsen symptoms but are not considered primary causes."},{"kind":"mc","q":"A client says their stomach pain is relieved by eating but returns 2–3 hours after meals and wakes them at night. This pattern is classically linked to a:","o":["Duodenal ulcer","Gastric ulcer","Gallbladder attack","Appendicitis"],"a":0,"src":"StatPearls (NCBI) — Peptic Ulcer Disease","why":"Gastric ulcer pain is often made WORSE by eating. This matches the slide's “often worse on an empty stomach,” which describes the duodenal pattern."},{"kind":"mc","q":"Barrett esophagus, a complication of chronic GERD, matters because it:","o":["Is a harmless color change","Causes appendicitis","Is a precancerous change that raises the risk of esophageal adenocarcinoma","Only occurs in children"],"a":2,"src":"NIDDK (NIH) — Barrett's Esophagus"}]},"wk7b":{"title":"Male & Female Genitalia, Anus, Prostate & Rectum (Chapters 26 & 27)","short":"Week 7 · Chapters 26 & 27","mc":[{"q":"Which question belongs to the PAST health history for a male genitourinary assessment?","o":["When was your last testicular examination or prostate screening?","Do you have pain or burning when you urinate?","Has your father or brother had prostate cancer?","Do you perform testicular self-examinations?"],"a":0,"ref":"Slide 5","why":"Burning with urination is the present concern; a relative's cancer is family history; doing TSE is lifestyle and health practices."},{"q":"For the male genitalia, anus, and rectum exam, the client is asked to empty the bladder and assume which position?","o":["Lithotomy","Supine with knees flexed","Standing bent over the examining table, or left-lateral","Prone"],"a":2,"ref":"Slide 6"},{"q":"A flashlight is part of the equipment for the male genitalia exam for possible:","o":["Auscultation","Transillumination","Pupil checks","Inspection of the throat"],"a":1,"ref":"Slide 6","why":"A stethoscope is included for possible auscultation (for example, bowel sounds over a hernia)."},{"q":"Which nursing action best addresses a client's anxiety or embarrassment during a genital exam?","o":["Proceed quickly without explaining","Ask a family member to do the exam","Leave the door open for airflow","Offer a chaperone and explain each step"],"a":3,"ref":"Slide 6","why":"The slide lists client anxiety or embarrassment and chaperone presence. It is also a teaching opportunity to demonstrate TSE."},{"q":"On inspection, the skin of the penile shaft is normally:","o":["Smooth and hairy","Darker than the scrotum and scaly","Wrinkled, hairless, and free of rashes, lesions, or lumps","Shiny and tender"],"a":2,"ref":"Slide 8"},{"q":"A tight foreskin that cannot be retracted over the glans is called:","o":["Paraphimosis","Phimosis","Hypospadias","Epispadias"],"a":1,"ref":"Slide 8","why":"Paraphimosis is a retracted foreskin that cannot be returned to cover the glans."},{"q":"After a catheter insertion, an uncircumcised client's foreskin is left retracted and cannot be returned over the glans. This is:","o":["Paraphimosis","Hypospadias","Phimosis","A normal finding"],"a":0,"ref":"Slide 8","why":"Always return the foreskin after care or an exam. Paraphimosis is a urologic emergency (see Beyond the Slides)."},{"q":"The urinary meatus is found on the VENTRAL (underside) surface of the penis. This is:","o":["Epispadias","A normal finding","Phimosis","Hypospadias"],"a":3,"ref":"Slide 8","why":"Epispadias is displacement to the dorsal (top) surface. Normally the meatus is slitlike and centered on the glans."},{"q":"Red, oval ulcerations (chancres) on the glans are associated with:","o":["Syphilis","Herpes","Genital warts","Gonorrhea"],"a":0,"ref":"Slide 8","why":"Genital warts and pimplelike herpes lesions are the other abnormal glans findings on the slide."},{"q":"Yellow urethral discharge is usually associated with:","o":["Urethritis","Gonorrhea","Syphilis","A normal finding"],"a":1,"ref":"Slide 8","why":"Clear or white discharge is usually associated with urethritis."},{"q":"Which scrotal finding is NORMAL?","o":["The scrotal sac sits above the level of the penis","The scrotal skin is smooth and shiny","One side of the scrotum is markedly enlarged","The left side of the scrotal sac hangs lower than the right"],"a":3,"ref":"Slide 9","why":"Scrotal skin is normally thin and rugated (crinkled), slightly darker than the penis."},{"q":"An enlarged scrotal sac caused by fluid is a:","o":["Hematocele","Hernia","Hydrocele","Varicocele"],"a":2,"ref":"Slide 9","why":"Blood = hematocele; bowel = hernia; tumor = cancer. A varicocele is enlarged veins within the scrotum."},{"q":"Normal testes on palpation are:","o":["Ovoid, equal in size, smooth, firm, rubbery, mobile, and rather tender to pressure","Unequal in size, hard, and fixed","Soft and completely nontender","Nodular and irregular"],"a":0,"ref":"Slide 10"},{"q":"Compared with the testes, the normal epididymis feels:","o":["Harder and nodular","Nontender, smooth, and softer","Absent","Ropelike and tender"],"a":1,"ref":"Slide 10","why":"The spermatic cord is the structure that feels smooth, nontender, and ropelike."},{"q":"The nurse cannot palpate a testis in the scrotum. This suggests:","o":["Orchitis","Hydrocele","Varicocele","Cryptorchidism (an undescended testicle)"],"a":3,"ref":"Slide 10"},{"q":"A painless nodule found on a testis may indicate:","o":["A normal variation","Epididymitis","Cancer","Dehydration"],"a":2,"ref":"Slide 10","why":"Painless is the key word. Tenderness and swelling point to orchitis, torsion, a strangulated hernia, or epididymitis."},{"q":"Which condition is listed as a cause of testicular tenderness and swelling?","o":["Testicular torsion","Cryptorchidism","Hypospadias","Phimosis"],"a":0,"ref":"Slide 10","why":"Also acute orchitis, a strangulated hernia, or epididymitis."},{"q":"When is the best time to teach a client to perform a testicular self-examination?","o":["First thing in the morning before getting up","After a warm bath or shower","Right after exercise","Only during a provider visit"],"a":1,"ref":"Slide 11","why":"The scrotum is more relaxed and the hands are warm."},{"q":"During TSE teaching, the client says one testis is slightly larger than the other. The nurse explains that this:","o":["Requires an urgent ultrasound","Means the exam was done wrong","Means cancer is likely","Is a normal finding"],"a":3,"ref":"Slide 11","why":"A small, pealike lump is the finding to report to the provider."},{"q":"The cordlike structure on the top and back of the testicle that stores and transports sperm is the:","o":["Vas deferens","Spermatic cord","Epididymis","Prostate"],"a":2,"ref":"Slide 11"},{"q":"To inspect for an inguinal or femoral hernia, the nurse asks the client to:","o":["Hold their breath and lie flat","Roll onto the left side","Raise both arms","Cough or bear down"],"a":3,"ref":"Slide 12","why":"A bulge is the abnormal finding."},{"q":"Benign prostatic hyperplasia (BPH) often causes:","o":["Painless testicular nodules","Difficulty urinating and emptying the bladder","Yellow urethral discharge","Scrotal swelling"],"a":1,"ref":"Slide 14"},{"q":"Which client is at HIGHEST risk for prostate cancer?","o":["A 62-year-old African American man whose father had prostate cancer","A 35-year-old with no family history","A 45-year-old who exercises daily","A 28-year-old who drinks alcohol occasionally"],"a":0,"ref":"Slide 15","why":"Risk is rare before 40 and rises quickly after 50. It is highest in African American and Caribbean men of African origin, and with a father or brother affected."},{"q":"Which symptom is listed as a sign of prostate cancer?","o":["Increased force of the urine stream","Yellow urethral discharge","Blood in the urine or semen","Testicular pain after exercise"],"a":2,"ref":"Slide 15","why":"Also trouble urinating, decreased force of the stream, pelvic discomfort, bone pain, erectile dysfunction, and unexplained weight loss."},{"q":"A Pap smear (Papanicolaou smear) is:","o":["A blood test for HPV","Cells taken from the cervix for analysis","A swab of the vaginal opening for yeast","An ultrasound of the ovaries"],"a":1,"ref":"Slide 18"},{"q":"Menopause is defined as the absence of menses for:","o":["3 months","6 months","12 months","24 months"],"a":2,"ref":"Slide 19"},{"q":"The mean age of menopause is:","o":["40","45","50","58"],"a":2,"ref":"Slide 19","why":"Menopause usually occurs between ages 40 and 58."},{"q":"A 36-year-old client has had no menstrual period for 12 months. According to the slides, this is:","o":["Premature menopause","Delayed menopause","Normal menopause","Early menopause"],"a":3,"ref":"Slide 19","why":"Premature: before 30. Early: 31–40. Delayed: older than 58."},{"q":"For the female genitalia exam, the client is placed in the:","o":["Lithotomy position","Left-lateral position","Prone position","Standing position"],"a":0,"ref":"Slide 20"},{"q":"Which piece of equipment is used during the female genitalia exam to check vaginal secretions?","o":["Reflex hammer","pH paper","Tuning fork","Doppler"],"a":1,"ref":"Slide 20","why":"Other equipment: speculum, water-soluble lubricant, large swabs, bifid spatula, endocervical broom, specimen container, handheld mirror."},{"q":"Normal pubic hair in an adult female is distributed:","o":["In an inverted triangle, with no signs of infestation","In a diamond pattern up to the umbilicus","Only on the labia majora","Sparsely and unevenly"],"a":0,"ref":"Slide 21"},{"q":"Normal labia minora are:","o":["Asymmetric and dry","Covered with small papules","Pale and swollen","Symmetric, dark pink, and moist"],"a":3,"ref":"Slide 21","why":"The urethral meatus is small and slitlike, and the vaginal opening sits below it."},{"q":"Small, PAINFUL ulcers with an erythematous (red) base on the external genitalia suggest:","o":["Syphilitic chancre","Genital warts","Genital herpes simplex","Cystocele"],"a":2,"ref":"Slide 22","why":"A syphilitic chancre is painless; genital warts (HPV) are painless too."},{"q":"The bladder, covered by vaginal mucosa, prolapses into the vagina. This is a:","o":["Rectocele","Hemorrhoid","Uterine prolapse","Cystocele"],"a":3,"ref":"Slide 22","why":"A rectocele is part of the rectum protruding into the vagina."},{"q":"Genital warts are caused by:","o":["Herpes simplex virus","Human papillomavirus (HPV)","Syphilis","Candida"],"a":1,"ref":"Slide 22"},{"q":"Hemorrhoids are:","o":["Swollen, inflamed veins in the lower rectum and anus","Tears in the anal lining","Polyps of the colon","A type of hernia"],"a":0,"ref":"Slide 24","why":"They may be internal (inside the rectum) or external (around the anus)."},{"q":"Which is a risk factor for hemorrhoids listed on the slides?","o":["Straining during bowel movements","High-fiber diet","Age under 30","Regular light exercise"],"a":0,"ref":"Slide 24","why":"Also prolonged sitting on the toilet, chronic diarrhea or constipation, obesity, pregnancy, low-fiber diet, heavy lifting; ages 45–65."},{"q":"Virtually all cases of cervical cancer are caused by:","o":["Chlamydia","HPV, with types 16 and 18 responsible for about 70% of cases","Herpes simplex","Smoking alone"],"a":1,"ref":"Slide 25"},{"q":"Which is a risk factor for cervical cancer on the slides?","o":["Being older than 30 at first full-term pregnancy","Diet high in fruits and vegetables","Smoking","Having no pregnancies"],"a":2,"ref":"Slide 25","why":"Others: previous HPV, immunosuppression, chlamydia, low fruit and vegetable diet, overweight, multiple full-term pregnancies, younger than 20 at first full-term pregnancy, poverty, family history."},{"q":"When inspecting the perianal area, the nurse:","o":["Uses a speculum","Asks the client to sit upright","Palpates the prostate first","Spreads the buttocks with gloved fingers and inspects for lumps, ulcers, lesions, fissures, and hemorrhoids"],"a":3,"ref":"Slides 13 & 23"}],"sa":[{"q":"List at least six topics in the history of present health concern for a male genitourinary assessment.","a":["Pain or itching in the penis, scrotum, testes, or groin","Lesions, lumps, swelling, or masses","Discharge or foul odor from the penis","Trouble urinating, pain or burning, change in urine color, odor, or amount","Sexual dysfunction","Recent change in bowel pattern"],"ref":"Slide 5"},{"q":"List the equipment for the male genitalia, anus, prostate, and rectum exam.","a":["Stool","Gown","Disposable nonlatex gloves","Flashlight (for possible transillumination)","Stethoscope (for possible auscultation)","Water-soluble lubricant","Specimen card"],"ref":"Slide 6"},{"q":"Define phimosis, paraphimosis, hypospadias, and epispadias.","a":["Phimosis: tight foreskin that cannot be retracted","Paraphimosis: retracted foreskin that cannot be returned to cover the glans","Hypospadias: urinary meatus displaced to the ventral (under) surface of the penis","Epispadias: urinary meatus displaced to the dorsal (top) surface of the penis"],"ref":"Slide 8"},{"q":"Name the causes of an enlarged scrotal sac and what each contains, plus varicocele.","a":["Hydrocele: fluid","Hematocele: blood","Hernia: bowel","Tumor: cancer","Varicocele: enlarged veins within the scrotum"],"ref":"Slide 9"},{"q":"Describe normal findings when palpating the testes, epididymis, and spermatic cord.","a":["Testes: ovoid, equal in size and shape, smooth, firm, rubbery, mobile, free of nodules, rather tender to pressure","Epididymis: nontender, smooth, softer than the testes","Spermatic cord and vas deferens: uniform on both sides, smooth, nontender, ropelike"],"ref":"Slide 10"},{"q":"List four causes of testicular tenderness and swelling.","a":["Acute orchitis (inflammation of one or both testicles)","Testicular torsion (twisting of the spermatic cord)","Strangulated hernia","Epididymitis"],"ref":"Slide 10"},{"q":"List the steps of the testicular self-examination in order.","a":["Stand in front of a mirror and check for scrotal swelling","Use both hands to palpate the testis; it should be smooth and uniform","Index and middle fingers under the testis, thumb on top; roll it gently between thumb and fingers","Feel for any small lump or abnormality","Palpate upward along the testis the same way","Locate the epididymis on the top and back of the testicle","Repeat on the other testis; one being larger is normal","Report any small, pealike lump to the provider"],"ordered":true,"ref":"Slide 11"},{"q":"List what the nurse inspects for in the perianal area.","a":["Lumps","Ulcers","Lesions","Rashes or redness","Fissures","Thickening of the epithelium","Hemorrhoids","Rectal prolapse","Polyps"],"ref":"Slides 13 & 23"},{"q":"List the risk factors for prostate cancer.","a":["Age: rare under 40, rises quickly after 50","Race/ethnicity: highest in African American and Caribbean men of African origin","Family history: father or brother with prostate cancer","Certain gene mutations","Excessive alcohol consumption"],"ref":"Slide 15"},{"q":"List at least five signs and symptoms of prostate cancer.","a":["Trouble urinating","Decreased force of the urine stream","Blood in the urine or semen","Discomfort in the pelvic area","Bone pain","Erectile dysfunction","Unexplained weight loss"],"ref":"Slide 15"},{"q":"Define menopause and the four onset categories by age.","a":["Menopause: absence of menses for 12 months","Usual: ages 40–58, mean age 50","Premature: before age 30","Early: ages 31–40","Delayed: older than 58","Premature or delayed onset may be due to genetics, an endocrine disorder, or gynecologic dysfunction"],"ref":"Slide 19"},{"q":"List at least eight items of equipment for the female genitalia exam.","a":["Stool","Light","Vaginal speculum","Water-soluble lubricant","Large swabs","Specimen container","Nonsterile gloves","Bifid spatula","Endocervical broom","pH paper","Feminine napkins","Handheld mirror"],"ref":"Slide 20"},{"q":"Describe normal findings for the mons pubis, labia minora, clitoris, urethral meatus, and vaginal opening.","a":["Mons pubis: pubic hair in an inverted triangle, no infestation","Labia minora: symmetric, dark pink, moist","Clitoris: small mound of erectile tissue, sensitive to touch","Urethral meatus: small and slitlike","Vaginal opening: below the urethral meatus"],"ref":"Slide 21"},{"q":"Describe six abnormal findings of the external genitalia and vaginal opening.","a":["Syphilitic chancre: painless, silvery-white papules that become superficial red ulcers","Genital herpes simplex: small, painful ulcers with an erythematous base","Genital warts: caused by HPV, painless","Cystocele: bladder prolapses into the vagina","Rectocele: part of the rectum protrudes into the vagina","Uterine prolapse: uterus protrudes into the vagina"],"ref":"Slide 22"},{"q":"List at least six risk factors for hemorrhoids.","a":["Age 45–65","Straining during bowel movements","Prolonged sitting on the toilet","Chronic diarrhea or constipation","Obesity","Pregnancy","Anal intercourse","Low-fiber diet","Regular heavy lifting"],"ref":"Slide 24"},{"q":"List at least six risk factors for cervical cancer.","a":["Previous HPV infection","Smoking","Immunosuppression","Chlamydia infection","Diet low in fruits and vegetables","Being overweight","Multiple full-term pregnancies","Younger than 20 at first full-term pregnancy","Poverty","Family history of cervical cancer"],"ref":"Slide 25"}],"ext":[{"kind":"mc","q":"Testicular cancer is most common in which age group?","o":["Boys under 10","It is equally common at all ages","Men over 70","Males about 15 to 35 (average age at diagnosis about 33)"],"a":3,"src":"American Cancer Society — Key Statistics for Testicular Cancer","why":"That is why TSE teaching is aimed at teens and young men."},{"kind":"mc","q":"The slides teach testicular self-examination. What does the U.S. Preventive Services Task Force say about routine testicular cancer screening in adolescents and adults without symptoms?","o":["It recommends against routine screening (grade D)","Screen monthly by self-exam","Screen yearly with ultrasound","Screen only after age 50"],"a":0,"src":"U.S. Preventive Services Task Force — Testicular Cancer: Screening","why":"For the class, the slide answer stands: teach TSE so the client knows their own normal. The USPSTF finds no proof that routine screening of people without symptoms saves lives, so sources differ."},{"kind":"mc","q":"A 15-year-old has sudden, severe testicular pain with nausea, and the testis sits high in the scrotum. The nurse recognizes:","o":["A likely varicocele that can wait for a routine visit","Normal growth pains","Possible testicular torsion, a surgical emergency","Hydrocele"],"a":2,"src":"StatPearls (NCBI) — Testicular Torsion","why":"Salvage is best within about 6 hours. The cremasteric reflex is often absent."},{"kind":"mc","q":"When a flashlight is held behind an enlarged scrotum, the swelling glows red. This suggests:","o":["A solid tumor","A hydrocele (fluid)","A hernia containing bowel","A hematocele (blood)"],"a":1,"src":"StatPearls (NCBI) — Hydrocele","why":"Fluid transilluminates. Solid masses, blood, and bowel do not."},{"kind":"mc","q":"A varicocele is classically described as feeling like a “bag of worms” and occurs most often on which side?","o":["Right","Midline","Always both sides equally","Left"],"a":3,"src":"StatPearls (NCBI) — Varicocele","why":"The left testicular vein drains at a right angle into the left renal vein, which raises pressure on that side."},{"kind":"mc","q":"Why is paraphimosis considered a urologic emergency?","o":["It is contagious","The tight retracted foreskin can cut off blood flow to the glans","It always means cancer","It causes kidney stones"],"a":1,"src":"StatPearls (NCBI) — Paraphimosis"},{"kind":"mc","q":"On a digital rectal exam, a prostate that is hard, irregular, and nodular is most concerning for:","o":["A normal prostate","Benign prostatic hyperplasia","Prostate cancer","Prostatitis"],"a":2,"src":"Jarvis — Physical Examination & Health Assessment","why":"Normal: walnut-sized, smooth, rubbery, nontender, with a palpable central groove. BPH: smooth, firm, symmetrically enlarged, groove may be lost. Prostatitis: tender, swollen, boggy."},{"kind":"sa","q":"Compare normal prostate, BPH, prostatitis, and prostate cancer findings on digital rectal exam.","a":["Normal: about walnut-sized (2.5 × 4 cm), smooth, rubbery, nontender, palpable median sulcus","BPH: smooth, firm, rubbery, symmetrically enlarged; median sulcus may be obliterated","Prostatitis: swollen, very tender, warm, boggy","Cancer: hard, irregular, fixed nodule or area; may obliterate the median sulcus"],"src":"Jarvis — Physical Examination & Health Assessment"},{"kind":"mc","q":"According to the USPSTF, PSA-based screening for prostate cancer in men ages 55 to 69 should be:","o":["An individual decision after discussing benefits and harms with a clinician","Done yearly for everyone","Never done","Started at age 30"],"a":0,"src":"U.S. Preventive Services Task Force — Prostate Cancer: Screening (2018)","why":"For men 70 and older, the USPSTF recommends against PSA screening."},{"kind":"mc","q":"The USPSTF recommends colorectal cancer screening for average-risk adults starting at age:","o":["40","45","50","60"],"a":1,"src":"U.S. Preventive Services Task Force — Colorectal Cancer: Screening (2021)","why":"Screening runs through age 75, with options such as colonoscopy every 10 years or a yearly stool test (FIT)."},{"kind":"sa","q":"Summarize cervical cancer screening for average-risk patients, and note where the two major guidelines differ.","a":["USPSTF: no screening before 21","USPSTF ages 21–29: cytology (Pap) every 3 years","USPSTF ages 30–65: Pap every 3 years, high-risk HPV test every 5 years, or both together every 5 years","Over 65: stop if prior screening was adequate and not high risk","American Cancer Society (2020): start at 25 with a primary HPV test every 5 years through 65"],"src":"U.S. Preventive Services Task Force — Cervical Cancer: Screening (2018); American Cancer Society — Cervical Cancer Screening Guidelines"},{"kind":"mc","q":"The CDC recommends routine HPV vaccination at age:","o":["11–12 (can start at 9), with catch-up through age 26","18 only","Only after first sexual activity","Over 45"],"a":0,"src":"CDC — HPV Vaccine Recommendations","why":"This connects to the slide: HPV types 16 and 18 cause about 70% of cervical cancers, and the vaccine protects against them."},{"kind":"mc","q":"The CDC recommends yearly chlamydia and gonorrhea screening for which group?","o":["All women over 50","Only men","Only pregnant women","Sexually active women under 25, and older women at increased risk"],"a":3,"src":"CDC — STI Screening Recommendations; USPSTF — Chlamydia and Gonorrhea: Screening","why":"Chlamydia is also a risk factor for cervical cancer on the slides."},{"kind":"mc","q":"Normal vaginal pH in a reproductive-age woman is about:","o":["2.0–3.0","3.8–4.5","6.0–7.0","7.4–8.0"],"a":1,"src":"CDC — STI Treatment Guidelines (2021): Bacterial Vaginosis","why":"pH paper is on the equipment slide. A pH above 4.5 points toward bacterial vaginosis or trichomoniasis."},{"kind":"mc","q":"A client has thin, gray-white vaginal discharge with a fishy odor and a pH of 5.0. This is most consistent with:","o":["Candidiasis (yeast)","Normal discharge","Bacterial vaginosis","Syphilis"],"a":2,"src":"CDC — STI Treatment Guidelines (2021)","why":"Yeast: thick, white, curdlike, itchy, normal pH. Trichomoniasis: frothy yellow-green, sometimes a “strawberry” cervix."},{"kind":"sa","q":"Describe the four grades of internal hemorrhoids.","a":["Grade I: bleed but do not prolapse","Grade II: prolapse with straining and reduce on their own","Grade III: prolapse and must be pushed back in manually","Grade IV: prolapsed and cannot be pushed back in"],"ordered":true,"src":"StatPearls (NCBI) — Hemorrhoids"}]}};
+
+const DECK_ORDER = ["wk7a","wk7b"];
+const LS_KEY = "nrsg106-quiz-bank-v4";
+let state = load();
+let deck = DECKS[state.deck] ? state.deck : DECK_ORDER[0];
+let keyMode = false;
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}") || {}; } catch (e) { return {}; }
+}
+function save() {
+  try { state.deck = deck; localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+}
+function ans(d) { state[d] = state[d] || {}; return state[d]; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+/* Sections for a deck: each item carries its own kind ("mc" | "sa") and a stable id */
+function sections(d) {
+  const D = DECKS[d];
+  return [
+    { key: "mc", title: "Multiple Choice", hint: "Pick one answer.", items: D.mc.map((it, i) => ({ ...it, kind: "mc", id: "mc" + i })) },
+    { key: "sa", title: "Short Answer", hint: "Let her answer out loud, reveal, then mark it.", items: D.sa.map((it, i) => ({ ...it, kind: "sa", id: "sa" + i })) },
+    { key: "ex", title: "Beyond the Slides", hint: "Outside sources — not from the class deck", ext: true, items: (D.ext || []).map((it, i) => ({ ...it, id: "ex" + i })) }
+  ];
+}
+function allItems(d) { return sections(d).flatMap(s => s.items.map(it => ({ ...it, secTitle: s.title, ext: !!s.ext }))); }
+function isRight(item, got) { return item.kind === "sa" ? got === true : got === item.a; }
+
+function refLine(item) {
+  return item.src ? `<div class="ref src">${esc(item.src)}</div>` : `<div class="ref">${esc(item.ref || "")}</div>`;
+}
+
+function renderDeckTabs() {
+  document.getElementById("decks").innerHTML = DECK_ORDER.map(d => `
+    <button class="deck-tab" role="tab" id="tab-${d}" aria-selected="${String(d === deck)}" data-deck="${d}">
+      <span class="eyebrow">${esc(DECKS[d].short)}</span>
+      <strong>${esc(DECKS[d].title.replace(/\s*\(.*\)$/, ""))}</strong>
+      <small id="count-${d}"></small>
+    </button>`).join("");
+  document.querySelectorAll(".deck-tab").forEach(t => t.addEventListener("click", () => {
+    deck = t.dataset.deck; save(); render(); window.scrollTo({ top: 0 });
+  }));
+}
+
+function render() {
+  const A = ans(deck);
+  const main = document.getElementById("quiz");
+  document.querySelectorAll(".deck-tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.deck === deck)));
+  let n = 0;
+  const parts = [];
+  const letters = "ABCD";
+
+  sections(deck).forEach(sec => {
+    if (!sec.items.length) return;
+    parts.push(`<section class="${sec.ext ? "ext" : ""}"><div class="sec-head"><h2>${sec.title}</h2><span class="hint">${sec.hint}</span><span class="sec-tally" id="tally-${sec.key}"></span></div>
+      ${sec.ext ? `<div class="ext-note"><b>Heads up:</b> the questions below were <b>not</b> taken from the class slides. They come from published nursing references on the same topics — the kind of related material that could show up on an exam. Each one names its source.</div>` : ""}</section>`);
+
+    sec.items.forEach(item => {
+      n++; const id = item.id; const got = A[id];
+      if (item.kind === "mc") {
+        const locked = got !== undefined;
+        const cls = locked ? (got === item.a ? "right" : "wrong") : "";
+        const opts = item.o.map((o, k) => {
+          let c = "opt";
+          if (locked) { if (k === item.a) c += " is-right"; else if (k === got) c += " is-wrong"; else c += " dim"; }
+          if (keyMode && k === item.a) c += " correct-key";
+          return `<button class="${c}" data-q="${id}" data-v="${k}" ${locked ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(o)}</span></button>`;
+        }).join("");
+        parts.push(`<div class="q ${cls} ${locked ? "locked" : ""}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="opts">${opts}</div>
+            ${locked ? verdict(got === item.a, item.why) : ""}
+            ${refLine(item)}
+          </div></div>`);
+      } else {
+        const revealed = (state.revealed && state.revealed[deck + id]) || got !== undefined;
+        const cls = got === undefined ? "" : (got ? "right" : "wrong");
+        const tag = item.ordered ? "ol" : "ul";
+        const list = `<${tag}>${item.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}>`;
+        parts.push(`<div class="q ${cls}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="sa-row">
+              ${revealed ? "" : `<button class="btn" data-reveal="${id}">Reveal answer</button>`}
+              <div class="grade">
+                <button class="opt g-yes ${got === true ? "picked" : ""}" data-q="${id}" data-v="yes"><span class="key">✓</span><span>She got it</span></button>
+                <button class="opt g-no ${got === false ? "picked" : ""}" data-q="${id}" data-v="no"><span class="key">✕</span><span>Missed it</span></button>
+              </div>
+            </div>
+            <div class="answer" ${revealed ? "" : "hidden"}>${list}</div>
+            ${refLine(item)}
+          </div></div>`);
+      }
+    });
+  });
+
+  main.innerHTML = parts.join("");
+  main.classList.toggle("keymode", keyMode);
+  updateScore();
+  renderRounds();
+}
+
+function verdict(ok, why) {
+  return `<div class="verdict ${ok ? "ok" : "no"}"><b>${ok ? "Correct." : "Not quite."}</b>${why ? `<span class="why">${esc(why)}</span>` : ""}</div>`;
+}
+
+function updateScore() {
+  const A = ans(deck);
+  let right = 0, wrong = 0, total = 0;
+  sections(deck).forEach(sec => {
+    let r = 0, d = 0;
+    sec.items.forEach(it => { total++; const g = A[it.id]; if (g === undefined) return; d++; if (isRight(it, g)) { r++; right++; } else wrong++; });
+    const el = document.getElementById("tally-" + sec.key);
+    if (el) el.textContent = d ? `${r} of ${d} · ${sec.items.length} questions` : `${sec.items.length} questions`;
+  });
+  const done = right + wrong;
+  document.getElementById("score-num").textContent = `${right} / ${done}`;
+  document.getElementById("score-txt").textContent = done ? `correct · ${total - done} left` : `answered of ${total}`;
+  document.getElementById("bar-g").style.width = (right / total * 100) + "%";
+  document.getElementById("bar-b").style.width = (wrong / total * 100) + "%";
+  DECK_ORDER.forEach(d => {
+    const DD = DECKS[d]; const ext = (DD.ext || []).length;
+    const t = DD.mc.length + DD.sa.length + ext;
+    const a = Object.keys(ans(d)).length;
+    const el = document.getElementById("count-" + d);
+    if (el) el.textContent = `${t} questions · ${DD.mc.length} MC, ${DD.sa.length} short answer, ${ext} beyond the slides${a ? ` · ${a} answered` : ""}`;
+  });
+}
+
+document.getElementById("quiz").addEventListener("click", e => {
+  const rev = e.target.closest("[data-reveal]");
+  if (rev) {
+    state.revealed = state.revealed || {}; state.revealed[deck + rev.dataset.reveal] = true; save();
+    const y = window.scrollY; render(); window.scrollTo(0, y);
+    return;
+  }
+  const b = e.target.closest("button[data-q]");
+  if (!b || b.disabled) return;
+  const id = b.dataset.q, v = b.dataset.v;
+  const A = ans(deck);
+  const item = allItems(deck).find(x => x.id === id);
+  if (!item) return;
+  if (item.kind === "mc") A[id] = Number(v); else A[id] = v === "yes";
+  save();
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+document.getElementById("key-toggle").addEventListener("click", function () {
+  keyMode = !keyMode; this.classList.toggle("on", keyMode); this.setAttribute("aria-pressed", String(keyMode));
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+let armedClear = 0;
+document.getElementById("reset-btn").addEventListener("click", function () {
+  if (Object.keys(ans(deck)).length && Date.now() - armedClear > 4000) {
+    armedClear = Date.now(); this.textContent = "Really clear? Click again";
+    setTimeout(() => { this.textContent = "Clear without saving"; }, 4000);
+    return;
+  }
+  armedClear = 0; this.textContent = "Clear without saving";
+  clearDeck(deck); render(); window.scrollTo({ top: 0 });
+});
+function clearDeck(d) {
+  state[d] = {};
+  if (state.revealed) for (const k in state.revealed) if (k.startsWith(d)) delete state.revealed[k];
+  save();
+}
+
+/* ---------- Name ---------- */
+const whoEl = document.getElementById("who");
+whoEl.value = state.who || "";
+whoEl.addEventListener("change", () => { state.who = whoEl.value.trim(); save(); });
+function whoName() { return (state.who || "").trim() || "Someone"; }
+
+/* ---------- Rounds: summary, code, history ---------- */
+const CODE_TAG = "NQB1.";
+function b64e(s) { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function b64d(s) { s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; return decodeURIComponent(escape(atob(s))); }
+
+function roundFromCurrent() {
+  const A = ans(deck); const items = allItems(deck);
+  const answers = {}; let right = 0, done = 0;
+  items.forEach(it => { const g = A[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck, name: whoName(), t: Date.now(), right, done, total: items.length, answers };
+}
+function missedList(r) {
+  const items = allItems(r.deck); const out = [];
+  items.forEach((it, i) => { const g = r.answers[it.id]; if (g !== undefined && !isRight(it, g)) out.push({ n: i + 1, q: it.q, ext: it.ext }); });
+  return out;
+}
+function fmtDate(t) { return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+function pct(r) { return r.done ? Math.round(r.right / r.done * 100) : 0; }
+
+function summaryText(r) {
+  const D = DECKS[r.deck]; const missed = missedList(r);
+  const lines = [
+    `NRSG106 Quiz — ${D.title}`,
+    `${r.name} · ${fmtDate(r.t)} · ${r.right}/${r.done} correct (${pct(r)}%)${r.done < r.total ? ` · ${r.total - r.done} unanswered` : ""}`,
+    missed.length ? `Missed (${missed.length}): ${missed.map(m => "#" + m.n).join(", ")}` : "Missed: none!",
+    ...missed.slice(0, 40).map(m => `  ${m.n}. ${m.q.length > 90 ? m.q.slice(0, 87) + "…" : m.q}`),
+    "",
+    "Code: " + CODE_TAG + b64e(JSON.stringify({ d: r.deck, n: r.name, t: r.t, a: r.answers }))
+  ];
+  return lines.join("\n");
+}
+function parseCode(text) {
+  const m = String(text).match(/NQB1\.([A-Za-z0-9_-]+)/);
+  if (!m) throw new Error("No code found — paste the whole summary or the line that starts with “Code:”.");
+  const o = JSON.parse(b64d(m[1]));
+  if (!DECKS[o.d] || typeof o.a !== "object") throw new Error("That code doesn't match this quiz.");
+  const items = allItems(o.d); let right = 0, done = 0; const answers = {};
+  items.forEach(it => { const g = o.a[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck: o.d, name: String(o.n || "Someone").slice(0, 24), t: Number(o.t) || Date.now(), right, done, total: items.length, answers, imported: true };
+}
+function saveRound(r) {
+  state.rounds = state.rounds || [];
+  r.id = r.id || (r.t + "-" + Math.random().toString(36).slice(2, 7));
+  if (state.rounds.some(x => x.t === r.t && x.name === r.name && x.deck === r.deck)) return false;
+  state.rounds.push(r); state.rounds.sort((a, b) => b.t - a.t);
+  if (state.rounds.length > 60) state.rounds.length = 60;
+  save(); return true;
+}
+
+function renderRounds() {
+  const rounds = (state.rounds || []).filter(r => r.deck === deck);
+  const el = document.getElementById("rounds");
+  const trend = rounds.slice().reverse().slice(-12);
+  el.innerHTML = `
+    <div class="rounds-head"><h2>Past rounds</h2><span class="sec-tally">${rounds.length ? `${rounds.length} saved for this set` : "nothing saved yet"}</span></div>
+    ${trend.length > 1 ? `<div class="trend" aria-label="Score trend">${trend.map(r => `<i class="${r.imported ? "g" : ""}" style="height:${Math.max(6, pct(r) * .44)}px" title="${esc(r.name)} · ${fmtDate(r.t)} · ${pct(r)}%"><span>${pct(r)}%</span></i>`).join("")}</div>` : ""}
+    ${rounds.length ? rounds.map(r => {
+      const missed = missedList(r);
+      return `<div class="round">
+        <div class="r-top"><span class="r-name">${esc(r.name)}</span><span class="r-date">${fmtDate(r.t)}${r.imported ? " · logged from a code" : ""}</span></div>
+        <div class="r-score">${r.right}/${r.done}<small>${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} skipped` : ""}</small></div>
+        <div class="r-missed">${missed.length ? `<details><summary>Missed ${missed.length} — show</summary><ul>${missed.map(m => `<li>#${m.n} · ${esc(m.q)}${m.ext ? " <em>(beyond the slides)</em>" : ""}</li>`).join("")}</ul></details>` : "Nothing missed."}</div>
+        <div class="r-actions"><button class="btn ghost" data-del-round="${r.id}">Remove</button></div>
+      </div>`;
+    }).join("") : `<div class="rounds-empty">When a round is finished, its score and missed questions land here. Rounds logged from someone else's code show up too.</div>`}
+    <div class="log-box">
+      <label for="log-input">Log a round from a code</label>
+      <p>Paste the summary (or just the “Code:” line) that the student texted you. Their score and missed questions are added to this list.</p>
+      <div class="log-row"><input id="log-input" type="text" placeholder="Paste here…" autocomplete="off"><button class="btn" id="log-btn">Add round</button></div>
+      <div class="log-msg" id="log-msg"></div>
+    </div>`;
+}
+
+document.getElementById("rounds").addEventListener("click", e => {
+  const del = e.target.closest("[data-del-round]");
+  if (del) { state.rounds = (state.rounds || []).filter(r => r.id !== del.dataset.delRound); save(); renderRounds(); return; }
+  if (e.target.closest("#log-btn")) {
+    const inp = document.getElementById("log-input"), msg = document.getElementById("log-msg");
+    try {
+      const r = parseCode(inp.value);
+      const added = saveRound(r);
+      if (r.deck !== deck) { deck = r.deck; save(); render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80 }); }
+      else renderRounds();
+      const m2 = document.getElementById("log-msg"); m2.className = "log-msg ok";
+      m2.textContent = added ? `Added ${r.name}'s round — ${r.right}/${r.done} (${pct(r)}%).` : "That round is already in the list.";
+    } catch (err) { msg.className = "log-msg no"; msg.textContent = err.message; }
+  }
+});
+
+/* Finish-round dialog */
+const fin = document.getElementById("finish");
+let pendingRound = null;
+document.getElementById("finish-btn").addEventListener("click", function () {
+  const r = roundFromCurrent();
+  if (!r.done) { this.textContent = "Answer something first"; setTimeout(() => { this.textContent = "Finish round"; }, 2500); return; }
+  pendingRound = r;
+  document.getElementById("f-title").textContent = `${r.name} — ${DECKS[r.deck].short}`;
+  document.getElementById("f-score").textContent = `${r.right} / ${r.done}`;
+  document.getElementById("f-sub").textContent = `${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} of ${r.total} unanswered` : ""}`;
+  document.getElementById("f-text").value = summaryText(r);
+  document.getElementById("f-msg").textContent = "";
+  document.getElementById("f-share").hidden = !navigator.share;
+  fin.hidden = false;
+});
+document.getElementById("f-cancel").addEventListener("click", () => { fin.hidden = true; });
+fin.addEventListener("click", e => { if (e.target === fin) fin.hidden = true; });
+document.getElementById("f-copy").addEventListener("click", async () => {
+  const ta = document.getElementById("f-text"), msg = document.getElementById("f-msg");
+  try { await navigator.clipboard.writeText(ta.value); msg.textContent = "Copied — paste it into a text or email."; }
+  catch (e) { ta.select(); msg.textContent = "Select the text above and copy it."; }
+});
+document.getElementById("f-share").addEventListener("click", async () => {
+  try { await navigator.share({ title: "NRSG106 quiz results", text: document.getElementById("f-text").value }); }
+  catch (e) { /* user cancelled */ }
+});
+document.getElementById("f-save").addEventListener("click", () => {
+  if (!pendingRound) return;
+  saveRound(pendingRound); clearDeck(deck); pendingRound = null; fin.hidden = true;
+  render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80, behavior: "smooth" });
+});
+
+renderDeckTabs();
+render();
+
+/* ---------- Presenter mode ---------- */
+const P = { on: false, i: 0, revealed: false };
+const pEl = document.getElementById("present");
+
+function startPresent() {
+  const qs = allItems(deck); const A = ans(deck);
+  let first = qs.findIndex(q => A[q.id] === undefined); if (first < 0) first = 0;
+  P.on = true; P.i = first; P.revealed = false;
+  document.body.classList.add("presenting"); pEl.hidden = false;
+  renderPresent();
+}
+function exitPresent() {
+  P.on = false; document.body.classList.remove("presenting"); pEl.hidden = true;
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+}
+
+function renderPresent() {
+  const qs = allItems(deck); const q = qs[P.i]; const A = ans(deck); const got = A[q.id];
+  const answered = got !== undefined;
+  const show = P.revealed || answered;
+  const secEl = document.getElementById("p-section");
+  const kindLabel = q.kind === "mc" ? "Multiple choice" : "Short answer";
+  secEl.textContent = q.ext ? `Beyond the Slides · ${kindLabel} · Question ${P.i + 1} of ${qs.length}` : `${q.secTitle} · Question ${P.i + 1} of ${qs.length}`;
+  secEl.classList.toggle("is-ext", !!q.ext);
+  document.getElementById("p-deck").textContent = DECKS[deck].title;
+  const letters = "ABCD";
+  let html = `<p class="p-stem">${esc(q.q)}</p>`;
+
+  if (q.kind === "mc") {
+    html += `<div class="p-opts">` + q.o.map((label, k) => {
+      let c = "opt";
+      if (show) { if (k === q.a) c += " is-right"; else if (answered && k === got) c += " is-wrong"; else c += " dim"; }
+      return `<button class="${c}" data-pv="${k}" ${answered ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(label)}</span></button>`;
+    }).join("") + `</div>`;
+    if (answered) html += `<div class="p-verdict ${got === q.a ? "ok" : "no"}"><b>${got === q.a ? "Correct." : "Not quite."}</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else if (show) html += `<div class="p-verdict ok"><b>Answer shown.</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else html += `<div class="p-wait">Let her answer — then press her letter to check it, or Space to reveal.</div>`;
+  } else {
+    if (show) {
+      const tag = q.ordered ? "ol" : "ul";
+      const two = q.a.length > 5 ? "two" : "";
+      html += `<div class="answer p-answer"><span class="lead">Answer</span><${tag} class="${two}">${q.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}></div>`;
+      html += `<div class="p-opts two grade">
+        <button class="opt g-yes ${got === true ? "picked" : ""}" data-pv="yes"><span class="key">✓</span><span>She got it</span></button>
+        <button class="opt g-no ${got === false ? "picked" : ""}" data-pv="no"><span class="key">✕</span><span>Missed it</span></button>
+      </div>`;
+    } else {
+      html += `<div class="p-wait">Let her answer out loud, then press Space to reveal.</div>`;
+    }
+  }
+  html += refLine(q);
+  document.getElementById("p-body").innerHTML = html;
+
+  let right = 0, done = 0;
+  qs.forEach(x => { const g = A[x.id]; if (g === undefined) return; done++; if (isRight(x, g)) right++; });
+  document.getElementById("p-score").textContent = `${right} / ${done} correct`;
+  document.getElementById("p-bar").style.width = ((P.i + 1) / qs.length * 100) + "%";
+  document.getElementById("p-prev").disabled = P.i === 0;
+  document.getElementById("p-next").textContent = P.i === qs.length - 1 ? "Finish" : "Next →";
+  document.getElementById("p-reveal").hidden = show;
+}
+
+function pAnswer(v) {
+  const q = allItems(deck)[P.i]; const A = ans(deck);
+  if (q.kind === "mc") A[q.id] = Number(v); else A[q.id] = v === "yes";
+  save(); renderPresent();
+}
+function pMove(d) {
+  const qs = allItems(deck); const n = P.i + d;
+  if (n < 0) return;
+  if (n >= qs.length) { exitPresent(); if (Object.keys(ans(deck)).length) document.getElementById("finish-btn").click(); return; }
+  P.i = n; P.revealed = false; renderPresent();
+}
+
+document.getElementById("present-btn").addEventListener("click", startPresent);
+document.getElementById("p-exit").addEventListener("click", exitPresent);
+document.getElementById("p-prev").addEventListener("click", () => pMove(-1));
+document.getElementById("p-next").addEventListener("click", () => pMove(1));
+document.getElementById("p-reveal").addEventListener("click", () => { P.revealed = true; renderPresent(); });
+document.getElementById("p-body").addEventListener("click", e => {
+  const b = e.target.closest("button[data-pv]"); if (!b || b.disabled) return; pAnswer(b.dataset.pv);
+});
+
+document.addEventListener("keydown", e => {
+  if (!P.on) return;
+  if (e.target.matches("input, textarea")) return;
+  const q = allItems(deck)[P.i]; const A = ans(deck); const answered = A[q.id] !== undefined;
+  const k = e.key;
+  if (k === "Escape") { exitPresent(); }
+  else if (k === "ArrowRight" || k === "PageDown") { pMove(1); }
+  else if (k === "ArrowLeft" || k === "PageUp") { pMove(-1); }
+  else if (k === " " || k === "Enter") { e.preventDefault(); if (P.revealed || answered) pMove(1); else { P.revealed = true; renderPresent(); } }
+  else if (q.kind === "mc" && !answered && /^[a-d1-4]$/i.test(k)) { const idx = /\d/.test(k) ? Number(k) - 1 : "abcd".indexOf(k.toLowerCase()); if (idx < q.o.length) pAnswer(String(idx)); }
+  else if (q.kind === "sa" && (P.revealed || answered) && /^[yn]$/i.test(k)) { pAnswer(k.toLowerCase() === "y" ? "yes" : "no"); }
+  else return;
+  e.preventDefault();
+});
+</script>
+
+</body>
+</html>
