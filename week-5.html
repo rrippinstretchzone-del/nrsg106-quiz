@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NRSG106 Quiz Bank — Week 5</title>
+<style>[hidden]{display:none!important} img{max-width:100%}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    --paper: #F6F8FA;
+    --card: #FFFFFF;
+    --ink: #1B2A41;
+    --ink-soft: #4A5A70;
+    --ink-faint: #8593A6;
+    --rule: #D9DFE7;
+    --rule-strong: #B8C2CF;
+    --teal: #0F7B8A;
+    --teal-ink: #0B5F6B;
+    --teal-wash: #E3F1F3;
+    --mark: #F9D65C;
+    --mark-wash: #FFF6D2;
+    --good: #2E8B57;
+    --good-wash: #E4F3EA;
+    --bad: #C8463A;
+    --bad-wash: #FBE7E4;
+    --plum: #6B4E9B;
+    --plum-wash: #EEE9F7;
+    --focus: #0F7B8A;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12181F;
+      --card: #1A222B;
+      --ink: #E7ECF2;
+      --ink-soft: #B3BFCD;
+      --ink-faint: #7C8A9B;
+      --rule: #2C3743;
+      --rule-strong: #3E4B5A;
+      --teal: #3FB2C1;
+      --teal-ink: #6FCBD7;
+      --teal-wash: #16323A;
+      --mark: #E8C64A;
+      --mark-wash: #3A3316;
+      --good: #4FBF7F;
+      --good-wash: #16321F;
+      --bad: #E8746A;
+      --bad-wash: #3D1F1B;
+      --plum: #B49BE0;
+      --plum-wash: #2A2138;
+      --focus: #3FB2C1;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12181F;
+    --card: #1A222B;
+    --ink: #E7ECF2;
+    --ink-soft: #B3BFCD;
+    --ink-faint: #7C8A9B;
+    --rule: #2C3743;
+    --rule-strong: #3E4B5A;
+    --teal: #3FB2C1;
+    --teal-ink: #6FCBD7;
+    --teal-wash: #16323A;
+    --mark: #E8C64A;
+    --mark-wash: #3A3316;
+    --good: #4FBF7F;
+    --good-wash: #16321F;
+    --bad: #E8746A;
+    --bad-wash: #3D1F1B;
+    --plum: #B49BE0;
+    --plum-wash: #2A2138;
+    --focus: #3FB2C1;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    padding-block: 0 64px;
+    padding-inline: clamp(16px, 4vw, 40px);
+  }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif; text-wrap: balance; margin: 0; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  header { padding-block: 28px 20px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+  .eyebrow { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-ink); font-weight: 700; }
+  h1 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; margin-top: 6px; }
+  .sub { color: var(--ink-soft); margin: 6px 0 0; max-width: 60ch; }
+
+  /* Deck tabs */
+  .decks { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
+  .deck-tab {
+    flex: 1 1 240px; text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 14px 16px; display: grid; gap: 2px; transition: border-color .15s, background .15s;
+  }
+  .deck-tab .eyebrow { color: var(--ink-faint); }
+  .deck-tab strong { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; }
+  .deck-tab small { color: var(--ink-soft); font-size: 14px; }
+  .deck-tab[aria-selected="true"] { border-color: var(--teal); background: var(--teal-wash); box-shadow: inset 0 0 0 1px var(--teal); }
+  .deck-tab[aria-selected="true"] .eyebrow { color: var(--teal-ink); }
+
+  /* Toolbar */
+  .toolbar {
+    position: sticky; top: 0; z-index: 5; background: var(--paper);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding-block: 14px; border-bottom: 1px solid var(--rule); margin-top: 8px;
+  }
+  .score { display: flex; align-items: baseline; gap: 8px; font-variant-numeric: tabular-nums; }
+  .score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; font-weight: 700; line-height: 1; }
+  .score span { color: var(--ink-soft); font-size: 14px; }
+  .bar { flex: 1 1 160px; height: 8px; border-radius: 99px; background: var(--rule); overflow: hidden; display: flex; min-width: 120px; }
+  .bar i { display: block; height: 100%; transition: width .25s; }
+  .bar .g { background: var(--good); }
+  .bar .b { background: var(--bad); }
+  .tools { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+  .btn { border: 1px solid var(--rule-strong); background: var(--card); border-radius: 8px; padding: 7px 12px; font-size: 14.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
+  .btn:hover { border-color: var(--teal); }
+  .btn.on { background: var(--mark-wash); border-color: var(--mark); }
+  .btn .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule-strong); }
+  .btn.on .dot { background: var(--mark); }
+  .btn.ghost { border-color: transparent; background: transparent; color: var(--ink-soft); }
+  .btn.ghost:hover { color: var(--bad); }
+  .btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .btn.primary:hover { background: var(--teal-ink); border-color: var(--teal-ink); }
+
+  /* Sections */
+  section { margin-top: 40px; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: 22px; font-weight: 700; }
+  .sec-head .hint { color: var(--ink-soft); font-size: 14.5px; }
+  .sec-tally { font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: 14.5px; }
+  section.ext .sec-head { border-bottom-color: var(--plum); }
+  section.ext .sec-head h2 { color: var(--plum); }
+  .ext-note {
+    margin-top: 14px; padding: 12px 16px; border-radius: 10px; background: var(--plum-wash); color: var(--ink);
+    border-left: 3px solid var(--plum); font-size: 15px; line-height: 1.45;
+  }
+  .ext-note b { color: var(--plum); }
+
+  .q { display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; padding-block: 20px; border-bottom: 1px solid var(--rule); }
+  .q .num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 18px; color: var(--ink-faint); font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .q.right .num { color: var(--good); }
+  .q.wrong .num { color: var(--bad); }
+  .q .body { display: grid; gap: 12px; min-width: 0; }
+  .q .stem { font-size: 17.5px; line-height: 1.45; margin: 0; }
+  .q .ref { font-size: 12.5px; color: var(--ink-faint); letter-spacing: .04em; text-transform: uppercase; }
+  .ref.src { text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--plum); }
+  .ref.src::before { content: "Outside source · "; font-weight: 700; }
+
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.35;
+    transition: border-color .12s, background .12s;
+  }
+  .opt:hover { border-color: var(--teal); }
+  .opt .key { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--rule-strong); display: grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+  .opt.picked { border-color: var(--teal); background: var(--teal-wash); }
+  .opt.is-right { border-color: var(--good); background: var(--good-wash); }
+  .opt.is-right .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.is-wrong { border-color: var(--bad); background: var(--bad-wash); }
+  .opt.is-wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .6; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--rule); }
+  .locked .opt.is-right:hover { border-color: var(--good); }
+  .locked .opt.is-wrong:hover { border-color: var(--bad); }
+
+  .verdict { font-size: 15px; display: flex; gap: 8px; align-items: flex-start; }
+  .verdict b { flex: 0 0 auto; }
+  .verdict.ok b { color: var(--good); }
+  .verdict.no b { color: var(--bad); }
+  .verdict .why { color: var(--ink-soft); }
+
+  /* Short answer */
+  .sa-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .answer {
+    background: var(--mark-wash); border-left: 3px solid var(--mark); padding: 10px 14px; border-radius: 0 8px 8px 0;
+    font-size: 16px; line-height: 1.45;
+  }
+  .answer ul, .answer ol { margin: 4px 0 0; padding-left: 20px; }
+  .answer li { margin: 2px 0; }
+  .grade { display: flex; gap: 8px; flex-wrap: wrap; }
+  .grade .opt { padding: 8px 12px; }
+  .grade .opt.g-yes.picked { border-color: var(--good); background: var(--good-wash); }
+  .grade .opt.g-no.picked { border-color: var(--bad); background: var(--bad-wash); }
+
+  /* Answer-key mode */
+  .keymode .answer[hidden] { display: block !important; }
+  .keymode .opt.correct-key { border-color: var(--mark); background: var(--mark-wash); }
+  .keymode .opt.correct-key .key { background: var(--mark); border-color: var(--mark); color: #1B2A41; }
+
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--ink-faint); font-size: 13.5px; }
+  footer p { margin: 6px 0; }
+
+  /* Name field */
+  .who { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-soft); }
+  .who input { font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 6px 10px; width: 9ch; }
+  .who input:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; }
+
+  /* Past rounds */
+  .rounds-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .rounds-head h2 { font-size: 22px; font-weight: 700; }
+  .rounds-empty { color: var(--ink-faint); padding: 18px 0; font-size: 15.5px; }
+  .round { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding-block: 14px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .round .r-top { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+  .round .r-name { font-weight: 700; }
+  .round .r-date { color: var(--ink-soft); font-size: 14.5px; }
+  .round .r-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; text-align: right; line-height: 1.1; }
+  .round .r-score small { display: block; font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 13px; color: var(--ink-soft); }
+  .round .r-missed { grid-column: 1 / -1; font-size: 15px; color: var(--ink-soft); }
+  .round details summary { cursor: pointer; color: var(--teal-ink); font-weight: 600; }
+  .round details ul { margin: 6px 0 0; padding-left: 20px; }
+  .round details li { margin: 3px 0; color: var(--ink); }
+  .round .r-actions { grid-column: 1 / -1; display: flex; gap: 8px; }
+  .round .r-actions .btn { font-size: 13px; padding: 4px 9px; }
+  .log-box { margin-top: 18px; padding: 14px 16px; border: 1px dashed var(--rule-strong); border-radius: 10px; display: grid; gap: 8px; }
+  .log-box label { font-weight: 600; font-size: 15px; }
+  .log-box p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+  .log-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .log-row input { flex: 1 1 240px; font: inherit; font-size: 14px; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 8px 10px; }
+  .log-msg { font-size: 14px; min-height: 1.2em; }
+  .log-msg.ok { color: var(--good); } .log-msg.no { color: var(--bad); }
+  .trend { display: flex; gap: 6px; align-items: flex-end; height: 44px; margin-top: 12px; }
+  .trend i { flex: 0 0 18px; background: var(--teal); border-radius: 3px 3px 0 0; opacity: .85; position: relative; }
+  .trend i.g { background: var(--plum); }
+  .trend i span { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--ink-faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Finish-round dialog */
+  .modal-bg { position: fixed; inset: 0; z-index: 60; background: rgba(10, 16, 24, .55); display: grid; place-items: center; padding: 16px; }
+  .modal-bg[hidden] { display: none; }
+  .modal { background: var(--card); color: var(--ink); border-radius: 14px; width: min(640px, 100%); max-height: 92vh; overflow: auto; padding: 22px 24px 20px; box-shadow: 0 20px 60px rgba(0,0,0,.25); display: grid; gap: 14px; }
+  .modal h2 { font-size: 24px; }
+  .modal .m-score { display: flex; align-items: baseline; gap: 10px; }
+  .modal .m-score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modal .m-score span { color: var(--ink-soft); }
+  .modal textarea { width: 100%; min-height: 150px; font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; resize: vertical; }
+  .modal .m-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .modal .m-note { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .modal .m-msg { font-size: 14px; color: var(--good); min-height: 1.2em; }
+
+  /* Presenter mode — one question, big type, for screen sharing */
+  body.presenting { overflow: hidden; }
+  .present {
+    position: fixed; inset: 0; z-index: 50; background: var(--paper); color: var(--ink);
+    display: grid; grid-template-rows: auto 1fr auto; padding: clamp(16px, 3vw, 36px) clamp(16px, 5vw, 72px);
+  }
+  .present[hidden], .btn[hidden] { display: none; }
+  .p-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .p-top .eyebrow { font-size: clamp(13px, 1.3vw, 17px); }
+  .p-top .eyebrow.is-ext { color: var(--plum); }
+  .p-top .p-deck { color: var(--ink-faint); font-weight: 600; font-size: clamp(13px, 1.3vw, 17px); }
+  .p-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(18px, 2vw, 26px); font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 12px; }
+  .p-score .btn { font-size: clamp(13px, 1.2vw, 16px); }
+  .p-body { display: grid; align-content: center; gap: clamp(18px, 3vh, 36px); max-width: 1200px; width: 100%; margin: 0 auto; min-height: 0; overflow: auto; }
+  .p-stem { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 48px); line-height: 1.2; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  .p-opts { display: grid; gap: clamp(8px, 1.4vh, 14px); }
+  .p-opts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-opts .opt { font-size: clamp(19px, 2.2vw, 30px); padding: clamp(12px, 1.8vh, 18px) clamp(14px, 1.6vw, 22px); border-radius: 12px; gap: 14px; }
+  .p-opts .opt .key { width: 1.35em; height: 1.35em; font-size: .7em; border-radius: 8px; }
+  .p-answer { font-size: clamp(19px, 2.1vw, 28px); padding: clamp(14px, 2vh, 22px) clamp(18px, 2vw, 28px); }
+  .p-answer .lead { font-weight: 700; display: block; margin-bottom: 4px; }
+  .p-answer ol, .p-answer ul { columns: 1; }
+  @media (min-width: 900px) { .p-answer ol.two, .p-answer ul.two { columns: 2; column-gap: 40px; } }
+  .p-verdict { font-size: clamp(19px, 2.1vw, 28px); }
+  .p-verdict.ok b { color: var(--good); } .p-verdict.no b { color: var(--bad); }
+  .p-verdict .why { color: var(--ink-soft); }
+  .p-wait { color: var(--ink-faint); font-size: clamp(17px, 1.8vw, 24px); font-style: italic; }
+  .p-body .ref { font-size: clamp(13px, 1.2vw, 15px); }
+  .p-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; }
+  .p-nav .btn { font-size: clamp(15px, 1.4vw, 19px); padding: 10px 18px; }
+  .p-keys { color: var(--ink-faint); font-size: clamp(12px, 1.1vw, 14px); }
+  .p-keys kbd { font-family: inherit; border: 1px solid var(--rule-strong); border-radius: 4px; padding: 0 5px; margin: 0 2px; background: var(--card); }
+  .p-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--rule); }
+  .p-progress i { display: block; height: 100%; background: var(--teal); transition: width .2s; }
+
+  @media (max-width: 480px) {
+    .q { grid-template-columns: 34px 1fr; }
+    .tools { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">NRSG106 · Health Assessment · AdventHealth University</div>
+      <h1>NRSG106 Quiz Bank</h1>
+      <p class="sub">Multiple choice and short answer sets built from each week's slides, plus a clearly marked “Beyond the Slides” section drawn from outside nursing sources. Tap an answer to check it, or turn on the answer key to read aloud.</p>
+    </div>
+  </header>
+
+  <div class="decks" role="tablist" aria-label="Choose a presentation" id="decks"></div>
+
+  <div class="toolbar">
+    <div class="score"><b id="score-num">0 / 0</b><span id="score-txt">answered</span></div>
+    <div class="bar" aria-hidden="true"><i class="g" id="bar-g" style="width:0%"></i><i class="b" id="bar-b" style="width:0%"></i></div>
+    <div class="tools">
+      <label class="who">Answering as <input id="who" type="text" placeholder="name" maxlength="24" autocomplete="off"></label>
+      <button class="btn primary" id="present-btn">Present one at a time</button>
+      <button class="btn" id="key-toggle" aria-pressed="false"><span class="dot"></span>Answer key</button>
+      <button class="btn" id="finish-btn">Finish round</button>
+      <button class="btn ghost" id="reset-btn">Clear without saving</button>
+    </div>
+  </div>
+
+  <main id="quiz"></main>
+
+  <section id="rounds"></section>
+
+  <footer>
+    <p>Slide references point to the slide number in the matching PowerPoint so she can go back and re-read anything she missed. Answers and past rounds are saved in this browser only — use <b>Finish round</b> to get a summary and code you can text to someone else, and <b>Log a round</b> to add theirs to your history.</p>
+    <p>“Beyond the Slides” questions were not taken from the class presentations. They come from published nursing references (CDC, American Heart Association, NCSBN, StatPearls/NCBI, and open nursing textbooks from OpenStax and Pressbooks) chosen to match the slide topics. Where a source differs from the slides, the slide value is treated as the class answer and the difference is pointed out.</p>
+  </footer>
+</div>
+
+<div class="present" id="present" hidden role="dialog" aria-label="Presenter mode">
+  <div class="p-top">
+    <div>
+      <div class="eyebrow" id="p-section"></div>
+      <div class="p-deck" id="p-deck"></div>
+    </div>
+    <div class="p-score"><span id="p-score"></span><button class="btn" id="p-exit">Exit (Esc)</button></div>
+  </div>
+  <div class="p-body" id="p-body"></div>
+  <div class="p-nav">
+    <button class="btn" id="p-prev">← Previous</button>
+    <span class="p-keys"><kbd>←</kbd><kbd>→</kbd> move · <kbd>A</kbd>–<kbd>D</kbd> her answer · <kbd>Space</kbd> reveal / next · <kbd>Y</kbd>/<kbd>N</kbd> grade short answer</span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="p-reveal">Reveal answer (Space)</button>
+      <button class="btn primary" id="p-next">Next →</button>
+    </div>
+  </div>
+  <div class="p-progress" aria-hidden="true"><i id="p-bar" style="width:0%"></i></div>
+</div>
+
+<div class="modal-bg" id="finish" hidden role="dialog" aria-label="Finish round">
+  <div class="modal">
+    <h2 id="f-title">Round finished</h2>
+    <div class="m-score"><b id="f-score"></b><span id="f-sub"></span></div>
+    <p class="m-note">Copy or share this summary — the code at the bottom lets someone else add this round to their history with <b>Log a round</b>.</p>
+    <textarea id="f-text" readonly></textarea>
+    <div class="m-actions">
+      <button class="btn" id="f-copy">Copy summary</button>
+      <button class="btn" id="f-share">Share…</button>
+      <button class="btn primary" id="f-save">Save round &amp; start fresh</button>
+      <button class="btn ghost" id="f-cancel">Back</button>
+    </div>
+    <div class="m-msg" id="f-msg"></div>
+  </div>
+</div>
+
+<script>
+const DECKS = {"wk5":{"title":"Heart & Neck Vessels, Peripheral Vascular (Chapters 21 & 22)","short":"Week 5 · Chapters 21 & 22","mc":[{"q":"The heart is located in the middle of the thoracic cavity in the:","o":["Pleural space","Mediastinum","Retroperitoneum","Pericardial sac only"],"a":1,"ref":"Slide 6"},{"q":"On the “inverted cone” of the heart, the base is the:","o":["Lower portion","Upper portion","Left border","Right border"],"a":1,"ref":"Slide 6","why":"The apex is the lower portion."},{"q":"The anterior chest area that overlies the heart and great vessels is the:","o":["Mediastinum","Precordium","Sternum","Epigastrium"],"a":1,"ref":"Slide 6"},{"q":"The pacemaker of the heart is the:","o":["AV node","Bundle of His","SA (sinus) node","Purkinje fibers"],"a":2,"ref":"Slide 8","why":"SA node fires at 60–100 bpm."},{"q":"If the SA node fails, the AV node can pace the heart at what rate?","o":["60–100 bpm","40–60 bpm","20–40 bpm","100–120 bpm"],"a":1,"ref":"Slide 8","why":"Bundle of His 40–60; Purkinje fibers 20–40."},{"q":"On the ECG, the P wave represents:","o":["Ventricular depolarization","Ventricular repolarization","Atrial depolarization (atrial contraction)","Atrial repolarization"],"a":2,"ref":"Slide 9"},{"q":"The QRS complex represents:","o":["Atrial contraction","Ventricular depolarization (ventricular contraction)","Ventricular relaxation","SA node firing"],"a":1,"ref":"Slide 9","why":"The T wave is ventricular repolarization — relaxation."},{"q":"The first heart sound, S1 (“lub”), is caused by:","o":["Closure of the semilunar valves","Opening of the AV valves","Closure of the atrioventricular (AV) valves","Atrial contraction"],"a":2,"ref":"Slides 10–11","why":"It marks the beginning of systole."},{"q":"S2 (“dub”) is caused by closure of the semilunar valves and marks:","o":["The beginning of systole","The end of systole / beginning of diastole","Atrial filling","Ventricular depolarization"],"a":1,"ref":"Slide 10"},{"q":"S1 is heard best at the apex of the heart, located at:","o":["2nd ICS, right sternal border","3rd ICS, left sternal border","5th ICS, left midclavicular line","The suprasternal notch"],"a":2,"ref":"Slide 11","why":"S2 is heard best at the base of the heart."},{"q":"S3 is also known as a:","o":["Atrial gallop","Ventricular gallop","Murmur","Click"],"a":1,"ref":"Slide 11","why":"S4 is the atrial gallop."},{"q":"A murmur is a swooshing or blowing sound caused by:","o":["Normal valve closure","Turbulent blood flow through a narrowed passageway or atypical opening","Atrial contraction","The heart rubbing on the pericardium"],"a":1,"ref":"Slide 11"},{"q":"Assessing the jugular venous pulse gives information about:","o":["Left ventricular function","Hemodynamics of the right side of the heart","Coronary artery patency","Carotid blood flow"],"a":1,"ref":"Slide 12","why":"Right-sided heart failure raises pressure and volume, which increases jugular venous pressure."},{"q":"To observe the jugular venous pulse, the nurse stands on the patient's right and positions the patient at:","o":["Flat, 0 degrees","30 to 40 degrees with the head turned slightly to the left","90 degrees sitting upright","Trendelenburg"],"a":1,"ref":"Slide 16"},{"q":"When auscultating the carotid arteries for bruits, the nurse uses the ______ and asks the patient to ______.","o":["diaphragm; breathe deeply","bell; hold their breath","bell; cough","diaphragm; say “99”"],"a":1,"ref":"Slide 16","why":"A bruit (swishing sound) is an abnormal finding."},{"q":"When palpating the carotid arteries, the nurse must:","o":["Palpate both at the same time to compare","Palpate one at a time","Press firmly with the thumb","Palpate only the left side"],"a":1,"ref":"Slides 12 & 16"},{"q":"The apical impulse is palpated at the mitral area, which is the:","o":["2nd ICS, right sternal border","4th ICS, left sternal border","5th ICS, left midclavicular line","3rd ICS, left sternal border"],"a":2,"ref":"Slide 17","why":"It may be easier to feel with the client rolled to the left side."},{"q":"The aortic valve area is auscultated at the:","o":["2nd intercostal space, right sternal border","2nd intercostal space, left sternal border","4th intercostal space, left sternal border","5th intercostal space, midclavicular line"],"a":0,"ref":"Slide 19"},{"q":"Erb's point is located at the:","o":["2nd ICS, left sternal border","3rd ICS, left sternal border","4th ICS, left sternal border","5th ICS, left midclavicular line"],"a":1,"ref":"Slide 19"},{"q":"The tricuspid valve area is auscultated at the:","o":["2nd ICS, right sternal border","3rd ICS, left sternal border","4th ICS, left sternal border","5th ICS, left midclavicular line"],"a":2,"ref":"Slide 19","why":"Mnemonic: All Puppies Eat Tasty Meat — Aortic, Pulmonic, Erb's, Tricuspid, Mitral."},{"q":"According to the slides' key points, which is correct?","o":["Use light pressure with the diaphragm for high-pitched sounds","Use heavy pressure with the diaphragm for high-pitched sounds and light pressure with the bell for low-pitched sounds","Use the bell only","Auscultate in three locations"],"a":1,"ref":"Slide 18","why":"Auscultate in all 5 locations, and check for a pulse deficit if the rhythm is irregular."},{"q":"If an irregular rhythm is detected at the apex, the nurse should:","o":["Document and move on","Compare the apical pulse with the radial pulse for a pulse deficit","Recheck the blood pressure","Palpate both carotids"],"a":1,"ref":"Slide 18"},{"q":"Arteries carry:","o":["Deoxygenated blood back to the heart","Oxygenated, nutrient-rich blood from the heart to the capillaries","Lymph fluid","Blood at low pressure"],"a":1,"ref":"Slide 23","why":"The arterial network is a high-pressure system; blood is propelled by the left ventricle. Arterial walls are thicker and stronger than veins."},{"q":"The brachial pulse is palpated:","o":["On the lateral aspect of the wrist","Medial to the biceps tendon at the bend of the elbow","On the medial aspect of the wrist","Behind the knee"],"a":1,"ref":"Slide 24","why":"Radial = lateral wrist; ulnar = medial wrist."},{"q":"The posterior tibial pulse is palpated:","o":["On top of the foot on the great toe side","Behind the knee","Behind the medial malleolus of the ankle","Just under the inguinal ligament"],"a":2,"ref":"Slide 25"},{"q":"The dorsalis pedis pulse is palpated:","o":["Behind the medial malleolus","On the great toe side of the top of the foot","Behind the lateral malleolus","On the sole of the foot"],"a":1,"ref":"Slide 25"},{"q":"The femoral pulse is palpated:","o":["Behind the knee","Just under the inguinal ligament","At the medial thigh above the knee","Lateral to the pubic bone"],"a":1,"ref":"Slide 25","why":"The popliteal pulse is behind the knee."},{"q":"Which of the following is NOT one of the three mechanisms of venous function named in the slides?","o":["One-way valves","Skeletal muscle contraction","Pressure gradient created by breathing","Pumping by the left ventricle"],"a":3,"ref":"Slide 27","why":"Left ventricular pressure drives the arterial system, not venous return."},{"q":"The deep veins of the leg are the:","o":["Great and small saphenous veins","Femoral and popliteal veins","Perforator veins","Dorsalis pedis and posterior tibial veins"],"a":1,"ref":"Slide 27","why":"The great and small saphenous veins are superficial; perforator veins connect the two systems."},{"q":"Tortuous and dilated veins are called:","o":["Venous stasis","Varicose veins","Perforator veins","Thrombophlebitis"],"a":1,"ref":"Slide 27"},{"q":"The primary function of the lymphatic system is to:","o":["Carry oxygenated blood to tissues","Drain excess fluid and plasma proteins from tissues and return them to the venous system","Produce red blood cells","Regulate blood pressure"],"a":1,"ref":"Slide 31","why":"This helps prevent edema; nodes filter microorganisms, foreign material, dead blood cells, and abnormal cells."},{"q":"The epitrochlear lymph nodes are located just above the elbow on the medial arm and drain the:","o":["Head and neck","Lower arm and hand","Chest wall","Upper arm and shoulder"],"a":1,"ref":"Slide 32"},{"q":"The superficial inguinal nodes drain the:","o":["Arms and hands","Legs, external genitalia, lower abdomen, and buttocks","Breasts","Head and neck"],"a":1,"ref":"Slide 32"},{"q":"Arterial insufficiency (peripheral artery disease) occurs when:","o":["Vein valves are damaged and blood pools in the legs","Arteries are narrowed or blocked by plaque, reducing oxygen delivery to tissues","Lymph nodes are obstructed","The heart pumps too forcefully"],"a":1,"ref":"Slide 33","why":"Venous insufficiency (CVI) is the damaged-valve, pooling problem."},{"q":"When using a Doppler ultrasound device, the probe is placed lightly at what angle?","o":["15° to 30°","45°","60° to 90°","Flat against the skin"],"a":2,"ref":"Slide 35","why":"Use conductivity gel and listen for a whooshing sound."},{"q":"Abnormal hair loss on the legs that is not associated with aging is a sign of:","o":["Venous insufficiency","Arterial insufficiency","Lymphedema","Normal variation"],"a":1,"ref":"Slide 38"},{"q":"Normal peripheral pulse strength is documented as:","o":["1+ and equal bilaterally","2+ and equal bilaterally","3+ and equal bilaterally","4+ and equal bilaterally"],"a":1,"ref":"Slides 26 & 36","why":"0 absent · 1+ weak/diminished/thready · 2+ normal · 3+ strong/full · 4+ bounding."},{"q":"Which leg pulse is auscultated as well as palpated?","o":["Popliteal","Dorsalis pedis","Femoral","Posterior tibial"],"a":2,"ref":"Slide 38"}],"sa":[{"q":"Name the five great vessels.","a":["Superior vena cava","Inferior vena cava","Pulmonary artery","Pulmonary veins","Aorta"],"ref":"Slide 6"},{"q":"Trace the electrical conduction pathway of the heart in order, with the intrinsic rate of each part.","a":["SA (sinus) node — pacemaker, 60–100 bpm","AV node — 40–60 bpm","Bundle of His — 40–60 bpm","Right and left bundle branches","Purkinje fibers — 20–40 bpm"],"ordered":true,"ref":"Slide 8"},{"q":"What do the P wave, QRS complex, and T wave represent?","a":["P wave — atrial depolarization (atrial contraction)","QRS complex — ventricular depolarization (ventricular contraction)","T wave — ventricular repolarization (ventricular relaxation)"],"ref":"Slide 9"},{"q":"Describe the two phases of the cardiac cycle and when S1 and S2 occur.","a":["Diastole — ventricles relax and fill; AV valves open and blood rushes from atria into ventricles","Systole — ventricles contract and empty; rising pressure closes the AV valves (S1, beginning of systole); semilunar valves open; when emptying finishes the semilunar valves close (S2, end of systole / beginning of diastole)"],"ref":"Slide 10"},{"q":"Name the five auscultation sites and their locations, plus the mnemonic.","a":["Aortic — 2nd ICS, right sternal border","Pulmonic — 2nd ICS, left sternal border","Erb's point — 3rd ICS, left sternal border","Tricuspid — 4th ICS, left sternal border","Mitral (apical / PMI) — 5th ICS, left midclavicular line","All Puppies Eat Tasty Meat"],"ordered":true,"ref":"Slide 19"},{"q":"Describe the neck vessel assessment.","a":["Inspection — observe the jugular venous pulse with the patient at 30–40°, head turned slightly left, nurse on the right; evaluate jugular venous pressure","Auscultation — carotid arteries with the bell for bruits while the patient holds their breath","Palpation — carotid arteries one at a time, comparing sides"],"ref":"Slide 16"},{"q":"What are the key points for auscultating the heart?","a":["Use both the diaphragm and the bell","Heavy pressure with the diaphragm for high-pitched sounds; light pressure with the bell for low-pitched sounds","Auscultate in all five locations","Identify S1 and S2; listen for extra sounds and murmurs; listen with the client in other positions","If the rhythm is irregular, compare apical and radial pulses for a pulse deficit"],"ref":"Slide 18"},{"q":"List symptoms of a heart attack, including those emphasized for women.","a":["Chest pain, discomfort, pressure, or squeezing","Upper body pain — jaw, neck, arm, upper back","Shortness of breath","Nausea or vomiting","Cold sweat","Lightheadedness or dizziness","Unusual fatigue"],"ref":"Slide 14"},{"q":"Compare arteries and veins in structure and function.","a":["Arteries — carry oxygenated, nutrient-rich blood from the heart; high-pressure system driven by the left ventricle; thick, strong walls; pulse palpable where arteries are superficial","Veins — carry deoxygenated, waste-laden blood back to the heart via the superior and inferior vena cava; thinner walls and larger diameter; rely on one-way valves, skeletal muscle contraction, and breathing pressure gradients"],"ref":"Slides 23 & 27"},{"q":"Name the upper- and lower-extremity pulse sites and where each is palpated.","a":["Brachial — medial to the biceps tendon at the elbow","Radial — lateral wrist","Ulnar — medial wrist","Femoral — just under the inguinal ligament","Popliteal — behind the knee","Dorsalis pedis — top of the foot, great toe side","Posterior tibial — behind the medial malleolus"],"ref":"Slides 24–25"},{"q":"Name the three types of leg veins with examples, and define venous stasis and varicose veins.","a":["Deep veins — femoral and popliteal","Superficial veins — great and small saphenous","Perforator veins","Venous stasis — blood pools in the vein","Varicose veins — tortuous, dilated veins"],"ref":"Slide 27"},{"q":"Describe the components and functions of the lymphatic system, and name the two superficial node groups of the extremities.","a":["Lymphatic capillaries, lymphatic vessels, and lymph nodes","Drains excess fluid and plasma proteins from tissues back to the venous system (via the right lymphatic duct or thoracic duct); helps prevent edema","Nodes filter and destroy microorganisms, foreign material, dead blood cells, and abnormal cells","Epitrochlear nodes — above the elbow, medial arm; drain lower arm and hand","Superficial inguinal nodes — groin; drain legs, external genitalia, lower abdomen, and buttocks"],"ref":"Slides 31–32"},{"q":"Compare arterial insufficiency (PAD) with venous insufficiency (CVI) as defined in the slides.","a":["PAD — arteries narrowed or blocked by plaque, reducing oxygen delivery to tissues","CVI — damaged, weak vein valves let blood flow backward and pool in the legs and feet instead of returning to the heart"],"ref":"Slide 33"},{"q":"Walk through the arm and leg assessments.","a":["Arms: inspect size, venous pattern, edema, color; palpate temperature; capillary refill ≤ 2 s; radial, ulnar, brachial pulses (2+ and equal); epitrochlear nodes (normally nonpalpable)","Legs: inspect color, hair distribution, lesions/ulcers, edema, varicosities; palpate sensation, edema (pitting vs. nonpitting), temperature bilaterally, capillary refill; femoral, popliteal, dorsalis pedis, posterior tibial pulses; superficial inguinal nodes; auscultate femoral pulses","Perform everything bilaterally and compare"],"ref":"Slides 36 & 38"},{"q":"List the equipment for a peripheral vascular exam and the four special tests for arterial or venous insufficiency.","a":["Equipment: centimeter tape, stethoscope, Doppler with conductivity gel (probe at 60–90°), tourniquet, gauze, waterproof pen, BP cuff, gown","Position change test for arterial insufficiency","Ankle-brachial index (ABI)","Manual compression test","Trendelenburg test"],"ref":"Slides 35 & 40"},{"q":"Describe the pulse amplitude/strength scale.","a":["0 — Absent","1+ — Weak, diminished, thready","2+ — Normal","3+ — Strong, full","4+ — Bounding"],"ordered":true,"ref":"Slide 26"}],"ext":[{"kind":"mc","q":"Which two valves are the atrioventricular (AV) valves that close to produce S1?","o":["Aortic and pulmonic","Tricuspid and mitral","Mitral and aortic","Tricuspid and pulmonic"],"a":1,"src":"Nursing Skills (NCBI Bookshelf) — Cardiovascular Assessment","why":"The semilunar valves (aortic and pulmonic) close to produce S2."},{"kind":"mc","q":"An S3 heart sound in a 68-year-old patient with new leg swelling most likely indicates:","o":["A normal finding at any age","Heart failure or fluid volume overload","Atrial fibrillation","Hypertension with a stiff ventricle"],"a":1,"src":"Nursing Skills (NCBI Bookshelf); Merck Manual — Cardiac Auscultation","why":"S3 (“lub-dub-dah”) can be physiologic in children and adults under ~40, but in older adults it usually signals ventricular dysfunction."},{"kind":"mc","q":"An S4 heart sound is best explained as:","o":["Blood filling a relaxed, compliant ventricle","Atrial contraction pushing blood into a stiff, noncompliant ventricle (e.g., hypertension, CAD)","Turbulent flow through a narrowed valve","Normal splitting of S2"],"a":1,"src":"Merck Manual — Cardiac Auscultation; Harrison's Manual of Medicine","why":"S4 (“ta-lub-dub”) is always abnormal and is absent in atrial fibrillation because the atria don't contract."},{"kind":"mc","q":"S3 and S4 are heard best with:","o":["The diaphragm pressed firmly","The bell placed lightly at the apex, often with the patient on the left side","The diaphragm over the aortic area","A Doppler"],"a":1,"src":"Lippincott NursingCenter — Cardiac Assessment pocket card; Nursing Skills (NCBI Bookshelf)"},{"kind":"mc","q":"In murmur grading (I–VI), the lowest grade at which a thrill (palpable vibration) is present is:","o":["Grade II","Grade III","Grade IV","Grade VI"],"a":2,"src":"StatPearls — Cardiac Exam (Levine scale); Merck Manual","why":"I barely audible · II soft but heard · III moderately loud, no thrill · IV loud with thrill · V heard with stethoscope partly off chest · VI heard with stethoscope off the chest."},{"kind":"mc","q":"Jugular venous distention (JVD) is considered abnormal when it is visible with the patient:","o":["Lying flat","Upright or with the head of bed at 30–45 degrees","In Trendelenburg","Holding their breath"],"a":1,"src":"Nursing Skills (NCBI Bookshelf) — Cardiovascular Assessment; Merck Manual","why":"At 45°, the top of the venous column is normally no more than about 4 cm above the sternal angle."},{"kind":"mc","q":"The recommended ORDER for the cardiovascular exam of the neck is:","o":["Palpate, then auscultate the carotids","Inspect, auscultate, then palpate — auscultate carotids before palpating","Percuss first","Palpate both carotids together, then listen"],"a":1,"src":"Lippincott NursingCenter — Cardiac Assessment pocket card"},{"kind":"mc","q":"An ankle-brachial index (ABI) of 0.80 indicates:","o":["Normal arterial flow","Peripheral arterial disease (ABI ≤ 0.90)","Noncompressible, calcified vessels","Venous insufficiency"],"a":1,"src":"Merck Manual — Cardiovascular Examination","why":"Normal is about 1.0–1.4. Mild PAD 0.71–0.90, moderate 0.41–0.70, severe ≤ 0.40. A high ABI (> 1.30–1.40) suggests calcified vessels, often in diabetes."},{"kind":"mc","q":"Pitting edema that leaves a very deep pit lasting 2–5 minutes with a grossly distorted leg is graded:","o":["1+","2+","3+","4+"],"a":3,"src":"Home Healthcare Now — Peripheral Vascular Disease (edema grading table)","why":"1+ slight pit, disappears rapidly · 2+ deeper pit, gone in 10–15 s · 3+ deep pit lasting > 1 min, leg looks swollen · 4+ very deep pit, 2–5 min."},{"kind":"mc","q":"Calf pain that comes on with walking and is relieved by rest (intermittent claudication) is the classic symptom of:","o":["Venous insufficiency","Arterial insufficiency / peripheral arterial disease","Lymphedema","Deep vein thrombosis"],"a":1,"src":"OpenStax Medical-Surgical Nursing — Peripheral Vascular Disease"},{"kind":"mc","q":"An ulcer at the medial malleolus with irregular edges, surrounded by brown-stained, edematous, warm skin is most consistent with:","o":["Arterial insufficiency","Venous insufficiency","A pressure injury","Acute arterial occlusion"],"a":1,"src":"OpenStax Medical-Surgical Nursing; Apex Nursing — Peripheral Vascular Assessment","why":"Arterial ulcers are round, “punched-out,” painful, on toes and pressure points, with cool, pale, shiny, hairless skin and diminished pulses."},{"kind":"mc","q":"During the position-change test for arterial insufficiency, which finding suggests arterial disease?","o":["Pink color returns within 5 seconds of lowering the legs","Marked pallor with the legs elevated, and color return taking longer than 10 seconds","Veins fill within 5 seconds","The legs stay pink when elevated"],"a":1,"src":"Weber & Kelley, Health Assessment in Nursing — Chapter 22","why":"Raise the legs ~12 inches, have the client pump the feet for a minute, then lower them. Superficial veins taking > 15 seconds to fill and persistent dependent rubor also suggest arterial insufficiency."},{"kind":"mc","q":"Unilateral calf warmth, redness, tenderness, and edema should make the nurse suspect:","o":["Arterial occlusion","Deep vein thrombosis (DVT)","Lymphedema","Varicose veins"],"a":1,"src":"Nursing Skills (NCBI Bookshelf) — Cardiovascular Assessment"},{"kind":"sa","q":"List the 6 Ps of acute arterial occlusion and say which are late signs.","a":["Pain","Pallor","Pulselessness","Paresthesia","Paralysis","Poikilothermia (coolness)","Sudden onset = acute limb ischemia, an emergency; paresthesia and paralysis are late, limb-threatening signs"],"src":"Apex Nursing — Peripheral Vascular Assessment reference"},{"kind":"sa","q":"Compare arterial and venous insufficiency: pain, pulses, skin, edema, ulcers, and position that helps.","a":["Pain — arterial: intermittent claudication, progressing to rest pain; venous: aching, heaviness, worse at end of day and with prolonged standing, relieved by elevation","Pulses — arterial: decreased or absent; venous: present","Skin — arterial: cool, pale, shiny, hairless, thick nails, pallor on elevation and dependent rubor; venous: warm, brown (hemosiderin) staining, thick skin","Edema — arterial: absent; venous: present","Ulcers — arterial: toes, heels, pressure points, round/punched-out, painful, minimal drainage; venous: medial malleolus (gaiter area), irregular, weepy, less painful","Position — arterial legs do best dependent/neutral; venous legs do best elevated with compression (compression contraindicated if arterial supply is poor)"],"src":"OpenStax Medical-Surgical Nursing; Apex Nursing; Home Healthcare Now"},{"kind":"sa","q":"How is the ankle-brachial index calculated and interpreted?","a":["Patient recumbent; measure systolic pressure at the ankle (dorsalis pedis and posterior tibial, using a Doppler) and in both arms (brachial)","ABI = highest ankle systolic pressure ÷ highest brachial systolic pressure, for each leg","Normal ≈ 1.0–1.4; ≤ 0.90 = peripheral arterial disease (0.71–0.90 mild, 0.41–0.70 moderate, ≤ 0.40 severe)","> 1.30–1.40 = noncompressible, calcified vessels (diabetes, kidney disease) — also abnormal"],"src":"Merck Manual — Cardiovascular Examination"},{"kind":"sa","q":"Describe the pitting edema scale.","a":["0 — no edema","1+ — slight pitting (~2 mm), no visible distortion, disappears rapidly","2+ — deeper pit (~4 mm), no readily detectable distortion, gone in 10–15 seconds","3+ — noticeably deep pit (~6 mm) lasting more than a minute; extremity looks fuller and swollen","4+ — very deep pit (~8 mm) lasting 2–5 minutes; extremity grossly distorted"],"ordered":true,"src":"Home Healthcare Now — Peripheral Vascular Disease (edema grading table)"},{"kind":"sa","q":"Describe the six grades of heart murmurs.","a":["Grade I — very faint, may not be heard in all positions","Grade II — quiet but easily heard with the stethoscope on the chest","Grade III — moderately loud, no thrill","Grade IV — loud, with a palpable thrill","Grade V — very loud, heard with the stethoscope partly off the chest","Grade VI — loudest, heard with the stethoscope entirely off the chest"],"ordered":true,"src":"Lippincott NursingCenter — Cardiac Assessment pocket card; StatPearls Cardiac Exam"},{"kind":"sa","q":"How is jugular venous pressure (JVP) estimated at the bedside?","a":["Position the patient at 45° and stand on the right; find the highest point of pulsation in the right internal jugular vein","Hold a card horizontally from that point and a ruler vertically from the sternal angle to make a right angle","Measure the vertical distance above the sternal angle in cm; normal is about ≤ 3–4 cm","Add 5 cm (sternal angle to right atrium) to estimate right atrial pressure in cm of water","Elevated JVP suggests right heart failure, volume overload, tamponade, or constrictive pericarditis; low JVP suggests hypovolemia"],"src":"Lippincott NursingCenter — Cardiac Assessment pocket card; Merck Manual"}]}};
+
+const DECK_ORDER = ["wk5"];
+const LS_KEY = "nrsg106-quiz-bank-v4";
+let state = load();
+let deck = DECKS[state.deck] ? state.deck : DECK_ORDER[0];
+let keyMode = false;
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}") || {}; } catch (e) { return {}; }
+}
+function save() {
+  try { state.deck = deck; localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+}
+function ans(d) { state[d] = state[d] || {}; return state[d]; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+/* Sections for a deck: each item carries its own kind ("mc" | "sa") and a stable id */
+function sections(d) {
+  const D = DECKS[d];
+  return [
+    { key: "mc", title: "Multiple Choice", hint: "Pick one answer.", items: D.mc.map((it, i) => ({ ...it, kind: "mc", id: "mc" + i })) },
+    { key: "sa", title: "Short Answer", hint: "Let her answer out loud, reveal, then mark it.", items: D.sa.map((it, i) => ({ ...it, kind: "sa", id: "sa" + i })) },
+    { key: "ex", title: "Beyond the Slides", hint: "Outside sources — not from the class deck", ext: true, items: (D.ext || []).map((it, i) => ({ ...it, id: "ex" + i })) }
+  ];
+}
+function allItems(d) { return sections(d).flatMap(s => s.items.map(it => ({ ...it, secTitle: s.title, ext: !!s.ext }))); }
+function isRight(item, got) { return item.kind === "sa" ? got === true : got === item.a; }
+
+function refLine(item) {
+  return item.src ? `<div class="ref src">${esc(item.src)}</div>` : `<div class="ref">${esc(item.ref || "")}</div>`;
+}
+
+function renderDeckTabs() {
+  document.getElementById("decks").innerHTML = DECK_ORDER.map(d => `
+    <button class="deck-tab" role="tab" id="tab-${d}" aria-selected="${String(d === deck)}" data-deck="${d}">
+      <span class="eyebrow">${esc(DECKS[d].short)}</span>
+      <strong>${esc(DECKS[d].title.replace(/\s*\(.*\)$/, ""))}</strong>
+      <small id="count-${d}"></small>
+    </button>`).join("");
+  document.querySelectorAll(".deck-tab").forEach(t => t.addEventListener("click", () => {
+    deck = t.dataset.deck; save(); render(); window.scrollTo({ top: 0 });
+  }));
+}
+
+function render() {
+  const A = ans(deck);
+  const main = document.getElementById("quiz");
+  document.querySelectorAll(".deck-tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.deck === deck)));
+  let n = 0;
+  const parts = [];
+  const letters = "ABCD";
+
+  sections(deck).forEach(sec => {
+    if (!sec.items.length) return;
+    parts.push(`<section class="${sec.ext ? "ext" : ""}"><div class="sec-head"><h2>${sec.title}</h2><span class="hint">${sec.hint}</span><span class="sec-tally" id="tally-${sec.key}"></span></div>
+      ${sec.ext ? `<div class="ext-note"><b>Heads up:</b> the questions below were <b>not</b> taken from the class slides. They come from published nursing references on the same topics — the kind of related material that could show up on an exam. Each one names its source.</div>` : ""}</section>`);
+
+    sec.items.forEach(item => {
+      n++; const id = item.id; const got = A[id];
+      if (item.kind === "mc") {
+        const locked = got !== undefined;
+        const cls = locked ? (got === item.a ? "right" : "wrong") : "";
+        const opts = item.o.map((o, k) => {
+          let c = "opt";
+          if (locked) { if (k === item.a) c += " is-right"; else if (k === got) c += " is-wrong"; else c += " dim"; }
+          if (keyMode && k === item.a) c += " correct-key";
+          return `<button class="${c}" data-q="${id}" data-v="${k}" ${locked ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(o)}</span></button>`;
+        }).join("");
+        parts.push(`<div class="q ${cls} ${locked ? "locked" : ""}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="opts">${opts}</div>
+            ${locked ? verdict(got === item.a, item.why) : ""}
+            ${refLine(item)}
+          </div></div>`);
+      } else {
+        const revealed = (state.revealed && state.revealed[deck + id]) || got !== undefined;
+        const cls = got === undefined ? "" : (got ? "right" : "wrong");
+        const tag = item.ordered ? "ol" : "ul";
+        const list = `<${tag}>${item.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}>`;
+        parts.push(`<div class="q ${cls}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="sa-row">
+              ${revealed ? "" : `<button class="btn" data-reveal="${id}">Reveal answer</button>`}
+              <div class="grade">
+                <button class="opt g-yes ${got === true ? "picked" : ""}" data-q="${id}" data-v="yes"><span class="key">✓</span><span>She got it</span></button>
+                <button class="opt g-no ${got === false ? "picked" : ""}" data-q="${id}" data-v="no"><span class="key">✕</span><span>Missed it</span></button>
+              </div>
+            </div>
+            <div class="answer" ${revealed ? "" : "hidden"}>${list}</div>
+            ${refLine(item)}
+          </div></div>`);
+      }
+    });
+  });
+
+  main.innerHTML = parts.join("");
+  main.classList.toggle("keymode", keyMode);
+  updateScore();
+  renderRounds();
+}
+
+function verdict(ok, why) {
+  return `<div class="verdict ${ok ? "ok" : "no"}"><b>${ok ? "Correct." : "Not quite."}</b>${why ? `<span class="why">${esc(why)}</span>` : ""}</div>`;
+}
+
+function updateScore() {
+  const A = ans(deck);
+  let right = 0, wrong = 0, total = 0;
+  sections(deck).forEach(sec => {
+    let r = 0, d = 0;
+    sec.items.forEach(it => { total++; const g = A[it.id]; if (g === undefined) return; d++; if (isRight(it, g)) { r++; right++; } else wrong++; });
+    const el = document.getElementById("tally-" + sec.key);
+    if (el) el.textContent = d ? `${r} of ${d} · ${sec.items.length} questions` : `${sec.items.length} questions`;
+  });
+  const done = right + wrong;
+  document.getElementById("score-num").textContent = `${right} / ${done}`;
+  document.getElementById("score-txt").textContent = done ? `correct · ${total - done} left` : `answered of ${total}`;
+  document.getElementById("bar-g").style.width = (right / total * 100) + "%";
+  document.getElementById("bar-b").style.width = (wrong / total * 100) + "%";
+  DECK_ORDER.forEach(d => {
+    const DD = DECKS[d]; const ext = (DD.ext || []).length;
+    const t = DD.mc.length + DD.sa.length + ext;
+    const a = Object.keys(ans(d)).length;
+    const el = document.getElementById("count-" + d);
+    if (el) el.textContent = `${t} questions · ${DD.mc.length} MC, ${DD.sa.length} short answer, ${ext} beyond the slides${a ? ` · ${a} answered` : ""}`;
+  });
+}
+
+document.getElementById("quiz").addEventListener("click", e => {
+  const rev = e.target.closest("[data-reveal]");
+  if (rev) {
+    state.revealed = state.revealed || {}; state.revealed[deck + rev.dataset.reveal] = true; save();
+    const y = window.scrollY; render(); window.scrollTo(0, y);
+    return;
+  }
+  const b = e.target.closest("button[data-q]");
+  if (!b || b.disabled) return;
+  const id = b.dataset.q, v = b.dataset.v;
+  const A = ans(deck);
+  const item = allItems(deck).find(x => x.id === id);
+  if (!item) return;
+  if (item.kind === "mc") A[id] = Number(v); else A[id] = v === "yes";
+  save();
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+document.getElementById("key-toggle").addEventListener("click", function () {
+  keyMode = !keyMode; this.classList.toggle("on", keyMode); this.setAttribute("aria-pressed", String(keyMode));
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+let armedClear = 0;
+document.getElementById("reset-btn").addEventListener("click", function () {
+  if (Object.keys(ans(deck)).length && Date.now() - armedClear > 4000) {
+    armedClear = Date.now(); this.textContent = "Really clear? Click again";
+    setTimeout(() => { this.textContent = "Clear without saving"; }, 4000);
+    return;
+  }
+  armedClear = 0; this.textContent = "Clear without saving";
+  clearDeck(deck); render(); window.scrollTo({ top: 0 });
+});
+function clearDeck(d) {
+  state[d] = {};
+  if (state.revealed) for (const k in state.revealed) if (k.startsWith(d)) delete state.revealed[k];
+  save();
+}
+
+/* ---------- Name ---------- */
+const whoEl = document.getElementById("who");
+whoEl.value = state.who || "";
+whoEl.addEventListener("change", () => { state.who = whoEl.value.trim(); save(); });
+function whoName() { return (state.who || "").trim() || "Someone"; }
+
+/* ---------- Rounds: summary, code, history ---------- */
+const CODE_TAG = "NQB1.";
+function b64e(s) { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function b64d(s) { s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; return decodeURIComponent(escape(atob(s))); }
+
+function roundFromCurrent() {
+  const A = ans(deck); const items = allItems(deck);
+  const answers = {}; let right = 0, done = 0;
+  items.forEach(it => { const g = A[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck, name: whoName(), t: Date.now(), right, done, total: items.length, answers };
+}
+function missedList(r) {
+  const items = allItems(r.deck); const out = [];
+  items.forEach((it, i) => { const g = r.answers[it.id]; if (g !== undefined && !isRight(it, g)) out.push({ n: i + 1, q: it.q, ext: it.ext }); });
+  return out;
+}
+function fmtDate(t) { return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+function pct(r) { return r.done ? Math.round(r.right / r.done * 100) : 0; }
+
+function summaryText(r) {
+  const D = DECKS[r.deck]; const missed = missedList(r);
+  const lines = [
+    `NRSG106 Quiz — ${D.title}`,
+    `${r.name} · ${fmtDate(r.t)} · ${r.right}/${r.done} correct (${pct(r)}%)${r.done < r.total ? ` · ${r.total - r.done} unanswered` : ""}`,
+    missed.length ? `Missed (${missed.length}): ${missed.map(m => "#" + m.n).join(", ")}` : "Missed: none!",
+    ...missed.slice(0, 40).map(m => `  ${m.n}. ${m.q.length > 90 ? m.q.slice(0, 87) + "…" : m.q}`),
+    "",
+    "Code: " + CODE_TAG + b64e(JSON.stringify({ d: r.deck, n: r.name, t: r.t, a: r.answers }))
+  ];
+  return lines.join("\n");
+}
+function parseCode(text) {
+  const m = String(text).match(/NQB1\.([A-Za-z0-9_-]+)/);
+  if (!m) throw new Error("No code found — paste the whole summary or the line that starts with “Code:”.");
+  const o = JSON.parse(b64d(m[1]));
+  if (!DECKS[o.d] || typeof o.a !== "object") throw new Error("That code doesn't match this quiz.");
+  const items = allItems(o.d); let right = 0, done = 0; const answers = {};
+  items.forEach(it => { const g = o.a[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck: o.d, name: String(o.n || "Someone").slice(0, 24), t: Number(o.t) || Date.now(), right, done, total: items.length, answers, imported: true };
+}
+function saveRound(r) {
+  state.rounds = state.rounds || [];
+  r.id = r.id || (r.t + "-" + Math.random().toString(36).slice(2, 7));
+  if (state.rounds.some(x => x.t === r.t && x.name === r.name && x.deck === r.deck)) return false;
+  state.rounds.push(r); state.rounds.sort((a, b) => b.t - a.t);
+  if (state.rounds.length > 60) state.rounds.length = 60;
+  save(); return true;
+}
+
+function renderRounds() {
+  const rounds = (state.rounds || []).filter(r => r.deck === deck);
+  const el = document.getElementById("rounds");
+  const trend = rounds.slice().reverse().slice(-12);
+  el.innerHTML = `
+    <div class="rounds-head"><h2>Past rounds</h2><span class="sec-tally">${rounds.length ? `${rounds.length} saved for this set` : "nothing saved yet"}</span></div>
+    ${trend.length > 1 ? `<div class="trend" aria-label="Score trend">${trend.map(r => `<i class="${r.imported ? "g" : ""}" style="height:${Math.max(6, pct(r) * .44)}px" title="${esc(r.name)} · ${fmtDate(r.t)} · ${pct(r)}%"><span>${pct(r)}%</span></i>`).join("")}</div>` : ""}
+    ${rounds.length ? rounds.map(r => {
+      const missed = missedList(r);
+      return `<div class="round">
+        <div class="r-top"><span class="r-name">${esc(r.name)}</span><span class="r-date">${fmtDate(r.t)}${r.imported ? " · logged from a code" : ""}</span></div>
+        <div class="r-score">${r.right}/${r.done}<small>${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} skipped` : ""}</small></div>
+        <div class="r-missed">${missed.length ? `<details><summary>Missed ${missed.length} — show</summary><ul>${missed.map(m => `<li>#${m.n} · ${esc(m.q)}${m.ext ? " <em>(beyond the slides)</em>" : ""}</li>`).join("")}</ul></details>` : "Nothing missed."}</div>
+        <div class="r-actions"><button class="btn ghost" data-del-round="${r.id}">Remove</button></div>
+      </div>`;
+    }).join("") : `<div class="rounds-empty">When a round is finished, its score and missed questions land here. Rounds logged from someone else's code show up too.</div>`}
+    <div class="log-box">
+      <label for="log-input">Log a round from a code</label>
+      <p>Paste the summary (or just the “Code:” line) that the student texted you. Their score and missed questions are added to this list.</p>
+      <div class="log-row"><input id="log-input" type="text" placeholder="Paste here…" autocomplete="off"><button class="btn" id="log-btn">Add round</button></div>
+      <div class="log-msg" id="log-msg"></div>
+    </div>`;
+}
+
+document.getElementById("rounds").addEventListener("click", e => {
+  const del = e.target.closest("[data-del-round]");
+  if (del) { state.rounds = (state.rounds || []).filter(r => r.id !== del.dataset.delRound); save(); renderRounds(); return; }
+  if (e.target.closest("#log-btn")) {
+    const inp = document.getElementById("log-input"), msg = document.getElementById("log-msg");
+    try {
+      const r = parseCode(inp.value);
+      const added = saveRound(r);
+      if (r.deck !== deck) { deck = r.deck; save(); render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80 }); }
+      else renderRounds();
+      const m2 = document.getElementById("log-msg"); m2.className = "log-msg ok";
+      m2.textContent = added ? `Added ${r.name}'s round — ${r.right}/${r.done} (${pct(r)}%).` : "That round is already in the list.";
+    } catch (err) { msg.className = "log-msg no"; msg.textContent = err.message; }
+  }
+});
+
+/* Finish-round dialog */
+const fin = document.getElementById("finish");
+let pendingRound = null;
+document.getElementById("finish-btn").addEventListener("click", function () {
+  const r = roundFromCurrent();
+  if (!r.done) { this.textContent = "Answer something first"; setTimeout(() => { this.textContent = "Finish round"; }, 2500); return; }
+  pendingRound = r;
+  document.getElementById("f-title").textContent = `${r.name} — ${DECKS[r.deck].short}`;
+  document.getElementById("f-score").textContent = `${r.right} / ${r.done}`;
+  document.getElementById("f-sub").textContent = `${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} of ${r.total} unanswered` : ""}`;
+  document.getElementById("f-text").value = summaryText(r);
+  document.getElementById("f-msg").textContent = "";
+  document.getElementById("f-share").hidden = !navigator.share;
+  fin.hidden = false;
+});
+document.getElementById("f-cancel").addEventListener("click", () => { fin.hidden = true; });
+fin.addEventListener("click", e => { if (e.target === fin) fin.hidden = true; });
+document.getElementById("f-copy").addEventListener("click", async () => {
+  const ta = document.getElementById("f-text"), msg = document.getElementById("f-msg");
+  try { await navigator.clipboard.writeText(ta.value); msg.textContent = "Copied — paste it into a text or email."; }
+  catch (e) { ta.select(); msg.textContent = "Select the text above and copy it."; }
+});
+document.getElementById("f-share").addEventListener("click", async () => {
+  try { await navigator.share({ title: "NRSG106 quiz results", text: document.getElementById("f-text").value }); }
+  catch (e) { /* user cancelled */ }
+});
+document.getElementById("f-save").addEventListener("click", () => {
+  if (!pendingRound) return;
+  saveRound(pendingRound); clearDeck(deck); pendingRound = null; fin.hidden = true;
+  render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80, behavior: "smooth" });
+});
+
+renderDeckTabs();
+render();
+
+/* ---------- Presenter mode ---------- */
+const P = { on: false, i: 0, revealed: false };
+const pEl = document.getElementById("present");
+
+function startPresent() {
+  const qs = allItems(deck); const A = ans(deck);
+  let first = qs.findIndex(q => A[q.id] === undefined); if (first < 0) first = 0;
+  P.on = true; P.i = first; P.revealed = false;
+  document.body.classList.add("presenting"); pEl.hidden = false;
+  renderPresent();
+}
+function exitPresent() {
+  P.on = false; document.body.classList.remove("presenting"); pEl.hidden = true;
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+}
+
+function renderPresent() {
+  const qs = allItems(deck); const q = qs[P.i]; const A = ans(deck); const got = A[q.id];
+  const answered = got !== undefined;
+  const show = P.revealed || answered;
+  const secEl = document.getElementById("p-section");
+  const kindLabel = q.kind === "mc" ? "Multiple choice" : "Short answer";
+  secEl.textContent = q.ext ? `Beyond the Slides · ${kindLabel} · Question ${P.i + 1} of ${qs.length}` : `${q.secTitle} · Question ${P.i + 1} of ${qs.length}`;
+  secEl.classList.toggle("is-ext", !!q.ext);
+  document.getElementById("p-deck").textContent = DECKS[deck].title;
+  const letters = "ABCD";
+  let html = `<p class="p-stem">${esc(q.q)}</p>`;
+
+  if (q.kind === "mc") {
+    html += `<div class="p-opts">` + q.o.map((label, k) => {
+      let c = "opt";
+      if (show) { if (k === q.a) c += " is-right"; else if (answered && k === got) c += " is-wrong"; else c += " dim"; }
+      return `<button class="${c}" data-pv="${k}" ${answered ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(label)}</span></button>`;
+    }).join("") + `</div>`;
+    if (answered) html += `<div class="p-verdict ${got === q.a ? "ok" : "no"}"><b>${got === q.a ? "Correct." : "Not quite."}</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else if (show) html += `<div class="p-verdict ok"><b>Answer shown.</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else html += `<div class="p-wait">Let her answer — then press her letter to check it, or Space to reveal.</div>`;
+  } else {
+    if (show) {
+      const tag = q.ordered ? "ol" : "ul";
+      const two = q.a.length > 5 ? "two" : "";
+      html += `<div class="answer p-answer"><span class="lead">Answer</span><${tag} class="${two}">${q.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}></div>`;
+      html += `<div class="p-opts two grade">
+        <button class="opt g-yes ${got === true ? "picked" : ""}" data-pv="yes"><span class="key">✓</span><span>She got it</span></button>
+        <button class="opt g-no ${got === false ? "picked" : ""}" data-pv="no"><span class="key">✕</span><span>Missed it</span></button>
+      </div>`;
+    } else {
+      html += `<div class="p-wait">Let her answer out loud, then press Space to reveal.</div>`;
+    }
+  }
+  html += refLine(q);
+  document.getElementById("p-body").innerHTML = html;
+
+  let right = 0, done = 0;
+  qs.forEach(x => { const g = A[x.id]; if (g === undefined) return; done++; if (isRight(x, g)) right++; });
+  document.getElementById("p-score").textContent = `${right} / ${done} correct`;
+  document.getElementById("p-bar").style.width = ((P.i + 1) / qs.length * 100) + "%";
+  document.getElementById("p-prev").disabled = P.i === 0;
+  document.getElementById("p-next").textContent = P.i === qs.length - 1 ? "Finish" : "Next →";
+  document.getElementById("p-reveal").hidden = show;
+}
+
+function pAnswer(v) {
+  const q = allItems(deck)[P.i]; const A = ans(deck);
+  if (q.kind === "mc") A[q.id] = Number(v); else A[q.id] = v === "yes";
+  save(); renderPresent();
+}
+function pMove(d) {
+  const qs = allItems(deck); const n = P.i + d;
+  if (n < 0) return;
+  if (n >= qs.length) { exitPresent(); if (Object.keys(ans(deck)).length) document.getElementById("finish-btn").click(); return; }
+  P.i = n; P.revealed = false; renderPresent();
+}
+
+document.getElementById("present-btn").addEventListener("click", startPresent);
+document.getElementById("p-exit").addEventListener("click", exitPresent);
+document.getElementById("p-prev").addEventListener("click", () => pMove(-1));
+document.getElementById("p-next").addEventListener("click", () => pMove(1));
+document.getElementById("p-reveal").addEventListener("click", () => { P.revealed = true; renderPresent(); });
+document.getElementById("p-body").addEventListener("click", e => {
+  const b = e.target.closest("button[data-pv]"); if (!b || b.disabled) return; pAnswer(b.dataset.pv);
+});
+
+document.addEventListener("keydown", e => {
+  if (!P.on) return;
+  if (e.target.matches("input, textarea")) return;
+  const q = allItems(deck)[P.i]; const A = ans(deck); const answered = A[q.id] !== undefined;
+  const k = e.key;
+  if (k === "Escape") { exitPresent(); }
+  else if (k === "ArrowRight" || k === "PageDown") { pMove(1); }
+  else if (k === "ArrowLeft" || k === "PageUp") { pMove(-1); }
+  else if (k === " " || k === "Enter") { e.preventDefault(); if (P.revealed || answered) pMove(1); else { P.revealed = true; renderPresent(); } }
+  else if (q.kind === "mc" && !answered && /^[a-d1-4]$/i.test(k)) { const idx = /\d/.test(k) ? Number(k) - 1 : "abcd".indexOf(k.toLowerCase()); if (idx < q.o.length) pAnswer(String(idx)); }
+  else if (q.kind === "sa" && (P.revealed || answered) && /^[yn]$/i.test(k)) { pAnswer(k.toLowerCase() === "y" ? "yes" : "no"); }
+  else return;
+  e.preventDefault();
+});
+</script>
+
+</body>
+</html>

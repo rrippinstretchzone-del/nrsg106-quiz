@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NRSG106 Quiz Bank — Week 4</title>
+<style>[hidden]{display:none!important} img{max-width:100%}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    --paper: #F6F8FA;
+    --card: #FFFFFF;
+    --ink: #1B2A41;
+    --ink-soft: #4A5A70;
+    --ink-faint: #8593A6;
+    --rule: #D9DFE7;
+    --rule-strong: #B8C2CF;
+    --teal: #0F7B8A;
+    --teal-ink: #0B5F6B;
+    --teal-wash: #E3F1F3;
+    --mark: #F9D65C;
+    --mark-wash: #FFF6D2;
+    --good: #2E8B57;
+    --good-wash: #E4F3EA;
+    --bad: #C8463A;
+    --bad-wash: #FBE7E4;
+    --plum: #6B4E9B;
+    --plum-wash: #EEE9F7;
+    --focus: #0F7B8A;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12181F;
+      --card: #1A222B;
+      --ink: #E7ECF2;
+      --ink-soft: #B3BFCD;
+      --ink-faint: #7C8A9B;
+      --rule: #2C3743;
+      --rule-strong: #3E4B5A;
+      --teal: #3FB2C1;
+      --teal-ink: #6FCBD7;
+      --teal-wash: #16323A;
+      --mark: #E8C64A;
+      --mark-wash: #3A3316;
+      --good: #4FBF7F;
+      --good-wash: #16321F;
+      --bad: #E8746A;
+      --bad-wash: #3D1F1B;
+      --plum: #B49BE0;
+      --plum-wash: #2A2138;
+      --focus: #3FB2C1;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12181F;
+    --card: #1A222B;
+    --ink: #E7ECF2;
+    --ink-soft: #B3BFCD;
+    --ink-faint: #7C8A9B;
+    --rule: #2C3743;
+    --rule-strong: #3E4B5A;
+    --teal: #3FB2C1;
+    --teal-ink: #6FCBD7;
+    --teal-wash: #16323A;
+    --mark: #E8C64A;
+    --mark-wash: #3A3316;
+    --good: #4FBF7F;
+    --good-wash: #16321F;
+    --bad: #E8746A;
+    --bad-wash: #3D1F1B;
+    --plum: #B49BE0;
+    --plum-wash: #2A2138;
+    --focus: #3FB2C1;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    padding-block: 0 64px;
+    padding-inline: clamp(16px, 4vw, 40px);
+  }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif; text-wrap: balance; margin: 0; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  header { padding-block: 28px 20px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+  .eyebrow { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-ink); font-weight: 700; }
+  h1 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; margin-top: 6px; }
+  .sub { color: var(--ink-soft); margin: 6px 0 0; max-width: 60ch; }
+
+  /* Deck tabs */
+  .decks { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
+  .deck-tab {
+    flex: 1 1 240px; text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 14px 16px; display: grid; gap: 2px; transition: border-color .15s, background .15s;
+  }
+  .deck-tab .eyebrow { color: var(--ink-faint); }
+  .deck-tab strong { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; }
+  .deck-tab small { color: var(--ink-soft); font-size: 14px; }
+  .deck-tab[aria-selected="true"] { border-color: var(--teal); background: var(--teal-wash); box-shadow: inset 0 0 0 1px var(--teal); }
+  .deck-tab[aria-selected="true"] .eyebrow { color: var(--teal-ink); }
+
+  /* Toolbar */
+  .toolbar {
+    position: sticky; top: 0; z-index: 5; background: var(--paper);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding-block: 14px; border-bottom: 1px solid var(--rule); margin-top: 8px;
+  }
+  .score { display: flex; align-items: baseline; gap: 8px; font-variant-numeric: tabular-nums; }
+  .score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; font-weight: 700; line-height: 1; }
+  .score span { color: var(--ink-soft); font-size: 14px; }
+  .bar { flex: 1 1 160px; height: 8px; border-radius: 99px; background: var(--rule); overflow: hidden; display: flex; min-width: 120px; }
+  .bar i { display: block; height: 100%; transition: width .25s; }
+  .bar .g { background: var(--good); }
+  .bar .b { background: var(--bad); }
+  .tools { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+  .btn { border: 1px solid var(--rule-strong); background: var(--card); border-radius: 8px; padding: 7px 12px; font-size: 14.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
+  .btn:hover { border-color: var(--teal); }
+  .btn.on { background: var(--mark-wash); border-color: var(--mark); }
+  .btn .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule-strong); }
+  .btn.on .dot { background: var(--mark); }
+  .btn.ghost { border-color: transparent; background: transparent; color: var(--ink-soft); }
+  .btn.ghost:hover { color: var(--bad); }
+  .btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .btn.primary:hover { background: var(--teal-ink); border-color: var(--teal-ink); }
+
+  /* Sections */
+  section { margin-top: 40px; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: 22px; font-weight: 700; }
+  .sec-head .hint { color: var(--ink-soft); font-size: 14.5px; }
+  .sec-tally { font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: 14.5px; }
+  section.ext .sec-head { border-bottom-color: var(--plum); }
+  section.ext .sec-head h2 { color: var(--plum); }
+  .ext-note {
+    margin-top: 14px; padding: 12px 16px; border-radius: 10px; background: var(--plum-wash); color: var(--ink);
+    border-left: 3px solid var(--plum); font-size: 15px; line-height: 1.45;
+  }
+  .ext-note b { color: var(--plum); }
+
+  .q { display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; padding-block: 20px; border-bottom: 1px solid var(--rule); }
+  .q .num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 18px; color: var(--ink-faint); font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .q.right .num { color: var(--good); }
+  .q.wrong .num { color: var(--bad); }
+  .q .body { display: grid; gap: 12px; min-width: 0; }
+  .q .stem { font-size: 17.5px; line-height: 1.45; margin: 0; }
+  .q .ref { font-size: 12.5px; color: var(--ink-faint); letter-spacing: .04em; text-transform: uppercase; }
+  .ref.src { text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--plum); }
+  .ref.src::before { content: "Outside source · "; font-weight: 700; }
+
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.35;
+    transition: border-color .12s, background .12s;
+  }
+  .opt:hover { border-color: var(--teal); }
+  .opt .key { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--rule-strong); display: grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+  .opt.picked { border-color: var(--teal); background: var(--teal-wash); }
+  .opt.is-right { border-color: var(--good); background: var(--good-wash); }
+  .opt.is-right .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.is-wrong { border-color: var(--bad); background: var(--bad-wash); }
+  .opt.is-wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .6; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--rule); }
+  .locked .opt.is-right:hover { border-color: var(--good); }
+  .locked .opt.is-wrong:hover { border-color: var(--bad); }
+
+  .verdict { font-size: 15px; display: flex; gap: 8px; align-items: flex-start; }
+  .verdict b { flex: 0 0 auto; }
+  .verdict.ok b { color: var(--good); }
+  .verdict.no b { color: var(--bad); }
+  .verdict .why { color: var(--ink-soft); }
+
+  /* Short answer */
+  .sa-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .answer {
+    background: var(--mark-wash); border-left: 3px solid var(--mark); padding: 10px 14px; border-radius: 0 8px 8px 0;
+    font-size: 16px; line-height: 1.45;
+  }
+  .answer ul, .answer ol { margin: 4px 0 0; padding-left: 20px; }
+  .answer li { margin: 2px 0; }
+  .grade { display: flex; gap: 8px; flex-wrap: wrap; }
+  .grade .opt { padding: 8px 12px; }
+  .grade .opt.g-yes.picked { border-color: var(--good); background: var(--good-wash); }
+  .grade .opt.g-no.picked { border-color: var(--bad); background: var(--bad-wash); }
+
+  /* Answer-key mode */
+  .keymode .answer[hidden] { display: block !important; }
+  .keymode .opt.correct-key { border-color: var(--mark); background: var(--mark-wash); }
+  .keymode .opt.correct-key .key { background: var(--mark); border-color: var(--mark); color: #1B2A41; }
+
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--ink-faint); font-size: 13.5px; }
+  footer p { margin: 6px 0; }
+
+  /* Name field */
+  .who { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-soft); }
+  .who input { font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 6px 10px; width: 9ch; }
+  .who input:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; }
+
+  /* Past rounds */
+  .rounds-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .rounds-head h2 { font-size: 22px; font-weight: 700; }
+  .rounds-empty { color: var(--ink-faint); padding: 18px 0; font-size: 15.5px; }
+  .round { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding-block: 14px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .round .r-top { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+  .round .r-name { font-weight: 700; }
+  .round .r-date { color: var(--ink-soft); font-size: 14.5px; }
+  .round .r-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; text-align: right; line-height: 1.1; }
+  .round .r-score small { display: block; font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 13px; color: var(--ink-soft); }
+  .round .r-missed { grid-column: 1 / -1; font-size: 15px; color: var(--ink-soft); }
+  .round details summary { cursor: pointer; color: var(--teal-ink); font-weight: 600; }
+  .round details ul { margin: 6px 0 0; padding-left: 20px; }
+  .round details li { margin: 3px 0; color: var(--ink); }
+  .round .r-actions { grid-column: 1 / -1; display: flex; gap: 8px; }
+  .round .r-actions .btn { font-size: 13px; padding: 4px 9px; }
+  .log-box { margin-top: 18px; padding: 14px 16px; border: 1px dashed var(--rule-strong); border-radius: 10px; display: grid; gap: 8px; }
+  .log-box label { font-weight: 600; font-size: 15px; }
+  .log-box p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+  .log-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .log-row input { flex: 1 1 240px; font: inherit; font-size: 14px; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 8px 10px; }
+  .log-msg { font-size: 14px; min-height: 1.2em; }
+  .log-msg.ok { color: var(--good); } .log-msg.no { color: var(--bad); }
+  .trend { display: flex; gap: 6px; align-items: flex-end; height: 44px; margin-top: 12px; }
+  .trend i { flex: 0 0 18px; background: var(--teal); border-radius: 3px 3px 0 0; opacity: .85; position: relative; }
+  .trend i.g { background: var(--plum); }
+  .trend i span { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--ink-faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Finish-round dialog */
+  .modal-bg { position: fixed; inset: 0; z-index: 60; background: rgba(10, 16, 24, .55); display: grid; place-items: center; padding: 16px; }
+  .modal-bg[hidden] { display: none; }
+  .modal { background: var(--card); color: var(--ink); border-radius: 14px; width: min(640px, 100%); max-height: 92vh; overflow: auto; padding: 22px 24px 20px; box-shadow: 0 20px 60px rgba(0,0,0,.25); display: grid; gap: 14px; }
+  .modal h2 { font-size: 24px; }
+  .modal .m-score { display: flex; align-items: baseline; gap: 10px; }
+  .modal .m-score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modal .m-score span { color: var(--ink-soft); }
+  .modal textarea { width: 100%; min-height: 150px; font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; resize: vertical; }
+  .modal .m-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .modal .m-note { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .modal .m-msg { font-size: 14px; color: var(--good); min-height: 1.2em; }
+
+  /* Presenter mode — one question, big type, for screen sharing */
+  body.presenting { overflow: hidden; }
+  .present {
+    position: fixed; inset: 0; z-index: 50; background: var(--paper); color: var(--ink);
+    display: grid; grid-template-rows: auto 1fr auto; padding: clamp(16px, 3vw, 36px) clamp(16px, 5vw, 72px);
+  }
+  .present[hidden], .btn[hidden] { display: none; }
+  .p-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .p-top .eyebrow { font-size: clamp(13px, 1.3vw, 17px); }
+  .p-top .eyebrow.is-ext { color: var(--plum); }
+  .p-top .p-deck { color: var(--ink-faint); font-weight: 600; font-size: clamp(13px, 1.3vw, 17px); }
+  .p-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(18px, 2vw, 26px); font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 12px; }
+  .p-score .btn { font-size: clamp(13px, 1.2vw, 16px); }
+  .p-body { display: grid; align-content: center; gap: clamp(18px, 3vh, 36px); max-width: 1200px; width: 100%; margin: 0 auto; min-height: 0; overflow: auto; }
+  .p-stem { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 48px); line-height: 1.2; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  .p-opts { display: grid; gap: clamp(8px, 1.4vh, 14px); }
+  .p-opts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-opts .opt { font-size: clamp(19px, 2.2vw, 30px); padding: clamp(12px, 1.8vh, 18px) clamp(14px, 1.6vw, 22px); border-radius: 12px; gap: 14px; }
+  .p-opts .opt .key { width: 1.35em; height: 1.35em; font-size: .7em; border-radius: 8px; }
+  .p-answer { font-size: clamp(19px, 2.1vw, 28px); padding: clamp(14px, 2vh, 22px) clamp(18px, 2vw, 28px); }
+  .p-answer .lead { font-weight: 700; display: block; margin-bottom: 4px; }
+  .p-answer ol, .p-answer ul { columns: 1; }
+  @media (min-width: 900px) { .p-answer ol.two, .p-answer ul.two { columns: 2; column-gap: 40px; } }
+  .p-verdict { font-size: clamp(19px, 2.1vw, 28px); }
+  .p-verdict.ok b { color: var(--good); } .p-verdict.no b { color: var(--bad); }
+  .p-verdict .why { color: var(--ink-soft); }
+  .p-wait { color: var(--ink-faint); font-size: clamp(17px, 1.8vw, 24px); font-style: italic; }
+  .p-body .ref { font-size: clamp(13px, 1.2vw, 15px); }
+  .p-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; }
+  .p-nav .btn { font-size: clamp(15px, 1.4vw, 19px); padding: 10px 18px; }
+  .p-keys { color: var(--ink-faint); font-size: clamp(12px, 1.1vw, 14px); }
+  .p-keys kbd { font-family: inherit; border: 1px solid var(--rule-strong); border-radius: 4px; padding: 0 5px; margin: 0 2px; background: var(--card); }
+  .p-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--rule); }
+  .p-progress i { display: block; height: 100%; background: var(--teal); transition: width .2s; }
+
+  @media (max-width: 480px) {
+    .q { grid-template-columns: 34px 1fr; }
+    .tools { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">NRSG106 · Health Assessment · AdventHealth University</div>
+      <h1>NRSG106 Quiz Bank</h1>
+      <p class="sub">Multiple choice and short answer sets built from each week's slides, plus a clearly marked “Beyond the Slides” section drawn from outside nursing sources. Tap an answer to check it, or turn on the answer key to read aloud.</p>
+    </div>
+  </header>
+
+  <div class="decks" role="tablist" aria-label="Choose a presentation" id="decks"></div>
+
+  <div class="toolbar">
+    <div class="score"><b id="score-num">0 / 0</b><span id="score-txt">answered</span></div>
+    <div class="bar" aria-hidden="true"><i class="g" id="bar-g" style="width:0%"></i><i class="b" id="bar-b" style="width:0%"></i></div>
+    <div class="tools">
+      <label class="who">Answering as <input id="who" type="text" placeholder="name" maxlength="24" autocomplete="off"></label>
+      <button class="btn primary" id="present-btn">Present one at a time</button>
+      <button class="btn" id="key-toggle" aria-pressed="false"><span class="dot"></span>Answer key</button>
+      <button class="btn" id="finish-btn">Finish round</button>
+      <button class="btn ghost" id="reset-btn">Clear without saving</button>
+    </div>
+  </div>
+
+  <main id="quiz"></main>
+
+  <section id="rounds"></section>
+
+  <footer>
+    <p>Slide references point to the slide number in the matching PowerPoint so she can go back and re-read anything she missed. Answers and past rounds are saved in this browser only — use <b>Finish round</b> to get a summary and code you can text to someone else, and <b>Log a round</b> to add theirs to your history.</p>
+    <p>“Beyond the Slides” questions were not taken from the class presentations. They come from published nursing references (CDC, American Heart Association, NCSBN, StatPearls/NCBI, and open nursing textbooks from OpenStax and Pressbooks) chosen to match the slide topics. Where a source differs from the slides, the slide value is treated as the class answer and the difference is pointed out.</p>
+  </footer>
+</div>
+
+<div class="present" id="present" hidden role="dialog" aria-label="Presenter mode">
+  <div class="p-top">
+    <div>
+      <div class="eyebrow" id="p-section"></div>
+      <div class="p-deck" id="p-deck"></div>
+    </div>
+    <div class="p-score"><span id="p-score"></span><button class="btn" id="p-exit">Exit (Esc)</button></div>
+  </div>
+  <div class="p-body" id="p-body"></div>
+  <div class="p-nav">
+    <button class="btn" id="p-prev">← Previous</button>
+    <span class="p-keys"><kbd>←</kbd><kbd>→</kbd> move · <kbd>A</kbd>–<kbd>D</kbd> her answer · <kbd>Space</kbd> reveal / next · <kbd>Y</kbd>/<kbd>N</kbd> grade short answer</span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="p-reveal">Reveal answer (Space)</button>
+      <button class="btn primary" id="p-next">Next →</button>
+    </div>
+  </div>
+  <div class="p-progress" aria-hidden="true"><i id="p-bar" style="width:0%"></i></div>
+</div>
+
+<div class="modal-bg" id="finish" hidden role="dialog" aria-label="Finish round">
+  <div class="modal">
+    <h2 id="f-title">Round finished</h2>
+    <div class="m-score"><b id="f-score"></b><span id="f-sub"></span></div>
+    <p class="m-note">Copy or share this summary — the code at the bottom lets someone else add this round to their history with <b>Log a round</b>.</p>
+    <textarea id="f-text" readonly></textarea>
+    <div class="m-actions">
+      <button class="btn" id="f-copy">Copy summary</button>
+      <button class="btn" id="f-share">Share…</button>
+      <button class="btn primary" id="f-save">Save round &amp; start fresh</button>
+      <button class="btn ghost" id="f-cancel">Back</button>
+    </div>
+    <div class="m-msg" id="f-msg"></div>
+  </div>
+</div>
+
+<script>
+const DECKS = {"wk4a":{"title":"Assessing Skin, Hair, and Nails (Chapter 14)","short":"Week 4 · Chapter 14","mc":[{"q":"The skin is described in the slides as:","o":["The heaviest muscle in the body","The largest organ of the body","An accessory organ of the immune system only","A two-layered membrane"],"a":1,"ref":"Slide 5"},{"q":"Which skin layer contains dead, keratinized cells and melanin, the major determinant of skin color?","o":["Dermis","Epidermis","Subcutaneous tissue","Hypodermis"],"a":1,"ref":"Slide 6"},{"q":"Sebaceous glands are attached to hair follicles and secrete:","o":["Watery sweat","Sebum, an oily substance","Melanin","Keratin"],"a":1,"ref":"Slide 6"},{"q":"Which type of sweat gland produces thicker, milky sweat in the axillae, perineum, and areolae and causes body odor?","o":["Eccrine glands","Apocrine glands","Sebaceous glands","Merocrine glands"],"a":1,"ref":"Slide 7","why":"Eccrine glands produce watery sweat over the entire skin for thermoregulation."},{"q":"Short, pale, fine hair present over much of the body that helps with thermoregulation is called:","o":["Terminal hair","Vellus hair","Lanugo","Axillary hair"],"a":1,"ref":"Slide 8","why":"Terminal hair is longer, darker, and coarser — scalp and eyebrows."},{"q":"The crescent-shaped area at the base of the nail is the:","o":["Nail body","Cuticle","Lunula","Nail bed"],"a":2,"ref":"Slide 9"},{"q":"What is the Braden Scale used for?","o":["Measuring pressure ulcer healing","Predicting pressure sore risk","Grading skin cancer","Scoring pitting edema"],"a":1,"ref":"Slide 14","why":"The PUSH tool (Pressure Injury Scale for Healing) is what measures healing."},{"q":"Where should the nurse test skin turgor?","o":["The abdomen","The forearm","The back of the hand or under the clavicle","The calf"],"a":2,"ref":"Slide 17","why":"Normal skin is elastic and returns quickly when pinched; older adults have decreased elasticity."},{"q":"A bluish skin coloration is documented as:","o":["Pallor","Jaundice","Erythema","Cyanosis"],"a":3,"ref":"Slide 16","why":"Pallor = pale, jaundice = yellow, erythema = red. Color changes may be less obvious in black or brown skin."},{"q":"What is the normal angle between the nail base and the skin?","o":["90 degrees","120 degrees","160 degrees","180 degrees"],"a":2,"ref":"Slide 19","why":"A 180-degree angle indicates clubbing."},{"q":"During the capillary refill test, the nail should return to pink within:","o":["1 second","2 seconds","5 seconds","10 seconds"],"a":1,"ref":"Slide 20","why":"Press until the nail turns white, release, and time the return of pink. > 2 seconds is abnormal."},{"q":"Why does an older adult's skin often appear pale?","o":["Increased sebum production","Decreased melanin production","Increased perspiration","Thicker epidermis"],"a":1,"ref":"Slide 21"},{"q":"Primary skin lesions are best described as:","o":["Lesions that arise from changes to earlier lesions","The initial, original changes that arise on previously normal skin","Lesions caused only by scratching or trauma","Bruises from bleeding under the skin"],"a":1,"ref":"Slide 22","why":"Secondary lesions develop from primary lesions through evolution of the disease, healing, scratching, infection, or trauma."},{"q":"A small, flat, nonpalpable skin color change less than 1 cm (such as a freckle) is a:","o":["Papule","Macule","Patch","Wheal"],"a":1,"ref":"Slide 23","why":"A patch is the same kind of flat lesion but larger than 1 cm — e.g., a birthmark."},{"q":"An elevated, solid lesion less than 0.5 cm, such as a wart or mole, is a:","o":["Papule","Plaque","Nodule","Vesicle"],"a":0,"ref":"Slide 24","why":"A plaque is > 0.5 cm (e.g., psoriasis)."},{"q":"A superficial, raised, transient, irregularly shaped lesion such as an insect bite or allergic reaction is a:","o":["Plaque","Wheal","Bulla","Pustule"],"a":1,"ref":"Slide 24"},{"q":"A pus-filled vesicle or bulla — as seen in acne — is called a:","o":["Vesicle","Bulla","Pustule","Papule"],"a":2,"ref":"Slide 25"},{"q":"An elevated, serous-filled lesion larger than 0.5 cm (a “big blister”) is a:","o":["Vesicle","Bulla","Wheal","Cyst"],"a":1,"ref":"Slide 25","why":"“Vesicles are Very small compared to a Big ol' Bulla, but a Pustule is Pus-filled!”"},{"q":"A firm, deep, solid mass 0.5–2 cm that extends deeper into the dermis than a papule — such as a lipoma — is a:","o":["Papule","Nodule","Tumor","Plaque"],"a":1,"ref":"Slide 26","why":"A tumor is a solid, deep mass larger than 2 cm (e.g., neoplasm)."},{"q":"A linear crack that extends into the dermis due to excess moisture or dryness — such as athlete's foot or chapped lips — is a(n):","o":["Erosion","Fissure","Ulcer","Scar"],"a":1,"ref":"Slide 27"},{"q":"A shallow depression involving only the epidermis, such as a ruptured vesicle, is a(n):","o":["Erosion","Fissure","Ulcer","Cicatrix"],"a":0,"ref":"Slide 27","why":"An ulcer is a deep depression with skin loss extending past the epidermis — e.g., a pressure injury."},{"q":"Intact skin with a localized area of non-blanchable erythema is which pressure injury stage?","o":["Stage 1","Stage 2","Stage 3","Unstageable"],"a":0,"ref":"Slide 28"},{"q":"Partial-thickness skin loss with exposed dermis and a viable, pink, moist wound bed — possibly presenting as a serum-filled blister — is:","o":["Stage 1","Stage 2","Stage 3","Stage 4"],"a":1,"ref":"Slide 28","why":"Slough and eschar are not present in a Stage 2 injury."},{"q":"Full-thickness skin loss with visible adipose tissue but no exposed tendon, muscle, or bone is:","o":["Stage 2","Stage 3","Stage 4","Unstageable"],"a":1,"ref":"Slide 28","why":"Stage 4 has exposed tendons, muscles, or bones."},{"q":"A full-thickness injury whose depth cannot be confirmed because it is obscured by slough or eschar is:","o":["Stage 3","Stage 4","Unstageable","Stage 1"],"a":2,"ref":"Slide 28"},{"q":"Tiny (< 2 mm) red or purple macules from bleeding at the capillary level are:","o":["Purpura","Petechiae","Ecchymosis","Hematoma"],"a":1,"ref":"Slide 31","why":"Purpura are larger than 2 mm; ecchymosis is a bruise > 1 cm from trauma; a hematoma is an elevated, localized collection of blood."},{"q":"A circular, ring-shaped lesion with redness at the border and central clearing (“like a donut”) has which configuration?","o":["Linear","Annular","Nummular","Confluent"],"a":1,"ref":"Slide 32","why":"Nummular = coin-shaped solid round patch; linear = a straight streak."},{"q":"When smaller lesions run together to form larger lesions, the configuration is called:","o":["Discrete","Clustered","Confluent","Annular"],"a":2,"ref":"Slide 33"},{"q":"In the ABCDE skin cancer checklist, the “D” refers to a diameter larger than:","o":["1 mm","2 mm","6 mm (a pencil eraser)","2 cm"],"a":2,"ref":"Slide 34","why":"A = Asymmetry, B = Border (uneven, notched), C = Color (more than one), D = Diameter, E = Evolution (changing)."}],"sa":[{"q":"Name the three layers of the skin and give one feature of each.","a":["Epidermis — outer layer; dead keratinized cells prevent dehydration; contains melanin","Dermis — inner, vascularized connective tissue layer; contains sebaceous and sweat glands","Subcutaneous tissue — beneath the dermis; loose connective tissue that provides insulation"],"ordered":true,"ref":"Slide 6"},{"q":"List at least five functions of the skin.","a":["Physical barrier against microorganisms, trauma, UV radiation, and dehydration","Temperature maintenance","Fluid and electrolyte balance","Absorption and excretion","Sensation","Immunity","Vitamin D synthesis","Provides individual identity"],"ref":"Slide 5"},{"q":"Compare eccrine and apocrine sweat glands.","a":["Eccrine — watery sweat over the entire skin; thermoregulation (cooling the body)","Apocrine — thicker, milky, fatty sweat into hair follicles in the axillae, perineum, and areolae; causes body odor"],"ref":"Slide 7"},{"q":"How should the client be prepared for a skin, hair, and nail examination?","a":["Remove all clothing and jewelry; put on an exam gown","Remove nail enamel, artificial nails, wigs, and hairpieces","Sit comfortably and change positions as needed","Ensure privacy; expose only the part being examined","Comfortable room temperature and adequate light","Explain what you will do, answer questions, and be aware of cultural concerns"],"ref":"Slide 13"},{"q":"List the equipment used for a skin assessment, including the two scales named in the slides.","a":["Gloves, examination light, penlight, magnifying glass, centimeter ruler, Wood light, mirror for self-exam, gown or drape","Braden Scale — predicts pressure sore risk","PUSH tool (Pressure Injury Scale for Healing) — measures pressure ulcer healing"],"ref":"Slide 14"},{"q":"Name the four abnormal skin colors from the slides and what each looks like.","a":["Pallor — pale","Cyanosis — blue","Jaundice — yellow","Erythema — red","Alterations may be less obvious in clients with black or brown skin; also note any odors"],"ref":"Slide 16"},{"q":"What characteristics are assessed when palpating the skin?","a":["Texture (smooth and even vs. rough, dry)","Thickness","Moisture (depends on site)","Temperature (normally warm)","Mobility and turgor (elastic, quick recoil; test on back of hand or under clavicle)","Edema"],"ref":"Slide 17"},{"q":"Describe the capillary refill test and the normal result.","a":["Apply pressure to the nail until it turns white","Release and measure how long it takes to turn pink again","Normal ≤ 2 seconds; abnormal > 2 seconds"],"ordered":true,"ref":"Slide 20"},{"q":"List at least five skin, hair, or nail changes expected in an older adult.","a":["Decreased perspiration (decreased sweat gland activity)","Pale skin from decreased melanin","Drier skin from decreased sebum","Loss of turgor, elasticity, and collagen — sagging, wrinkled skin","Increased risk for pressure injury; possible skin lesions","Hair coarser, drier, thinner, slower-growing; alopecia; terminal chin hair in women","Decreased pubic, axillary, and body hair","Nails thickened, yellow, and brittle"],"ref":"Slide 21"},{"q":"Define primary and secondary skin lesions and give two examples of each.","a":["Primary — the initial changes arising on previously normal skin (e.g., macule, papule, vesicle, pustule, nodule)","Secondary — changes that develop from primary lesions through disease evolution, healing, scratching, infection, or trauma (e.g., erosion, scar, fissure, ulcer)"],"ref":"Slides 22–27"},{"q":"Describe each pressure injury stage.","a":["Stage 1 — intact skin with localized non-blanchable erythema","Stage 2 — partial-thickness skin loss with exposed dermis; viable pink, moist bed; may be an intact or ruptured serum-filled blister; no slough or eschar","Stage 3 — full-thickness skin loss with visible adipose tissue; slough/eschar may be visible","Stage 4 — full-thickness skin and tissue loss with exposed tendons, muscle, or bone","Unstageable — full-thickness loss obscured by slough or eschar so depth can't be confirmed"],"ordered":true,"ref":"Slide 28"},{"q":"List the risk factors for pressure injuries and at least three risk-reduction strategies.","a":["Risk factors: prolonged pressure; decreased/absent perception or sensation; decreased/absent mobility; increased moisture; poor nutrition; friction or shear; fragile tissue (age, vascular incompetence, diabetes, body weight)","Reduction: inspect skin at least daily using a risk tool; bathe with mild soap; moisturize dry skin; careful positioning, turning, and transferring; nutritional supplementation; incontinence skin cleansing"],"ref":"Slides 29–30"},{"q":"Define petechiae, purpura, ecchymosis, and hematoma, with sizes.","a":["Petechiae — tiny red/purple macules < 2 mm from capillary bleeding","Purpura — larger red/purple spots > 2 mm from bleeding under the skin","Ecchymosis — bruise from trauma, > 1 cm","Hematoma — localized collection of blood forming an elevated ecchymosis; associated with trauma"],"ref":"Slide 31"},{"q":"Name the six configurations of skin lesions and describe each.","a":["Linear — straight line or streak","Annular — circular ring with central clearing","Nummular — coin-shaped solid round patch","Discrete — individual, distinct lesions","Clustered — lesions grouped together","Confluent — smaller lesions run together into larger ones"],"ref":"Slides 32–33"},{"q":"Spell out the ABCDE checklist for detecting melanoma.","a":["A — Asymmetry: the two halves don't match","B — Border: uneven, scalloped, jagged, or notched","C — Color: more than one color","D — Diameter: larger than a pencil eraser (¼ inch / 6 mm)","E — Evolution: changing in size, shape, color, elevation, crusting, or itching"],"ordered":true,"ref":"Slide 34"},{"q":"Systemic problems can show up in the skin, hair, and nails. Name four examples from the slides.","a":["Impaired circulation","Endocrine imbalances","Allergic reactions","Respiratory disorders"],"ref":"Slide 12"}],"ext":[{"kind":"mc","q":"What is the possible score range on the Braden Scale, and which direction means higher risk?","o":["0–100; higher = higher risk","6–23; lower = higher risk","1–10; higher = higher risk","6–23; higher = higher risk"],"a":1,"src":"Braden Scale for Predicting Pressure Sore Risk (Braden & Bergstrom)","why":"Six subscales scored 1–4 (friction/shear 1–3). A total of 18 or below is generally considered at risk; 15–18 mild, 13–14 moderate, 10–12 high, 9 or below very high risk."},{"kind":"mc","q":"A patient has intact skin with a persistent, non-blanchable deep maroon/purple area over the sacrum. Per NPIAP, this is best classified as:","o":["Stage 1 pressure injury","Stage 2 pressure injury","Deep tissue pressure injury","Unstageable pressure injury"],"a":2,"src":"NPIAP — Pressure Injury Stages","why":"Stage 1 color changes do NOT include purple or maroon; those suggest deep tissue pressure injury, which results from intense pressure/shear at the bone–muscle interface."},{"kind":"mc","q":"According to NPIAP, which of the following should NOT be staged as a Stage 2 pressure injury?","o":["A ruptured serum-filled blister over the heel from pressure","Incontinence-associated dermatitis","Partial-thickness loss with a pink, moist wound bed over the coccyx","Shear injury over the pelvis with exposed dermis"],"a":1,"src":"NPIAP — Pressure Injury Stages","why":"Moisture-associated skin damage, medical adhesive injuries, skin tears, burns, and abrasions are not pressure injuries."},{"kind":"mc","q":"As a Stage 4 pressure injury heals and fills with granulation tissue, how should it be documented?","o":["Downgrade it to Stage 3, then Stage 2, as it heals","Keep it a healing Stage 4 — reverse staging is not recommended","Re-stage it as Stage 1 once the skin is intact","Change it to “unstageable” while it heals"],"a":1,"src":"Lippincott NursingCenter — Pressure Injury Assessment and Management pocket card","why":"Wounds are staged by the deepest area; the stage is not reversed as healing occurs."},{"kind":"mc","q":"Per NPIAP, stable (dry, adherent, intact) eschar on the heel should be:","o":["Removed immediately to allow staging","Softened and removed with moist dressings","Left in place and not softened or removed","Staged as Stage 3"],"a":2,"src":"NPIAP — Pressure Injury Stages"},{"kind":"mc","q":"Which is a documented sign of a full-thickness pressure injury rather than a partial-thickness one?","o":["Non-blanchable erythema","A serum-filled blister","Visible adipose (fat), slough, or eschar in the wound bed","Blanchable redness that resolves in 30 minutes"],"a":2,"src":"NPIAP — Pressure Injury Stages"},{"kind":"sa","q":"Name the six Braden Scale subscales and how each is scored.","a":["Sensory perception (1–4)","Moisture (1–4)","Activity (1–4)","Mobility (1–4)","Nutrition (1–4)","Friction and shear (1–3)","Total 6–23; lower scores mean higher risk; ≤ 18 is generally considered at risk"],"src":"Braden Scale for Predicting Pressure Sore Risk (Braden & Bergstrom)"},{"kind":"sa","q":"What should be documented about a pressure injury at each dressing change?","a":["Location (relative to a bony prominence and side of the body)","Stage","Size — length, width, depth in cm or mm","Sinus tracts, tunneling, undermining","Tissue type and color — granulation (pink/red), slough (yellow/tan/gray), eschar (brown/black)","Exudate — amount, color, character, odor (serous, sanguineous, purulent)","Wound edges and epithelialization","Surrounding skin — erythema, induration, maceration, bruising"],"src":"Lippincott NursingCenter — Pressure Injury Assessment and Management pocket card"},{"kind":"sa","q":"Describe deep tissue pressure injury (DTPI) and what often precedes the color change.","a":["Intact or non-intact skin with persistent non-blanchable deep red, maroon, or purple discoloration, or a dark wound bed / blood-filled blister","Caused by intense and/or prolonged pressure and shear at the bone–muscle interface","Pain and temperature change often precede the visible color change; may be hard to see in dark skin — feel for firm, boggy, warm, or cool areas","Can evolve rapidly to reveal full-thickness loss, or resolve without tissue loss"],"src":"NPIAP — Pressure Injury Stages; Lippincott NursingCenter pocket card"}]},"wk4b":{"title":"Assessing Thorax & Lungs, Breasts & Lymphatics (Chapters 19 & 20)","short":"Week 4 · Chapters 19 & 20","mc":[{"q":"The thoracic cage is constructed of the sternum, muscles, cartilage, and:","o":["10 pairs of ribs and 10 thoracic vertebrae","12 pairs of ribs and 12 thoracic vertebrae","12 pairs of ribs and 7 cervical vertebrae","14 pairs of ribs and 12 thoracic vertebrae"],"a":1,"ref":"Slide 6"},{"q":"The mediastinum contains all of the following EXCEPT:","o":["Trachea and bronchi","Esophagus","Heart and great vessels","The lungs"],"a":3,"ref":"Slide 8","why":"The thoracic cavity consists of the mediastinum and the lungs; the lungs sit on either side of the mediastinum."},{"q":"How many lobes does each lung have?","o":["Right 2, left 3","Right 3, left 2","Right 3, left 3","Right 2, left 2"],"a":1,"ref":"Slide 8"},{"q":"The apex of each lung sits:","o":["At the level of the diaphragm","Slightly above the clavicle","At the 6th rib","Behind the sternum"],"a":1,"ref":"Slide 8","why":"The base is at the level of the diaphragm."},{"q":"What is the normal ratio of the anteroposterior (AP) to transverse diameter of the chest?","o":["1:1","1:2","2:1","1:3"],"a":1,"ref":"Slide 15","why":"A barrel chest (ratio approaching 1:1) is abnormal."},{"q":"A client sitting leaning forward with hands on knees (tripod position) is showing:","o":["Normal resting posture","Use of accessory muscles / respiratory distress","Pectus carinatum","A normal variation in older adults"],"a":1,"ref":"Slide 15"},{"q":"Pectus excavatum and pectus carinatum are abnormalities of the:","o":["Position of the sternum","Slope of the ribs","Spine","Intercostal spaces"],"a":0,"ref":"Slide 15"},{"q":"To assess fremitus, the nurse places the ball of the hand on the chest and asks the client to:","o":["Cough","Hold their breath","Say “ninety-nine”","Whisper “one-two-three”"],"a":2,"ref":"Slide 18","why":"Fremitus = vibrations of air in the bronchial tubes transmitted to the chest wall."},{"q":"When assessing posterior chest expansion, thumbs are placed at the level of T9–T10. A normal result is thumbs moving:","o":["1–2 cm apart","5–10 cm apart symmetrically","15–20 cm apart","Only on the right side"],"a":1,"ref":"Slide 18"},{"q":"Hyperresonance on thoracic percussion indicates:","o":["Consolidation","Pleural effusion","Trapped air, as in emphysema or pneumothorax","Normal lung tissue"],"a":2,"ref":"Slide 19","why":"Resonance = normal lung; dullness = increased density (solid organs, consolidation, effusion, tumor); flat = muscle or bone."},{"q":"Dullness on percussion over the lung suggests:","o":["Trapped air","Increased density — consolidation, pleural effusion, or tumor","Normal lung","A thin chest wall"],"a":1,"ref":"Slide 19"},{"q":"When auscultating the posterior thorax, the nurse listens with the diaphragm directly on the skin from:","o":["T1 to T5","The apex at C7 to the bases at T10","T12 to L1","The scapula to the waist"],"a":1,"ref":"Slide 20","why":"Listen at each site for at least one complete respiratory cycle."},{"q":"Anterior lung auscultation extends from the apices slightly above the clavicles to the bases at the:","o":["2nd rib","4th rib","6th rib","10th rib"],"a":2,"ref":"Slide 20"},{"q":"During egophony, an abnormal finding is when the client's “E” sounds like:","o":["“E”","“A”","“O”","Nothing at all"],"a":1,"ref":"Slide 20","why":"Louder “aaaa” over consolidation or compression."},{"q":"Clear transmission of a whispered phrase (“1-2-3”) through the stethoscope indicates:","o":["Normal lung","Consolidation or compression","A pneumothorax","Barrel chest"],"a":1,"ref":"Slide 20","why":"Whispered pectoriloquy is normally faint, muffled, or inaudible."},{"q":"Bronchophony (“99, 99, 99”) is abnormal when the sound is:","o":["Soft and muffled","Louder over areas of increased density (pneumonia, atelectasis, tumor)","Absent","Heard only over the trachea"],"a":1,"ref":"Slide 20"},{"q":"Loud, high-pitched breath sounds heard over the trachea are:","o":["Vesicular","Bronchovesicular","Bronchial","Adventitious"],"a":2,"ref":"Slide 21"},{"q":"Soft, low-pitched breath sounds heard over the peripheral lungs are:","o":["Bronchial","Bronchovesicular","Vesicular","Rhonchi"],"a":2,"ref":"Slide 21","why":"Bronchovesicular sounds are medium in volume and pitch, heard over the bronchi."},{"q":"High-pitched, brief bubbling/popping sounds caused by fluid in the small airways are:","o":["Coarse crackles","Fine crackles","Sibilant wheezes","Pleural friction rub"],"a":1,"ref":"Slide 22","why":"Coarse crackles are low-pitched, longer popping sounds from fluid in larger airways."},{"q":"A high-pitched, whistling, musical squeaking sound caused by narrowed airways (e.g., asthma) is a:","o":["Sonorous wheeze","Sibilant wheeze","Fine crackle","Stridor"],"a":1,"ref":"Slide 22","why":"A sonorous wheeze is low-pitched, snoring, or rattling from secretions or obstruction in larger airways."},{"q":"A loud, grating, rubbing sound produced by two inflamed layers of tissue (pleurisy) is a:","o":["Sonorous wheeze","Coarse crackle","Pleural friction rub","Bronchial breath sound"],"a":2,"ref":"Slide 22"},{"q":"Rapid, deep, labored respirations associated with diabetic ketoacidosis are called:","o":["Cheyne-Stokes","Biot","Kussmaul","Ataxic"],"a":2,"ref":"Slide 16"},{"q":"A regular pattern of alternating deep, rapid breathing followed by periods of apnea is:","o":["Biot respiration","Cheyne-Stokes respiration","Kussmaul respiration","Air trapping"],"a":1,"ref":"Slide 17","why":"Seen with severe CHF, drug overdose, increased intracranial pressure, or renal failure."},{"q":"An irregular pattern with varying depth and rate followed by periods of apnea, seen with meningitis or severe brain damage, is:","o":["Cheyne-Stokes","Biot respiration","Hypoventilation","Hyperventilation"],"a":1,"ref":"Slide 17","why":"Ataxic breathing is a more extreme, disorganized form of Biot's."},{"q":"In chronic obstructive pulmonary disease, increasing difficulty getting the breath out because air is trapped during forced expiration is called:","o":["Hypoventilation","Air trapping","Bradypnea","Kussmaul"],"a":1,"ref":"Slide 17"},{"q":"In pursed-lip breathing, the client inhales through the nose for two counts and exhales slowly through pursed lips for:","o":["One count","Two counts","Four counts","Ten counts"],"a":2,"ref":"Slide 14","why":"It opens the airways and makes it easier to breathe."},{"q":"Most breast tumors occur in which part of the breast?","o":["The lower inner quadrant","The areola","The tail of Spence (upper outer quadrant)","The nipple"],"a":2,"ref":"Slide 25"},{"q":"Female breasts consist of which three types of tissue?","o":["Muscular, fibrous, fatty","Glandular, fibrous, fatty (adipose)","Glandular, muscular, lymphatic","Skin, fascia, muscle"],"a":1,"ref":"Slide 27"},{"q":"According to the slides, the screening of choice for breast cancer is:","o":["Breast self-examination","Clinical breast exam","Mammogram","Ultrasound"],"a":2,"ref":"Slide 29"},{"q":"An orange-peel (peau d'orange) appearance of the breast skin results from edema and is seen in:","o":["Normal aging","Metastatic breast disease","Lactation","Fibroadenoma"],"a":1,"ref":"Slide 31"},{"q":"Red, scaly, crusty areas on the areola suggest:","o":["Paget disease","Gynecomastia","A supernumerary nipple","Fibrocystic change"],"a":0,"ref":"Slide 31"},{"q":"Which nipple finding suggests malignancy?","o":["A nipple that has always been inverted","A recently inverted nipple that was previously everted","Supernumerary nipples along the milk line","Nipples of nearly equal size bilaterally"],"a":1,"ref":"Slide 31","why":"Spontaneous drainage is also abnormal."},{"q":"Malignant breast masses are generally:","o":["Soft, mobile, and tender","Round, elastic, and freely movable","Hard, immobile, fixed to surrounding tissue, with irregular margins","Fluid-filled and transilluminate"],"a":2,"ref":"Slide 33","why":"Fibroadenomas are 1–5 cm, round/oval, mobile, firm, solid, elastic, nontender, and benign."},{"q":"In which position is the breast palpated?","o":["Sitting upright","Supine","Prone","Standing with arms overhead"],"a":1,"ref":"Slide 30","why":"Inspection is done sitting with the arms in different positions; palpation is done supine."},{"q":"Which axillary lymph node finding is normal?","o":["Several hard, fixed nodes","No palpable nodes, or one to two small (< 1 cm), discrete, nontender, movable nodes","One tender node larger than 2 cm","Nodes that are warm and red"],"a":1,"ref":"Slide 35"},{"q":"Gynecomastia in a male is described as:","o":["An irregularly shaped, hard nodule","A smooth, firm, movable disc of glandular tissue from a hormone imbalance","Ulceration of the nipple","Peau d'orange skin"],"a":1,"ref":"Slide 36","why":"Irregularly shaped, hard nodules are abnormal in the male breast."},{"q":"Breast cancer is which leading cause of cancer death in females?","o":["First","Second (lung is first)","Third","Fifth"],"a":1,"ref":"Slide 38","why":"About 5–10% of cases are thought to be hereditary (BRCA1 and BRCA2)."},{"q":"Which three palpation patterns can be used to cover the entire breast?","o":["Vertical strip, circular, wedge","Linear, annular, nummular","Superior, inferior, lateral","Clockwise, counterclockwise, radial"],"a":0,"ref":"Slides 33–34"}],"sa":[{"q":"Name the parts of the thoracic cage and what the mediastinum contains.","a":["Thoracic cage — sternum, 12 pairs of ribs, 12 thoracic vertebrae, muscles, and cartilage","Mediastinum — central thoracic cavity containing the trachea, bronchi, esophagus, heart, and great vessels"],"ref":"Slides 6 & 8"},{"q":"Describe the pleural membranes.","a":["Thin, double-layered serous membrane lining the thoracic cavity","Parietal pleura (lines the cavity) and visceral pleura (covers the lungs)","Pleural space between them"],"ref":"Slide 8"},{"q":"What subjective data should be collected in a respiratory health history?","a":["Present concern — dyspnea, chest pain, cough (productive vs. nonproductive)","Past history — prior respiratory problems, allergies, procedures/surgeries, medications, recent travel","Family history — lung disease, asthma, secondhand smoke","Lifestyle — smoking, occupation, etc."],"ref":"Slide 11"},{"q":"What signs of respiratory difficulty does the nurse look for on general inspection?","a":["Nasal flaring and pursed-lip breathing","Cyanosis of the face, lips, or chest","Pale or cyanotic nails; clubbing","Tripod position and use of accessory muscles","Retractions of intercostal spaces or sternum"],"ref":"Slides 13 & 15"},{"q":"Describe how to assess posterior chest expansion and the normal finding.","a":["Place hands on the posterior chest wall with thumbs at T9–T10, pressing together a small skin fold","Ask the client to take a deep breath and watch the thumbs","Normal: thumbs move 5–10 cm apart symmetrically"],"ordered":true,"ref":"Slide 18"},{"q":"Name the four percussion tones over the thorax and what each indicates.","a":["Resonance — normal lung tissue","Hyperresonance — trapped air (emphysema, pneumothorax)","Flat — over muscle or bone","Dullness — increased density: solid organs, consolidation, pleural effusion, tumor"],"ref":"Slide 19"},{"q":"Name the three voice sounds, what the client says for each, and the abnormal finding.","a":["Bronchophony — “99, 99, 99”; abnormal if louder over areas of increased density (pneumonia, atelectasis, tumor)","Egophony — “E, E, E”; abnormal if it sounds like “aaaa” over consolidation/compression","Whispered pectoriloquy — whisper “1-2-3”; abnormal if transmitted clearly (consolidation or compression)"],"ref":"Slide 20"},{"q":"Name the three normal breath sounds with their quality and location.","a":["Bronchial — loud, high-pitched; over the trachea","Bronchovesicular — medium volume and pitch; over the bronchi","Vesicular — soft, low-pitched; over the peripheral lungs"],"ref":"Slide 21"},{"q":"List the adventitious breath sounds with their sound quality and cause.","a":["Fine crackles — high-pitched, brief popping; fluid in small airways","Coarse crackles — low-pitched, longer popping; fluid in larger airways","Sibilant wheeze — high-pitched whistling/musical; narrowed airways (asthma)","Sonorous wheeze — low-pitched snoring/rattling; secretions or obstruction in larger airways","Pleural friction rub — loud grating/rubbing; inflamed pleural layers (pleurisy)"],"ref":"Slide 22"},{"q":"Define Kussmaul, Cheyne-Stokes, Biot, and ataxic respirations and give a clinical cause of each.","a":["Kussmaul — rapid, deep, labored; diabetic ketoacidosis","Cheyne-Stokes — regular cycles of deep rapid breathing then apnea; severe CHF, drug overdose, increased ICP, renal failure","Biot — irregular varying depth and rate with apnea; meningitis or severe brain damage","Ataxic — extreme disorganization of Biot's; respiratory compromise"],"ref":"Slides 16–17"},{"q":"List the four steps of breast self-examination.","a":["Inspect in front of a mirror with arms raised over the head","Repeat in front of the mirror with hands on hips","Lie down with a small pillow under the head and arm; use the opposite hand's finger pads with varying pressure in a vertical, circular, or wedge pattern; repeat on the other side","Repeat standing, arm raised, including under the armpit with the elbow slightly bent"],"ordered":true,"ref":"Slide 37"},{"q":"Name the abnormal breast inspection findings from the slides and what each suggests.","a":["Redness — breast inflammation","Peau d'orange — edema from metastatic breast disease","Red, scaly, crusty areola — Paget disease","Recent nipple inversion — malignancy","Spontaneous discharge — abnormal","Dimpling or retraction — abnormal (breasts should rise symmetrically and hang freely)"],"ref":"Slide 31"},{"q":"Compare a malignant breast mass with a fibroadenoma.","a":["Malignant — hard, immobile, fixed to surrounding skin and tissue, poorly defined or irregular margins","Fibroadenoma — 1–5 cm, round or oval, mobile, firm, solid, elastic, nontender, benign, single or multiple"],"ref":"Slide 33"},{"q":"How is the client positioned for the breast exam, and what equipment is needed?","a":["Explain the process in detail to ease anxiety","Sit upright with arms in different positions for inspection","Supine for palpation; conduct after the thorax assessment","Equipment: centimeter ruler, small pillow, gloves, BSE handout, slide for specimen","Teach BSE and have the client demonstrate"],"ref":"Slide 30"},{"q":"What should clients be taught about breast cancer?","a":["All individuals can develop breast cancer","Note and report any change in breast size, shape, or tissue consistency","About 5–10% of cases are hereditary (BRCA1 and BRCA2)","Screening recommendations differ — talk with a provider about the best protocol","Mammogram is the screening of choice"],"ref":"Slides 29 & 38"},{"q":"Describe the external anatomy of the breast from the slides.","a":["Skin — smooth, color varies with skin tone","Nipple — central; contains lactiferous ducts","Areola — 1–2 cm radius around the nipple; darker pigment, dark pink to dark brown; darkens in pregnancy","Supernumerary nipples may persist along the milk line","Four quadrants plus the tail of Spence"],"ref":"Slides 25–26"}],"ext":[{"kind":"mc","q":"Tactile fremitus is INCREASED with:","o":["Pneumothorax","Pleural effusion","Lung consolidation, as in lobar pneumonia","Emphysema"],"a":2,"src":"Lippincott NursingCenter — Pulmonary Assessment pocket card; Jarvis Physical Examination & Health Assessment","why":"Dense, consolidated tissue transmits vibration better (as long as the bronchus is patent)."},{"kind":"mc","q":"Tactile fremitus is DECREASED when something blocks transmission, such as:","o":["Lobar pneumonia","A thin chest wall","Pleural effusion, pneumothorax, an obstructed bronchus, or emphysema","Speaking loudly"],"a":2,"src":"Lippincott NursingCenter — Pulmonary Assessment pocket card; StatPearls Lung Exam"},{"kind":"mc","q":"A high-pitched crowing sound heard on inspiration without a stethoscope indicates:","o":["Fine crackles in the bases","Upper airway obstruction — stridor, a potential emergency","Normal bronchial breathing","A pleural friction rub"],"a":1,"src":"Nursing Skills (NCBI Bookshelf) — Respiratory Assessment; Jarvis","why":"Causes include croup, foreign body aspiration, and epiglottitis."},{"kind":"mc","q":"The sternal angle (angle of Louis) is a landmark for finding which rib when counting intercostal spaces?","o":["1st rib","2nd rib","4th rib","6th rib"],"a":1,"src":"Jarvis — Physical Examination & Health Assessment","why":"Palpate from the angle of Louis to the 2nd rib, then slide down to the 2nd intercostal space; each space is numbered by the rib above it."},{"kind":"mc","q":"In vesicular breath sounds, which phase is longer?","o":["Expiration is longer than inspiration","Inspiration is longer than expiration","They are equal","Neither phase is audible"],"a":1,"src":"Lippincott NursingCenter — Pulmonary Assessment pocket card","why":"Bronchial sounds are longer on expiration; bronchovesicular sounds are about equal."},{"kind":"mc","q":"The normal inhalation-to-exhalation (I:E) ratio in a resting adult is about:","o":["1:1","1:2","2:1","1:4"],"a":1,"src":"Lippincott NursingCenter — Pulmonary Assessment pocket card; Nursing Skills (NCBI Bookshelf)"},{"kind":"mc","q":"Bronchial breath sounds heard over the PERIPHERAL lung fields are:","o":["Normal in adults","Abnormal — they suggest consolidation (e.g., pneumonia)","Expected in athletes","A sign of pneumothorax"],"a":1,"src":"Jarvis — Physical Examination & Health Assessment; StatPearls Lung Exam"},{"kind":"mc","q":"The 2024 U.S. Preventive Services Task Force recommendation for average-risk women is screening mammography:","o":["Every year starting at age 30","Every other year from age 40 through 74","Every year from age 50 to 74","Only when symptoms are present"],"a":1,"src":"U.S. Preventive Services Task Force — Breast Cancer: Screening (2024)","why":"This updated the 2016 advice, which started routine screening at 50."},{"kind":"mc","q":"Under American Cancer Society guidelines, women aged 45–54 at average risk should have a mammogram:","o":["Every year","Every other year","Every 5 years","Only if they have a family history"],"a":0,"src":"American Cancer Society — Breast Cancer Screening Guidelines","why":"ACS: optional annual screening 40–44; annual 45–54; every 1–2 years at 55+ while in good health."},{"kind":"mc","q":"What is the American Cancer Society's position on clinical breast exams for screening average-risk women?","o":["Recommended every year","Recommended every 3 years","Not recommended for screening at any age","Required before any mammogram"],"a":2,"src":"American Cancer Society — Breast Cancer Screening Guidelines"},{"kind":"sa","q":"Compare the USPSTF (2024) and American Cancer Society mammography recommendations for average-risk women.","a":["USPSTF: biennial (every other year) mammography for ages 40–74; insufficient evidence for 75+ and for supplemental screening with dense breasts","ACS: option to start annual screening at 40–44; annual at 45–54; every 1–2 years at 55+ as long as healthy with ≥ 10-year life expectancy","ACS does not recommend clinical breast exams for screening average-risk women","High-risk women (e.g., BRCA mutation) typically get annual MRI plus mammogram starting around age 30"],"src":"U.S. Preventive Services Task Force (2024); American Cancer Society"},{"kind":"sa","q":"What conditions cause unequal chest expansion?","a":["Pneumonia or marked atelectasis","Thoracic trauma such as fractured ribs","Pneumothorax"],"src":"Nursing Skills (NCBI Bookshelf) — Respiratory Assessment; Jarvis"},{"kind":"sa","q":"Explain why fremitus increases with pneumonia but decreases with pneumothorax or pleural effusion.","a":["Sound from the larynx travels through patent bronchi and lung tissue to the chest wall","Consolidated (dense) lung conducts vibration better, so fremitus increases — only if the bronchus is patent and the consolidation reaches the lung surface","Air (pneumothorax) or fluid (effusion) in the pleural space, an obstructed bronchus, or hyperinflated emphysematous lung blocks transmission, so fremitus decreases"],"src":"Jarvis — Physical Examination & Health Assessment; StatPearls Lung Exam"}]}};
+
+const DECK_ORDER = ["wk4a","wk4b"];
+const LS_KEY = "nrsg106-quiz-bank-v4";
+let state = load();
+let deck = DECKS[state.deck] ? state.deck : DECK_ORDER[0];
+let keyMode = false;
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}") || {}; } catch (e) { return {}; }
+}
+function save() {
+  try { state.deck = deck; localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+}
+function ans(d) { state[d] = state[d] || {}; return state[d]; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+/* Sections for a deck: each item carries its own kind ("mc" | "sa") and a stable id */
+function sections(d) {
+  const D = DECKS[d];
+  return [
+    { key: "mc", title: "Multiple Choice", hint: "Pick one answer.", items: D.mc.map((it, i) => ({ ...it, kind: "mc", id: "mc" + i })) },
+    { key: "sa", title: "Short Answer", hint: "Let her answer out loud, reveal, then mark it.", items: D.sa.map((it, i) => ({ ...it, kind: "sa", id: "sa" + i })) },
+    { key: "ex", title: "Beyond the Slides", hint: "Outside sources — not from the class deck", ext: true, items: (D.ext || []).map((it, i) => ({ ...it, id: "ex" + i })) }
+  ];
+}
+function allItems(d) { return sections(d).flatMap(s => s.items.map(it => ({ ...it, secTitle: s.title, ext: !!s.ext }))); }
+function isRight(item, got) { return item.kind === "sa" ? got === true : got === item.a; }
+
+function refLine(item) {
+  return item.src ? `<div class="ref src">${esc(item.src)}</div>` : `<div class="ref">${esc(item.ref || "")}</div>`;
+}
+
+function renderDeckTabs() {
+  document.getElementById("decks").innerHTML = DECK_ORDER.map(d => `
+    <button class="deck-tab" role="tab" id="tab-${d}" aria-selected="${String(d === deck)}" data-deck="${d}">
+      <span class="eyebrow">${esc(DECKS[d].short)}</span>
+      <strong>${esc(DECKS[d].title.replace(/\s*\(.*\)$/, ""))}</strong>
+      <small id="count-${d}"></small>
+    </button>`).join("");
+  document.querySelectorAll(".deck-tab").forEach(t => t.addEventListener("click", () => {
+    deck = t.dataset.deck; save(); render(); window.scrollTo({ top: 0 });
+  }));
+}
+
+function render() {
+  const A = ans(deck);
+  const main = document.getElementById("quiz");
+  document.querySelectorAll(".deck-tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.deck === deck)));
+  let n = 0;
+  const parts = [];
+  const letters = "ABCD";
+
+  sections(deck).forEach(sec => {
+    if (!sec.items.length) return;
+    parts.push(`<section class="${sec.ext ? "ext" : ""}"><div class="sec-head"><h2>${sec.title}</h2><span class="hint">${sec.hint}</span><span class="sec-tally" id="tally-${sec.key}"></span></div>
+      ${sec.ext ? `<div class="ext-note"><b>Heads up:</b> the questions below were <b>not</b> taken from the class slides. They come from published nursing references on the same topics — the kind of related material that could show up on an exam. Each one names its source.</div>` : ""}</section>`);
+
+    sec.items.forEach(item => {
+      n++; const id = item.id; const got = A[id];
+      if (item.kind === "mc") {
+        const locked = got !== undefined;
+        const cls = locked ? (got === item.a ? "right" : "wrong") : "";
+        const opts = item.o.map((o, k) => {
+          let c = "opt";
+          if (locked) { if (k === item.a) c += " is-right"; else if (k === got) c += " is-wrong"; else c += " dim"; }
+          if (keyMode && k === item.a) c += " correct-key";
+          return `<button class="${c}" data-q="${id}" data-v="${k}" ${locked ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(o)}</span></button>`;
+        }).join("");
+        parts.push(`<div class="q ${cls} ${locked ? "locked" : ""}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="opts">${opts}</div>
+            ${locked ? verdict(got === item.a, item.why) : ""}
+            ${refLine(item)}
+          </div></div>`);
+      } else {
+        const revealed = (state.revealed && state.revealed[deck + id]) || got !== undefined;
+        const cls = got === undefined ? "" : (got ? "right" : "wrong");
+        const tag = item.ordered ? "ol" : "ul";
+        const list = `<${tag}>${item.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}>`;
+        parts.push(`<div class="q ${cls}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="sa-row">
+              ${revealed ? "" : `<button class="btn" data-reveal="${id}">Reveal answer</button>`}
+              <div class="grade">
+                <button class="opt g-yes ${got === true ? "picked" : ""}" data-q="${id}" data-v="yes"><span class="key">✓</span><span>She got it</span></button>
+                <button class="opt g-no ${got === false ? "picked" : ""}" data-q="${id}" data-v="no"><span class="key">✕</span><span>Missed it</span></button>
+              </div>
+            </div>
+            <div class="answer" ${revealed ? "" : "hidden"}>${list}</div>
+            ${refLine(item)}
+          </div></div>`);
+      }
+    });
+  });
+
+  main.innerHTML = parts.join("");
+  main.classList.toggle("keymode", keyMode);
+  updateScore();
+  renderRounds();
+}
+
+function verdict(ok, why) {
+  return `<div class="verdict ${ok ? "ok" : "no"}"><b>${ok ? "Correct." : "Not quite."}</b>${why ? `<span class="why">${esc(why)}</span>` : ""}</div>`;
+}
+
+function updateScore() {
+  const A = ans(deck);
+  let right = 0, wrong = 0, total = 0;
+  sections(deck).forEach(sec => {
+    let r = 0, d = 0;
+    sec.items.forEach(it => { total++; const g = A[it.id]; if (g === undefined) return; d++; if (isRight(it, g)) { r++; right++; } else wrong++; });
+    const el = document.getElementById("tally-" + sec.key);
+    if (el) el.textContent = d ? `${r} of ${d} · ${sec.items.length} questions` : `${sec.items.length} questions`;
+  });
+  const done = right + wrong;
+  document.getElementById("score-num").textContent = `${right} / ${done}`;
+  document.getElementById("score-txt").textContent = done ? `correct · ${total - done} left` : `answered of ${total}`;
+  document.getElementById("bar-g").style.width = (right / total * 100) + "%";
+  document.getElementById("bar-b").style.width = (wrong / total * 100) + "%";
+  DECK_ORDER.forEach(d => {
+    const DD = DECKS[d]; const ext = (DD.ext || []).length;
+    const t = DD.mc.length + DD.sa.length + ext;
+    const a = Object.keys(ans(d)).length;
+    const el = document.getElementById("count-" + d);
+    if (el) el.textContent = `${t} questions · ${DD.mc.length} MC, ${DD.sa.length} short answer, ${ext} beyond the slides${a ? ` · ${a} answered` : ""}`;
+  });
+}
+
+document.getElementById("quiz").addEventListener("click", e => {
+  const rev = e.target.closest("[data-reveal]");
+  if (rev) {
+    state.revealed = state.revealed || {}; state.revealed[deck + rev.dataset.reveal] = true; save();
+    const y = window.scrollY; render(); window.scrollTo(0, y);
+    return;
+  }
+  const b = e.target.closest("button[data-q]");
+  if (!b || b.disabled) return;
+  const id = b.dataset.q, v = b.dataset.v;
+  const A = ans(deck);
+  const item = allItems(deck).find(x => x.id === id);
+  if (!item) return;
+  if (item.kind === "mc") A[id] = Number(v); else A[id] = v === "yes";
+  save();
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+document.getElementById("key-toggle").addEventListener("click", function () {
+  keyMode = !keyMode; this.classList.toggle("on", keyMode); this.setAttribute("aria-pressed", String(keyMode));
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+let armedClear = 0;
+document.getElementById("reset-btn").addEventListener("click", function () {
+  if (Object.keys(ans(deck)).length && Date.now() - armedClear > 4000) {
+    armedClear = Date.now(); this.textContent = "Really clear? Click again";
+    setTimeout(() => { this.textContent = "Clear without saving"; }, 4000);
+    return;
+  }
+  armedClear = 0; this.textContent = "Clear without saving";
+  clearDeck(deck); render(); window.scrollTo({ top: 0 });
+});
+function clearDeck(d) {
+  state[d] = {};
+  if (state.revealed) for (const k in state.revealed) if (k.startsWith(d)) delete state.revealed[k];
+  save();
+}
+
+/* ---------- Name ---------- */
+const whoEl = document.getElementById("who");
+whoEl.value = state.who || "";
+whoEl.addEventListener("change", () => { state.who = whoEl.value.trim(); save(); });
+function whoName() { return (state.who || "").trim() || "Someone"; }
+
+/* ---------- Rounds: summary, code, history ---------- */
+const CODE_TAG = "NQB1.";
+function b64e(s) { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function b64d(s) { s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; return decodeURIComponent(escape(atob(s))); }
+
+function roundFromCurrent() {
+  const A = ans(deck); const items = allItems(deck);
+  const answers = {}; let right = 0, done = 0;
+  items.forEach(it => { const g = A[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck, name: whoName(), t: Date.now(), right, done, total: items.length, answers };
+}
+function missedList(r) {
+  const items = allItems(r.deck); const out = [];
+  items.forEach((it, i) => { const g = r.answers[it.id]; if (g !== undefined && !isRight(it, g)) out.push({ n: i + 1, q: it.q, ext: it.ext }); });
+  return out;
+}
+function fmtDate(t) { return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+function pct(r) { return r.done ? Math.round(r.right / r.done * 100) : 0; }
+
+function summaryText(r) {
+  const D = DECKS[r.deck]; const missed = missedList(r);
+  const lines = [
+    `NRSG106 Quiz — ${D.title}`,
+    `${r.name} · ${fmtDate(r.t)} · ${r.right}/${r.done} correct (${pct(r)}%)${r.done < r.total ? ` · ${r.total - r.done} unanswered` : ""}`,
+    missed.length ? `Missed (${missed.length}): ${missed.map(m => "#" + m.n).join(", ")}` : "Missed: none!",
+    ...missed.slice(0, 40).map(m => `  ${m.n}. ${m.q.length > 90 ? m.q.slice(0, 87) + "…" : m.q}`),
+    "",
+    "Code: " + CODE_TAG + b64e(JSON.stringify({ d: r.deck, n: r.name, t: r.t, a: r.answers }))
+  ];
+  return lines.join("\n");
+}
+function parseCode(text) {
+  const m = String(text).match(/NQB1\.([A-Za-z0-9_-]+)/);
+  if (!m) throw new Error("No code found — paste the whole summary or the line that starts with “Code:”.");
+  const o = JSON.parse(b64d(m[1]));
+  if (!DECKS[o.d] || typeof o.a !== "object") throw new Error("That code doesn't match this quiz.");
+  const items = allItems(o.d); let right = 0, done = 0; const answers = {};
+  items.forEach(it => { const g = o.a[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck: o.d, name: String(o.n || "Someone").slice(0, 24), t: Number(o.t) || Date.now(), right, done, total: items.length, answers, imported: true };
+}
+function saveRound(r) {
+  state.rounds = state.rounds || [];
+  r.id = r.id || (r.t + "-" + Math.random().toString(36).slice(2, 7));
+  if (state.rounds.some(x => x.t === r.t && x.name === r.name && x.deck === r.deck)) return false;
+  state.rounds.push(r); state.rounds.sort((a, b) => b.t - a.t);
+  if (state.rounds.length > 60) state.rounds.length = 60;
+  save(); return true;
+}
+
+function renderRounds() {
+  const rounds = (state.rounds || []).filter(r => r.deck === deck);
+  const el = document.getElementById("rounds");
+  const trend = rounds.slice().reverse().slice(-12);
+  el.innerHTML = `
+    <div class="rounds-head"><h2>Past rounds</h2><span class="sec-tally">${rounds.length ? `${rounds.length} saved for this set` : "nothing saved yet"}</span></div>
+    ${trend.length > 1 ? `<div class="trend" aria-label="Score trend">${trend.map(r => `<i class="${r.imported ? "g" : ""}" style="height:${Math.max(6, pct(r) * .44)}px" title="${esc(r.name)} · ${fmtDate(r.t)} · ${pct(r)}%"><span>${pct(r)}%</span></i>`).join("")}</div>` : ""}
+    ${rounds.length ? rounds.map(r => {
+      const missed = missedList(r);
+      return `<div class="round">
+        <div class="r-top"><span class="r-name">${esc(r.name)}</span><span class="r-date">${fmtDate(r.t)}${r.imported ? " · logged from a code" : ""}</span></div>
+        <div class="r-score">${r.right}/${r.done}<small>${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} skipped` : ""}</small></div>
+        <div class="r-missed">${missed.length ? `<details><summary>Missed ${missed.length} — show</summary><ul>${missed.map(m => `<li>#${m.n} · ${esc(m.q)}${m.ext ? " <em>(beyond the slides)</em>" : ""}</li>`).join("")}</ul></details>` : "Nothing missed."}</div>
+        <div class="r-actions"><button class="btn ghost" data-del-round="${r.id}">Remove</button></div>
+      </div>`;
+    }).join("") : `<div class="rounds-empty">When a round is finished, its score and missed questions land here. Rounds logged from someone else's code show up too.</div>`}
+    <div class="log-box">
+      <label for="log-input">Log a round from a code</label>
+      <p>Paste the summary (or just the “Code:” line) that the student texted you. Their score and missed questions are added to this list.</p>
+      <div class="log-row"><input id="log-input" type="text" placeholder="Paste here…" autocomplete="off"><button class="btn" id="log-btn">Add round</button></div>
+      <div class="log-msg" id="log-msg"></div>
+    </div>`;
+}
+
+document.getElementById("rounds").addEventListener("click", e => {
+  const del = e.target.closest("[data-del-round]");
+  if (del) { state.rounds = (state.rounds || []).filter(r => r.id !== del.dataset.delRound); save(); renderRounds(); return; }
+  if (e.target.closest("#log-btn")) {
+    const inp = document.getElementById("log-input"), msg = document.getElementById("log-msg");
+    try {
+      const r = parseCode(inp.value);
+      const added = saveRound(r);
+      if (r.deck !== deck) { deck = r.deck; save(); render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80 }); }
+      else renderRounds();
+      const m2 = document.getElementById("log-msg"); m2.className = "log-msg ok";
+      m2.textContent = added ? `Added ${r.name}'s round — ${r.right}/${r.done} (${pct(r)}%).` : "That round is already in the list.";
+    } catch (err) { msg.className = "log-msg no"; msg.textContent = err.message; }
+  }
+});
+
+/* Finish-round dialog */
+const fin = document.getElementById("finish");
+let pendingRound = null;
+document.getElementById("finish-btn").addEventListener("click", function () {
+  const r = roundFromCurrent();
+  if (!r.done) { this.textContent = "Answer something first"; setTimeout(() => { this.textContent = "Finish round"; }, 2500); return; }
+  pendingRound = r;
+  document.getElementById("f-title").textContent = `${r.name} — ${DECKS[r.deck].short}`;
+  document.getElementById("f-score").textContent = `${r.right} / ${r.done}`;
+  document.getElementById("f-sub").textContent = `${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} of ${r.total} unanswered` : ""}`;
+  document.getElementById("f-text").value = summaryText(r);
+  document.getElementById("f-msg").textContent = "";
+  document.getElementById("f-share").hidden = !navigator.share;
+  fin.hidden = false;
+});
+document.getElementById("f-cancel").addEventListener("click", () => { fin.hidden = true; });
+fin.addEventListener("click", e => { if (e.target === fin) fin.hidden = true; });
+document.getElementById("f-copy").addEventListener("click", async () => {
+  const ta = document.getElementById("f-text"), msg = document.getElementById("f-msg");
+  try { await navigator.clipboard.writeText(ta.value); msg.textContent = "Copied — paste it into a text or email."; }
+  catch (e) { ta.select(); msg.textContent = "Select the text above and copy it."; }
+});
+document.getElementById("f-share").addEventListener("click", async () => {
+  try { await navigator.share({ title: "NRSG106 quiz results", text: document.getElementById("f-text").value }); }
+  catch (e) { /* user cancelled */ }
+});
+document.getElementById("f-save").addEventListener("click", () => {
+  if (!pendingRound) return;
+  saveRound(pendingRound); clearDeck(deck); pendingRound = null; fin.hidden = true;
+  render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80, behavior: "smooth" });
+});
+
+renderDeckTabs();
+render();
+
+/* ---------- Presenter mode ---------- */
+const P = { on: false, i: 0, revealed: false };
+const pEl = document.getElementById("present");
+
+function startPresent() {
+  const qs = allItems(deck); const A = ans(deck);
+  let first = qs.findIndex(q => A[q.id] === undefined); if (first < 0) first = 0;
+  P.on = true; P.i = first; P.revealed = false;
+  document.body.classList.add("presenting"); pEl.hidden = false;
+  renderPresent();
+}
+function exitPresent() {
+  P.on = false; document.body.classList.remove("presenting"); pEl.hidden = true;
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+}
+
+function renderPresent() {
+  const qs = allItems(deck); const q = qs[P.i]; const A = ans(deck); const got = A[q.id];
+  const answered = got !== undefined;
+  const show = P.revealed || answered;
+  const secEl = document.getElementById("p-section");
+  const kindLabel = q.kind === "mc" ? "Multiple choice" : "Short answer";
+  secEl.textContent = q.ext ? `Beyond the Slides · ${kindLabel} · Question ${P.i + 1} of ${qs.length}` : `${q.secTitle} · Question ${P.i + 1} of ${qs.length}`;
+  secEl.classList.toggle("is-ext", !!q.ext);
+  document.getElementById("p-deck").textContent = DECKS[deck].title;
+  const letters = "ABCD";
+  let html = `<p class="p-stem">${esc(q.q)}</p>`;
+
+  if (q.kind === "mc") {
+    html += `<div class="p-opts">` + q.o.map((label, k) => {
+      let c = "opt";
+      if (show) { if (k === q.a) c += " is-right"; else if (answered && k === got) c += " is-wrong"; else c += " dim"; }
+      return `<button class="${c}" data-pv="${k}" ${answered ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(label)}</span></button>`;
+    }).join("") + `</div>`;
+    if (answered) html += `<div class="p-verdict ${got === q.a ? "ok" : "no"}"><b>${got === q.a ? "Correct." : "Not quite."}</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else if (show) html += `<div class="p-verdict ok"><b>Answer shown.</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else html += `<div class="p-wait">Let her answer — then press her letter to check it, or Space to reveal.</div>`;
+  } else {
+    if (show) {
+      const tag = q.ordered ? "ol" : "ul";
+      const two = q.a.length > 5 ? "two" : "";
+      html += `<div class="answer p-answer"><span class="lead">Answer</span><${tag} class="${two}">${q.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}></div>`;
+      html += `<div class="p-opts two grade">
+        <button class="opt g-yes ${got === true ? "picked" : ""}" data-pv="yes"><span class="key">✓</span><span>She got it</span></button>
+        <button class="opt g-no ${got === false ? "picked" : ""}" data-pv="no"><span class="key">✕</span><span>Missed it</span></button>
+      </div>`;
+    } else {
+      html += `<div class="p-wait">Let her answer out loud, then press Space to reveal.</div>`;
+    }
+  }
+  html += refLine(q);
+  document.getElementById("p-body").innerHTML = html;
+
+  let right = 0, done = 0;
+  qs.forEach(x => { const g = A[x.id]; if (g === undefined) return; done++; if (isRight(x, g)) right++; });
+  document.getElementById("p-score").textContent = `${right} / ${done} correct`;
+  document.getElementById("p-bar").style.width = ((P.i + 1) / qs.length * 100) + "%";
+  document.getElementById("p-prev").disabled = P.i === 0;
+  document.getElementById("p-next").textContent = P.i === qs.length - 1 ? "Finish" : "Next →";
+  document.getElementById("p-reveal").hidden = show;
+}
+
+function pAnswer(v) {
+  const q = allItems(deck)[P.i]; const A = ans(deck);
+  if (q.kind === "mc") A[q.id] = Number(v); else A[q.id] = v === "yes";
+  save(); renderPresent();
+}
+function pMove(d) {
+  const qs = allItems(deck); const n = P.i + d;
+  if (n < 0) return;
+  if (n >= qs.length) { exitPresent(); if (Object.keys(ans(deck)).length) document.getElementById("finish-btn").click(); return; }
+  P.i = n; P.revealed = false; renderPresent();
+}
+
+document.getElementById("present-btn").addEventListener("click", startPresent);
+document.getElementById("p-exit").addEventListener("click", exitPresent);
+document.getElementById("p-prev").addEventListener("click", () => pMove(-1));
+document.getElementById("p-next").addEventListener("click", () => pMove(1));
+document.getElementById("p-reveal").addEventListener("click", () => { P.revealed = true; renderPresent(); });
+document.getElementById("p-body").addEventListener("click", e => {
+  const b = e.target.closest("button[data-pv]"); if (!b || b.disabled) return; pAnswer(b.dataset.pv);
+});
+
+document.addEventListener("keydown", e => {
+  if (!P.on) return;
+  if (e.target.matches("input, textarea")) return;
+  const q = allItems(deck)[P.i]; const A = ans(deck); const answered = A[q.id] !== undefined;
+  const k = e.key;
+  if (k === "Escape") { exitPresent(); }
+  else if (k === "ArrowRight" || k === "PageDown") { pMove(1); }
+  else if (k === "ArrowLeft" || k === "PageUp") { pMove(-1); }
+  else if (k === " " || k === "Enter") { e.preventDefault(); if (P.revealed || answered) pMove(1); else { P.revealed = true; renderPresent(); } }
+  else if (q.kind === "mc" && !answered && /^[a-d1-4]$/i.test(k)) { const idx = /\d/.test(k) ? Number(k) - 1 : "abcd".indexOf(k.toLowerCase()); if (idx < q.o.length) pAnswer(String(idx)); }
+  else if (q.kind === "sa" && (P.revealed || answered) && /^[yn]$/i.test(k)) { pAnswer(k.toLowerCase() === "y" ? "yes" : "no"); }
+  else return;
+  e.preventDefault();
+});
+</script>
+
+</body>
+</html>

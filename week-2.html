@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NRSG106 Quiz Bank — Week 2</title>
+<style>[hidden]{display:none!important} img{max-width:100%}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    --paper: #F6F8FA;
+    --card: #FFFFFF;
+    --ink: #1B2A41;
+    --ink-soft: #4A5A70;
+    --ink-faint: #8593A6;
+    --rule: #D9DFE7;
+    --rule-strong: #B8C2CF;
+    --teal: #0F7B8A;
+    --teal-ink: #0B5F6B;
+    --teal-wash: #E3F1F3;
+    --mark: #F9D65C;
+    --mark-wash: #FFF6D2;
+    --good: #2E8B57;
+    --good-wash: #E4F3EA;
+    --bad: #C8463A;
+    --bad-wash: #FBE7E4;
+    --plum: #6B4E9B;
+    --plum-wash: #EEE9F7;
+    --focus: #0F7B8A;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12181F;
+      --card: #1A222B;
+      --ink: #E7ECF2;
+      --ink-soft: #B3BFCD;
+      --ink-faint: #7C8A9B;
+      --rule: #2C3743;
+      --rule-strong: #3E4B5A;
+      --teal: #3FB2C1;
+      --teal-ink: #6FCBD7;
+      --teal-wash: #16323A;
+      --mark: #E8C64A;
+      --mark-wash: #3A3316;
+      --good: #4FBF7F;
+      --good-wash: #16321F;
+      --bad: #E8746A;
+      --bad-wash: #3D1F1B;
+      --plum: #B49BE0;
+      --plum-wash: #2A2138;
+      --focus: #3FB2C1;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12181F;
+    --card: #1A222B;
+    --ink: #E7ECF2;
+    --ink-soft: #B3BFCD;
+    --ink-faint: #7C8A9B;
+    --rule: #2C3743;
+    --rule-strong: #3E4B5A;
+    --teal: #3FB2C1;
+    --teal-ink: #6FCBD7;
+    --teal-wash: #16323A;
+    --mark: #E8C64A;
+    --mark-wash: #3A3316;
+    --good: #4FBF7F;
+    --good-wash: #16321F;
+    --bad: #E8746A;
+    --bad-wash: #3D1F1B;
+    --plum: #B49BE0;
+    --plum-wash: #2A2138;
+    --focus: #3FB2C1;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    padding-block: 0 64px;
+    padding-inline: clamp(16px, 4vw, 40px);
+  }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif; text-wrap: balance; margin: 0; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  header { padding-block: 28px 20px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+  .eyebrow { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-ink); font-weight: 700; }
+  h1 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; margin-top: 6px; }
+  .sub { color: var(--ink-soft); margin: 6px 0 0; max-width: 60ch; }
+
+  /* Deck tabs */
+  .decks { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
+  .deck-tab {
+    flex: 1 1 240px; text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 14px 16px; display: grid; gap: 2px; transition: border-color .15s, background .15s;
+  }
+  .deck-tab .eyebrow { color: var(--ink-faint); }
+  .deck-tab strong { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; }
+  .deck-tab small { color: var(--ink-soft); font-size: 14px; }
+  .deck-tab[aria-selected="true"] { border-color: var(--teal); background: var(--teal-wash); box-shadow: inset 0 0 0 1px var(--teal); }
+  .deck-tab[aria-selected="true"] .eyebrow { color: var(--teal-ink); }
+
+  /* Toolbar */
+  .toolbar {
+    position: sticky; top: 0; z-index: 5; background: var(--paper);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding-block: 14px; border-bottom: 1px solid var(--rule); margin-top: 8px;
+  }
+  .score { display: flex; align-items: baseline; gap: 8px; font-variant-numeric: tabular-nums; }
+  .score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; font-weight: 700; line-height: 1; }
+  .score span { color: var(--ink-soft); font-size: 14px; }
+  .bar { flex: 1 1 160px; height: 8px; border-radius: 99px; background: var(--rule); overflow: hidden; display: flex; min-width: 120px; }
+  .bar i { display: block; height: 100%; transition: width .25s; }
+  .bar .g { background: var(--good); }
+  .bar .b { background: var(--bad); }
+  .tools { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+  .btn { border: 1px solid var(--rule-strong); background: var(--card); border-radius: 8px; padding: 7px 12px; font-size: 14.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
+  .btn:hover { border-color: var(--teal); }
+  .btn.on { background: var(--mark-wash); border-color: var(--mark); }
+  .btn .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule-strong); }
+  .btn.on .dot { background: var(--mark); }
+  .btn.ghost { border-color: transparent; background: transparent; color: var(--ink-soft); }
+  .btn.ghost:hover { color: var(--bad); }
+  .btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .btn.primary:hover { background: var(--teal-ink); border-color: var(--teal-ink); }
+
+  /* Sections */
+  section { margin-top: 40px; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: 22px; font-weight: 700; }
+  .sec-head .hint { color: var(--ink-soft); font-size: 14.5px; }
+  .sec-tally { font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: 14.5px; }
+  section.ext .sec-head { border-bottom-color: var(--plum); }
+  section.ext .sec-head h2 { color: var(--plum); }
+  .ext-note {
+    margin-top: 14px; padding: 12px 16px; border-radius: 10px; background: var(--plum-wash); color: var(--ink);
+    border-left: 3px solid var(--plum); font-size: 15px; line-height: 1.45;
+  }
+  .ext-note b { color: var(--plum); }
+
+  .q { display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; padding-block: 20px; border-bottom: 1px solid var(--rule); }
+  .q .num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 18px; color: var(--ink-faint); font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .q.right .num { color: var(--good); }
+  .q.wrong .num { color: var(--bad); }
+  .q .body { display: grid; gap: 12px; min-width: 0; }
+  .q .stem { font-size: 17.5px; line-height: 1.45; margin: 0; }
+  .q .ref { font-size: 12.5px; color: var(--ink-faint); letter-spacing: .04em; text-transform: uppercase; }
+  .ref.src { text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--plum); }
+  .ref.src::before { content: "Outside source · "; font-weight: 700; }
+
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.35;
+    transition: border-color .12s, background .12s;
+  }
+  .opt:hover { border-color: var(--teal); }
+  .opt .key { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--rule-strong); display: grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+  .opt.picked { border-color: var(--teal); background: var(--teal-wash); }
+  .opt.is-right { border-color: var(--good); background: var(--good-wash); }
+  .opt.is-right .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.is-wrong { border-color: var(--bad); background: var(--bad-wash); }
+  .opt.is-wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .6; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--rule); }
+  .locked .opt.is-right:hover { border-color: var(--good); }
+  .locked .opt.is-wrong:hover { border-color: var(--bad); }
+
+  .verdict { font-size: 15px; display: flex; gap: 8px; align-items: flex-start; }
+  .verdict b { flex: 0 0 auto; }
+  .verdict.ok b { color: var(--good); }
+  .verdict.no b { color: var(--bad); }
+  .verdict .why { color: var(--ink-soft); }
+
+  /* Short answer */
+  .sa-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .answer {
+    background: var(--mark-wash); border-left: 3px solid var(--mark); padding: 10px 14px; border-radius: 0 8px 8px 0;
+    font-size: 16px; line-height: 1.45;
+  }
+  .answer ul, .answer ol { margin: 4px 0 0; padding-left: 20px; }
+  .answer li { margin: 2px 0; }
+  .grade { display: flex; gap: 8px; flex-wrap: wrap; }
+  .grade .opt { padding: 8px 12px; }
+  .grade .opt.g-yes.picked { border-color: var(--good); background: var(--good-wash); }
+  .grade .opt.g-no.picked { border-color: var(--bad); background: var(--bad-wash); }
+
+  /* Answer-key mode */
+  .keymode .answer[hidden] { display: block !important; }
+  .keymode .opt.correct-key { border-color: var(--mark); background: var(--mark-wash); }
+  .keymode .opt.correct-key .key { background: var(--mark); border-color: var(--mark); color: #1B2A41; }
+
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--ink-faint); font-size: 13.5px; }
+  footer p { margin: 6px 0; }
+
+  /* Name field */
+  .who { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-soft); }
+  .who input { font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 6px 10px; width: 9ch; }
+  .who input:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; }
+
+  /* Past rounds */
+  .rounds-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .rounds-head h2 { font-size: 22px; font-weight: 700; }
+  .rounds-empty { color: var(--ink-faint); padding: 18px 0; font-size: 15.5px; }
+  .round { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding-block: 14px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .round .r-top { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+  .round .r-name { font-weight: 700; }
+  .round .r-date { color: var(--ink-soft); font-size: 14.5px; }
+  .round .r-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; text-align: right; line-height: 1.1; }
+  .round .r-score small { display: block; font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 13px; color: var(--ink-soft); }
+  .round .r-missed { grid-column: 1 / -1; font-size: 15px; color: var(--ink-soft); }
+  .round details summary { cursor: pointer; color: var(--teal-ink); font-weight: 600; }
+  .round details ul { margin: 6px 0 0; padding-left: 20px; }
+  .round details li { margin: 3px 0; color: var(--ink); }
+  .round .r-actions { grid-column: 1 / -1; display: flex; gap: 8px; }
+  .round .r-actions .btn { font-size: 13px; padding: 4px 9px; }
+  .log-box { margin-top: 18px; padding: 14px 16px; border: 1px dashed var(--rule-strong); border-radius: 10px; display: grid; gap: 8px; }
+  .log-box label { font-weight: 600; font-size: 15px; }
+  .log-box p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+  .log-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .log-row input { flex: 1 1 240px; font: inherit; font-size: 14px; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 8px 10px; }
+  .log-msg { font-size: 14px; min-height: 1.2em; }
+  .log-msg.ok { color: var(--good); } .log-msg.no { color: var(--bad); }
+  .trend { display: flex; gap: 6px; align-items: flex-end; height: 44px; margin-top: 12px; }
+  .trend i { flex: 0 0 18px; background: var(--teal); border-radius: 3px 3px 0 0; opacity: .85; position: relative; }
+  .trend i.g { background: var(--plum); }
+  .trend i span { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--ink-faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Finish-round dialog */
+  .modal-bg { position: fixed; inset: 0; z-index: 60; background: rgba(10, 16, 24, .55); display: grid; place-items: center; padding: 16px; }
+  .modal-bg[hidden] { display: none; }
+  .modal { background: var(--card); color: var(--ink); border-radius: 14px; width: min(640px, 100%); max-height: 92vh; overflow: auto; padding: 22px 24px 20px; box-shadow: 0 20px 60px rgba(0,0,0,.25); display: grid; gap: 14px; }
+  .modal h2 { font-size: 24px; }
+  .modal .m-score { display: flex; align-items: baseline; gap: 10px; }
+  .modal .m-score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modal .m-score span { color: var(--ink-soft); }
+  .modal textarea { width: 100%; min-height: 150px; font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; resize: vertical; }
+  .modal .m-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .modal .m-note { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .modal .m-msg { font-size: 14px; color: var(--good); min-height: 1.2em; }
+
+  /* Presenter mode — one question, big type, for screen sharing */
+  body.presenting { overflow: hidden; }
+  .present {
+    position: fixed; inset: 0; z-index: 50; background: var(--paper); color: var(--ink);
+    display: grid; grid-template-rows: auto 1fr auto; padding: clamp(16px, 3vw, 36px) clamp(16px, 5vw, 72px);
+  }
+  .present[hidden], .btn[hidden] { display: none; }
+  .p-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .p-top .eyebrow { font-size: clamp(13px, 1.3vw, 17px); }
+  .p-top .eyebrow.is-ext { color: var(--plum); }
+  .p-top .p-deck { color: var(--ink-faint); font-weight: 600; font-size: clamp(13px, 1.3vw, 17px); }
+  .p-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(18px, 2vw, 26px); font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 12px; }
+  .p-score .btn { font-size: clamp(13px, 1.2vw, 16px); }
+  .p-body { display: grid; align-content: center; gap: clamp(18px, 3vh, 36px); max-width: 1200px; width: 100%; margin: 0 auto; min-height: 0; overflow: auto; }
+  .p-stem { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 48px); line-height: 1.2; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  .p-opts { display: grid; gap: clamp(8px, 1.4vh, 14px); }
+  .p-opts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-opts .opt { font-size: clamp(19px, 2.2vw, 30px); padding: clamp(12px, 1.8vh, 18px) clamp(14px, 1.6vw, 22px); border-radius: 12px; gap: 14px; }
+  .p-opts .opt .key { width: 1.35em; height: 1.35em; font-size: .7em; border-radius: 8px; }
+  .p-answer { font-size: clamp(19px, 2.1vw, 28px); padding: clamp(14px, 2vh, 22px) clamp(18px, 2vw, 28px); }
+  .p-answer .lead { font-weight: 700; display: block; margin-bottom: 4px; }
+  .p-answer ol, .p-answer ul { columns: 1; }
+  @media (min-width: 900px) { .p-answer ol.two, .p-answer ul.two { columns: 2; column-gap: 40px; } }
+  .p-verdict { font-size: clamp(19px, 2.1vw, 28px); }
+  .p-verdict.ok b { color: var(--good); } .p-verdict.no b { color: var(--bad); }
+  .p-verdict .why { color: var(--ink-soft); }
+  .p-wait { color: var(--ink-faint); font-size: clamp(17px, 1.8vw, 24px); font-style: italic; }
+  .p-body .ref { font-size: clamp(13px, 1.2vw, 15px); }
+  .p-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; }
+  .p-nav .btn { font-size: clamp(15px, 1.4vw, 19px); padding: 10px 18px; }
+  .p-keys { color: var(--ink-faint); font-size: clamp(12px, 1.1vw, 14px); }
+  .p-keys kbd { font-family: inherit; border: 1px solid var(--rule-strong); border-radius: 4px; padding: 0 5px; margin: 0 2px; background: var(--card); }
+  .p-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--rule); }
+  .p-progress i { display: block; height: 100%; background: var(--teal); transition: width .2s; }
+
+  @media (max-width: 480px) {
+    .q { grid-template-columns: 34px 1fr; }
+    .tools { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">NRSG106 · Health Assessment · AdventHealth University</div>
+      <h1>NRSG106 Quiz Bank</h1>
+      <p class="sub">Multiple choice and short answer sets built from each week's slides, plus a clearly marked “Beyond the Slides” section drawn from outside nursing sources. Tap an answer to check it, or turn on the answer key to read aloud.</p>
+    </div>
+  </header>
+
+  <div class="decks" role="tablist" aria-label="Choose a presentation" id="decks"></div>
+
+  <div class="toolbar">
+    <div class="score"><b id="score-num">0 / 0</b><span id="score-txt">answered</span></div>
+    <div class="bar" aria-hidden="true"><i class="g" id="bar-g" style="width:0%"></i><i class="b" id="bar-b" style="width:0%"></i></div>
+    <div class="tools">
+      <label class="who">Answering as <input id="who" type="text" placeholder="name" maxlength="24" autocomplete="off"></label>
+      <button class="btn primary" id="present-btn">Present one at a time</button>
+      <button class="btn" id="key-toggle" aria-pressed="false"><span class="dot"></span>Answer key</button>
+      <button class="btn" id="finish-btn">Finish round</button>
+      <button class="btn ghost" id="reset-btn">Clear without saving</button>
+    </div>
+  </div>
+
+  <main id="quiz"></main>
+
+  <section id="rounds"></section>
+
+  <footer>
+    <p>Slide references point to the slide number in the matching PowerPoint so she can go back and re-read anything she missed. Answers and past rounds are saved in this browser only — use <b>Finish round</b> to get a summary and code you can text to someone else, and <b>Log a round</b> to add theirs to your history.</p>
+    <p>“Beyond the Slides” questions were not taken from the class presentations. They come from published nursing references (CDC, American Heart Association, NCSBN, StatPearls/NCBI, and open nursing textbooks from OpenStax and Pressbooks) chosen to match the slide topics. Where a source differs from the slides, the slide value is treated as the class answer and the difference is pointed out.</p>
+  </footer>
+</div>
+
+<div class="present" id="present" hidden role="dialog" aria-label="Presenter mode">
+  <div class="p-top">
+    <div>
+      <div class="eyebrow" id="p-section"></div>
+      <div class="p-deck" id="p-deck"></div>
+    </div>
+    <div class="p-score"><span id="p-score"></span><button class="btn" id="p-exit">Exit (Esc)</button></div>
+  </div>
+  <div class="p-body" id="p-body"></div>
+  <div class="p-nav">
+    <button class="btn" id="p-prev">← Previous</button>
+    <span class="p-keys"><kbd>←</kbd><kbd>→</kbd> move · <kbd>A</kbd>–<kbd>D</kbd> her answer · <kbd>Space</kbd> reveal / next · <kbd>Y</kbd>/<kbd>N</kbd> grade short answer</span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="p-reveal">Reveal answer (Space)</button>
+      <button class="btn primary" id="p-next">Next →</button>
+    </div>
+  </div>
+  <div class="p-progress" aria-hidden="true"><i id="p-bar" style="width:0%"></i></div>
+</div>
+
+<div class="modal-bg" id="finish" hidden role="dialog" aria-label="Finish round">
+  <div class="modal">
+    <h2 id="f-title">Round finished</h2>
+    <div class="m-score"><b id="f-score"></b><span id="f-sub"></span></div>
+    <p class="m-note">Copy or share this summary — the code at the bottom lets someone else add this round to their history with <b>Log a round</b>.</p>
+    <textarea id="f-text" readonly></textarea>
+    <div class="m-actions">
+      <button class="btn" id="f-copy">Copy summary</button>
+      <button class="btn" id="f-share">Share…</button>
+      <button class="btn primary" id="f-save">Save round &amp; start fresh</button>
+      <button class="btn ghost" id="f-cancel">Back</button>
+    </div>
+    <div class="m-msg" id="f-msg"></div>
+  </div>
+</div>
+
+<script>
+const DECKS = {"wk2":{"title":"Critical Thinking, Vital Signs, Pain & Culture (Chapters 5, 8, 9 & 11)","short":"Week 2 · Chapters 5, 8, 9 & 11","mc":[{"q":"The data analysis step of the nursing process is also called the:","o":["Implementation phase","Diagnostic or clinical reasoning phase","Evaluation phase","Documentation phase"],"a":1,"ref":"Slide 5","why":"Its end result is a clinical judgment."},{"q":"A clinical judgment made from assessment data may identify which of the following?","o":["A client concern","A collaborative problem","A need for referral to another health care professional","All of the above"],"a":3,"ref":"Slide 5"},{"q":"What is the FIRST of the six steps to make a clinical judgment from assessment data?","o":["Cluster cues","Identify abnormal cues and supportive cues (client strengths)","Draw inferences","Validate with the client"],"a":1,"ref":"Slide 7"},{"q":"After clustering cues, what is the next step?","o":["Document clinical judgments","Validate the client concern","Draw inferences to propose or hypothesize clinical judgments","Identify abnormal cues"],"a":2,"ref":"Slide 7"},{"q":"A client does not currently have a problem but is vulnerable to developing it. This is a(n):","o":["Actual client concern","Risk for client concern","Opportunity to improve health","Collaborative problem"],"a":1,"ref":"Slide 8"},{"q":"A client is motivated to increase or improve their health behaviors and well-being. This is a(n):","o":["Actual client concern","Risk for client concern","Opportunity to improve health","Referral"],"a":2,"ref":"Slide 8"},{"q":"Which is the correct format for stating an ACTUAL client concern?","o":["Client problem + medical diagnosis + medication","Client problem + associated with + cause/aggravating factors + as seen in identified cues","Cue + cluster + inference","Problem + goal + intervention"],"a":1,"ref":"Slide 9","why":"Example: “Prolonged tiredness associated with increased job responsibilities and personal stress as seen in client's statements of feeling exhausted all the time…”"},{"q":"Which is a pitfall of the ANALYSIS phase (rather than the assessment phase)?","o":["Collecting too many or inadequate data","Unreliable or invalid data","Clustering unrelated cues","Insufficient number of cues to support the concern"],"a":2,"ref":"Slide 10","why":"Other analysis pitfalls: judging too quickly without alternatives, wording the judgment incorrectly, overlooking cultural background."},{"q":"The general survey is:","o":["The last part of the physical exam","The first part of the physical exam, using all observational skills while interviewing","Only the vital signs","A focused assessment of one body system"],"a":1,"ref":"Slide 12"},{"q":"The “hands-on” physical examination begins with:","o":["Auscultation of the heart","Vital signs","Palpation of the abdomen","Inspection of the skin"],"a":1,"ref":"Slide 14"},{"q":"According to the slides, a fever is a temperature over:","o":["99.0°F","99.9°F","100.4°F","101.5°F"],"a":2,"ref":"Slide 15","why":"Normal adult core temperature is 36.5–37.7°C (97.7–99.9°F orally); hyperthermia is > 38.0°C / 100.4°F."},{"q":"What is the normal temperature range for an OLDER adult?","o":["97.7–99.9°F","95.0–97.5°F","98.6–100.4°F","94.0–96.0°F"],"a":1,"ref":"Slide 15","why":"35.0–36.4°C."},{"q":"When taking a tympanic temperature on an adult, the nurse should:","o":["Pull the pinna down and back","Pull the pinna up and back and angle the thermometer toward the jaw line","Insert straight in without moving the ear","Angle the probe toward the top of the head"],"a":1,"ref":"Slide 16"},{"q":"For a rectal temperature the patient is positioned in Sims and the lubricated probe is inserted:","o":["½ inch straight back","1 inch angled toward the umbilicus","2 inches angled toward the spine","3 inches straight in"],"a":1,"ref":"Slide 16"},{"q":"Where should the probe be placed for an oral temperature?","o":["On top of the tongue","Beneath the tongue in the posterior sublingual pocket, lips closed","Between the cheek and gum","Under the upper lip"],"a":1,"ref":"Slide 16"},{"q":"The nurse palpates an irregular radial pulse. What should the nurse do?","o":["Count for 15 seconds and multiply by 4","Count for 30 seconds and multiply by 2","Count for a full 60 seconds and verify with the apical pulse","Document “irregular” and move on"],"a":2,"ref":"Slide 18"},{"q":"A pulse graded 4+ is described as:","o":["Absent","Weak, diminished","Normal","Bounding"],"a":3,"ref":"Slide 18","why":"0 absent · 1+ weak/diminished · 2+ normal · 3+ strong · 4+ bounding."},{"q":"Tachypnea is defined in the slides as a respiratory rate greater than:","o":["16 breaths/min","20 breaths/min","24 breaths/min","30 breaths/min"],"a":2,"ref":"Slides 19 & 21","why":"Normal adult rate is 12–20; bradypnea is < 12."},{"q":"Apnea is the absence of respirations for more than:","o":["3 seconds","5 seconds","10 seconds","30 seconds"],"a":2,"ref":"Slide 21"},{"q":"Slow, shallow respirations are called:","o":["Hyperventilation","Hypoventilation","Dyspnea","Tachypnea"],"a":1,"ref":"Slide 21","why":"Hyperventilation = deep, rapid; dyspnea = difficult or labored."},{"q":"While counting respirations, the nurse should:","o":["Tell the patient to breathe normally while you count","Keep fingers on the pulse and observe chest rise and fall without mentioning the count","Ask the patient to count their own breaths","Have the patient hold their breath first"],"a":1,"ref":"Slide 20"},{"q":"Per the slides, hypoxia is an oxygen saturation below:","o":["99%","95%","92%","88%"],"a":2,"ref":"Slide 22","why":"Normal 92–99%; hyperoxemia > 99%."},{"q":"Systolic blood pressure is the pressure when the:","o":["Ventricles relax","Ventricles contract","Atria contract","Valves close"],"a":1,"ref":"Slide 23","why":"Diastolic is the low point, when the ventricles relax."},{"q":"A client's blood pressure is 128/82. What is the pulse pressure?","o":["28","46","82","210"],"a":1,"ref":"Slide 23","why":"Pulse pressure = systolic − diastolic."},{"q":"The blood pressure cuff bladder should encircle what percentage of the arm circumference?","o":["40%","60%","80%","100%"],"a":2,"ref":"Slides 24–25","why":"Cuff WIDTH should be 40% of the arm circumference."},{"q":"After the radial pulse disappears during cuff inflation, the nurse should continue inflating an additional:","o":["10 mmHg","20 mmHg","30 mmHg","50 mmHg"],"a":2,"ref":"Slide 24"},{"q":"Where should the BP cuff be applied?","o":["Snugly, 1 inch above the antecubital area, with the artery marker over the brachial artery","Loosely at the wrist","Over the sleeve, 3 inches above the elbow","Directly over the antecubital fossa"],"a":0,"ref":"Slide 24"},{"q":"Per the slides, chronic pain lasts longer than:","o":["2 weeks","1 month","3 months","6 months"],"a":3,"ref":"Slide 27","why":"Acute pain occurs suddenly and does not last longer than 6 months."},{"q":"On the Behavioral Pain Scale (BPS), which three items are scored?","o":["Heart rate, blood pressure, respiratory rate","Facial expression, upper limbs, compliance with ventilation","Face, legs, activity","Crying, consolability, sleep"],"a":1,"ref":"Slide 31","why":"Each item scores 1–4; grimacing = 4, permanently retracted limbs = 4, unable to control ventilation = 4."},{"q":"On the Wong–Baker FACES scale, face number 5 with tears means:","o":["No hurt","Hurts little bit","Hurts even more","Hurts worst"],"a":3,"ref":"Slide 31","why":"Faces 0–5, with alternative coding 0, 2, 4, 6, 8, 10."},{"q":"Which vital sign pattern suggests a patient is in pain?","o":["Decreased HR, decreased RR, decreased BP","Elevated HR, elevated RR (may be irregular or shallow), elevated BP","Elevated temperature only","Decreased oxygen saturation only"],"a":1,"ref":"Slide 33"},{"q":"The perception that one's own worldview is the only acceptable truth and one's values are superior to all others is:","o":["Ethnicity","Stereotyping","Ethnocentrism","Cultural humility"],"a":2,"ref":"Slide 36"},{"q":"Assuming that all people from the same culture hold the same beliefs and behave the same way is:","o":["Ethnocentrism","Stereotyping","Cultural humility","Acculturation"],"a":1,"ref":"Slide 36"},{"q":"According to the slides, race is best described as:","o":["A physical characteristic determined by genetics","A socially constructed concept that has meaning to a larger group","The same thing as ethnicity","A person's national origin"],"a":1,"ref":"Slide 36"},{"q":"Which culture-based treatment involves rubbing ointment into the skin with a spoon or coin?","o":["Cupping","Coining","Acupuncture","Moxibustion"],"a":1,"ref":"Slide 38","why":"Cupping places heated glass jars on the skin, leaving round marks."},{"q":"Culture is described in the slides as:","o":["Inherited, fixed, and individual","Learned, shared, adaptive, and universal","Biological and unchanging","Limited to language and religion"],"a":1,"ref":"Slide 35"}],"sa":[{"q":"List the six steps to make a clinical judgment from assessment data, in order.","a":["Identify abnormal cues and supportive cues (client strengths)","Cluster cues","Draw inferences to propose/hypothesize clinical judgments","Identify possible client concerns","Validate the client concern with the client, family, significant others, and/or health team","Document clinical judgments"],"ordered":true,"ref":"Slide 7"},{"q":"Name the three types of possible client concerns and define each.","a":["Actual client concern — the client is currently experiencing the stated problem","Risk for client concern — the client does not currently have the problem but is vulnerable to developing it","Opportunity to improve health — the client is motivated to increase or improve their health behaviors and well-being"],"ref":"Slide 8"},{"q":"Give at least four critical-thinking criteria for making clinical judgments.","a":["Keep an open mind","Use rationale and research to support opinions or decisions","Reflect on thoughts before reaching a clinical judgment","Use past clinical experiences to build the knowledge base","Build an adequate knowledge base through ongoing education and reading","Be aware of the interactions and influences of others","Be aware of the influences of the environment"],"ref":"Slide 6"},{"q":"Name the common pitfalls in the assessment phase AND in the analysis phase of clinical judgment.","a":["Assessment: too many or inadequate data; unreliable or invalid data; insufficient cues to support the concern","Analysis: clustering unrelated cues; judging too quickly without considering alternatives; incorrectly wording the clinical judgment; overlooking the client's cultural background"],"ref":"Slide 10"},{"q":"List at least six components of the general survey.","a":["Physical development and body build","Sex at birth, gender identity, and sexual development","Apparent age compared to reported age","Skin condition and color","Dress and hygiene","Posture and gait","Level of consciousness","Behaviors, body movements, and affect","Facial expression","Speech","Vital signs"],"ref":"Slide 13"},{"q":"State the normal adult ranges from the slides for temperature, heart rate, respiratory rate, oxygen saturation, and blood pressure.","a":["Temperature: 36.5–37.7°C (97.7–99.9°F oral)","Heart rate: 60–100 beats/min","Respiratory rate: 12–20 breaths/min","Oxygen saturation: 92–99%","Blood pressure: systolic < 120 and diastolic < 80 mm Hg"],"ref":"Slides 15, 17, 19, 22, 23"},{"q":"Define tachycardia, bradycardia, tachypnea, and bradypnea with the numbers from the slides.","a":["Tachycardia: HR > 100 beats/min","Bradycardia: HR < 60 beats/min","Tachypnea: RR > 24 breaths/min","Bradypnea: RR < 12 breaths/min"],"ref":"Slides 17 & 19"},{"q":"Describe the pulse strength/amplitude scale.","a":["0 — Absent","1+ — Weak, diminished","2+ — Normal","3+ — Strong","4+ — Bounding"],"ordered":true,"ref":"Slide 18"},{"q":"Name the five sites/methods for measuring temperature and describe the technique for at least two.","a":["Oral — probe in posterior sublingual pocket, lips closed","Temporal — slide probe from center of forehead to hairline behind the ear","Tympanic — adults: pull pinna up and back, angle toward jaw line","Axillary — probe in center of axilla, arm down close to body","Rectal — Sims position, lubricate, insert 1 inch angled toward the umbilicus"],"ref":"Slides 15–16"},{"q":"Walk through the key steps of taking a manual blood pressure.","a":["Choose the appropriate arm; arm relaxed and supported at heart level, legs uncrossed","Choose the right cuff size (width 40% of arm circumference, bladder 80%); apply snugly 1 inch above the antecubital area with the artery marker over the brachial artery","Palpate the radial pulse while inflating until it disappears, then inflate 30 mmHg more","Place the stethoscope over the brachial artery and release air slowly and steadily","First sound = systolic; sound disappears = diastolic"],"ordered":true,"ref":"Slide 24"},{"q":"Name the factors that affect blood pressure.","a":["Cardiac output","Elasticity of the arteries (peripheral vascular resistance)","Blood volume","Blood viscosity (thickness)","Blood velocity (heart rate)"],"ref":"Slide 23"},{"q":"Define the unexpected respiratory findings: hyperventilation, hypoventilation, apnea, and dyspnea.","a":["Hyperventilation — deep, rapid respirations","Hypoventilation — slow, shallow respirations","Apnea — absence of respirations for more than 10 seconds","Dyspnea — difficult or labored respirations"],"ref":"Slide 21"},{"q":"What four characteristics of respirations does the nurse assess?","a":["Rate","Rhythm","Depth","Effort"],"ref":"Slide 20"},{"q":"List at least five nonverbal indicators of pain.","a":["Slumped posture, shoulders not straight, leaning forward","Inattentive and agitated","Guarding the affected area","Guarded respirations","Facial expressions of distress — frowning, moaning, crying, grimacing","Not maintaining eye contact"],"ref":"Slide 32"},{"q":"Differentiate acute pain from chronic pain as defined in the slides.","a":["Acute — occurs suddenly and does not last longer than 6 months","Chronic — persistent, ongoing; lasts longer than 6 months"],"ref":"Slide 27"},{"q":"Define ethnicity, ethnocentrism, stereotyping, cultural humility, and race.","a":["Ethnicity — identification with commonalities such as race, national origin, tribal heritage, religion, language, and culture","Ethnocentrism — believing one's own worldview is the only acceptable truth and one's values/behaviors are superior","Stereotyping — assuming all people from the same culture hold the same beliefs and behave the same way","Cultural humility — awareness of how culture impacts health behaviors, used to cultivate sensitive approaches to treating patients","Race — not a physical characteristic but a socially constructed concept with meaning to a larger group"],"ref":"Slide 36"},{"q":"What are the main purposes for assessing a client's culture?","a":["Learn the client's beliefs and behaviors associated with health and illness","Determine how the client's beliefs and practices differ from others of a similar background (to avoid stereotyping)","Determine how cultural background might influence health care decisions","Identify cultural factors that may impact communication between the client and the health care team"],"ref":"Slide 37"},{"q":"Describe cupping and coining.","a":["Cupping — heated glass jars are placed on the skin, leaving round marks","Coining — ointment is rubbed into the skin with a spoon or coin, leaving linear marks","Both are culture-based treatments the nurse should recognize when assessing skin"],"ref":"Slide 38"}],"ext":[{"kind":"mc","q":"Which Korotkoff phase marks the SYSTOLIC blood pressure?","o":["Phase I — first clear tapping sounds","Phase II — swishing sounds","Phase IV — muffling of sounds","Phase V — disappearance of sounds"],"a":0,"src":"StatPearls (NCBI) — Physiology, Korotkoff Sound","why":"Phase V (complete disappearance) is the diastolic pressure in adults."},{"kind":"mc","q":"An auscultatory gap is:","o":["The pause between heartbeats","A silent interval where Korotkoff sounds disappear and then reappear during deflation","The difference between two arms' blood pressures","The time between systole and diastole"],"a":1,"src":"StatPearls (NCBI); Toronto Metropolitan Univ. — Manual Blood Pressure","why":"Missing it can underestimate systolic or overestimate diastolic pressure — which is why you palpate the radial pulse and inflate 30 mmHg above where it disappears (as the slides teach)."},{"kind":"mc","q":"How fast should the BP cuff be deflated during auscultation?","o":["As fast as possible","2–3 mmHg per second","10 mmHg per second","It does not matter"],"a":1,"src":"StatPearls (NCBI); WTCS Nursing Skills 2e — Blood Pressure Basics"},{"kind":"mc","q":"Using the American Heart Association categories, a reading of 128/82 mm Hg is classified as:","o":["Normal","Elevated","Stage 1 hypertension","Stage 2 hypertension"],"a":2,"src":"American Heart Association — Blood Pressure Categories","why":"Normal < 120 AND < 80; Elevated 120–129 AND < 80; Stage 1 130–139 OR 80–89; Stage 2 ≥ 140 OR ≥ 90. A diastolic of 82 puts this in Stage 1."},{"kind":"mc","q":"A reading of 124/76 mm Hg falls into which AHA category?","o":["Normal","Elevated","Stage 1 hypertension","Stage 2 hypertension"],"a":1,"src":"American Heart Association — Blood Pressure Categories"},{"kind":"mc","q":"A blood pressure higher than 180/120 mm Hg is classified by the AHA as:","o":["Stage 1 hypertension","Stage 2 hypertension","Hypertensive crisis (severe hypertension / emergency)","Elevated"],"a":2,"src":"American Heart Association — Understanding Blood Pressure Readings","why":"With symptoms (chest pain, shortness of breath, numbness, vision or speech changes) it is a hypertensive emergency — call 911."},{"kind":"mc","q":"Orthostatic (postural) hypotension is defined as a drop of at least:","o":["10 mm Hg systolic or 5 mm Hg diastolic within 1 minute of standing","20 mm Hg systolic or 10 mm Hg diastolic within 3 minutes of standing","30 mm Hg systolic within 5 minutes of standing","Any drop in blood pressure on standing"],"a":1,"src":"WTCS Nursing Skills 2e — Blood Pressure Basics","why":"A pulse increase of 30 or more on standing is also significant."},{"kind":"mc","q":"Which arm should the nurse AVOID for a blood pressure measurement?","o":["The arm the patient prefers","The arm on the side of a prior mastectomy or with a dialysis fistula","The non-dominant arm","The arm closest to the nurse"],"a":1,"src":"OpenStax Fundamentals of Nursing — How to Perform Vital Signs","why":"Also avoid arms with IV lines, injuries, casts, or lymphedema."},{"kind":"mc","q":"In the NCSBN Clinical Judgment Measurement Model used on the NCLEX, what is the FIRST cognitive step?","o":["Prioritize hypotheses","Recognize cues","Take action","Generate solutions"],"a":1,"src":"NCSBN — Clinical Judgment Measurement Model (nclex.com); OpenStax Medical-Surgical Nursing","why":"The six steps: Recognize cues → Analyze cues → Prioritize hypotheses → Generate solutions → Take action → Evaluate outcomes."},{"kind":"mc","q":"The slide's step “cluster cues” lines up most closely with which NCSBN clinical judgment step?","o":["Recognize cues","Analyze cues","Take action","Evaluate outcomes"],"a":1,"src":"NCSBN — Clinical Judgment Measurement Model; Univ. of Maryland School of Nursing NGN resources","why":"Analyze cues = cluster data, recognize patterns, link cues to the client situation."},{"kind":"mc","q":"Which pain scale is designed for children about 2 months to 7 years old and for patients who cannot verbalize?","o":["Numeric Rating Scale (0–10)","FLACC (Face, Legs, Activity, Cry, Consolability)","PAINAD","Behavioral Pain Scale"],"a":1,"src":"OpenStax Medical-Surgical Nursing — Pain Assessment","why":"Each of the five FLACC items is scored 0–2 for a total of 0–10."},{"kind":"mc","q":"The PAINAD scale is intended for which population?","o":["Neonates","Intubated ICU patients","Patients with advanced dementia","School-age children"],"a":2,"src":"OpenStax Medical-Surgical Nursing — Pain Assessment"},{"kind":"mc","q":"The Wong–Baker FACES scale is generally recommended for children starting at about what age?","o":["Birth","1 year","3 years","10 years"],"a":2,"src":"Northwell Health pain policy; Royal Children's Hospital Melbourne guideline","why":"Children over ~6–8 who understand rank and order can usually use the 0–10 numeric scale."},{"kind":"mc","q":"A patient describes pain as burning, shooting, tingling, and “like electric shocks.” This description is most typical of:","o":["Somatic nociceptive pain","Visceral nociceptive pain","Neuropathic pain","Referred pain"],"a":2,"src":"College of DuPage — Nursing Physical Assessment: Classifying Pain; StatPearls Pain Assessment","why":"Nociceptive pain is usually sharp, aching, or throbbing and localized."},{"kind":"mc","q":"Cardiac ischemia felt as pain in the left arm or jaw is an example of:","o":["Phantom pain","Referred pain","Neuropathic pain","Psychogenic pain"],"a":1,"src":"College of DuPage — Nursing Physical Assessment: Classifying Pain"},{"kind":"mc","q":"Nociceptive pain that originates in internal organs such as the intestines or kidneys is called:","o":["Somatic pain","Visceral pain","Neuropathic pain","Phantom pain"],"a":1,"src":"College of DuPage — Nursing Physical Assessment: Classifying Pain","why":"Somatic pain comes from skin, bone, muscle, tendons, and ligaments."},{"kind":"mc","q":"On a 0–10 numeric pain scale, a rating of 4–6 is commonly interpreted as:","o":["No pain","Mild pain","Moderate pain","Severe pain"],"a":2,"src":"OpenStax Medical-Surgical Nursing — Pain Assessment","why":"Typically 1–3 mild, 4–6 moderate, 7–9 severe, 10 unbearable (institutional policies vary)."},{"kind":"mc","q":"Which nurse theorist is known as the founder of transcultural nursing and the Culture Care Diversity and Universality theory?","o":["Florence Nightingale","Madeleine Leininger","Jean Watson","Dorothea Orem"],"a":1,"src":"OpenStax Population Health for Nurses — Cultural Models"},{"kind":"mc","q":"Giger and Davidhizar's Transcultural Assessment Model describes six cultural phenomena. Which is NOT one of them?","o":["Communication","Space","Time","Income"],"a":3,"src":"OpenStax Population Health for Nurses — Cultural Models","why":"The six: communication, space, social organization, time, environmental control, biological variations."},{"kind":"mc","q":"Taking on some parts of another culture while keeping one's own is called:","o":["Assimilation","Acculturation","Ethnocentrism","Cultural imposition"],"a":1,"src":"Kersey-Matusiak — Delivering Culturally Competent Nursing Care (Springer)","why":"Assimilation is being absorbed into another culture and relinquishing one's own."},{"kind":"mc","q":"A nurse who imposes their own cultural beliefs and values on a client is demonstrating:","o":["Cultural humility","Cultural imposition","Acculturation","Culture shock"],"a":1,"src":"OpenStax Population Health for Nurses — Cultural Models"},{"kind":"sa","q":"List the six cognitive steps of the NCSBN Clinical Judgment Measurement Model in order.","a":["Recognize cues","Analyze cues","Prioritize hypotheses","Generate solutions","Take action","Evaluate outcomes"],"ordered":true,"src":"NCSBN — Clinical Judgment Measurement Model (nclex.com); OpenStax Medical-Surgical Nursing"},{"kind":"sa","q":"Describe the five Korotkoff phases and which two matter clinically.","a":["Phase I — clear tapping sounds for at least two consecutive beats = SYSTOLIC pressure","Phase II — softer tapping with a swishing sound","Phase III — return of crisper, louder tapping","Phase IV — abrupt muffling; soft, blowing quality","Phase V — complete disappearance of sound = DIASTOLIC pressure","Phases II and III have no known clinical significance"],"ordered":true,"src":"StatPearls (NCBI) — Physiology, Korotkoff Sound"},{"kind":"sa","q":"State the American Heart Association blood pressure categories with their numbers.","a":["Normal: < 120 AND < 80","Elevated: 120–129 AND < 80","Stage 1 hypertension: 130–139 OR 80–89","Stage 2 hypertension: ≥ 140 OR ≥ 90","Hypertensive crisis: > 180 AND/OR > 120 — emergency if symptoms present","If systolic and diastolic fall in different categories, use the higher category"],"src":"American Heart Association — Blood Pressure Categories; 2017 ACC/AHA Guideline"},{"kind":"sa","q":"How do you measure orthostatic vital signs, and what result is significant?","a":["Measure BP and pulse lying (or sitting), then have the patient stand","Repeat BP and pulse at 1 minute and again at 3 minutes of standing, same arm and equipment","Significant: systolic drops ≥ 20 mm Hg or diastolic drops ≥ 10 mm Hg within 3 minutes; pulse rises ≥ 30 beats/min","Watch for dizziness, light-headedness, or fainting — fall risk, especially in older adults"],"src":"WTCS Nursing Skills 2e — Blood Pressure Basics"},{"kind":"sa","q":"Match the pain assessment tool to the population it is designed for: Numeric Rating Scale, Wong–Baker FACES, FLACC, PAINAD, Behavioral Pain Scale / CPOT.","a":["Numeric Rating Scale (0–10) — adults and older children who understand rank and order","Wong–Baker FACES — children ~3 years and up; adults with communication difficulty","FLACC — infants and children ~2 months to 7 years; nonverbal patients","PAINAD — patients with advanced dementia","Behavioral Pain Scale / CPOT — intubated or sedated ICU patients who cannot self-report"],"src":"OpenStax Medical-Surgical Nursing — Pain Assessment; Northwell Health; RCH Melbourne"},{"kind":"sa","q":"Define nociceptive (somatic and visceral), neuropathic, referred, and phantom pain.","a":["Nociceptive — from activation of pain receptors by a noxious stimulus; localized","  Somatic — skin, bone, muscle, tendons, ligaments","  Visceral — internal organs (heart, intestines, kidneys)","Neuropathic — from a lesion or disease of the nervous system; burning, shooting, tingling, electric","Referred — felt at a location different from its origin (cardiac ischemia → left arm/jaw)","Phantom — pain perceived in a body part that has been removed"],"src":"College of DuPage — Nursing Physical Assessment: Classifying Pain; Northwell Health pain policy"},{"kind":"sa","q":"Note on chronic pain: the slides say “longer than 6 months.” What do other common sources say, and why does it matter?","a":["Many sources (e.g., StatPearls, the Northwell policy) define chronic pain as pain lasting more than 3 months","Both definitions appear in nursing literature — for exams, use the number your instructor and textbook give (6 months), but recognize 3 months if you see it on a standardized test"],"src":"StatPearls (NCBI) — Pain Assessment; Northwell Health pain policy"},{"kind":"sa","q":"Name Giger & Davidhizar's six cultural phenomena and the founder of transcultural nursing.","a":["Communication","Space","Social organization","Time","Environmental control","Biological variations","Founder of transcultural nursing: Madeleine Leininger (Culture Care Diversity and Universality theory)"],"src":"OpenStax Population Health for Nurses — Cultural Models"},{"kind":"sa","q":"Where is the apical pulse located, when should you use it instead of the radial pulse, and how long do you count?","a":["5th intercostal space at the left midclavicular line (adults)","Use it when the radial pulse is irregular, weak, too fast to count, or inaccessible; before giving digoxin; and to check for a pulse deficit","Count for one full minute"],"src":"OpenStax Clinical Nursing Skills — Heart Rate; College of DuPage — Nursing Physical Assessment"}]}};
+
+const DECK_ORDER = ["wk2"];
+const LS_KEY = "nrsg106-quiz-bank-v4";
+let state = load();
+let deck = DECKS[state.deck] ? state.deck : DECK_ORDER[0];
+let keyMode = false;
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}") || {}; } catch (e) { return {}; }
+}
+function save() {
+  try { state.deck = deck; localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+}
+function ans(d) { state[d] = state[d] || {}; return state[d]; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+/* Sections for a deck: each item carries its own kind ("mc" | "sa") and a stable id */
+function sections(d) {
+  const D = DECKS[d];
+  return [
+    { key: "mc", title: "Multiple Choice", hint: "Pick one answer.", items: D.mc.map((it, i) => ({ ...it, kind: "mc", id: "mc" + i })) },
+    { key: "sa", title: "Short Answer", hint: "Let her answer out loud, reveal, then mark it.", items: D.sa.map((it, i) => ({ ...it, kind: "sa", id: "sa" + i })) },
+    { key: "ex", title: "Beyond the Slides", hint: "Outside sources — not from the class deck", ext: true, items: (D.ext || []).map((it, i) => ({ ...it, id: "ex" + i })) }
+  ];
+}
+function allItems(d) { return sections(d).flatMap(s => s.items.map(it => ({ ...it, secTitle: s.title, ext: !!s.ext }))); }
+function isRight(item, got) { return item.kind === "sa" ? got === true : got === item.a; }
+
+function refLine(item) {
+  return item.src ? `<div class="ref src">${esc(item.src)}</div>` : `<div class="ref">${esc(item.ref || "")}</div>`;
+}
+
+function renderDeckTabs() {
+  document.getElementById("decks").innerHTML = DECK_ORDER.map(d => `
+    <button class="deck-tab" role="tab" id="tab-${d}" aria-selected="${String(d === deck)}" data-deck="${d}">
+      <span class="eyebrow">${esc(DECKS[d].short)}</span>
+      <strong>${esc(DECKS[d].title.replace(/\s*\(.*\)$/, ""))}</strong>
+      <small id="count-${d}"></small>
+    </button>`).join("");
+  document.querySelectorAll(".deck-tab").forEach(t => t.addEventListener("click", () => {
+    deck = t.dataset.deck; save(); render(); window.scrollTo({ top: 0 });
+  }));
+}
+
+function render() {
+  const A = ans(deck);
+  const main = document.getElementById("quiz");
+  document.querySelectorAll(".deck-tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.deck === deck)));
+  let n = 0;
+  const parts = [];
+  const letters = "ABCD";
+
+  sections(deck).forEach(sec => {
+    if (!sec.items.length) return;
+    parts.push(`<section class="${sec.ext ? "ext" : ""}"><div class="sec-head"><h2>${sec.title}</h2><span class="hint">${sec.hint}</span><span class="sec-tally" id="tally-${sec.key}"></span></div>
+      ${sec.ext ? `<div class="ext-note"><b>Heads up:</b> the questions below were <b>not</b> taken from the class slides. They come from published nursing references on the same topics — the kind of related material that could show up on an exam. Each one names its source.</div>` : ""}</section>`);
+
+    sec.items.forEach(item => {
+      n++; const id = item.id; const got = A[id];
+      if (item.kind === "mc") {
+        const locked = got !== undefined;
+        const cls = locked ? (got === item.a ? "right" : "wrong") : "";
+        const opts = item.o.map((o, k) => {
+          let c = "opt";
+          if (locked) { if (k === item.a) c += " is-right"; else if (k === got) c += " is-wrong"; else c += " dim"; }
+          if (keyMode && k === item.a) c += " correct-key";
+          return `<button class="${c}" data-q="${id}" data-v="${k}" ${locked ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(o)}</span></button>`;
+        }).join("");
+        parts.push(`<div class="q ${cls} ${locked ? "locked" : ""}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="opts">${opts}</div>
+            ${locked ? verdict(got === item.a, item.why) : ""}
+            ${refLine(item)}
+          </div></div>`);
+      } else {
+        const revealed = (state.revealed && state.revealed[deck + id]) || got !== undefined;
+        const cls = got === undefined ? "" : (got ? "right" : "wrong");
+        const tag = item.ordered ? "ol" : "ul";
+        const list = `<${tag}>${item.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}>`;
+        parts.push(`<div class="q ${cls}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="sa-row">
+              ${revealed ? "" : `<button class="btn" data-reveal="${id}">Reveal answer</button>`}
+              <div class="grade">
+                <button class="opt g-yes ${got === true ? "picked" : ""}" data-q="${id}" data-v="yes"><span class="key">✓</span><span>She got it</span></button>
+                <button class="opt g-no ${got === false ? "picked" : ""}" data-q="${id}" data-v="no"><span class="key">✕</span><span>Missed it</span></button>
+              </div>
+            </div>
+            <div class="answer" ${revealed ? "" : "hidden"}>${list}</div>
+            ${refLine(item)}
+          </div></div>`);
+      }
+    });
+  });
+
+  main.innerHTML = parts.join("");
+  main.classList.toggle("keymode", keyMode);
+  updateScore();
+  renderRounds();
+}
+
+function verdict(ok, why) {
+  return `<div class="verdict ${ok ? "ok" : "no"}"><b>${ok ? "Correct." : "Not quite."}</b>${why ? `<span class="why">${esc(why)}</span>` : ""}</div>`;
+}
+
+function updateScore() {
+  const A = ans(deck);
+  let right = 0, wrong = 0, total = 0;
+  sections(deck).forEach(sec => {
+    let r = 0, d = 0;
+    sec.items.forEach(it => { total++; const g = A[it.id]; if (g === undefined) return; d++; if (isRight(it, g)) { r++; right++; } else wrong++; });
+    const el = document.getElementById("tally-" + sec.key);
+    if (el) el.textContent = d ? `${r} of ${d} · ${sec.items.length} questions` : `${sec.items.length} questions`;
+  });
+  const done = right + wrong;
+  document.getElementById("score-num").textContent = `${right} / ${done}`;
+  document.getElementById("score-txt").textContent = done ? `correct · ${total - done} left` : `answered of ${total}`;
+  document.getElementById("bar-g").style.width = (right / total * 100) + "%";
+  document.getElementById("bar-b").style.width = (wrong / total * 100) + "%";
+  DECK_ORDER.forEach(d => {
+    const DD = DECKS[d]; const ext = (DD.ext || []).length;
+    const t = DD.mc.length + DD.sa.length + ext;
+    const a = Object.keys(ans(d)).length;
+    const el = document.getElementById("count-" + d);
+    if (el) el.textContent = `${t} questions · ${DD.mc.length} MC, ${DD.sa.length} short answer, ${ext} beyond the slides${a ? ` · ${a} answered` : ""}`;
+  });
+}
+
+document.getElementById("quiz").addEventListener("click", e => {
+  const rev = e.target.closest("[data-reveal]");
+  if (rev) {
+    state.revealed = state.revealed || {}; state.revealed[deck + rev.dataset.reveal] = true; save();
+    const y = window.scrollY; render(); window.scrollTo(0, y);
+    return;
+  }
+  const b = e.target.closest("button[data-q]");
+  if (!b || b.disabled) return;
+  const id = b.dataset.q, v = b.dataset.v;
+  const A = ans(deck);
+  const item = allItems(deck).find(x => x.id === id);
+  if (!item) return;
+  if (item.kind === "mc") A[id] = Number(v); else A[id] = v === "yes";
+  save();
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+document.getElementById("key-toggle").addEventListener("click", function () {
+  keyMode = !keyMode; this.classList.toggle("on", keyMode); this.setAttribute("aria-pressed", String(keyMode));
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+let armedClear = 0;
+document.getElementById("reset-btn").addEventListener("click", function () {
+  if (Object.keys(ans(deck)).length && Date.now() - armedClear > 4000) {
+    armedClear = Date.now(); this.textContent = "Really clear? Click again";
+    setTimeout(() => { this.textContent = "Clear without saving"; }, 4000);
+    return;
+  }
+  armedClear = 0; this.textContent = "Clear without saving";
+  clearDeck(deck); render(); window.scrollTo({ top: 0 });
+});
+function clearDeck(d) {
+  state[d] = {};
+  if (state.revealed) for (const k in state.revealed) if (k.startsWith(d)) delete state.revealed[k];
+  save();
+}
+
+/* ---------- Name ---------- */
+const whoEl = document.getElementById("who");
+whoEl.value = state.who || "";
+whoEl.addEventListener("change", () => { state.who = whoEl.value.trim(); save(); });
+function whoName() { return (state.who || "").trim() || "Someone"; }
+
+/* ---------- Rounds: summary, code, history ---------- */
+const CODE_TAG = "NQB1.";
+function b64e(s) { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function b64d(s) { s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; return decodeURIComponent(escape(atob(s))); }
+
+function roundFromCurrent() {
+  const A = ans(deck); const items = allItems(deck);
+  const answers = {}; let right = 0, done = 0;
+  items.forEach(it => { const g = A[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck, name: whoName(), t: Date.now(), right, done, total: items.length, answers };
+}
+function missedList(r) {
+  const items = allItems(r.deck); const out = [];
+  items.forEach((it, i) => { const g = r.answers[it.id]; if (g !== undefined && !isRight(it, g)) out.push({ n: i + 1, q: it.q, ext: it.ext }); });
+  return out;
+}
+function fmtDate(t) { return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+function pct(r) { return r.done ? Math.round(r.right / r.done * 100) : 0; }
+
+function summaryText(r) {
+  const D = DECKS[r.deck]; const missed = missedList(r);
+  const lines = [
+    `NRSG106 Quiz — ${D.title}`,
+    `${r.name} · ${fmtDate(r.t)} · ${r.right}/${r.done} correct (${pct(r)}%)${r.done < r.total ? ` · ${r.total - r.done} unanswered` : ""}`,
+    missed.length ? `Missed (${missed.length}): ${missed.map(m => "#" + m.n).join(", ")}` : "Missed: none!",
+    ...missed.slice(0, 40).map(m => `  ${m.n}. ${m.q.length > 90 ? m.q.slice(0, 87) + "…" : m.q}`),
+    "",
+    "Code: " + CODE_TAG + b64e(JSON.stringify({ d: r.deck, n: r.name, t: r.t, a: r.answers }))
+  ];
+  return lines.join("\n");
+}
+function parseCode(text) {
+  const m = String(text).match(/NQB1\.([A-Za-z0-9_-]+)/);
+  if (!m) throw new Error("No code found — paste the whole summary or the line that starts with “Code:”.");
+  const o = JSON.parse(b64d(m[1]));
+  if (!DECKS[o.d] || typeof o.a !== "object") throw new Error("That code doesn't match this quiz.");
+  const items = allItems(o.d); let right = 0, done = 0; const answers = {};
+  items.forEach(it => { const g = o.a[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck: o.d, name: String(o.n || "Someone").slice(0, 24), t: Number(o.t) || Date.now(), right, done, total: items.length, answers, imported: true };
+}
+function saveRound(r) {
+  state.rounds = state.rounds || [];
+  r.id = r.id || (r.t + "-" + Math.random().toString(36).slice(2, 7));
+  if (state.rounds.some(x => x.t === r.t && x.name === r.name && x.deck === r.deck)) return false;
+  state.rounds.push(r); state.rounds.sort((a, b) => b.t - a.t);
+  if (state.rounds.length > 60) state.rounds.length = 60;
+  save(); return true;
+}
+
+function renderRounds() {
+  const rounds = (state.rounds || []).filter(r => r.deck === deck);
+  const el = document.getElementById("rounds");
+  const trend = rounds.slice().reverse().slice(-12);
+  el.innerHTML = `
+    <div class="rounds-head"><h2>Past rounds</h2><span class="sec-tally">${rounds.length ? `${rounds.length} saved for this set` : "nothing saved yet"}</span></div>
+    ${trend.length > 1 ? `<div class="trend" aria-label="Score trend">${trend.map(r => `<i class="${r.imported ? "g" : ""}" style="height:${Math.max(6, pct(r) * .44)}px" title="${esc(r.name)} · ${fmtDate(r.t)} · ${pct(r)}%"><span>${pct(r)}%</span></i>`).join("")}</div>` : ""}
+    ${rounds.length ? rounds.map(r => {
+      const missed = missedList(r);
+      return `<div class="round">
+        <div class="r-top"><span class="r-name">${esc(r.name)}</span><span class="r-date">${fmtDate(r.t)}${r.imported ? " · logged from a code" : ""}</span></div>
+        <div class="r-score">${r.right}/${r.done}<small>${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} skipped` : ""}</small></div>
+        <div class="r-missed">${missed.length ? `<details><summary>Missed ${missed.length} — show</summary><ul>${missed.map(m => `<li>#${m.n} · ${esc(m.q)}${m.ext ? " <em>(beyond the slides)</em>" : ""}</li>`).join("")}</ul></details>` : "Nothing missed."}</div>
+        <div class="r-actions"><button class="btn ghost" data-del-round="${r.id}">Remove</button></div>
+      </div>`;
+    }).join("") : `<div class="rounds-empty">When a round is finished, its score and missed questions land here. Rounds logged from someone else's code show up too.</div>`}
+    <div class="log-box">
+      <label for="log-input">Log a round from a code</label>
+      <p>Paste the summary (or just the “Code:” line) that the student texted you. Their score and missed questions are added to this list.</p>
+      <div class="log-row"><input id="log-input" type="text" placeholder="Paste here…" autocomplete="off"><button class="btn" id="log-btn">Add round</button></div>
+      <div class="log-msg" id="log-msg"></div>
+    </div>`;
+}
+
+document.getElementById("rounds").addEventListener("click", e => {
+  const del = e.target.closest("[data-del-round]");
+  if (del) { state.rounds = (state.rounds || []).filter(r => r.id !== del.dataset.delRound); save(); renderRounds(); return; }
+  if (e.target.closest("#log-btn")) {
+    const inp = document.getElementById("log-input"), msg = document.getElementById("log-msg");
+    try {
+      const r = parseCode(inp.value);
+      const added = saveRound(r);
+      if (r.deck !== deck) { deck = r.deck; save(); render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80 }); }
+      else renderRounds();
+      const m2 = document.getElementById("log-msg"); m2.className = "log-msg ok";
+      m2.textContent = added ? `Added ${r.name}'s round — ${r.right}/${r.done} (${pct(r)}%).` : "That round is already in the list.";
+    } catch (err) { msg.className = "log-msg no"; msg.textContent = err.message; }
+  }
+});
+
+/* Finish-round dialog */
+const fin = document.getElementById("finish");
+let pendingRound = null;
+document.getElementById("finish-btn").addEventListener("click", function () {
+  const r = roundFromCurrent();
+  if (!r.done) { this.textContent = "Answer something first"; setTimeout(() => { this.textContent = "Finish round"; }, 2500); return; }
+  pendingRound = r;
+  document.getElementById("f-title").textContent = `${r.name} — ${DECKS[r.deck].short}`;
+  document.getElementById("f-score").textContent = `${r.right} / ${r.done}`;
+  document.getElementById("f-sub").textContent = `${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} of ${r.total} unanswered` : ""}`;
+  document.getElementById("f-text").value = summaryText(r);
+  document.getElementById("f-msg").textContent = "";
+  document.getElementById("f-share").hidden = !navigator.share;
+  fin.hidden = false;
+});
+document.getElementById("f-cancel").addEventListener("click", () => { fin.hidden = true; });
+fin.addEventListener("click", e => { if (e.target === fin) fin.hidden = true; });
+document.getElementById("f-copy").addEventListener("click", async () => {
+  const ta = document.getElementById("f-text"), msg = document.getElementById("f-msg");
+  try { await navigator.clipboard.writeText(ta.value); msg.textContent = "Copied — paste it into a text or email."; }
+  catch (e) { ta.select(); msg.textContent = "Select the text above and copy it."; }
+});
+document.getElementById("f-share").addEventListener("click", async () => {
+  try { await navigator.share({ title: "NRSG106 quiz results", text: document.getElementById("f-text").value }); }
+  catch (e) { /* user cancelled */ }
+});
+document.getElementById("f-save").addEventListener("click", () => {
+  if (!pendingRound) return;
+  saveRound(pendingRound); clearDeck(deck); pendingRound = null; fin.hidden = true;
+  render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80, behavior: "smooth" });
+});
+
+renderDeckTabs();
+render();
+
+/* ---------- Presenter mode ---------- */
+const P = { on: false, i: 0, revealed: false };
+const pEl = document.getElementById("present");
+
+function startPresent() {
+  const qs = allItems(deck); const A = ans(deck);
+  let first = qs.findIndex(q => A[q.id] === undefined); if (first < 0) first = 0;
+  P.on = true; P.i = first; P.revealed = false;
+  document.body.classList.add("presenting"); pEl.hidden = false;
+  renderPresent();
+}
+function exitPresent() {
+  P.on = false; document.body.classList.remove("presenting"); pEl.hidden = true;
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+}
+
+function renderPresent() {
+  const qs = allItems(deck); const q = qs[P.i]; const A = ans(deck); const got = A[q.id];
+  const answered = got !== undefined;
+  const show = P.revealed || answered;
+  const secEl = document.getElementById("p-section");
+  const kindLabel = q.kind === "mc" ? "Multiple choice" : "Short answer";
+  secEl.textContent = q.ext ? `Beyond the Slides · ${kindLabel} · Question ${P.i + 1} of ${qs.length}` : `${q.secTitle} · Question ${P.i + 1} of ${qs.length}`;
+  secEl.classList.toggle("is-ext", !!q.ext);
+  document.getElementById("p-deck").textContent = DECKS[deck].title;
+  const letters = "ABCD";
+  let html = `<p class="p-stem">${esc(q.q)}</p>`;
+
+  if (q.kind === "mc") {
+    html += `<div class="p-opts">` + q.o.map((label, k) => {
+      let c = "opt";
+      if (show) { if (k === q.a) c += " is-right"; else if (answered && k === got) c += " is-wrong"; else c += " dim"; }
+      return `<button class="${c}" data-pv="${k}" ${answered ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(label)}</span></button>`;
+    }).join("") + `</div>`;
+    if (answered) html += `<div class="p-verdict ${got === q.a ? "ok" : "no"}"><b>${got === q.a ? "Correct." : "Not quite."}</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else if (show) html += `<div class="p-verdict ok"><b>Answer shown.</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else html += `<div class="p-wait">Let her answer — then press her letter to check it, or Space to reveal.</div>`;
+  } else {
+    if (show) {
+      const tag = q.ordered ? "ol" : "ul";
+      const two = q.a.length > 5 ? "two" : "";
+      html += `<div class="answer p-answer"><span class="lead">Answer</span><${tag} class="${two}">${q.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}></div>`;
+      html += `<div class="p-opts two grade">
+        <button class="opt g-yes ${got === true ? "picked" : ""}" data-pv="yes"><span class="key">✓</span><span>She got it</span></button>
+        <button class="opt g-no ${got === false ? "picked" : ""}" data-pv="no"><span class="key">✕</span><span>Missed it</span></button>
+      </div>`;
+    } else {
+      html += `<div class="p-wait">Let her answer out loud, then press Space to reveal.</div>`;
+    }
+  }
+  html += refLine(q);
+  document.getElementById("p-body").innerHTML = html;
+
+  let right = 0, done = 0;
+  qs.forEach(x => { const g = A[x.id]; if (g === undefined) return; done++; if (isRight(x, g)) right++; });
+  document.getElementById("p-score").textContent = `${right} / ${done} correct`;
+  document.getElementById("p-bar").style.width = ((P.i + 1) / qs.length * 100) + "%";
+  document.getElementById("p-prev").disabled = P.i === 0;
+  document.getElementById("p-next").textContent = P.i === qs.length - 1 ? "Finish" : "Next →";
+  document.getElementById("p-reveal").hidden = show;
+}
+
+function pAnswer(v) {
+  const q = allItems(deck)[P.i]; const A = ans(deck);
+  if (q.kind === "mc") A[q.id] = Number(v); else A[q.id] = v === "yes";
+  save(); renderPresent();
+}
+function pMove(d) {
+  const qs = allItems(deck); const n = P.i + d;
+  if (n < 0) return;
+  if (n >= qs.length) { exitPresent(); if (Object.keys(ans(deck)).length) document.getElementById("finish-btn").click(); return; }
+  P.i = n; P.revealed = false; renderPresent();
+}
+
+document.getElementById("present-btn").addEventListener("click", startPresent);
+document.getElementById("p-exit").addEventListener("click", exitPresent);
+document.getElementById("p-prev").addEventListener("click", () => pMove(-1));
+document.getElementById("p-next").addEventListener("click", () => pMove(1));
+document.getElementById("p-reveal").addEventListener("click", () => { P.revealed = true; renderPresent(); });
+document.getElementById("p-body").addEventListener("click", e => {
+  const b = e.target.closest("button[data-pv]"); if (!b || b.disabled) return; pAnswer(b.dataset.pv);
+});
+
+document.addEventListener("keydown", e => {
+  if (!P.on) return;
+  if (e.target.matches("input, textarea")) return;
+  const q = allItems(deck)[P.i]; const A = ans(deck); const answered = A[q.id] !== undefined;
+  const k = e.key;
+  if (k === "Escape") { exitPresent(); }
+  else if (k === "ArrowRight" || k === "PageDown") { pMove(1); }
+  else if (k === "ArrowLeft" || k === "PageUp") { pMove(-1); }
+  else if (k === " " || k === "Enter") { e.preventDefault(); if (P.revealed || answered) pMove(1); else { P.revealed = true; renderPresent(); } }
+  else if (q.kind === "mc" && !answered && /^[a-d1-4]$/i.test(k)) { const idx = /\d/.test(k) ? Number(k) - 1 : "abcd".indexOf(k.toLowerCase()); if (idx < q.o.length) pAnswer(String(idx)); }
+  else if (q.kind === "sa" && (P.revealed || answered) && /^[yn]$/i.test(k)) { pAnswer(k.toLowerCase() === "y" ? "yes" : "no"); }
+  else return;
+  e.preventDefault();
+});
+</script>
+
+</body>
+</html>
