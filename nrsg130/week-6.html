@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NRSG130 Quiz Bank — Week 6</title>
+<style>[hidden]{display:none!important} img{max-width:100%}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    --paper: #F6F8FA;
+    --card: #FFFFFF;
+    --ink: #1B2A41;
+    --ink-soft: #4A5A70;
+    --ink-faint: #8593A6;
+    --rule: #D9DFE7;
+    --rule-strong: #B8C2CF;
+    --teal: #0F7B8A;
+    --teal-ink: #0B5F6B;
+    --teal-wash: #E3F1F3;
+    --mark: #F9D65C;
+    --mark-wash: #FFF6D2;
+    --good: #2E8B57;
+    --good-wash: #E4F3EA;
+    --bad: #C8463A;
+    --bad-wash: #FBE7E4;
+    --plum: #6B4E9B;
+    --plum-wash: #EEE9F7;
+    --focus: #0F7B8A;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12181F;
+      --card: #1A222B;
+      --ink: #E7ECF2;
+      --ink-soft: #B3BFCD;
+      --ink-faint: #7C8A9B;
+      --rule: #2C3743;
+      --rule-strong: #3E4B5A;
+      --teal: #3FB2C1;
+      --teal-ink: #6FCBD7;
+      --teal-wash: #16323A;
+      --mark: #E8C64A;
+      --mark-wash: #3A3316;
+      --good: #4FBF7F;
+      --good-wash: #16321F;
+      --bad: #E8746A;
+      --bad-wash: #3D1F1B;
+      --plum: #B49BE0;
+      --plum-wash: #2A2138;
+      --focus: #3FB2C1;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12181F;
+    --card: #1A222B;
+    --ink: #E7ECF2;
+    --ink-soft: #B3BFCD;
+    --ink-faint: #7C8A9B;
+    --rule: #2C3743;
+    --rule-strong: #3E4B5A;
+    --teal: #3FB2C1;
+    --teal-ink: #6FCBD7;
+    --teal-wash: #16323A;
+    --mark: #E8C64A;
+    --mark-wash: #3A3316;
+    --good: #4FBF7F;
+    --good-wash: #16321F;
+    --bad: #E8746A;
+    --bad-wash: #3D1F1B;
+    --plum: #B49BE0;
+    --plum-wash: #2A2138;
+    --focus: #3FB2C1;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    padding-block: 0 64px;
+    padding-inline: clamp(16px, 4vw, 40px);
+  }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif; text-wrap: balance; margin: 0; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  header { padding-block: 28px 20px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+  .eyebrow { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-ink); font-weight: 700; }
+  h1 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; margin-top: 6px; }
+  .sub { color: var(--ink-soft); margin: 6px 0 0; max-width: 60ch; }
+
+  /* Deck tabs */
+  .decks { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
+  .deck-tab {
+    flex: 1 1 240px; text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 14px 16px; display: grid; gap: 2px; transition: border-color .15s, background .15s;
+  }
+  .deck-tab .eyebrow { color: var(--ink-faint); }
+  .deck-tab strong { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; }
+  .deck-tab small { color: var(--ink-soft); font-size: 14px; }
+  .deck-tab[aria-selected="true"] { border-color: var(--teal); background: var(--teal-wash); box-shadow: inset 0 0 0 1px var(--teal); }
+  .deck-tab[aria-selected="true"] .eyebrow { color: var(--teal-ink); }
+
+  /* Toolbar */
+  .toolbar {
+    position: sticky; top: 0; z-index: 5; background: var(--paper);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding-block: 14px; border-bottom: 1px solid var(--rule); margin-top: 8px;
+  }
+  .score { display: flex; align-items: baseline; gap: 8px; font-variant-numeric: tabular-nums; }
+  .score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; font-weight: 700; line-height: 1; }
+  .score span { color: var(--ink-soft); font-size: 14px; }
+  .bar { flex: 1 1 160px; height: 8px; border-radius: 99px; background: var(--rule); overflow: hidden; display: flex; min-width: 120px; }
+  .bar i { display: block; height: 100%; transition: width .25s; }
+  .bar .g { background: var(--good); }
+  .bar .b { background: var(--bad); }
+  .tools { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+  .btn { border: 1px solid var(--rule-strong); background: var(--card); border-radius: 8px; padding: 7px 12px; font-size: 14.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
+  .btn:hover { border-color: var(--teal); }
+  .btn.on { background: var(--mark-wash); border-color: var(--mark); }
+  .btn .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule-strong); }
+  .btn.on .dot { background: var(--mark); }
+  .btn.ghost { border-color: transparent; background: transparent; color: var(--ink-soft); }
+  .btn.ghost:hover { color: var(--bad); }
+  .btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .btn.primary:hover { background: var(--teal-ink); border-color: var(--teal-ink); }
+
+  /* Sections */
+  section { margin-top: 40px; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: 22px; font-weight: 700; }
+  .sec-head .hint { color: var(--ink-soft); font-size: 14.5px; }
+  .sec-tally { font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: 14.5px; }
+  section.ext .sec-head { border-bottom-color: var(--plum); }
+  section.ext .sec-head h2 { color: var(--plum); }
+  .ext-note {
+    margin-top: 14px; padding: 12px 16px; border-radius: 10px; background: var(--plum-wash); color: var(--ink);
+    border-left: 3px solid var(--plum); font-size: 15px; line-height: 1.45;
+  }
+  .ext-note b { color: var(--plum); }
+
+  .q { display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; padding-block: 20px; border-bottom: 1px solid var(--rule); }
+  .q .num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 18px; color: var(--ink-faint); font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .q.right .num { color: var(--good); }
+  .q.wrong .num { color: var(--bad); }
+  .q .body { display: grid; gap: 12px; min-width: 0; }
+  .q .stem { font-size: 17.5px; line-height: 1.45; margin: 0; }
+  .q .ref { font-size: 12.5px; color: var(--ink-faint); letter-spacing: .04em; text-transform: uppercase; }
+  .ref.src { text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--plum); }
+  .ref.src::before { content: "Outside source · "; font-weight: 700; }
+
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.35;
+    transition: border-color .12s, background .12s;
+  }
+  .opt:hover { border-color: var(--teal); }
+  .opt .key { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--rule-strong); display: grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+  .opt.picked { border-color: var(--teal); background: var(--teal-wash); }
+  .opt.is-right { border-color: var(--good); background: var(--good-wash); }
+  .opt.is-right .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.is-wrong { border-color: var(--bad); background: var(--bad-wash); }
+  .opt.is-wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .6; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--rule); }
+  .locked .opt.is-right:hover { border-color: var(--good); }
+  .locked .opt.is-wrong:hover { border-color: var(--bad); }
+
+  .verdict { font-size: 15px; display: flex; gap: 8px; align-items: flex-start; }
+  .verdict b { flex: 0 0 auto; }
+  .verdict.ok b { color: var(--good); }
+  .verdict.no b { color: var(--bad); }
+  .verdict .why { color: var(--ink-soft); }
+
+  /* Short answer */
+  .sa-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .answer {
+    background: var(--mark-wash); border-left: 3px solid var(--mark); padding: 10px 14px; border-radius: 0 8px 8px 0;
+    font-size: 16px; line-height: 1.45;
+  }
+  .answer ul, .answer ol { margin: 4px 0 0; padding-left: 20px; }
+  .answer li { margin: 2px 0; }
+  .grade { display: flex; gap: 8px; flex-wrap: wrap; }
+  .grade .opt { padding: 8px 12px; }
+  .grade .opt.g-yes.picked { border-color: var(--good); background: var(--good-wash); }
+  .grade .opt.g-no.picked { border-color: var(--bad); background: var(--bad-wash); }
+
+  /* Answer-key mode */
+  .keymode .answer[hidden] { display: block !important; }
+  .keymode .opt.correct-key { border-color: var(--mark); background: var(--mark-wash); }
+  .keymode .opt.correct-key .key { background: var(--mark); border-color: var(--mark); color: #1B2A41; }
+
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--ink-faint); font-size: 13.5px; }
+  footer p { margin: 6px 0; }
+
+  /* Name field */
+  .who { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-soft); }
+  .who input { font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 6px 10px; width: 9ch; }
+  .who input:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; }
+
+  /* Past rounds */
+  .rounds-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .rounds-head h2 { font-size: 22px; font-weight: 700; }
+  .rounds-empty { color: var(--ink-faint); padding: 18px 0; font-size: 15.5px; }
+  .round { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding-block: 14px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .round .r-top { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+  .round .r-name { font-weight: 700; }
+  .round .r-date { color: var(--ink-soft); font-size: 14.5px; }
+  .round .r-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; text-align: right; line-height: 1.1; }
+  .round .r-score small { display: block; font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 13px; color: var(--ink-soft); }
+  .round .r-missed { grid-column: 1 / -1; font-size: 15px; color: var(--ink-soft); }
+  .round details summary { cursor: pointer; color: var(--teal-ink); font-weight: 600; }
+  .round details ul { margin: 6px 0 0; padding-left: 20px; }
+  .round details li { margin: 3px 0; color: var(--ink); }
+  .round .r-actions { grid-column: 1 / -1; display: flex; gap: 8px; }
+  .round .r-actions .btn { font-size: 13px; padding: 4px 9px; }
+  .log-box { margin-top: 18px; padding: 14px 16px; border: 1px dashed var(--rule-strong); border-radius: 10px; display: grid; gap: 8px; }
+  .log-box label { font-weight: 600; font-size: 15px; }
+  .log-box p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+  .log-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .log-row input { flex: 1 1 240px; font: inherit; font-size: 14px; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 8px 10px; }
+  .log-msg { font-size: 14px; min-height: 1.2em; }
+  .log-msg.ok { color: var(--good); } .log-msg.no { color: var(--bad); }
+  .trend { display: flex; gap: 6px; align-items: flex-end; height: 44px; margin-top: 12px; }
+  .trend i { flex: 0 0 18px; background: var(--teal); border-radius: 3px 3px 0 0; opacity: .85; position: relative; }
+  .trend i.g { background: var(--plum); }
+  .trend i span { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--ink-faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Finish-round dialog */
+  .modal-bg { position: fixed; inset: 0; z-index: 60; background: rgba(10, 16, 24, .55); display: grid; place-items: center; padding: 16px; }
+  .modal-bg[hidden] { display: none; }
+  .modal { background: var(--card); color: var(--ink); border-radius: 14px; width: min(640px, 100%); max-height: 92vh; overflow: auto; padding: 22px 24px 20px; box-shadow: 0 20px 60px rgba(0,0,0,.25); display: grid; gap: 14px; }
+  .modal h2 { font-size: 24px; }
+  .modal .m-score { display: flex; align-items: baseline; gap: 10px; }
+  .modal .m-score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modal .m-score span { color: var(--ink-soft); }
+  .modal textarea { width: 100%; min-height: 150px; font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; resize: vertical; }
+  .modal .m-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .modal .m-note { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .modal .m-msg { font-size: 14px; color: var(--good); min-height: 1.2em; }
+
+  /* Presenter mode — one question, big type, for screen sharing */
+  body.presenting { overflow: hidden; }
+  .present {
+    position: fixed; inset: 0; z-index: 50; background: var(--paper); color: var(--ink);
+    display: grid; grid-template-rows: auto 1fr auto; padding: clamp(16px, 3vw, 36px) clamp(16px, 5vw, 72px);
+  }
+  .present[hidden], .btn[hidden] { display: none; }
+  .p-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .p-top .eyebrow { font-size: clamp(13px, 1.3vw, 17px); }
+  .p-top .eyebrow.is-ext { color: var(--plum); }
+  .p-top .p-deck { color: var(--ink-faint); font-weight: 600; font-size: clamp(13px, 1.3vw, 17px); }
+  .p-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(18px, 2vw, 26px); font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 12px; }
+  .p-score .btn { font-size: clamp(13px, 1.2vw, 16px); }
+  .p-body { display: grid; align-content: center; gap: clamp(18px, 3vh, 36px); max-width: 1200px; width: 100%; margin: 0 auto; min-height: 0; overflow: auto; }
+  .p-stem { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 48px); line-height: 1.2; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  .p-opts { display: grid; gap: clamp(8px, 1.4vh, 14px); }
+  .p-opts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-opts .opt { font-size: clamp(19px, 2.2vw, 30px); padding: clamp(12px, 1.8vh, 18px) clamp(14px, 1.6vw, 22px); border-radius: 12px; gap: 14px; }
+  .p-opts .opt .key { width: 1.35em; height: 1.35em; font-size: .7em; border-radius: 8px; }
+  .p-answer { font-size: clamp(19px, 2.1vw, 28px); padding: clamp(14px, 2vh, 22px) clamp(18px, 2vw, 28px); }
+  .p-answer .lead { font-weight: 700; display: block; margin-bottom: 4px; }
+  .p-answer ol, .p-answer ul { columns: 1; }
+  @media (min-width: 900px) { .p-answer ol.two, .p-answer ul.two { columns: 2; column-gap: 40px; } }
+  .p-verdict { font-size: clamp(19px, 2.1vw, 28px); }
+  .p-verdict.ok b { color: var(--good); } .p-verdict.no b { color: var(--bad); }
+  .p-verdict .why { color: var(--ink-soft); }
+  .p-wait { color: var(--ink-faint); font-size: clamp(17px, 1.8vw, 24px); font-style: italic; }
+  .p-body .ref { font-size: clamp(13px, 1.2vw, 15px); }
+  .p-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; }
+  .p-nav .btn { font-size: clamp(15px, 1.4vw, 19px); padding: 10px 18px; }
+  .p-keys { color: var(--ink-faint); font-size: clamp(12px, 1.1vw, 14px); }
+  .p-keys kbd { font-family: inherit; border: 1px solid var(--rule-strong); border-radius: 4px; padding: 0 5px; margin: 0 2px; background: var(--card); }
+  .p-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--rule); }
+  .p-progress i { display: block; height: 100%; background: var(--teal); transition: width .2s; }
+
+  @media (max-width: 480px) {
+    .q { grid-template-columns: 34px 1fr; }
+    .tools { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">NRSG130 · Fundamentals in Nursing · AdventHealth University</div>
+      <h1>NRSG130 Quiz Bank</h1>
+      <p class="sub">Multiple choice and short answer sets built from each week's slides, plus a clearly marked “Beyond the Slides” section drawn from outside nursing sources. Tap an answer to check it, or turn on the answer key to read aloud.</p>
+    </div>
+  </header>
+
+  <div class="decks" role="tablist" aria-label="Choose a presentation" id="decks"></div>
+
+  <div class="toolbar">
+    <div class="score"><b id="score-num">0 / 0</b><span id="score-txt">answered</span></div>
+    <div class="bar" aria-hidden="true"><i class="g" id="bar-g" style="width:0%"></i><i class="b" id="bar-b" style="width:0%"></i></div>
+    <div class="tools">
+      <label class="who">Answering as <input id="who" type="text" placeholder="name" maxlength="24" autocomplete="off"></label>
+      <button class="btn primary" id="present-btn">Present one at a time</button>
+      <button class="btn" id="key-toggle" aria-pressed="false"><span class="dot"></span>Answer key</button>
+      <button class="btn" id="finish-btn">Finish round</button>
+      <button class="btn ghost" id="reset-btn">Clear without saving</button>
+    </div>
+  </div>
+
+  <main id="quiz"></main>
+
+  <section id="rounds"></section>
+
+  <footer>
+    <p>Slide references point to the slide number in the matching PowerPoint so she can go back and re-read anything she missed. Answers and past rounds are saved in this browser only — use <b>Finish round</b> to get a summary and code you can text to someone else, and <b>Log a round</b> to add theirs to your history.</p>
+    <p>“Beyond the Slides” questions were not taken from the class presentations. They come from published nursing references (CDC, American Heart Association, NCSBN, StatPearls/NCBI, and open nursing textbooks from OpenStax and Pressbooks) chosen to match the slide topics. Where a source differs from the slides, the slide value is treated as the class answer and the difference is pointed out.</p>
+  </footer>
+</div>
+
+<div class="present" id="present" hidden role="dialog" aria-label="Presenter mode">
+  <div class="p-top">
+    <div>
+      <div class="eyebrow" id="p-section"></div>
+      <div class="p-deck" id="p-deck"></div>
+    </div>
+    <div class="p-score"><span id="p-score"></span><button class="btn" id="p-exit">Exit (Esc)</button></div>
+  </div>
+  <div class="p-body" id="p-body"></div>
+  <div class="p-nav">
+    <button class="btn" id="p-prev">← Previous</button>
+    <span class="p-keys"><kbd>←</kbd><kbd>→</kbd> move · <kbd>A</kbd>–<kbd>D</kbd> her answer · <kbd>Space</kbd> reveal / next · <kbd>Y</kbd>/<kbd>N</kbd> grade short answer</span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="p-reveal">Reveal answer (Space)</button>
+      <button class="btn primary" id="p-next">Next →</button>
+    </div>
+  </div>
+  <div class="p-progress" aria-hidden="true"><i id="p-bar" style="width:0%"></i></div>
+</div>
+
+<div class="modal-bg" id="finish" hidden role="dialog" aria-label="Finish round">
+  <div class="modal">
+    <h2 id="f-title">Round finished</h2>
+    <div class="m-score"><b id="f-score"></b><span id="f-sub"></span></div>
+    <p class="m-note">Copy or share this summary — the code at the bottom lets someone else add this round to their history with <b>Log a round</b>.</p>
+    <textarea id="f-text" readonly></textarea>
+    <div class="m-actions">
+      <button class="btn" id="f-copy">Copy summary</button>
+      <button class="btn" id="f-share">Share…</button>
+      <button class="btn primary" id="f-save">Save round &amp; start fresh</button>
+      <button class="btn ghost" id="f-cancel">Back</button>
+    </div>
+    <div class="m-msg" id="f-msg"></div>
+  </div>
+</div>
+
+<script>
+const DECKS = {"wk6":{"title":"Urinary & Bowel Elimination (Chapters 38 & 39)","short":"Week 6 · Module 6, Ch. 38 & 39","mc":[{"q":"Which part of the small intestine is the first 8 to 10 inches?","o":["Jejunum","Duodenum","Ileum","Cecum"],"a":1,"ref":"Slide 5","why":"The jejunum is about 8 feet and the ileum about 12 feet. The large intestine is 5 to 6 feet long and larger in diameter."},{"q":"The large intestine is about how long?","o":["8 to 10 inches","5 to 6 feet","12 feet","20 feet"],"a":1,"ref":"Slide 5"},{"q":"Where are the two centers that govern the reflex to defecate?","o":["The cerebrum and the cerebellum","The stomach and the duodenum","The medulla and the spinal cord","The hypothalamus and the pituitary"],"a":2,"ref":"Slide 8"},{"q":"Which anal sphincter is under voluntary control?","o":["The external anal sphincter","The internal anal sphincter","Both","Neither"],"a":0,"ref":"Slide 8","why":"With parasympathetic stimulation, the internal anal sphincter relaxes and the colon contracts."},{"q":"What stimulates the defecation reflex?","o":["An empty stomach","Drinking cold water","Lying flat","The rectum being distended by the fecal mass"],"a":3,"ref":"Slide 9"},{"q":"A patient on bedrest needs to use the bedpan. To help defecation, the nurse should:","o":["Keep the patient flat for comfort","Place the patient in Trendelenburg","Turn the patient prone","Raise the patient as close to a sitting position as possible"],"a":3,"ref":"Slides 9–10","why":"Sitting increases downward pressure on the rectum."},{"q":"Thick, black stool is called:","o":["Melena","Occult blood","Steatorrhea","Flatus"],"a":0,"ref":"Slide 11","why":"Occult blood is hidden blood that cannot be seen."},{"q":"The guaiac test used to detect hidden blood in stool is the:","o":["Colonoscopy","EGD","Fecal occult blood test","Sigmoidoscopy"],"a":2,"ref":"Slide 11"},{"q":"An EGD visually examines the:","o":["Large intestine and rectum","Esophagus, stomach, and duodenum","Sigmoid colon, rectum, and anal canal","Bladder"],"a":1,"ref":"Slide 11","why":"A colonoscopy views the large intestine and rectum; a sigmoidoscopy views the sigmoid colon, rectum, and anal canal."},{"q":"Mass peristaltic sweeps that move the fecal mass forward occur:","o":["Every 3 to 12 minutes","Only at night","One to four times every 24 hours, often after meals","Once a week"],"a":2,"ref":"Slide 7","why":"Ordinary peristaltic contractions happen every 3 to 12 minutes. Timing bowel care with the urge after meals is helpful."},{"q":"How much ingested food waste is normally excreted within 24 hours?","o":["All of it","None until 72 hours","One tenth","One third to one half"],"a":3,"ref":"Slide 7","why":"The rest is excreted over the next 24 to 48 hours."},{"q":"Which is listed as a factor affecting bowel elimination?","o":["Medications","Hair color","Blood type","Height"],"a":0,"ref":"Slide 12","why":"All ten: developmental considerations, daily patterns, food and fluids, activity and muscle tone, lifestyle, psychological variables, pathologic conditions, medications, diagnostic studies, and surgery and anesthesia."},{"q":"The nerve fibers needed for voluntary defecation develop at about what age?","o":["6 to 12 months","18 to 24 months","3 to 4 years","5 years"],"a":1,"ref":"Slide 13"},{"q":"For an older adult, the best time to develop a daily routine to move the bowels is usually:","o":["Right before bed","In the middle of the night","About 2 hours after waking and after breakfast","Before any food or fluid"],"a":2,"ref":"Slide 14 (table)"},{"q":"An older adult has slowed GI motility. Which nursing strategy is appropriate?","o":["Encourage small, frequent meals and a high-fiber, low-fat diet","Encourage regular laxative use","Encourage heavy activity right after eating","Limit fluids"],"a":0,"ref":"Slide 14 (table)","why":"Discourage regular laxative use and heavy activity after eating; encourage fluids."},{"q":"What does ADPIE stand for?","o":["Assess, Develop, Perform, Inspect, End","Admit, Document, Prescribe, Inform, Educate","Analyze, Decide, Prioritize, Intervene, Explain","Assess, Diagnose, Plan, Implement, Evaluate"],"a":3,"ref":"Slide 15"},{"q":"In a bowel elimination assessment, fluid loss from diarrhea is especially important to watch in:","o":["Infants","Adolescents","Middle-aged adults","Athletes"],"a":0,"ref":"Slides 17 & 20"},{"q":"Which bowel problem means peristalsis has stopped, often after surgery?","o":["Flatulence","Diarrhea","Hemorrhoids","Paralytic ileus"],"a":3,"ref":"Slide 18"},{"q":"Which is NOT one of the slide's ways to promote regular bowel habits?","o":["Timing","Privacy","Limiting fluids","Positioning"],"a":2,"ref":"Slide 19","why":"The six: timing, positioning, privacy, hygiene, nutrition, and exercise."},{"q":"A patient on opioid pain medication should be taught about:","o":["Diarrhea","Constipation","Urinary incontinence","Melena"],"a":1,"ref":"Slide 21","why":"Teaching also covers stool softeners, laxatives, and enemas, plus fluid, diet, and exercise."},{"q":"The first priority when treating a child with diarrhea is to:","o":["Give a laxative","Give an enema","Start a high-fiber diet","Maintain fluid balance"],"a":3,"ref":"Slide 20","why":"Then determine and treat the cause and educate."},{"q":"Water makes up about what percentage of an adult's total body weight?","o":["20 to 30%","50 to 60%","75 to 85%","90%"],"a":1,"ref":"Slide 23","why":"Two thirds of it is inside the cells. Water is not stored in the body."},{"q":"Average adult fluid intake is about:","o":["500 to 1,000 mL per day","2,000 to 2,500 mL per day","4,000 to 5,000 mL per day","10 glasses per hour"],"a":1,"ref":"Slide 23"},{"q":"A small-volume enema is:","o":["Hypotonic","Isotonic","Hypertonic","Oil-free tap water"],"a":2,"ref":"Slide 26"},{"q":"Which position is used for both small- and large-volume enemas?","o":["Left Sims' position","Right side-lying","Prone","High Fowler's"],"a":0,"ref":"Slides 26–27"},{"q":"A large-volume enema for an adult is:","o":["50 to 100 mL","As much as the patient can hold","2,000 mL","500 to 1,000 mL"],"a":3,"ref":"Slide 27"},{"q":"The container for a large-volume enema should be no higher than:","o":["6 inches","12 inches","18 inches","36 inches"],"a":2,"ref":"Slide 27","why":"The solution should be just at or above body temperature and given over 5 to 10 minutes."},{"q":"Fecal microbiota transplantation (FMT) is used for:","o":["Recurrent C. diff infections","Constipation in children","Hemorrhoids","Urinary tract infections"],"a":0,"ref":"Slide 28","why":"It replenishes good gut microorganisms from a healthy donor, by colonoscopy, endoscopy, enema, or oral capsule."},{"q":"For a patient with bowel incontinence, when should disposable pads and moisture-proof undergarments be used?","o":["Only after other measures have been tried","Right away","Never","Only at night"],"a":0,"ref":"Slide 29"},{"q":"Which is part of a bowel training program?","o":["Limit fluids","Give a daily laxative","Monitor bowel movements, ensure privacy, and encourage adequate fluid intake","Use pads only"],"a":2,"ref":"Slide 30"},{"q":"Which finding shows that bowel care goals were met?","o":["Hypoactive bowel sounds","The patient avoids fluids","The patient needs daily enemas","The patient is comfortably expelling feces"],"a":3,"ref":"Slide 31"},{"q":"Micturition is:","o":["Painful urination","Emptying of the bladder (voiding)","Absence of urine","Blood in the urine"],"a":1,"ref":"Slides 33 & 35"},{"q":"A patient makes 80 mL of urine in 24 hours. This is:","o":["Polyuria","Dysuria","Normal","Anuria"],"a":3,"ref":"Slide 33","why":"Anuria is 100 mL or less in 24 hours."},{"q":"Difficulty or discomfort when voiding is:","o":["Anuria","Polyuria","Dysuria","Micturition"],"a":2,"ref":"Slide 33"},{"q":"Urine flows in which order?","o":["Kidney, ureters, bladder, urethra","Bladder, ureters, kidney, urethra","Kidney, urethra, bladder, ureters","Ureters, kidney, urethra, bladder"],"a":0,"ref":"Slide 34"},{"q":"The bladder's three layers of muscle tissue are called the:","o":["Trigone","Detrusor muscle","Sphincter","Nephron"],"a":1,"ref":"Slide 36","why":"Inner longitudinal, middle circular, and outer longitudinal layers."},{"q":"Kegel exercises use the same muscles a person uses to:","o":["Bear down for a bowel movement","Lift the legs","Cough","Stop urinating midstream"],"a":3,"ref":"Slide 38","why":"Contract 5 to 10 seconds, relax 10 seconds, many reps several times a day, for months."},{"q":"Pelvic floor muscle training mainly improves or eliminates which type of incontinence?","o":["Overflow","Stress","Functional","Total"],"a":1,"ref":"Slides 37–38"},{"q":"Which teaching helps prevent UTIs?","o":["Take baths instead of showers","Use douches regularly","Females should wipe from front to back after urinating","Hold urine as long as possible"],"a":2,"ref":"Slide 39 (graphic)","why":"Also drink 8 to 10 glasses of water a day, urinate as soon as you feel the need, avoid douches, and wear loose clothing."},{"q":"A woman leaks urine when she coughs, sneezes, or laughs. This is:","o":["Stress incontinence","Urge incontinence","Overflow incontinence","Functional incontinence"],"a":0,"ref":"Slide 41","why":"It comes from increased intra-abdominal pressure with weak pelvic floor muscles or sphincter."},{"q":"A patient has a sudden, strong need to urinate and leaks before reaching the bathroom. This is:","o":["Stress incontinence","Urge incontinence (overactive bladder)","Total incontinence","Functional incontinence"],"a":1,"ref":"Slides 42 & 47"},{"q":"Incontinence from an overdistended bladder that overflows, often from medication, neurological conditions, diabetes, or obstruction, is:","o":["Stress incontinence","Urge incontinence","Mixed incontinence","Overflow incontinence"],"a":3,"ref":"Slide 44"},{"q":"A patient with dementia cannot find the bathroom in time and has accidents. This is:","o":["Total incontinence","Overflow incontinence","Functional incontinence","Stress incontinence"],"a":2,"ref":"Slide 45","why":"Functional: environmental barriers, physical limits, memory loss, or disorientation keep the patient from the toilet."},{"q":"A continuous, unpredictable loss of urine with no control, after surgery or trauma, is:","o":["Total incontinence","Mixed incontinence","Urge incontinence","Overflow incontinence"],"a":0,"ref":"Slide 46"},{"q":"Mixed incontinence is a combination of:","o":["Urge and stress","Overflow and functional","Total and stress","Functional and urge"],"a":0,"ref":"Slide 43","why":"The summary graphic adds that mixed is more common than urge alone."},{"q":"Which is part of assessing an incontinent patient?","o":["A guaiac test","A voiding record and post-void residual","An EGD","Pupil checks"],"a":1,"ref":"Slide 40","why":"Also the patient history, environment, diet, medications, and diagnostic tests."},{"q":"To measure urine output, the nurse places the calibrated container:","o":["In the nurse's hand and reads from above","On the bed","On a flat surface and reads it at eye level","In the sink"],"a":2,"ref":"Slide 54"},{"q":"The case-study patient's weight went from 58.5 kg to 61.2 kg. How many pounds did she gain?","o":["2.7 lb","5.94 lb","6.5 lb","12 lb"],"a":1,"ref":"Slides 56–57","why":"61.2 − 58.5 = 2.7 kg; 2.7 × 2.2 = 5.94 pounds."},{"q":"Which plan helps promote urinary elimination?","o":["Tell the patient to hold the urge as long as possible","Keep the patient flat to void","Restrict fluids all day","Establish a schedule, such as rounding every 2 hours, and provide privacy"],"a":3,"ref":"Slide 53","why":"Also help the patient to their usual voiding position and perform hand and genital hygiene."},{"q":"Parenteral medications are given:","o":["Outside the intestines or digestive tract","By mouth","Only under the tongue","Rectally"],"a":0,"ref":"Slides 58–59"},{"q":"Which injection type has the LONGEST absorption time and is used for TB and allergy testing?","o":["Intramuscular","Subcutaneous","Intravenous","Intradermal"],"a":3,"ref":"Slide 60","why":"It goes into the dermis just below the epidermis, with a tuberculin syringe and a small amount (less than 0.5 mL)."},{"q":"Insulin and heparin are typically given by which route?","o":["Intradermal","Intramuscular","Subcutaneous","Buccal"],"a":2,"ref":"Slide 61","why":"Subcutaneous tissue (adipose) has few blood vessels, giving slow, sustained absorption."},{"q":"Why are vaccines and antibiotics often given intramuscularly?","o":["Muscle has few blood vessels","It is the slowest route","Muscle has more blood vessels, so absorption is faster","It avoids landmarks"],"a":2,"ref":"Slide 62","why":"The correct muscle site is found using anatomical landmarks."}],"sa":[{"q":"Name the parts of the small intestine with their lengths, and the length of the large intestine.","a":["Duodenum: first 8–10 inches","Jejunum: about 8 feet","Ileum: about 12 feet","Large intestine: 5–6 feet, larger in diameter"],"ordered":true,"ref":"Slide 5"},{"q":"Describe the defecation reflex and the role of each anal sphincter.","a":["Two centers govern the reflex: the medulla and one in the spinal cord","The fecal mass distends the rectum, stretching muscles and creating the urge","Parasympathetic stimulation relaxes the internal anal sphincter and contracts the colon","The external anal sphincter is voluntary","Sitting increases downward pressure on the rectum"],"ref":"Slides 8–9"},{"q":"Define occult blood, melena, peristalsis, and endoscopy, and name what an EGD, colonoscopy, and sigmoidoscopy view.","a":["Occult blood: hidden, cannot be seen","Melena: thick, black stool","Peristalsis: coordinated muscle movement of waste","Endoscopy: camera exam of the GI tract","EGD: esophagus, stomach, duodenum","Colonoscopy: large intestine and rectum","Sigmoidoscopy: sigmoid colon, rectum, anal canal"],"ref":"Slide 11"},{"q":"List the ten factors that affect bowel elimination.","a":["Developmental considerations","Daily patterns","Food and fluids","Activity and muscle tone","Lifestyle","Psychological variables","Pathologic conditions","Medications","Diagnostic studies","Surgery and anesthesia"],"ref":"Slide 12"},{"q":"Give nursing strategies for the three age-related bowel changes in older adults.","a":["Slowed GI motility: small frequent meals, no heavy activity after eating, high-fiber low-fat diet, fluids, avoid regular laxatives, daily routine about 2 hours after waking and after breakfast, review medications","Decreased muscle tone or incontinence: easy bathroom access, assistive devices, safe walking, bowel-retraining program","Weaker intestinal walls (diverticulitis): high fiber and fluids, don't ignore the urge, regular exercise"],"ref":"Slide 14 (table)"},{"q":"List what the nurse inspects or measures in a bowel elimination assessment.","a":["Abdomen, including bowel sounds","Anus and rectum","Fluid loss from diarrhea, especially in infants","Stool characteristics","Diagnostics: stool specimens (culture, occult blood) and imaging or scopes (ultrasound, endoscopy, colonoscopy, sigmoidoscopy, CT, MRI)"],"ref":"Slide 17"},{"q":"List at least six common bowel elimination problems.","a":["Diarrhea","Constipation","Impaction","Flatulence","Hemorrhoids","Bowel incontinence","Bowel obstruction","Paralytic ileus","Inflammatory bowel disease"],"ref":"Slide 18"},{"q":"Compare a small-volume and a large-volume enema.","a":["Small volume: hypertonic; left Sims'; remove the cap, insert the nozzle 4–5 inches (per slide), gentle pressure, 1–2 minutes","Large volume: hypotonic or isotonic; 500–1,000 mL for adults; left Sims'; just at or above body temperature; container no higher than 18 inches; over 5–10 minutes"],"ref":"Slides 26–27"},{"q":"List at least five nursing measures for bowel incontinence.","a":["Note when incontinence happens and toilet the patient at those times, or at regular intervals","Keep the skin clean and dry","Apply a protective skin barrier","Change linens and clothing as needed","Use pads or undergarments only after other measures are tried","Ask the provider about a suppository or daily cleansing enema","Consider a bowel-training program"],"ref":"Slide 29"},{"q":"Define micturition, urinary incontinence, dysuria, anuria, and polyuria.","a":["Micturition: emptying the bladder","Urinary incontinence: involuntary voiding","Dysuria: difficulty or discomfort voiding","Anuria: 100 mL or less in 24 hours","Polyuria: greater than normal urine volume"],"ref":"Slide 33"},{"q":"Describe the bladder's structure.","a":["Smooth muscle sac innervated by the autonomic nervous system","Temporary reservoir for urine","Detrusor muscle: inner longitudinal, middle circular, outer longitudinal layers","A sphincter guards the opening between bladder and urethra","The urethra carries urine out of the body"],"ref":"Slide 36"},{"q":"Explain how to teach Kegel (pelvic floor) exercises and what they do.","a":["Use the muscles that stop urine midstream","Contract 5–10 seconds, relax 10 seconds","Many reps, several times a day, for months","Tones the muscles supporting the bladder and improves voluntary control","Improves or eliminates stress incontinence"],"ref":"Slides 37–38"},{"q":"List UTI symptoms and prevention teaching from the slide graphic.","a":["Symptoms: strong, frequent urge; bloody or dark, strong-smelling urine; burning; lower back or bladder pain; nausea, vomiting, chills, fever over 101°F, fatigue","Prevention: 8–10 glasses of water a day; urinate as soon as you feel the need; showers instead of baths; wipe front to back; avoid douches and feminine sprays; loose-fitting clothes"],"ref":"Slide 39 (graphic)"},{"q":"Name and define the six types of urinary incontinence.","a":["Stress: leakage with increased intra-abdominal pressure (cough, sneeze, laugh); weak pelvic floor or sphincter","Urge: leakage soon after an urgent need to void; overactive bladder","Mixed: urge plus stress","Overflow: overdistended bladder overflows; impaired signal to empty","Functional: cannot reach the toilet (environment, physical limits, memory loss, disorientation)","Total: continuous, unpredictable loss with no control (surgery, trauma, malformation)"],"ref":"Slides 40–47"},{"q":"List the subjective and objective data for a urinary elimination assessment.","a":["Subjective: usual patterns, recent changes, aids to elimination, present and past difficulties","Objective: physical assessment of the bladder, urethral orifice, skin and hydration","Urine characteristics","Specimens: routine urinalysis, clean catch, sterile, 24-hour"],"ref":"Slides 49–50"},{"q":"Compare intradermal, subcutaneous, and intramuscular injections.","a":["Intradermal: into the dermis below the epidermis; longest absorption; TB and allergy tests; tuberculin syringe, less than 0.5 mL","Subcutaneous: into adipose tissue; few blood vessels; slow, sustained absorption; insulin and heparin","Intramuscular: into muscle; more blood vessels, faster absorption; vaccines and antibiotics; site found by anatomical landmarks"],"ref":"Slides 60–62"}],"ext":[{"kind":"mc","q":"On the Bristol Stool Chart, which types are generally considered normal?","o":["Types 1 and 2","Only type 7","Types 6 and 7","Types 3 and 4"],"a":3,"src":"Bristol Stool Form Scale (Lewis & Heaton); StatPearls (NCBI) — Constipation","why":"Types 1–2 (hard lumps) suggest constipation; types 6–7 (mushy to watery) suggest diarrhea."},{"kind":"mc","q":"Compared with a formula-fed infant, a breastfed infant's stool is typically:","o":["Yellow, soft or seedy, with a mild odor","Dark brown, firm, and strong-smelling","Black and tarry","Gray and clay-colored"],"a":0,"src":"AAP HealthyChildren.org — Baby's First Bowel Movements","why":"Formula-fed stool is usually firmer, tan to brown, with a stronger odor. This answers the question on the developmental slide."},{"kind":"mc","q":"To clean hands after caring for a patient with C. diff, the nurse should use:","o":["Alcohol-based hand rub only","Soap and water","A dry paper towel","Nothing if gloves were worn"],"a":1,"src":"CDC — Clostridioides difficile: Information for Healthcare Providers","why":"Alcohol does not kill C. diff spores. Use contact precautions with gown and gloves."},{"kind":"mc","q":"During digital removal of an impaction, the nurse watches for a slowing heart rate because:","o":["The patient is relaxing","The patient is dehydrated","It is a sign the impaction is gone","Rectal stimulation can trigger the vagus nerve and cause bradycardia"],"a":3,"src":"Open RN Nursing Skills (NCBI Bookshelf); Taylor, Fundamentals of Nursing — Bowel Elimination","why":"Stop the procedure if the heart rate drops or the patient feels faint."},{"kind":"mc","q":"Why are repeated tap-water enemas (“enemas until clear”) used with caution?","o":["Hypotonic water can be absorbed and cause fluid and electrolyte imbalance","They are too expensive","They do not work","They cause constipation"],"a":0,"src":"Taylor, Fundamentals of Nursing — Bowel Elimination (Types of Enemas); Open RN Nursing Skills","why":"Many policies limit “until clear” orders to about three enemas before checking with the provider."},{"kind":"mc","q":"A healthy stoma after ostomy surgery should look:","o":["Pale or white","Moist and pink to beefy red","Dusky or black","Dry and crusted"],"a":1,"src":"Wound, Ostomy and Continence Nurses Society (WOCN); Open RN Nursing Skills","why":"A dusky, purple, or black stoma means poor blood flow and must be reported right away."},{"kind":"mc","q":"Bulk-forming laxatives (such as psyllium) must be taken with:","o":["Nothing","A fatty meal","A full glass of water or other fluid","An antacid"],"a":2,"src":"MedlinePlus (NIH) — Psyllium; Laxatives","why":"Without enough fluid, bulk laxatives can cause choking or bowel obstruction."},{"kind":"mc","q":"An adult's urine output falling below about what hourly amount should be reported?","o":["10 mL per hour","30 mL per hour (about 0.5 mL/kg/hour)","100 mL per hour","200 mL per hour"],"a":1,"src":"Open RN Nursing Skills (NCBI Bookshelf) — Urinary Elimination; StatPearls — Oliguria","why":"Oliguria is less than about 400 mL in 24 hours. Anuria, per the slide, is 100 mL or less in 24 hours."},{"kind":"mc","q":"To collect a clean-catch (midstream) urine specimen, the patient should:","o":["Clean the urethral area, start urinating into the toilet, then catch the middle of the stream","Collect the very first drops","Collect urine from the toilet bowl","Use any cup at home"],"a":0,"src":"MedlinePlus (NIH) — Clean Catch Urine Sample"},{"kind":"mc","q":"For a 24-hour urine collection starting at 0800, the nurse:","o":["Saves the 0800 void and stops at 0800 the next day","Collects for 12 hours and doubles it","Saves only the morning voids","Discards the 0800 void, saves all urine for 24 hours, and includes the final void at 0800 the next day"],"a":3,"src":"MedlinePlus (NIH) — 24-Hour Urine Sample","why":"If a void is missed or discarded, the collection usually must restart."},{"kind":"sa","q":"List key ways to prevent catheter-associated urinary tract infection (CAUTI).","a":["Insert only when needed, and remove as soon as possible","Use aseptic technique and sterile equipment for insertion","Keep a closed drainage system","Keep the bag below the bladder and off the floor; keep tubing free of kinks","Perform routine perineal hygiene"],"src":"CDC/HICPAC — Guideline for Prevention of Catheter-Associated Urinary Tract Infections"},{"kind":"mc","q":"Which is a non-invasive way to measure the urine left in the bladder after voiding (post-void residual)?","o":["A guaiac test","A colonoscopy","A portable bladder scanner (ultrasound)","A urine dipstick"],"a":2,"src":"Open RN Nursing Skills (NCBI Bookshelf) — Urinary Elimination","why":"A straight catheter can also measure it but carries infection risk."},{"kind":"mc","q":"Which mnemonic lists common, often reversible causes of urinary incontinence?","o":["ADPIE","SBAR","DIAPPERS","PQRST"],"a":2,"src":"StatPearls (NCBI) — Urinary Incontinence; the slide 47 summary graphic","why":"Delirium, Infection, Atrophic vaginitis, Pharmaceuticals, Psychological disorders, Excess urine output, Reduced mobility, Stool impaction."},{"kind":"mc","q":"Typical needle angles are:","o":["Intradermal 10–15°, subcutaneous 45–90°, IM 90°","Intradermal 90°, subcutaneous 45°, IM 10–15°","All at 45°","All at 90°"],"a":0,"src":"Open RN Nursing Skills (NCBI Bookshelf) — Administering Parenteral Medications; CDC — Vaccine Administration"},{"kind":"mc","q":"A tuberculin (Mantoux) skin test is read how long after it is placed?","o":["15 minutes","Right away","1 week","48 to 72 hours"],"a":3,"src":"CDC — Tuberculin Skin Testing","why":"The nurse measures the induration (raised, firm area), not the redness."},{"kind":"mc","q":"The preferred intramuscular site for vaccines in infants is the:","o":["Deltoid","Vastus lateralis (anterolateral thigh)","Dorsogluteal","Ventrogluteal"],"a":1,"src":"CDC — Vaccine Administration: Intramuscular Injection","why":"The deltoid is the usual site for adults and older children."}]}};
+
+const DECK_ORDER = ["wk6"];
+const LS_KEY = "nrsg130-quiz-bank-v1";
+let state = load();
+let deck = DECKS[state.deck] ? state.deck : DECK_ORDER[0];
+let keyMode = false;
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}") || {}; } catch (e) { return {}; }
+}
+function save() {
+  try { state.deck = deck; localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+}
+function ans(d) { state[d] = state[d] || {}; return state[d]; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+/* Sections for a deck: each item carries its own kind ("mc" | "sa") and a stable id */
+function sections(d) {
+  const D = DECKS[d];
+  return [
+    { key: "mc", title: "Multiple Choice", hint: "Pick one answer.", items: D.mc.map((it, i) => ({ ...it, kind: "mc", id: "mc" + i })) },
+    { key: "sa", title: "Short Answer", hint: "Let her answer out loud, reveal, then mark it.", items: D.sa.map((it, i) => ({ ...it, kind: "sa", id: "sa" + i })) },
+    { key: "ex", title: "Beyond the Slides", hint: "Outside sources — not from the class deck", ext: true, items: (D.ext || []).map((it, i) => ({ ...it, id: "ex" + i })) }
+  ];
+}
+function allItems(d) { return sections(d).flatMap(s => s.items.map(it => ({ ...it, secTitle: s.title, ext: !!s.ext }))); }
+function isRight(item, got) { return item.kind === "sa" ? got === true : got === item.a; }
+
+function refLine(item) {
+  return item.src ? `<div class="ref src">${esc(item.src)}</div>` : `<div class="ref">${esc(item.ref || "")}</div>`;
+}
+
+function renderDeckTabs() {
+  document.getElementById("decks").innerHTML = DECK_ORDER.map(d => `
+    <button class="deck-tab" role="tab" id="tab-${d}" aria-selected="${String(d === deck)}" data-deck="${d}">
+      <span class="eyebrow">${esc(DECKS[d].short)}</span>
+      <strong>${esc(DECKS[d].title.replace(/\s*\(.*\)$/, ""))}</strong>
+      <small id="count-${d}"></small>
+    </button>`).join("");
+  document.querySelectorAll(".deck-tab").forEach(t => t.addEventListener("click", () => {
+    deck = t.dataset.deck; save(); render(); window.scrollTo({ top: 0 });
+  }));
+}
+
+function render() {
+  const A = ans(deck);
+  const main = document.getElementById("quiz");
+  document.querySelectorAll(".deck-tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.deck === deck)));
+  let n = 0;
+  const parts = [];
+  const letters = "ABCD";
+
+  sections(deck).forEach(sec => {
+    if (!sec.items.length) return;
+    parts.push(`<section class="${sec.ext ? "ext" : ""}"><div class="sec-head"><h2>${sec.title}</h2><span class="hint">${sec.hint}</span><span class="sec-tally" id="tally-${sec.key}"></span></div>
+      ${sec.ext ? `<div class="ext-note"><b>Heads up:</b> the questions below were <b>not</b> taken from the class slides. They come from published nursing references on the same topics — the kind of related material that could show up on an exam. Each one names its source.</div>` : ""}</section>`);
+
+    sec.items.forEach(item => {
+      n++; const id = item.id; const got = A[id];
+      if (item.kind === "mc") {
+        const locked = got !== undefined;
+        const cls = locked ? (got === item.a ? "right" : "wrong") : "";
+        const opts = item.o.map((o, k) => {
+          let c = "opt";
+          if (locked) { if (k === item.a) c += " is-right"; else if (k === got) c += " is-wrong"; else c += " dim"; }
+          if (keyMode && k === item.a) c += " correct-key";
+          return `<button class="${c}" data-q="${id}" data-v="${k}" ${locked ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(o)}</span></button>`;
+        }).join("");
+        parts.push(`<div class="q ${cls} ${locked ? "locked" : ""}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="opts">${opts}</div>
+            ${locked ? verdict(got === item.a, item.why) : ""}
+            ${refLine(item)}
+          </div></div>`);
+      } else {
+        const revealed = (state.revealed && state.revealed[deck + id]) || got !== undefined;
+        const cls = got === undefined ? "" : (got ? "right" : "wrong");
+        const tag = item.ordered ? "ol" : "ul";
+        const list = `<${tag}>${item.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}>`;
+        parts.push(`<div class="q ${cls}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="sa-row">
+              ${revealed ? "" : `<button class="btn" data-reveal="${id}">Reveal answer</button>`}
+              <div class="grade">
+                <button class="opt g-yes ${got === true ? "picked" : ""}" data-q="${id}" data-v="yes"><span class="key">✓</span><span>She got it</span></button>
+                <button class="opt g-no ${got === false ? "picked" : ""}" data-q="${id}" data-v="no"><span class="key">✕</span><span>Missed it</span></button>
+              </div>
+            </div>
+            <div class="answer" ${revealed ? "" : "hidden"}>${list}</div>
+            ${refLine(item)}
+          </div></div>`);
+      }
+    });
+  });
+
+  main.innerHTML = parts.join("");
+  main.classList.toggle("keymode", keyMode);
+  updateScore();
+  renderRounds();
+}
+
+function verdict(ok, why) {
+  return `<div class="verdict ${ok ? "ok" : "no"}"><b>${ok ? "Correct." : "Not quite."}</b>${why ? `<span class="why">${esc(why)}</span>` : ""}</div>`;
+}
+
+function updateScore() {
+  const A = ans(deck);
+  let right = 0, wrong = 0, total = 0;
+  sections(deck).forEach(sec => {
+    let r = 0, d = 0;
+    sec.items.forEach(it => { total++; const g = A[it.id]; if (g === undefined) return; d++; if (isRight(it, g)) { r++; right++; } else wrong++; });
+    const el = document.getElementById("tally-" + sec.key);
+    if (el) el.textContent = d ? `${r} of ${d} · ${sec.items.length} questions` : `${sec.items.length} questions`;
+  });
+  const done = right + wrong;
+  document.getElementById("score-num").textContent = `${right} / ${done}`;
+  document.getElementById("score-txt").textContent = done ? `correct · ${total - done} left` : `answered of ${total}`;
+  document.getElementById("bar-g").style.width = (right / total * 100) + "%";
+  document.getElementById("bar-b").style.width = (wrong / total * 100) + "%";
+  DECK_ORDER.forEach(d => {
+    const DD = DECKS[d]; const ext = (DD.ext || []).length;
+    const t = DD.mc.length + DD.sa.length + ext;
+    const a = Object.keys(ans(d)).length;
+    const el = document.getElementById("count-" + d);
+    if (el) el.textContent = `${t} questions · ${DD.mc.length} MC, ${DD.sa.length} short answer, ${ext} beyond the slides${a ? ` · ${a} answered` : ""}`;
+  });
+}
+
+document.getElementById("quiz").addEventListener("click", e => {
+  const rev = e.target.closest("[data-reveal]");
+  if (rev) {
+    state.revealed = state.revealed || {}; state.revealed[deck + rev.dataset.reveal] = true; save();
+    const y = window.scrollY; render(); window.scrollTo(0, y);
+    return;
+  }
+  const b = e.target.closest("button[data-q]");
+  if (!b || b.disabled) return;
+  const id = b.dataset.q, v = b.dataset.v;
+  const A = ans(deck);
+  const item = allItems(deck).find(x => x.id === id);
+  if (!item) return;
+  if (item.kind === "mc") A[id] = Number(v); else A[id] = v === "yes";
+  save();
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+document.getElementById("key-toggle").addEventListener("click", function () {
+  keyMode = !keyMode; this.classList.toggle("on", keyMode); this.setAttribute("aria-pressed", String(keyMode));
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+let armedClear = 0;
+document.getElementById("reset-btn").addEventListener("click", function () {
+  if (Object.keys(ans(deck)).length && Date.now() - armedClear > 4000) {
+    armedClear = Date.now(); this.textContent = "Really clear? Click again";
+    setTimeout(() => { this.textContent = "Clear without saving"; }, 4000);
+    return;
+  }
+  armedClear = 0; this.textContent = "Clear without saving";
+  clearDeck(deck); render(); window.scrollTo({ top: 0 });
+});
+function clearDeck(d) {
+  state[d] = {};
+  if (state.revealed) for (const k in state.revealed) if (k.startsWith(d)) delete state.revealed[k];
+  save();
+}
+
+/* ---------- Name ---------- */
+const whoEl = document.getElementById("who");
+whoEl.value = state.who || "";
+whoEl.addEventListener("change", () => { state.who = whoEl.value.trim(); save(); });
+function whoName() { return (state.who || "").trim() || "Someone"; }
+
+/* ---------- Rounds: summary, code, history ---------- */
+const CODE_TAG = "NQB1.";
+function b64e(s) { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function b64d(s) { s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; return decodeURIComponent(escape(atob(s))); }
+
+function roundFromCurrent() {
+  const A = ans(deck); const items = allItems(deck);
+  const answers = {}; let right = 0, done = 0;
+  items.forEach(it => { const g = A[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck, name: whoName(), t: Date.now(), right, done, total: items.length, answers };
+}
+function missedList(r) {
+  const items = allItems(r.deck); const out = [];
+  items.forEach((it, i) => { const g = r.answers[it.id]; if (g !== undefined && !isRight(it, g)) out.push({ n: i + 1, q: it.q, ext: it.ext }); });
+  return out;
+}
+function fmtDate(t) { return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+function pct(r) { return r.done ? Math.round(r.right / r.done * 100) : 0; }
+
+function summaryText(r) {
+  const D = DECKS[r.deck]; const missed = missedList(r);
+  const lines = [
+    `NRSG130 Quiz — ${D.title}`,
+    `${r.name} · ${fmtDate(r.t)} · ${r.right}/${r.done} correct (${pct(r)}%)${r.done < r.total ? ` · ${r.total - r.done} unanswered` : ""}`,
+    missed.length ? `Missed (${missed.length}): ${missed.map(m => "#" + m.n).join(", ")}` : "Missed: none!",
+    ...missed.slice(0, 40).map(m => `  ${m.n}. ${m.q.length > 90 ? m.q.slice(0, 87) + "…" : m.q}`),
+    "",
+    "Code: " + CODE_TAG + b64e(JSON.stringify({ d: r.deck, n: r.name, t: r.t, a: r.answers }))
+  ];
+  return lines.join("\n");
+}
+function parseCode(text) {
+  const m = String(text).match(/NQB1\.([A-Za-z0-9_-]+)/);
+  if (!m) throw new Error("No code found — paste the whole summary or the line that starts with “Code:”.");
+  const o = JSON.parse(b64d(m[1]));
+  if (!DECKS[o.d] || typeof o.a !== "object") throw new Error("That code doesn't match this quiz.");
+  const items = allItems(o.d); let right = 0, done = 0; const answers = {};
+  items.forEach(it => { const g = o.a[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck: o.d, name: String(o.n || "Someone").slice(0, 24), t: Number(o.t) || Date.now(), right, done, total: items.length, answers, imported: true };
+}
+function saveRound(r) {
+  state.rounds = state.rounds || [];
+  r.id = r.id || (r.t + "-" + Math.random().toString(36).slice(2, 7));
+  if (state.rounds.some(x => x.t === r.t && x.name === r.name && x.deck === r.deck)) return false;
+  state.rounds.push(r); state.rounds.sort((a, b) => b.t - a.t);
+  if (state.rounds.length > 60) state.rounds.length = 60;
+  save(); return true;
+}
+
+function renderRounds() {
+  const rounds = (state.rounds || []).filter(r => r.deck === deck);
+  const el = document.getElementById("rounds");
+  const trend = rounds.slice().reverse().slice(-12);
+  el.innerHTML = `
+    <div class="rounds-head"><h2>Past rounds</h2><span class="sec-tally">${rounds.length ? `${rounds.length} saved for this set` : "nothing saved yet"}</span></div>
+    ${trend.length > 1 ? `<div class="trend" aria-label="Score trend">${trend.map(r => `<i class="${r.imported ? "g" : ""}" style="height:${Math.max(6, pct(r) * .44)}px" title="${esc(r.name)} · ${fmtDate(r.t)} · ${pct(r)}%"><span>${pct(r)}%</span></i>`).join("")}</div>` : ""}
+    ${rounds.length ? rounds.map(r => {
+      const missed = missedList(r);
+      return `<div class="round">
+        <div class="r-top"><span class="r-name">${esc(r.name)}</span><span class="r-date">${fmtDate(r.t)}${r.imported ? " · logged from a code" : ""}</span></div>
+        <div class="r-score">${r.right}/${r.done}<small>${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} skipped` : ""}</small></div>
+        <div class="r-missed">${missed.length ? `<details><summary>Missed ${missed.length} — show</summary><ul>${missed.map(m => `<li>#${m.n} · ${esc(m.q)}${m.ext ? " <em>(beyond the slides)</em>" : ""}</li>`).join("")}</ul></details>` : "Nothing missed."}</div>
+        <div class="r-actions"><button class="btn ghost" data-del-round="${r.id}">Remove</button></div>
+      </div>`;
+    }).join("") : `<div class="rounds-empty">When a round is finished, its score and missed questions land here. Rounds logged from someone else's code show up too.</div>`}
+    <div class="log-box">
+      <label for="log-input">Log a round from a code</label>
+      <p>Paste the summary (or just the “Code:” line) that the student texted you. Their score and missed questions are added to this list.</p>
+      <div class="log-row"><input id="log-input" type="text" placeholder="Paste here…" autocomplete="off"><button class="btn" id="log-btn">Add round</button></div>
+      <div class="log-msg" id="log-msg"></div>
+    </div>`;
+}
+
+document.getElementById("rounds").addEventListener("click", e => {
+  const del = e.target.closest("[data-del-round]");
+  if (del) { state.rounds = (state.rounds || []).filter(r => r.id !== del.dataset.delRound); save(); renderRounds(); return; }
+  if (e.target.closest("#log-btn")) {
+    const inp = document.getElementById("log-input"), msg = document.getElementById("log-msg");
+    try {
+      const r = parseCode(inp.value);
+      const added = saveRound(r);
+      if (r.deck !== deck) { deck = r.deck; save(); render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80 }); }
+      else renderRounds();
+      const m2 = document.getElementById("log-msg"); m2.className = "log-msg ok";
+      m2.textContent = added ? `Added ${r.name}'s round — ${r.right}/${r.done} (${pct(r)}%).` : "That round is already in the list.";
+    } catch (err) { msg.className = "log-msg no"; msg.textContent = err.message; }
+  }
+});
+
+/* Finish-round dialog */
+const fin = document.getElementById("finish");
+let pendingRound = null;
+document.getElementById("finish-btn").addEventListener("click", function () {
+  const r = roundFromCurrent();
+  if (!r.done) { this.textContent = "Answer something first"; setTimeout(() => { this.textContent = "Finish round"; }, 2500); return; }
+  pendingRound = r;
+  document.getElementById("f-title").textContent = `${r.name} — ${DECKS[r.deck].short}`;
+  document.getElementById("f-score").textContent = `${r.right} / ${r.done}`;
+  document.getElementById("f-sub").textContent = `${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} of ${r.total} unanswered` : ""}`;
+  document.getElementById("f-text").value = summaryText(r);
+  document.getElementById("f-msg").textContent = "";
+  document.getElementById("f-share").hidden = !navigator.share;
+  fin.hidden = false;
+});
+document.getElementById("f-cancel").addEventListener("click", () => { fin.hidden = true; });
+fin.addEventListener("click", e => { if (e.target === fin) fin.hidden = true; });
+document.getElementById("f-copy").addEventListener("click", async () => {
+  const ta = document.getElementById("f-text"), msg = document.getElementById("f-msg");
+  try { await navigator.clipboard.writeText(ta.value); msg.textContent = "Copied — paste it into a text or email."; }
+  catch (e) { ta.select(); msg.textContent = "Select the text above and copy it."; }
+});
+document.getElementById("f-share").addEventListener("click", async () => {
+  try { await navigator.share({ title: "NRSG130 quiz results", text: document.getElementById("f-text").value }); }
+  catch (e) { /* user cancelled */ }
+});
+document.getElementById("f-save").addEventListener("click", () => {
+  if (!pendingRound) return;
+  saveRound(pendingRound); clearDeck(deck); pendingRound = null; fin.hidden = true;
+  render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80, behavior: "smooth" });
+});
+
+renderDeckTabs();
+render();
+
+/* ---------- Presenter mode ---------- */
+const P = { on: false, i: 0, revealed: false };
+const pEl = document.getElementById("present");
+
+function startPresent() {
+  const qs = allItems(deck); const A = ans(deck);
+  let first = qs.findIndex(q => A[q.id] === undefined); if (first < 0) first = 0;
+  P.on = true; P.i = first; P.revealed = false;
+  document.body.classList.add("presenting"); pEl.hidden = false;
+  renderPresent();
+}
+function exitPresent() {
+  P.on = false; document.body.classList.remove("presenting"); pEl.hidden = true;
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+}
+
+function renderPresent() {
+  const qs = allItems(deck); const q = qs[P.i]; const A = ans(deck); const got = A[q.id];
+  const answered = got !== undefined;
+  const show = P.revealed || answered;
+  const secEl = document.getElementById("p-section");
+  const kindLabel = q.kind === "mc" ? "Multiple choice" : "Short answer";
+  secEl.textContent = q.ext ? `Beyond the Slides · ${kindLabel} · Question ${P.i + 1} of ${qs.length}` : `${q.secTitle} · Question ${P.i + 1} of ${qs.length}`;
+  secEl.classList.toggle("is-ext", !!q.ext);
+  document.getElementById("p-deck").textContent = DECKS[deck].title;
+  const letters = "ABCD";
+  let html = `<p class="p-stem">${esc(q.q)}</p>`;
+
+  if (q.kind === "mc") {
+    html += `<div class="p-opts">` + q.o.map((label, k) => {
+      let c = "opt";
+      if (show) { if (k === q.a) c += " is-right"; else if (answered && k === got) c += " is-wrong"; else c += " dim"; }
+      return `<button class="${c}" data-pv="${k}" ${answered ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(label)}</span></button>`;
+    }).join("") + `</div>`;
+    if (answered) html += `<div class="p-verdict ${got === q.a ? "ok" : "no"}"><b>${got === q.a ? "Correct." : "Not quite."}</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else if (show) html += `<div class="p-verdict ok"><b>Answer shown.</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else html += `<div class="p-wait">Let her answer — then press her letter to check it, or Space to reveal.</div>`;
+  } else {
+    if (show) {
+      const tag = q.ordered ? "ol" : "ul";
+      const two = q.a.length > 5 ? "two" : "";
+      html += `<div class="answer p-answer"><span class="lead">Answer</span><${tag} class="${two}">${q.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}></div>`;
+      html += `<div class="p-opts two grade">
+        <button class="opt g-yes ${got === true ? "picked" : ""}" data-pv="yes"><span class="key">✓</span><span>She got it</span></button>
+        <button class="opt g-no ${got === false ? "picked" : ""}" data-pv="no"><span class="key">✕</span><span>Missed it</span></button>
+      </div>`;
+    } else {
+      html += `<div class="p-wait">Let her answer out loud, then press Space to reveal.</div>`;
+    }
+  }
+  html += refLine(q);
+  document.getElementById("p-body").innerHTML = html;
+
+  let right = 0, done = 0;
+  qs.forEach(x => { const g = A[x.id]; if (g === undefined) return; done++; if (isRight(x, g)) right++; });
+  document.getElementById("p-score").textContent = `${right} / ${done} correct`;
+  document.getElementById("p-bar").style.width = ((P.i + 1) / qs.length * 100) + "%";
+  document.getElementById("p-prev").disabled = P.i === 0;
+  document.getElementById("p-next").textContent = P.i === qs.length - 1 ? "Finish" : "Next →";
+  document.getElementById("p-reveal").hidden = show;
+}
+
+function pAnswer(v) {
+  const q = allItems(deck)[P.i]; const A = ans(deck);
+  if (q.kind === "mc") A[q.id] = Number(v); else A[q.id] = v === "yes";
+  save(); renderPresent();
+}
+function pMove(d) {
+  const qs = allItems(deck); const n = P.i + d;
+  if (n < 0) return;
+  if (n >= qs.length) { exitPresent(); if (Object.keys(ans(deck)).length) document.getElementById("finish-btn").click(); return; }
+  P.i = n; P.revealed = false; renderPresent();
+}
+
+document.getElementById("present-btn").addEventListener("click", startPresent);
+document.getElementById("p-exit").addEventListener("click", exitPresent);
+document.getElementById("p-prev").addEventListener("click", () => pMove(-1));
+document.getElementById("p-next").addEventListener("click", () => pMove(1));
+document.getElementById("p-reveal").addEventListener("click", () => { P.revealed = true; renderPresent(); });
+document.getElementById("p-body").addEventListener("click", e => {
+  const b = e.target.closest("button[data-pv]"); if (!b || b.disabled) return; pAnswer(b.dataset.pv);
+});
+
+document.addEventListener("keydown", e => {
+  if (!P.on) return;
+  if (e.target.matches("input, textarea")) return;
+  const q = allItems(deck)[P.i]; const A = ans(deck); const answered = A[q.id] !== undefined;
+  const k = e.key;
+  if (k === "Escape") { exitPresent(); }
+  else if (k === "ArrowRight" || k === "PageDown") { pMove(1); }
+  else if (k === "ArrowLeft" || k === "PageUp") { pMove(-1); }
+  else if (k === " " || k === "Enter") { e.preventDefault(); if (P.revealed || answered) pMove(1); else { P.revealed = true; renderPresent(); } }
+  else if (q.kind === "mc" && !answered && /^[a-d1-4]$/i.test(k)) { const idx = /\d/.test(k) ? Number(k) - 1 : "abcd".indexOf(k.toLowerCase()); if (idx < q.o.length) pAnswer(String(idx)); }
+  else if (q.kind === "sa" && (P.revealed || answered) && /^[yn]$/i.test(k)) { pAnswer(k.toLowerCase() === "y" ? "yes" : "no"); }
+  else return;
+  e.preventDefault();
+});
+</script>
+
+</body>
+</html>
