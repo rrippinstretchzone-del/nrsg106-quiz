@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NRSG106 Quiz Bank — Week 9</title>
+<style>[hidden]{display:none!important} img{max-width:100%}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    --paper: #F6F8FA;
+    --card: #FFFFFF;
+    --ink: #1B2A41;
+    --ink-soft: #4A5A70;
+    --ink-faint: #8593A6;
+    --rule: #D9DFE7;
+    --rule-strong: #B8C2CF;
+    --teal: #0F7B8A;
+    --teal-ink: #0B5F6B;
+    --teal-wash: #E3F1F3;
+    --mark: #F9D65C;
+    --mark-wash: #FFF6D2;
+    --good: #2E8B57;
+    --good-wash: #E4F3EA;
+    --bad: #C8463A;
+    --bad-wash: #FBE7E4;
+    --plum: #6B4E9B;
+    --plum-wash: #EEE9F7;
+    --focus: #0F7B8A;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12181F;
+      --card: #1A222B;
+      --ink: #E7ECF2;
+      --ink-soft: #B3BFCD;
+      --ink-faint: #7C8A9B;
+      --rule: #2C3743;
+      --rule-strong: #3E4B5A;
+      --teal: #3FB2C1;
+      --teal-ink: #6FCBD7;
+      --teal-wash: #16323A;
+      --mark: #E8C64A;
+      --mark-wash: #3A3316;
+      --good: #4FBF7F;
+      --good-wash: #16321F;
+      --bad: #E8746A;
+      --bad-wash: #3D1F1B;
+      --plum: #B49BE0;
+      --plum-wash: #2A2138;
+      --focus: #3FB2C1;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12181F;
+    --card: #1A222B;
+    --ink: #E7ECF2;
+    --ink-soft: #B3BFCD;
+    --ink-faint: #7C8A9B;
+    --rule: #2C3743;
+    --rule-strong: #3E4B5A;
+    --teal: #3FB2C1;
+    --teal-ink: #6FCBD7;
+    --teal-wash: #16323A;
+    --mark: #E8C64A;
+    --mark-wash: #3A3316;
+    --good: #4FBF7F;
+    --good-wash: #16321F;
+    --bad: #E8746A;
+    --bad-wash: #3D1F1B;
+    --plum: #B49BE0;
+    --plum-wash: #2A2138;
+    --focus: #3FB2C1;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    padding-block: 0 64px;
+    padding-inline: clamp(16px, 4vw, 40px);
+  }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif; text-wrap: balance; margin: 0; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  header { padding-block: 28px 20px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+  .eyebrow { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-ink); font-weight: 700; }
+  h1 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; margin-top: 6px; }
+  .sub { color: var(--ink-soft); margin: 6px 0 0; max-width: 60ch; }
+
+  /* Deck tabs */
+  .decks { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
+  .deck-tab {
+    flex: 1 1 240px; text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 14px 16px; display: grid; gap: 2px; transition: border-color .15s, background .15s;
+  }
+  .deck-tab .eyebrow { color: var(--ink-faint); }
+  .deck-tab strong { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; }
+  .deck-tab small { color: var(--ink-soft); font-size: 14px; }
+  .deck-tab[aria-selected="true"] { border-color: var(--teal); background: var(--teal-wash); box-shadow: inset 0 0 0 1px var(--teal); }
+  .deck-tab[aria-selected="true"] .eyebrow { color: var(--teal-ink); }
+
+  /* Toolbar */
+  .toolbar {
+    position: sticky; top: 0; z-index: 5; background: var(--paper);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding-block: 14px; border-bottom: 1px solid var(--rule); margin-top: 8px;
+  }
+  .score { display: flex; align-items: baseline; gap: 8px; font-variant-numeric: tabular-nums; }
+  .score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; font-weight: 700; line-height: 1; }
+  .score span { color: var(--ink-soft); font-size: 14px; }
+  .bar { flex: 1 1 160px; height: 8px; border-radius: 99px; background: var(--rule); overflow: hidden; display: flex; min-width: 120px; }
+  .bar i { display: block; height: 100%; transition: width .25s; }
+  .bar .g { background: var(--good); }
+  .bar .b { background: var(--bad); }
+  .tools { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+  .btn { border: 1px solid var(--rule-strong); background: var(--card); border-radius: 8px; padding: 7px 12px; font-size: 14.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
+  .btn:hover { border-color: var(--teal); }
+  .btn.on { background: var(--mark-wash); border-color: var(--mark); }
+  .btn .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule-strong); }
+  .btn.on .dot { background: var(--mark); }
+  .btn.ghost { border-color: transparent; background: transparent; color: var(--ink-soft); }
+  .btn.ghost:hover { color: var(--bad); }
+  .btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .btn.primary:hover { background: var(--teal-ink); border-color: var(--teal-ink); }
+
+  /* Sections */
+  section { margin-top: 40px; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: 22px; font-weight: 700; }
+  .sec-head .hint { color: var(--ink-soft); font-size: 14.5px; }
+  .sec-tally { font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: 14.5px; }
+  section.ext .sec-head { border-bottom-color: var(--plum); }
+  section.ext .sec-head h2 { color: var(--plum); }
+  .ext-note {
+    margin-top: 14px; padding: 12px 16px; border-radius: 10px; background: var(--plum-wash); color: var(--ink);
+    border-left: 3px solid var(--plum); font-size: 15px; line-height: 1.45;
+  }
+  .ext-note b { color: var(--plum); }
+
+  .q { display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; padding-block: 20px; border-bottom: 1px solid var(--rule); }
+  .q .num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 18px; color: var(--ink-faint); font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .q.right .num { color: var(--good); }
+  .q.wrong .num { color: var(--bad); }
+  .q .body { display: grid; gap: 12px; min-width: 0; }
+  .q .stem { font-size: 17.5px; line-height: 1.45; margin: 0; }
+  .q .ref { font-size: 12.5px; color: var(--ink-faint); letter-spacing: .04em; text-transform: uppercase; }
+  .ref.src { text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--plum); }
+  .ref.src::before { content: "Outside source · "; font-weight: 700; }
+
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    text-align: left; background: var(--card); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.35;
+    transition: border-color .12s, background .12s;
+  }
+  .opt:hover { border-color: var(--teal); }
+  .opt .key { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--rule-strong); display: grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+  .opt.picked { border-color: var(--teal); background: var(--teal-wash); }
+  .opt.is-right { border-color: var(--good); background: var(--good-wash); }
+  .opt.is-right .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.is-wrong { border-color: var(--bad); background: var(--bad-wash); }
+  .opt.is-wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .6; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--rule); }
+  .locked .opt.is-right:hover { border-color: var(--good); }
+  .locked .opt.is-wrong:hover { border-color: var(--bad); }
+
+  .verdict { font-size: 15px; display: flex; gap: 8px; align-items: flex-start; }
+  .verdict b { flex: 0 0 auto; }
+  .verdict.ok b { color: var(--good); }
+  .verdict.no b { color: var(--bad); }
+  .verdict .why { color: var(--ink-soft); }
+
+  /* Short answer */
+  .sa-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .answer {
+    background: var(--mark-wash); border-left: 3px solid var(--mark); padding: 10px 14px; border-radius: 0 8px 8px 0;
+    font-size: 16px; line-height: 1.45;
+  }
+  .answer ul, .answer ol { margin: 4px 0 0; padding-left: 20px; }
+  .answer li { margin: 2px 0; }
+  .grade { display: flex; gap: 8px; flex-wrap: wrap; }
+  .grade .opt { padding: 8px 12px; }
+  .grade .opt.g-yes.picked { border-color: var(--good); background: var(--good-wash); }
+  .grade .opt.g-no.picked { border-color: var(--bad); background: var(--bad-wash); }
+
+  /* Answer-key mode */
+  .keymode .answer[hidden] { display: block !important; }
+  .keymode .opt.correct-key { border-color: var(--mark); background: var(--mark-wash); }
+  .keymode .opt.correct-key .key { background: var(--mark); border-color: var(--mark); color: #1B2A41; }
+
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--ink-faint); font-size: 13.5px; }
+  footer p { margin: 6px 0; }
+
+  /* Name field */
+  .who { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-soft); }
+  .who input { font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 6px 10px; width: 9ch; }
+  .who input:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; }
+
+  /* Past rounds */
+  .rounds-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; flex-wrap: wrap; }
+  .rounds-head h2 { font-size: 22px; font-weight: 700; }
+  .rounds-empty { color: var(--ink-faint); padding: 18px 0; font-size: 15.5px; }
+  .round { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding-block: 14px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .round .r-top { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+  .round .r-name { font-weight: 700; }
+  .round .r-date { color: var(--ink-soft); font-size: 14.5px; }
+  .round .r-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; text-align: right; line-height: 1.1; }
+  .round .r-score small { display: block; font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 13px; color: var(--ink-soft); }
+  .round .r-missed { grid-column: 1 / -1; font-size: 15px; color: var(--ink-soft); }
+  .round details summary { cursor: pointer; color: var(--teal-ink); font-weight: 600; }
+  .round details ul { margin: 6px 0 0; padding-left: 20px; }
+  .round details li { margin: 3px 0; color: var(--ink); }
+  .round .r-actions { grid-column: 1 / -1; display: flex; gap: 8px; }
+  .round .r-actions .btn { font-size: 13px; padding: 4px 9px; }
+  .log-box { margin-top: 18px; padding: 14px 16px; border: 1px dashed var(--rule-strong); border-radius: 10px; display: grid; gap: 8px; }
+  .log-box label { font-weight: 600; font-size: 15px; }
+  .log-box p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+  .log-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .log-row input { flex: 1 1 240px; font: inherit; font-size: 14px; color: var(--ink); background: var(--card); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 8px 10px; }
+  .log-msg { font-size: 14px; min-height: 1.2em; }
+  .log-msg.ok { color: var(--good); } .log-msg.no { color: var(--bad); }
+  .trend { display: flex; gap: 6px; align-items: flex-end; height: 44px; margin-top: 12px; }
+  .trend i { flex: 0 0 18px; background: var(--teal); border-radius: 3px 3px 0 0; opacity: .85; position: relative; }
+  .trend i.g { background: var(--plum); }
+  .trend i span { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--ink-faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Finish-round dialog */
+  .modal-bg { position: fixed; inset: 0; z-index: 60; background: rgba(10, 16, 24, .55); display: grid; place-items: center; padding: 16px; }
+  .modal-bg[hidden] { display: none; }
+  .modal { background: var(--card); color: var(--ink); border-radius: 14px; width: min(640px, 100%); max-height: 92vh; overflow: auto; padding: 22px 24px 20px; box-shadow: 0 20px 60px rgba(0,0,0,.25); display: grid; gap: 14px; }
+  .modal h2 { font-size: 24px; }
+  .modal .m-score { display: flex; align-items: baseline; gap: 10px; }
+  .modal .m-score b { font-family: "Bricolage Grotesque", sans-serif; font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modal .m-score span { color: var(--ink-soft); }
+  .modal textarea { width: 100%; min-height: 150px; font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; resize: vertical; }
+  .modal .m-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .modal .m-note { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .modal .m-msg { font-size: 14px; color: var(--good); min-height: 1.2em; }
+
+  /* Presenter mode — one question, big type, for screen sharing */
+  body.presenting { overflow: hidden; }
+  .present {
+    position: fixed; inset: 0; z-index: 50; background: var(--paper); color: var(--ink);
+    display: grid; grid-template-rows: auto 1fr auto; padding: clamp(16px, 3vw, 36px) clamp(16px, 5vw, 72px);
+  }
+  .present[hidden], .btn[hidden] { display: none; }
+  .p-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .p-top .eyebrow { font-size: clamp(13px, 1.3vw, 17px); }
+  .p-top .eyebrow.is-ext { color: var(--plum); }
+  .p-top .p-deck { color: var(--ink-faint); font-weight: 600; font-size: clamp(13px, 1.3vw, 17px); }
+  .p-score { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(18px, 2vw, 26px); font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 12px; }
+  .p-score .btn { font-size: clamp(13px, 1.2vw, 16px); }
+  .p-body { display: grid; align-content: center; gap: clamp(18px, 3vh, 36px); max-width: 1200px; width: 100%; margin: 0 auto; min-height: 0; overflow: auto; }
+  .p-stem { font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 48px); line-height: 1.2; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  .p-opts { display: grid; gap: clamp(8px, 1.4vh, 14px); }
+  .p-opts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-opts .opt { font-size: clamp(19px, 2.2vw, 30px); padding: clamp(12px, 1.8vh, 18px) clamp(14px, 1.6vw, 22px); border-radius: 12px; gap: 14px; }
+  .p-opts .opt .key { width: 1.35em; height: 1.35em; font-size: .7em; border-radius: 8px; }
+  .p-answer { font-size: clamp(19px, 2.1vw, 28px); padding: clamp(14px, 2vh, 22px) clamp(18px, 2vw, 28px); }
+  .p-answer .lead { font-weight: 700; display: block; margin-bottom: 4px; }
+  .p-answer ol, .p-answer ul { columns: 1; }
+  @media (min-width: 900px) { .p-answer ol.two, .p-answer ul.two { columns: 2; column-gap: 40px; } }
+  .p-verdict { font-size: clamp(19px, 2.1vw, 28px); }
+  .p-verdict.ok b { color: var(--good); } .p-verdict.no b { color: var(--bad); }
+  .p-verdict .why { color: var(--ink-soft); }
+  .p-wait { color: var(--ink-faint); font-size: clamp(17px, 1.8vw, 24px); font-style: italic; }
+  .p-body .ref { font-size: clamp(13px, 1.2vw, 15px); }
+  .p-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; }
+  .p-nav .btn { font-size: clamp(15px, 1.4vw, 19px); padding: 10px 18px; }
+  .p-keys { color: var(--ink-faint); font-size: clamp(12px, 1.1vw, 14px); }
+  .p-keys kbd { font-family: inherit; border: 1px solid var(--rule-strong); border-radius: 4px; padding: 0 5px; margin: 0 2px; background: var(--card); }
+  .p-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--rule); }
+  .p-progress i { display: block; height: 100%; background: var(--teal); transition: width .2s; }
+
+  @media (max-width: 480px) {
+    .q { grid-template-columns: 34px 1fr; }
+    .tools { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">NRSG106 · Health Assessment · AdventHealth University</div>
+      <h1>NRSG106 Quiz Bank</h1>
+      <p class="sub">Multiple choice and short answer sets built from each week's slides, plus a clearly marked “Beyond the Slides” section drawn from outside nursing sources. Tap an answer to check it, or turn on the answer key to read aloud.</p>
+    </div>
+  </header>
+
+  <div class="decks" role="tablist" aria-label="Choose a presentation" id="decks"></div>
+
+  <div class="toolbar">
+    <div class="score"><b id="score-num">0 / 0</b><span id="score-txt">answered</span></div>
+    <div class="bar" aria-hidden="true"><i class="g" id="bar-g" style="width:0%"></i><i class="b" id="bar-b" style="width:0%"></i></div>
+    <div class="tools">
+      <label class="who">Answering as <input id="who" type="text" placeholder="name" maxlength="24" autocomplete="off"></label>
+      <button class="btn primary" id="present-btn">Present one at a time</button>
+      <button class="btn" id="key-toggle" aria-pressed="false"><span class="dot"></span>Answer key</button>
+      <button class="btn" id="finish-btn">Finish round</button>
+      <button class="btn ghost" id="reset-btn">Clear without saving</button>
+    </div>
+  </div>
+
+  <main id="quiz"></main>
+
+  <section id="rounds"></section>
+
+  <footer>
+    <p>Slide references point to the slide number in the matching PowerPoint so she can go back and re-read anything she missed. Answers and past rounds are saved in this browser only — use <b>Finish round</b> to get a summary and code you can text to someone else, and <b>Log a round</b> to add theirs to your history.</p>
+    <p>“Beyond the Slides” questions were not taken from the class presentations. They come from published nursing references (CDC, American Heart Association, NCSBN, StatPearls/NCBI, and open nursing textbooks from OpenStax and Pressbooks) chosen to match the slide topics. Where a source differs from the slides, the slide value is treated as the class answer and the difference is pointed out.</p>
+  </footer>
+</div>
+
+<div class="present" id="present" hidden role="dialog" aria-label="Presenter mode">
+  <div class="p-top">
+    <div>
+      <div class="eyebrow" id="p-section"></div>
+      <div class="p-deck" id="p-deck"></div>
+    </div>
+    <div class="p-score"><span id="p-score"></span><button class="btn" id="p-exit">Exit (Esc)</button></div>
+  </div>
+  <div class="p-body" id="p-body"></div>
+  <div class="p-nav">
+    <button class="btn" id="p-prev">← Previous</button>
+    <span class="p-keys"><kbd>←</kbd><kbd>→</kbd> move · <kbd>A</kbd>–<kbd>D</kbd> her answer · <kbd>Space</kbd> reveal / next · <kbd>Y</kbd>/<kbd>N</kbd> grade short answer</span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="p-reveal">Reveal answer (Space)</button>
+      <button class="btn primary" id="p-next">Next →</button>
+    </div>
+  </div>
+  <div class="p-progress" aria-hidden="true"><i id="p-bar" style="width:0%"></i></div>
+</div>
+
+<div class="modal-bg" id="finish" hidden role="dialog" aria-label="Finish round">
+  <div class="modal">
+    <h2 id="f-title">Round finished</h2>
+    <div class="m-score"><b id="f-score"></b><span id="f-sub"></span></div>
+    <p class="m-note">Copy or share this summary — the code at the bottom lets someone else add this round to their history with <b>Log a round</b>.</p>
+    <textarea id="f-text" readonly></textarea>
+    <div class="m-actions">
+      <button class="btn" id="f-copy">Copy summary</button>
+      <button class="btn" id="f-share">Share…</button>
+      <button class="btn primary" id="f-save">Save round &amp; start fresh</button>
+      <button class="btn ghost" id="f-cancel">Back</button>
+    </div>
+    <div class="m-msg" id="f-msg"></div>
+  </div>
+</div>
+
+<script>
+const DECKS = {"wk9":{"title":"Mental Status & Neurologic System (Chapters 6 & 25)","short":"Week 9 · Chapters 6 & 25","mc":[{"q":"The central nervous system is made up of the:","o":["Cranial and spinal nerves","Brain and spinal cord","Sympathetic and parasympathetic systems","Somatic and autonomic fibers"],"a":1,"ref":"Slides 4 & 15"},{"q":"The peripheral nervous system includes how many pairs of cranial and spinal nerves?","o":["10 cranial, 30 spinal","12 cranial, 31 spinal","12 cranial, 33 spinal","31 cranial, 12 spinal"],"a":1,"ref":"Slide 4"},{"q":"Which part of the brain is primarily responsible for coordination, equilibrium, and muscle tone?","o":["Cerebrum","Medulla oblongata","Thalamus","Cerebellum"],"a":3,"ref":"Slide 6"},{"q":"The midbrain, pons, and medulla oblongata make up the:","o":["Brain stem","Cerebellum","Diencephalon","Cerebrum"],"a":0,"ref":"Slide 6","why":"The diencephalon is the thalamus and hypothalamus."},{"q":"Which lobe of the cerebrum directs voluntary movement, decision making, speech, and emotions?","o":["Occipital","Parietal","Frontal","Temporal"],"a":2,"ref":"Slide 7","why":"Memory aid: FPOT. Parietal = touch and spatial awareness, occipital = vision, temporal = hearing and memory."},{"q":"A client who had a stroke can no longer tell where a body part is touched or judge space well. Which lobe is most likely affected?","o":["Frontal","Occipital","Parietal","Temporal"],"a":2,"ref":"Slide 7"},{"q":"Visual processing happens in the:","o":["Occipital lobe","Frontal lobe","Temporal lobe","Parietal lobe"],"a":0,"ref":"Slide 7"},{"q":"Hearing (auditory processing) and memory are functions of the:","o":["Occipital lobe","Cerebellum","Parietal lobe","Temporal lobe"],"a":3,"ref":"Slide 7"},{"q":"The spinal cord extends from the medulla oblongata to about the:","o":["First lumbar vertebra","Twelfth thoracic vertebra","Seventh cervical vertebra","Sacrum"],"a":0,"ref":"Slide 8"},{"q":"Sensory neurons are ______, and motor neurons are ______.","o":["efferent; afferent","afferent; efferent","both afferent","both efferent"],"a":1,"ref":"Slides 8 & 15","why":"Afferent carries sensory input toward the CNS; efferent carries motor output away from it."},{"q":"Which cranial nerve is tested by asking the client to identify a scent with eyes closed and one nostril blocked?","o":["CN IX, glossopharyngeal","CN II, optic","CN V, trigeminal","CN I, olfactory"],"a":3,"ref":"Slides 12 & 27"},{"q":"Which cranial nerves are assessed together with the six cardinal fields of gaze and PERRLA?","o":["II, VIII, X","V, VII, IX","III, IV, VI","IX, X, XII"],"a":2,"ref":"Slide 27","why":"CN III does most eye movements, lifts the eyelid and constricts the pupil; CN IV moves the eye downward; CN VI moves it outward (laterally)."},{"q":"Which cranial nerve moves the eye outward (laterally)?","o":["Oculomotor (III)","Abducens (VI)","Trochlear (IV)","Optic (II)"],"a":1,"ref":"Slides 12 & 27"},{"q":"Which cranial nerve raises the eyelid and constricts the pupil?","o":["CN II","CN IV","CN III","CN VI"],"a":2,"ref":"Slides 12 & 27"},{"q":"The nurse asks the client to clench the teeth while palpating the temporal and masseter muscles. This tests:","o":["CN XII","CN VII motor function","CN XI","CN V motor function"],"a":3,"ref":"Slide 27","why":"The sensory part of CN V is tested by touching the forehead, cheeks and chin with the sharp or dull end of a paper clip."},{"q":"Asking the client to smile, frown, puff out the cheeks and raise the eyebrows tests which cranial nerve?","o":["Facial (VII)","Trigeminal (V)","Hypoglossal (XII)","Vagus (X)"],"a":0,"ref":"Slide 28","why":"Normal is symmetric movement. CN VII also carries taste from the front two thirds of the tongue."},{"q":"The whisper, Weber and Rinne tests assess which cranial nerve?","o":["CN VIII","CN V","CN II","CN XI"],"a":0,"ref":"Slide 28"},{"q":"The client says “ah,” and the uvula and soft palate rise symmetrically. Which cranial nerves are being tested?","o":["V and VII","III and IV","XI and XII","IX and X"],"a":3,"ref":"Slide 28","why":"They also cover the gag reflex, swallowing and taste on the back third of the tongue."},{"q":"Asking the client to shrug the shoulders and turn the head against resistance tests:","o":["CN X, vagus","CN XI, spinal accessory","CN XII, hypoglossal","CN V, trigeminal"],"a":1,"ref":"Slide 28","why":"This checks the trapezius and sternocleidomastoid muscles."},{"q":"Asking the client to stick out the tongue and push it side to side against a tongue depressor tests:","o":["CN IX","CN X","CN XII (hypoglossal)","CN XI"],"a":2,"ref":"Slides 13 & 28"},{"q":"Using the slide mnemonic, which cranial nerves are “both” sensory and motor?","o":["I, II, VIII","III, IV, VI, XI, XII","V, VII, IX, X","All twelve"],"a":2,"ref":"Slides 10, 12 & 13","why":"“Some Say Marry Money But My Brother Says Bad Business Marries Money”: each B is “both.”"},{"q":"The sympathetic nervous system is known as:","o":["“Rest and digest”","“Fight or flight”","The voluntary system","The sensory system"],"a":1,"ref":"Slide 16","why":"The parasympathetic system is “rest and digest,” restoring and maintaining normal functions."},{"q":"A client has difficulty forming words because of weak speech muscles. This is called:","o":["Dysphasia","Aphonia","Paresthesia","Dysarthria"],"a":3,"ref":"Slide 17","why":"Dysphasia is difficulty understanding and expressing thoughts and words."},{"q":"Numbness, tingling, or a prickling feeling is documented as:","o":["Paresthesia","Dysphagia","Ataxia","Vertigo"],"a":0,"ref":"Slide 17"},{"q":"Why is the mental status assessment done at the start of the physical exam?","o":["It gives clues to how reliable the client's subjective information is","It takes the least time","It is required by law","It replaces the health history"],"a":0,"ref":"Slide 19","why":"It also tells about cerebral cortex function."},{"q":"Which is NOT one of the five areas of a complete neurologic assessment?","o":["Mental status","Cranial nerves","Reflexes","Lung sounds"],"a":3,"ref":"Slide 19","why":"The five are mental status, cranial nerves, motor and cerebellar systems, sensory system, and reflexes."},{"q":"A quick “neuro check” includes:","o":["Only blood pressure","Level of consciousness, pupils, strength and movement of extremities, sensation, and vital signs","Only the Glasgow Coma Scale","Deep tendon reflexes only"],"a":1,"ref":"Slide 19"},{"q":"Which equipment is used for the reflex exam?","o":["Tuning fork only","Tape measure","Reflex (percussion) hammer and a cotton-tipped applicator","Snellen chart"],"a":2,"ref":"Slide 20"},{"q":"A client is extremely drowsy, wakes when spoken to, but falls back asleep when not stimulated. This level of consciousness is:","o":["Alert","Lethargic","Obtunded","Stuporous"],"a":1,"ref":"Slide 21"},{"q":"A client responds only to vigorous shaking or painful stimuli. This level of consciousness is:","o":["Lethargic","Obtunded","Stuporous","Comatose"],"a":2,"ref":"Slide 21","why":"Obtunded needs vigorous shaking or shouting and constant stimulation; comatose is unresponsive even to pain."},{"q":"A normal orientation finding is oriented x 4, which means oriented to:","o":["Person, place, time, and situation","Name, age, address, phone","Eyes, verbal, motor, pupils","Day, month, year, season"],"a":0,"ref":"Slide 23"},{"q":"Asking “How are an apple and an orange the same and how are they different?” assesses:","o":["Recent memory","Orientation","Judgment","Abstract reasoning"],"a":3,"ref":"Slide 23","why":"“What would you do if police were behind you with lights and sirens?” tests judgment."},{"q":"Asking “When did you get your first job?” assesses:","o":["Recent memory","Remote memory","Concentration","Constructional ability"],"a":1,"ref":"Slide 23","why":"“What did you eat today?” tests recent memory."},{"q":"On the Mini-Cog, a client recalls none of the three words after drawing the clock. The result is classified as:","o":["Non-demented","Mild cognitive impairment","Normal if the clock is good","Demented (score 0)"],"a":3,"ref":"Slide 24","why":"Recalling all three is non-demented (score 3). With one or two words, the clock drawing decides."},{"q":"On the SLUMS exam, a client with a high school education scores 28. This is:","o":["Dementia","Mild neurocognitive disorder","Normal","Cannot be scored"],"a":2,"ref":"Slide 25","why":"High school education: 27–30 normal, 21–26 mild neurocognitive disorder, 1–20 dementia. With less education, the cutoffs are 25, 20–24 and 1–19."},{"q":"The three parts of the Glasgow Coma Scale are:","o":["Eye opening, verbal response, motor response","Pupils, pulse, pressure","Orientation, memory, judgment","Reflexes, strength, sensation"],"a":0,"ref":"Slide 26","why":"Total score ranges from 3 to 15."},{"q":"On the Glasgow Coma Scale, a client who obeys verbal commands scores ___ for motor response.","o":["4","5","6","3"],"a":2,"ref":"Slide 26","why":"Localizes pain 5, withdraws 4, decorticate flexion 3, decerebrate extension 2, none 1."},{"q":"According to the slide, a Glasgow Coma Scale score of 10 or lower means the client:","o":["Is normal","Is only drowsy","Is brain dead","Needs emergency attention"],"a":3,"ref":"Slide 26","why":"The slide calls 7 or lower generally a coma (see Beyond the Slides for the common clinical cutoff of 8)."},{"q":"During the Romberg test, the client sways and moves the feet apart when the eyes are closed. This is:","o":["A normal finding","A positive Romberg test","Proof of hearing loss","Expected in all older adults"],"a":1,"ref":"Slide 29"},{"q":"Tandem walking means asking the client to:","o":["Walk heel to toe in a straight line","Walk on the heels","Walk backward","Hop on one foot"],"a":0,"ref":"Slide 29","why":"A normal gait is steady with the opposite arm swinging."},{"q":"The heel-to-shin test is done with the client:","o":["Standing","Sitting","Prone","Supine (lying on the back)"],"a":3,"ref":"Slide 29"},{"q":"During all three sensory tests (light touch, pain, and tactile discrimination), the client should:","o":["Stand","Watch the nurse","Keep the eyes closed","Hold their breath"],"a":2,"ref":"Slide 30"},{"q":"The nurse places a key in the client's hand and asks the client to name it with eyes closed. This tests:","o":["Graphesthesia","Stereognosis","Proprioception","Light touch"],"a":1,"ref":"Slide 30","why":"Graphesthesia is identifying a number written on the palm."},{"q":"A deep tendon reflex graded 2+ is:","o":["Normal","Diminished","Absent","Hyperreflexic"],"a":0,"ref":"Slide 31"},{"q":"An absent (0) deep tendon reflex suggests ______, while 4+ hyperreflexia suggests ______.","o":["upper motor neuron lesion; lower motor neuron impairment","lower motor neuron impairment; upper motor neuron lesion","normal finding; normal finding","spinal shock; normal aging"],"a":1,"ref":"Slide 32"},{"q":"The patellar reflex tests which spinal levels?","o":["C5–C6","C6–C8","L2–L4","S1–S2"],"a":2,"ref":"Slide 32","why":"Biceps and brachioradialis C5–C6, triceps C6–C8, Achilles S1–S2."},{"q":"The nurse strokes the sole of an adult's foot and the toes fan out. This is:","o":["A normal plantar response","Clonus","The cremasteric reflex","A positive Babinski response (abnormal in adults)"],"a":3,"ref":"Slide 31","why":"Normal is flexion of the toes."},{"q":"Normal abdominal reflex: when one side of the abdomen is lightly stroked, the:","o":["Abdominal muscles contract and the umbilicus moves toward the stimulated side","Abdomen relaxes","Umbilicus moves away","Legs flex"],"a":0,"ref":"Slide 31"},{"q":"When the nurse flexes the client's neck, the client's hips and knees also flex with pain. This is a positive:","o":["Brudzinski sign","Kernig sign","Babinski sign","Romberg test"],"a":0,"ref":"Slide 33","why":"It suggests meningeal irritation. First rule out a neck injury."},{"q":"The nurse flexes the hip and knee, then straightens the knee, and the client has pain and resistance. This is a positive:","o":["Brudzinski sign","Romberg test","Kernig sign","Babinski sign"],"a":2,"ref":"Slide 33","why":"A bilateral Kernig sign suggests meningeal irritation."},{"q":"A shuffling gait with a stooped posture and flexed hips and knees is typical of:","o":["Cerebellar ataxia","Scissors gait","Footdrop","Parkinsonian gait"],"a":3,"ref":"Slide 34"},{"q":"A wide-based, staggering, unsteady gait with a positive Romberg test is:","o":["Spastic hemiparesis","Cerebellar ataxia","Parkinsonian gait","Scissors gait"],"a":1,"ref":"Slide 34"},{"q":"A client lifts the foot and knee high with each step, slaps the foot down, and cannot walk on the heels. This is:","o":["Scissors gait","Cerebellar ataxia","Spastic hemiparesis","Footdrop"],"a":3,"ref":"Slide 35"},{"q":"An unconscious client's arms are flexed and drawn in toward the chest, with the legs extended. This is:","o":["Decerebrate posturing","Decorticate posturing","Normal sleep posture","Opisthotonos"],"a":1,"ref":"Slide 36","why":"Memory aid: in decorticate posturing the arms are drawn in toward the core. Decerebrate is arms and legs extended with the head and back arched."},{"q":"A stroke caused by a clot (embolus or thrombus) blocking a blood vessel is:","o":["Hemorrhagic","A TIA only","Ischemic","A migraine"],"a":2,"ref":"Slide 37","why":"Hemorrhagic is rupture or leakage of blood. A TIA is a mini-stroke with symptoms that resolve, but it signals stroke risk."},{"q":"Which is a MODIFIABLE risk factor for stroke on the slides?","o":["Hypertension","Family history","Age","Race"],"a":0,"ref":"Slide 38","why":"Others: high cholesterol, heart disease, diabetes, obesity, inactivity, poor diet, smoking, excess alcohol."},{"q":"In stroke education, the letters F.A.S.T. stand for:","o":["Fever, Ache, Sweat, Tired","Fast heart, Anxiety, Sweating, Tremor","Fall, Aphasia, Seizure, Tremor","Face drooping, Arm weakness, Speech slurred, Time to call 911"],"a":3,"ref":"Slide 38"}],"sa":[{"q":"Describe the two structural parts of the nervous system and what each includes.","a":["Central nervous system: brain and spinal cord; the body's control center","Peripheral nervous system: 12 pairs of cranial nerves and 31 pairs of spinal nerves; carries information to and from the CNS","Peripheral fibers are somatic (sense organs and voluntary muscles) or autonomic (internal organs and glands)","Autonomic has sympathetic (arousing) and parasympathetic (calming) divisions"],"ref":"Slides 4, 15 & 16"},{"q":"Name the four lobes of the cerebrum (FPOT) and the main function of each.","a":["Frontal: voluntary movement, higher thinking and decisions, speech, emotions","Parietal: touch (tactile) sensation and spatial awareness","Occipital: vision","Temporal: hearing and memory"],"ordered":true,"ref":"Slide 7"},{"q":"List the 12 cranial nerves in order, with whether each is sensory, motor, or both.","a":["I Olfactory: sensory","II Optic: sensory","III Oculomotor: motor","IV Trochlear: motor","V Trigeminal: both","VI Abducens: motor","VII Facial: both","VIII Vestibulocochlear (acoustic): sensory","IX Glossopharyngeal: both","X Vagus: both","XI Spinal accessory: motor","XII Hypoglossal: motor"],"ordered":true,"ref":"Slides 10–13"},{"q":"Describe how to test cranial nerves V, VII, IX and X, XI, and XII.","a":["V: clench teeth while palpating temporal and masseter muscles; sharp or dull touch to forehead, cheeks and chin with eyes closed","VII: smile, frown, puff cheeks, raise eyebrows, wrinkle forehead, close eyes; movements symmetric","IX and X: say “ah” (uvula and soft palate rise evenly), gag reflex, swallow water","XI: shrug shoulders and turn head against resistance","XII: stick out tongue and push side to side against a tongue depressor"],"ref":"Slides 27–28"},{"q":"Compare the sympathetic and parasympathetic nervous systems.","a":["Both are part of the autonomic system, controlling smooth muscle, the heart and glands to keep homeostasis","Sympathetic: “fight or flight,” activated during stress","Parasympathetic: “rest and digest,” restores and maintains normal body functions"],"ref":"Slide 16"},{"q":"List at least six topics in a neurologic health history of present concern.","a":["Headaches (COLDSPA)","Seizures","Dizziness","Numbness or tingling (paresthesia)","Changes in senses","Difficulty speaking (dysarthria, dysphasia)","Difficulty swallowing","Muscle control: bowel or bladder control, weakness, tremors","Memory loss"],"ref":"Slide 17"},{"q":"Name the five areas of a complete neurologic exam, and what a quick neuro check covers.","a":["Mental status","Cranial nerves","Motor and cerebellar systems","Sensory system","Reflexes","Neuro check: level of consciousness, pupils, movement and strength of extremities, sensation, vital signs"],"ref":"Slide 19"},{"q":"Define the five levels of consciousness on the slides.","a":["Alert: awake, opens eyes spontaneously","Lethargic: very drowsy, wakes to voice but falls back asleep","Obtunded: hard to arouse, needs vigorous shaking or shouting and constant stimulation","Stuporous: responds only to vigorous shaking or pain","Comatose: completely unconscious, no response to pain, may show abnormal posturing"],"ordered":true,"ref":"Slide 21"},{"q":"List the cognitive abilities assessed in a mental status exam, with an example question for each.","a":["Orientation x 4: person, place, time, situation","Concentration: follow directions","Recent memory: “What did you eat today?”","Remote memory: “When did you get your first job?”","Learning new information: repeat unrelated words later","Abstract reasoning: how an apple and orange are alike and different","Judgment: police lights behind you while driving","Visual and constructional ability: draw simple figures or a clock face"],"ref":"Slide 23"},{"q":"Describe how the Mini-Cog is given and scored.","a":["Client repeats three unrelated words","Client draws a clock face and sets the hands to a given time","Client repeats the three words","1 point per word recalled after the clock","0 words = demented; 3 words = non-demented","1 to 2 words: the clock decides (abnormal = demented, normal = non-demented)"],"ordered":true,"ref":"Slide 24"},{"q":"List the three Glasgow Coma Scale categories with their score ranges, and the slide's alert thresholds.","a":["Eye opening: 1 to 4 (spontaneous 4, to voice 3, to pain 2, none 1)","Verbal response: 1 to 5 (oriented 5, confused 4, inappropriate words 3, incoherent 2, none 1)","Motor response: 1 to 6 (obeys 6, localizes 5, withdraws 4, decorticate 3, decerebrate 2, none 1)","Total 3 to 15","Slide: 10 or less needs emergency attention; 7 or less generally coma"],"ref":"Slide 26"},{"q":"Describe the tests of balance and coordination in the motor and cerebellar exam.","a":["Watch for involuntary movements (tics, tremors)","Gait: walk naturally; steady with opposite arm swing","Tandem (heel-to-toe) walking","Romberg: feet together, 20 s eyes open then 20 s eyes closed; swaying is positive","Finger-to-nose, eyes open then closed","Rapid alternating movements: finger to thumb, palms up and down on the thighs","Heel-to-shin, supine"],"ref":"Slide 29"},{"q":"Explain how to test light touch, pain, stereognosis, and graphesthesia.","a":["Client's eyes closed for all; scatter stimuli and ask what and where","Light touch: wisp of cotton","Pain: sharp and dull ends of a safety pin or paper clip","Stereognosis: identify a familiar object (key, paper clip) in each hand","Graphesthesia: identify a number written on the palm with a blunt instrument"],"ref":"Slide 30"},{"q":"Give the deep tendon reflex grading scale, and each reflex with its spinal level.","a":["0 absent, 1+ diminished, 2+ normal, 3+ brisk, 4+ hyperreflexia","Biceps C5–C6","Brachioradialis C5–C6","Triceps C6–C8","Patellar L2–L4","Achilles S1–S2","0 suggests lower motor neuron impairment; 4+ suggests upper motor neuron lesion"],"ref":"Slides 31–32"},{"q":"Describe the tests for meningeal irritation and what a positive finding looks like.","a":["First rule out a cervical spine injury","Neck flexion: pain and resistance is abnormal","Brudzinski: flexing the neck causes pain and flexion of the hips and knees","Kernig: with hip and knee flexed, straightening the knee causes pain and resistance; bilateral suggests meningeal irritation"],"ref":"Slide 33"},{"q":"Describe five abnormal gaits and two abnormal postures from the slides.","a":["Cerebellar ataxia: wide-based, staggering, positive Romberg","Parkinsonian: shuffling, stooped, hips and knees flexed","Scissors: stiff, short, thighs overlap","Spastic hemiparesis: flexed arm close to the body, leg dragged or swung outward","Footdrop: high step and foot slap, cannot heel-walk","Decorticate: arms flexed and drawn inward, legs extended","Decerebrate: head and back arched, arms and legs extended"],"ref":"Slides 34–36"},{"q":"Compare the three types of stroke and list stroke client education.","a":["Hemorrhagic: a vessel ruptures or leaks blood","Ischemic: a clot (embolus or thrombus) blocks a vessel","TIA: mini-stroke, symptoms resolve, no damage, but signals stroke risk","Education: control cholesterol, blood pressure and diabetes; exercise 30 minutes a day; healthy weight and diet; no smoking; limit alcohol; avoid cocaine and illegal drugs; discuss birth control risks","Act F.A.S.T.: face drooping, arm weakness, slurred speech, time to call 911"],"ref":"Slides 37–38"}],"ext":[{"kind":"mc","q":"The slide says a Glasgow Coma Scale score of 7 or lower is generally a coma. What cutoff do many clinical references use for a severe brain injury that may need airway protection?","o":["15 or lower","12 or lower","8 or lower","3 only"],"a":2,"src":"StatPearls (NCBI) — Glasgow Coma Scale","why":"A common saying is “GCS 8, intubate.” For the class exam, use the slide's numbers (10 or lower needs emergency attention, 7 or lower is coma)."},{"kind":"mc","q":"Many stroke programs teach BE FAST instead of FAST. What do the added letters B and E stand for?","o":["Blood pressure and Energy","Balance and Eyes (sudden loss of balance or vision)","Breathing and Ears","Bleeding and Edema"],"a":1,"src":"Aroor et al., “BE-FAST,” Stroke (2017); StatPearls (NCBI) — Stroke","why":"Adding balance and vision catches strokes in the back of the brain that FAST can miss."},{"kind":"mc","q":"Why does knowing the exact time a stroke client was “last known well” matter so much?","o":["Clot-dissolving treatment (alteplase) for ischemic stroke is generally given only within about 3 to 4.5 hours of last known well","It decides the hospital bill","It is only for paperwork","It tells the type of stroke"],"a":0,"src":"AHA/ASA — Guidelines for the Early Management of Acute Ischemic Stroke (2019)","why":"That is the “Time” in FAST: call 911 right away."},{"kind":"mc","q":"A TIA's symptoms go away within minutes. What should the nurse teach?","o":["No follow-up is needed","Take an extra blood pressure pill","Rest at home for a week","Treat it as an emergency and seek care right away, because a TIA is a warning sign of a coming stroke"],"a":3,"src":"CDC — About Stroke; Transient Ischemic Attack"},{"kind":"mc","q":"A client has weakness of the WHOLE right side of the face, including being unable to wrinkle the forehead. This pattern points more toward:","o":["A stroke","A normal finding","Bell's palsy (a facial nerve, CN VII, problem)","Trigeminal neuralgia"],"a":2,"src":"StatPearls (NCBI) — Bell Palsy","why":"A stroke usually spares the forehead, because the upper face gets nerve supply from both sides of the brain. New facial droop is still treated as a possible stroke until proven otherwise."},{"kind":"mc","q":"Damage to Broca's area in the frontal lobe causes:","o":["Receptive aphasia: fluent speech that makes little sense","Expressive aphasia: the client understands but struggles to get words out","Loss of vision","Hearing loss"],"a":1,"src":"StatPearls (NCBI) — Aphasia; Broca Area","why":"Wernicke's area in the temporal lobe causes receptive aphasia. This ties to the frontal lobe's speech role on slide 7."},{"kind":"mc","q":"A positive Babinski sign (toes fanning out) is a NORMAL finding in:","o":["Infants up to about 1 to 2 years old","Healthy adults","Athletes","Older adults"],"a":0,"src":"StatPearls (NCBI) — Babinski Sign","why":"In anyone past early childhood, it suggests an upper motor neuron problem."},{"kind":"mc","q":"A 4+ reflex is often accompanied by rhythmic, repeated jerking when the ankle is quickly pushed up and held. This is called:","o":["Clonus","Ataxia","Tremor","Fasciculation"],"a":0,"src":"StatPearls (NCBI) — Clonus; Deep Tendon Reflexes"},{"kind":"mc","q":"The client holds both arms straight out, palms up, eyes closed, for 20 to 30 seconds. One arm drifts down and turns inward. This positive test is:","o":["Romberg test","Kernig sign","Graphesthesia","Pronator drift, a sign of upper motor neuron weakness"],"a":3,"src":"StatPearls (NCBI) — Pronator Drift"},{"kind":"sa","q":"Describe the 0 to 5 muscle strength grading scale.","a":["0: no contraction","1: flicker or trace of contraction","2: active movement with gravity eliminated","3: movement against gravity, not resistance","4: movement against some resistance","5: full strength against full resistance (normal)"],"ordered":true,"src":"Medical Research Council scale; StatPearls (NCBI) — Muscle Strength Grading"},{"kind":"mc","q":"Which finding helps tell delirium apart from dementia?","o":["Delirium develops slowly over years","Delirium starts suddenly, fluctuates during the day, impairs attention, and is often reversible","Dementia always resolves","They cannot be told apart"],"a":1,"src":"StatPearls (NCBI) — Delirium; National Institute on Aging — Dementia","why":"A sudden change in mental status is a medical concern: look for infection, medications, low oxygen or dehydration."},{"kind":"mc","q":"The classic triad of bacterial meningitis is:","o":["Cough, wheeze, chest pain","Rash, joint pain, fatigue","Fever, stiff neck, and altered mental status","Headache, nausea, diarrhea"],"a":2,"src":"CDC — Bacterial Meningitis; StatPearls (NCBI) — Meningitis","why":"Kernig and Brudzinski signs are specific but miss many cases, so a negative test does not rule meningitis out."},{"kind":"mc","q":"Cushing's triad, a late sign of rising intracranial pressure, is:","o":["Low blood pressure, fast pulse, fast breathing","Rising blood pressure (widening pulse pressure), slowing heart rate, and irregular breathing","Fever, rash, stiff neck","Normal vital signs with a headache"],"a":1,"src":"StatPearls (NCBI) — Cushing Reflex; Increased Intracranial Pressure","why":"A falling GCS score or a new fixed, dilated pupil are other warning signs."},{"kind":"mc","q":"During sympathetic (fight or flight) activation, the body shows:","o":["Slower heart rate and constricted pupils","Lower blood sugar","More digestion and saliva","Faster heart rate, dilated pupils, and opened airways"],"a":3,"src":"OpenStax Anatomy & Physiology 2e — Autonomic Nervous System","why":"Parasympathetic activity does the opposite: slower heart rate, constricted pupils, more digestion."}]}};
+
+const DECK_ORDER = ["wk9"];
+const LS_KEY = "nrsg106-quiz-bank-v4";
+let state = load();
+let deck = DECKS[state.deck] ? state.deck : DECK_ORDER[0];
+let keyMode = false;
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}") || {}; } catch (e) { return {}; }
+}
+function save() {
+  try { state.deck = deck; localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+}
+function ans(d) { state[d] = state[d] || {}; return state[d]; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+/* Sections for a deck: each item carries its own kind ("mc" | "sa") and a stable id */
+function sections(d) {
+  const D = DECKS[d];
+  return [
+    { key: "mc", title: "Multiple Choice", hint: "Pick one answer.", items: D.mc.map((it, i) => ({ ...it, kind: "mc", id: "mc" + i })) },
+    { key: "sa", title: "Short Answer", hint: "Let her answer out loud, reveal, then mark it.", items: D.sa.map((it, i) => ({ ...it, kind: "sa", id: "sa" + i })) },
+    { key: "ex", title: "Beyond the Slides", hint: "Outside sources — not from the class deck", ext: true, items: (D.ext || []).map((it, i) => ({ ...it, id: "ex" + i })) }
+  ];
+}
+function allItems(d) { return sections(d).flatMap(s => s.items.map(it => ({ ...it, secTitle: s.title, ext: !!s.ext }))); }
+function isRight(item, got) { return item.kind === "sa" ? got === true : got === item.a; }
+
+function refLine(item) {
+  return item.src ? `<div class="ref src">${esc(item.src)}</div>` : `<div class="ref">${esc(item.ref || "")}</div>`;
+}
+
+function renderDeckTabs() {
+  document.getElementById("decks").innerHTML = DECK_ORDER.map(d => `
+    <button class="deck-tab" role="tab" id="tab-${d}" aria-selected="${String(d === deck)}" data-deck="${d}">
+      <span class="eyebrow">${esc(DECKS[d].short)}</span>
+      <strong>${esc(DECKS[d].title.replace(/\s*\(.*\)$/, ""))}</strong>
+      <small id="count-${d}"></small>
+    </button>`).join("");
+  document.querySelectorAll(".deck-tab").forEach(t => t.addEventListener("click", () => {
+    deck = t.dataset.deck; save(); render(); window.scrollTo({ top: 0 });
+  }));
+}
+
+function render() {
+  const A = ans(deck);
+  const main = document.getElementById("quiz");
+  document.querySelectorAll(".deck-tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.deck === deck)));
+  let n = 0;
+  const parts = [];
+  const letters = "ABCD";
+
+  sections(deck).forEach(sec => {
+    if (!sec.items.length) return;
+    parts.push(`<section class="${sec.ext ? "ext" : ""}"><div class="sec-head"><h2>${sec.title}</h2><span class="hint">${sec.hint}</span><span class="sec-tally" id="tally-${sec.key}"></span></div>
+      ${sec.ext ? `<div class="ext-note"><b>Heads up:</b> the questions below were <b>not</b> taken from the class slides. They come from published nursing references on the same topics — the kind of related material that could show up on an exam. Each one names its source.</div>` : ""}</section>`);
+
+    sec.items.forEach(item => {
+      n++; const id = item.id; const got = A[id];
+      if (item.kind === "mc") {
+        const locked = got !== undefined;
+        const cls = locked ? (got === item.a ? "right" : "wrong") : "";
+        const opts = item.o.map((o, k) => {
+          let c = "opt";
+          if (locked) { if (k === item.a) c += " is-right"; else if (k === got) c += " is-wrong"; else c += " dim"; }
+          if (keyMode && k === item.a) c += " correct-key";
+          return `<button class="${c}" data-q="${id}" data-v="${k}" ${locked ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(o)}</span></button>`;
+        }).join("");
+        parts.push(`<div class="q ${cls} ${locked ? "locked" : ""}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="opts">${opts}</div>
+            ${locked ? verdict(got === item.a, item.why) : ""}
+            ${refLine(item)}
+          </div></div>`);
+      } else {
+        const revealed = (state.revealed && state.revealed[deck + id]) || got !== undefined;
+        const cls = got === undefined ? "" : (got ? "right" : "wrong");
+        const tag = item.ordered ? "ol" : "ul";
+        const list = `<${tag}>${item.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}>`;
+        parts.push(`<div class="q ${cls}" id="q-${id}">
+          <div class="num">${n}</div>
+          <div class="body">
+            <p class="stem">${esc(item.q)}</p>
+            <div class="sa-row">
+              ${revealed ? "" : `<button class="btn" data-reveal="${id}">Reveal answer</button>`}
+              <div class="grade">
+                <button class="opt g-yes ${got === true ? "picked" : ""}" data-q="${id}" data-v="yes"><span class="key">✓</span><span>She got it</span></button>
+                <button class="opt g-no ${got === false ? "picked" : ""}" data-q="${id}" data-v="no"><span class="key">✕</span><span>Missed it</span></button>
+              </div>
+            </div>
+            <div class="answer" ${revealed ? "" : "hidden"}>${list}</div>
+            ${refLine(item)}
+          </div></div>`);
+      }
+    });
+  });
+
+  main.innerHTML = parts.join("");
+  main.classList.toggle("keymode", keyMode);
+  updateScore();
+  renderRounds();
+}
+
+function verdict(ok, why) {
+  return `<div class="verdict ${ok ? "ok" : "no"}"><b>${ok ? "Correct." : "Not quite."}</b>${why ? `<span class="why">${esc(why)}</span>` : ""}</div>`;
+}
+
+function updateScore() {
+  const A = ans(deck);
+  let right = 0, wrong = 0, total = 0;
+  sections(deck).forEach(sec => {
+    let r = 0, d = 0;
+    sec.items.forEach(it => { total++; const g = A[it.id]; if (g === undefined) return; d++; if (isRight(it, g)) { r++; right++; } else wrong++; });
+    const el = document.getElementById("tally-" + sec.key);
+    if (el) el.textContent = d ? `${r} of ${d} · ${sec.items.length} questions` : `${sec.items.length} questions`;
+  });
+  const done = right + wrong;
+  document.getElementById("score-num").textContent = `${right} / ${done}`;
+  document.getElementById("score-txt").textContent = done ? `correct · ${total - done} left` : `answered of ${total}`;
+  document.getElementById("bar-g").style.width = (right / total * 100) + "%";
+  document.getElementById("bar-b").style.width = (wrong / total * 100) + "%";
+  DECK_ORDER.forEach(d => {
+    const DD = DECKS[d]; const ext = (DD.ext || []).length;
+    const t = DD.mc.length + DD.sa.length + ext;
+    const a = Object.keys(ans(d)).length;
+    const el = document.getElementById("count-" + d);
+    if (el) el.textContent = `${t} questions · ${DD.mc.length} MC, ${DD.sa.length} short answer, ${ext} beyond the slides${a ? ` · ${a} answered` : ""}`;
+  });
+}
+
+document.getElementById("quiz").addEventListener("click", e => {
+  const rev = e.target.closest("[data-reveal]");
+  if (rev) {
+    state.revealed = state.revealed || {}; state.revealed[deck + rev.dataset.reveal] = true; save();
+    const y = window.scrollY; render(); window.scrollTo(0, y);
+    return;
+  }
+  const b = e.target.closest("button[data-q]");
+  if (!b || b.disabled) return;
+  const id = b.dataset.q, v = b.dataset.v;
+  const A = ans(deck);
+  const item = allItems(deck).find(x => x.id === id);
+  if (!item) return;
+  if (item.kind === "mc") A[id] = Number(v); else A[id] = v === "yes";
+  save();
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+document.getElementById("key-toggle").addEventListener("click", function () {
+  keyMode = !keyMode; this.classList.toggle("on", keyMode); this.setAttribute("aria-pressed", String(keyMode));
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+});
+
+let armedClear = 0;
+document.getElementById("reset-btn").addEventListener("click", function () {
+  if (Object.keys(ans(deck)).length && Date.now() - armedClear > 4000) {
+    armedClear = Date.now(); this.textContent = "Really clear? Click again";
+    setTimeout(() => { this.textContent = "Clear without saving"; }, 4000);
+    return;
+  }
+  armedClear = 0; this.textContent = "Clear without saving";
+  clearDeck(deck); render(); window.scrollTo({ top: 0 });
+});
+function clearDeck(d) {
+  state[d] = {};
+  if (state.revealed) for (const k in state.revealed) if (k.startsWith(d)) delete state.revealed[k];
+  save();
+}
+
+/* ---------- Name ---------- */
+const whoEl = document.getElementById("who");
+whoEl.value = state.who || "";
+whoEl.addEventListener("change", () => { state.who = whoEl.value.trim(); save(); });
+function whoName() { return (state.who || "").trim() || "Someone"; }
+
+/* ---------- Rounds: summary, code, history ---------- */
+const CODE_TAG = "NQB1.";
+function b64e(s) { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function b64d(s) { s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; return decodeURIComponent(escape(atob(s))); }
+
+function roundFromCurrent() {
+  const A = ans(deck); const items = allItems(deck);
+  const answers = {}; let right = 0, done = 0;
+  items.forEach(it => { const g = A[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck, name: whoName(), t: Date.now(), right, done, total: items.length, answers };
+}
+function missedList(r) {
+  const items = allItems(r.deck); const out = [];
+  items.forEach((it, i) => { const g = r.answers[it.id]; if (g !== undefined && !isRight(it, g)) out.push({ n: i + 1, q: it.q, ext: it.ext }); });
+  return out;
+}
+function fmtDate(t) { return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+function pct(r) { return r.done ? Math.round(r.right / r.done * 100) : 0; }
+
+function summaryText(r) {
+  const D = DECKS[r.deck]; const missed = missedList(r);
+  const lines = [
+    `NRSG106 Quiz — ${D.title}`,
+    `${r.name} · ${fmtDate(r.t)} · ${r.right}/${r.done} correct (${pct(r)}%)${r.done < r.total ? ` · ${r.total - r.done} unanswered` : ""}`,
+    missed.length ? `Missed (${missed.length}): ${missed.map(m => "#" + m.n).join(", ")}` : "Missed: none!",
+    ...missed.slice(0, 40).map(m => `  ${m.n}. ${m.q.length > 90 ? m.q.slice(0, 87) + "…" : m.q}`),
+    "",
+    "Code: " + CODE_TAG + b64e(JSON.stringify({ d: r.deck, n: r.name, t: r.t, a: r.answers }))
+  ];
+  return lines.join("\n");
+}
+function parseCode(text) {
+  const m = String(text).match(/NQB1\.([A-Za-z0-9_-]+)/);
+  if (!m) throw new Error("No code found — paste the whole summary or the line that starts with “Code:”.");
+  const o = JSON.parse(b64d(m[1]));
+  if (!DECKS[o.d] || typeof o.a !== "object") throw new Error("That code doesn't match this quiz.");
+  const items = allItems(o.d); let right = 0, done = 0; const answers = {};
+  items.forEach(it => { const g = o.a[it.id]; if (g === undefined) return; answers[it.id] = g; done++; if (isRight(it, g)) right++; });
+  return { deck: o.d, name: String(o.n || "Someone").slice(0, 24), t: Number(o.t) || Date.now(), right, done, total: items.length, answers, imported: true };
+}
+function saveRound(r) {
+  state.rounds = state.rounds || [];
+  r.id = r.id || (r.t + "-" + Math.random().toString(36).slice(2, 7));
+  if (state.rounds.some(x => x.t === r.t && x.name === r.name && x.deck === r.deck)) return false;
+  state.rounds.push(r); state.rounds.sort((a, b) => b.t - a.t);
+  if (state.rounds.length > 60) state.rounds.length = 60;
+  save(); return true;
+}
+
+function renderRounds() {
+  const rounds = (state.rounds || []).filter(r => r.deck === deck);
+  const el = document.getElementById("rounds");
+  const trend = rounds.slice().reverse().slice(-12);
+  el.innerHTML = `
+    <div class="rounds-head"><h2>Past rounds</h2><span class="sec-tally">${rounds.length ? `${rounds.length} saved for this set` : "nothing saved yet"}</span></div>
+    ${trend.length > 1 ? `<div class="trend" aria-label="Score trend">${trend.map(r => `<i class="${r.imported ? "g" : ""}" style="height:${Math.max(6, pct(r) * .44)}px" title="${esc(r.name)} · ${fmtDate(r.t)} · ${pct(r)}%"><span>${pct(r)}%</span></i>`).join("")}</div>` : ""}
+    ${rounds.length ? rounds.map(r => {
+      const missed = missedList(r);
+      return `<div class="round">
+        <div class="r-top"><span class="r-name">${esc(r.name)}</span><span class="r-date">${fmtDate(r.t)}${r.imported ? " · logged from a code" : ""}</span></div>
+        <div class="r-score">${r.right}/${r.done}<small>${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} skipped` : ""}</small></div>
+        <div class="r-missed">${missed.length ? `<details><summary>Missed ${missed.length} — show</summary><ul>${missed.map(m => `<li>#${m.n} · ${esc(m.q)}${m.ext ? " <em>(beyond the slides)</em>" : ""}</li>`).join("")}</ul></details>` : "Nothing missed."}</div>
+        <div class="r-actions"><button class="btn ghost" data-del-round="${r.id}">Remove</button></div>
+      </div>`;
+    }).join("") : `<div class="rounds-empty">When a round is finished, its score and missed questions land here. Rounds logged from someone else's code show up too.</div>`}
+    <div class="log-box">
+      <label for="log-input">Log a round from a code</label>
+      <p>Paste the summary (or just the “Code:” line) that the student texted you. Their score and missed questions are added to this list.</p>
+      <div class="log-row"><input id="log-input" type="text" placeholder="Paste here…" autocomplete="off"><button class="btn" id="log-btn">Add round</button></div>
+      <div class="log-msg" id="log-msg"></div>
+    </div>`;
+}
+
+document.getElementById("rounds").addEventListener("click", e => {
+  const del = e.target.closest("[data-del-round]");
+  if (del) { state.rounds = (state.rounds || []).filter(r => r.id !== del.dataset.delRound); save(); renderRounds(); return; }
+  if (e.target.closest("#log-btn")) {
+    const inp = document.getElementById("log-input"), msg = document.getElementById("log-msg");
+    try {
+      const r = parseCode(inp.value);
+      const added = saveRound(r);
+      if (r.deck !== deck) { deck = r.deck; save(); render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80 }); }
+      else renderRounds();
+      const m2 = document.getElementById("log-msg"); m2.className = "log-msg ok";
+      m2.textContent = added ? `Added ${r.name}'s round — ${r.right}/${r.done} (${pct(r)}%).` : "That round is already in the list.";
+    } catch (err) { msg.className = "log-msg no"; msg.textContent = err.message; }
+  }
+});
+
+/* Finish-round dialog */
+const fin = document.getElementById("finish");
+let pendingRound = null;
+document.getElementById("finish-btn").addEventListener("click", function () {
+  const r = roundFromCurrent();
+  if (!r.done) { this.textContent = "Answer something first"; setTimeout(() => { this.textContent = "Finish round"; }, 2500); return; }
+  pendingRound = r;
+  document.getElementById("f-title").textContent = `${r.name} — ${DECKS[r.deck].short}`;
+  document.getElementById("f-score").textContent = `${r.right} / ${r.done}`;
+  document.getElementById("f-sub").textContent = `${pct(r)}% correct${r.done < r.total ? ` · ${r.total - r.done} of ${r.total} unanswered` : ""}`;
+  document.getElementById("f-text").value = summaryText(r);
+  document.getElementById("f-msg").textContent = "";
+  document.getElementById("f-share").hidden = !navigator.share;
+  fin.hidden = false;
+});
+document.getElementById("f-cancel").addEventListener("click", () => { fin.hidden = true; });
+fin.addEventListener("click", e => { if (e.target === fin) fin.hidden = true; });
+document.getElementById("f-copy").addEventListener("click", async () => {
+  const ta = document.getElementById("f-text"), msg = document.getElementById("f-msg");
+  try { await navigator.clipboard.writeText(ta.value); msg.textContent = "Copied — paste it into a text or email."; }
+  catch (e) { ta.select(); msg.textContent = "Select the text above and copy it."; }
+});
+document.getElementById("f-share").addEventListener("click", async () => {
+  try { await navigator.share({ title: "NRSG106 quiz results", text: document.getElementById("f-text").value }); }
+  catch (e) { /* user cancelled */ }
+});
+document.getElementById("f-save").addEventListener("click", () => {
+  if (!pendingRound) return;
+  saveRound(pendingRound); clearDeck(deck); pendingRound = null; fin.hidden = true;
+  render(); window.scrollTo({ top: document.getElementById("rounds").offsetTop - 80, behavior: "smooth" });
+});
+
+renderDeckTabs();
+render();
+
+/* ---------- Presenter mode ---------- */
+const P = { on: false, i: 0, revealed: false };
+const pEl = document.getElementById("present");
+
+function startPresent() {
+  const qs = allItems(deck); const A = ans(deck);
+  let first = qs.findIndex(q => A[q.id] === undefined); if (first < 0) first = 0;
+  P.on = true; P.i = first; P.revealed = false;
+  document.body.classList.add("presenting"); pEl.hidden = false;
+  renderPresent();
+}
+function exitPresent() {
+  P.on = false; document.body.classList.remove("presenting"); pEl.hidden = true;
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+}
+
+function renderPresent() {
+  const qs = allItems(deck); const q = qs[P.i]; const A = ans(deck); const got = A[q.id];
+  const answered = got !== undefined;
+  const show = P.revealed || answered;
+  const secEl = document.getElementById("p-section");
+  const kindLabel = q.kind === "mc" ? "Multiple choice" : "Short answer";
+  secEl.textContent = q.ext ? `Beyond the Slides · ${kindLabel} · Question ${P.i + 1} of ${qs.length}` : `${q.secTitle} · Question ${P.i + 1} of ${qs.length}`;
+  secEl.classList.toggle("is-ext", !!q.ext);
+  document.getElementById("p-deck").textContent = DECKS[deck].title;
+  const letters = "ABCD";
+  let html = `<p class="p-stem">${esc(q.q)}</p>`;
+
+  if (q.kind === "mc") {
+    html += `<div class="p-opts">` + q.o.map((label, k) => {
+      let c = "opt";
+      if (show) { if (k === q.a) c += " is-right"; else if (answered && k === got) c += " is-wrong"; else c += " dim"; }
+      return `<button class="${c}" data-pv="${k}" ${answered ? "disabled" : ""}><span class="key">${letters[k]}</span><span>${esc(label)}</span></button>`;
+    }).join("") + `</div>`;
+    if (answered) html += `<div class="p-verdict ${got === q.a ? "ok" : "no"}"><b>${got === q.a ? "Correct." : "Not quite."}</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else if (show) html += `<div class="p-verdict ok"><b>Answer shown.</b> ${q.why ? `<span class="why">${esc(q.why)}</span>` : ""}</div>`;
+    else html += `<div class="p-wait">Let her answer — then press her letter to check it, or Space to reveal.</div>`;
+  } else {
+    if (show) {
+      const tag = q.ordered ? "ol" : "ul";
+      const two = q.a.length > 5 ? "two" : "";
+      html += `<div class="answer p-answer"><span class="lead">Answer</span><${tag} class="${two}">${q.a.map(x => `<li>${esc(x)}</li>`).join("")}</${tag}></div>`;
+      html += `<div class="p-opts two grade">
+        <button class="opt g-yes ${got === true ? "picked" : ""}" data-pv="yes"><span class="key">✓</span><span>She got it</span></button>
+        <button class="opt g-no ${got === false ? "picked" : ""}" data-pv="no"><span class="key">✕</span><span>Missed it</span></button>
+      </div>`;
+    } else {
+      html += `<div class="p-wait">Let her answer out loud, then press Space to reveal.</div>`;
+    }
+  }
+  html += refLine(q);
+  document.getElementById("p-body").innerHTML = html;
+
+  let right = 0, done = 0;
+  qs.forEach(x => { const g = A[x.id]; if (g === undefined) return; done++; if (isRight(x, g)) right++; });
+  document.getElementById("p-score").textContent = `${right} / ${done} correct`;
+  document.getElementById("p-bar").style.width = ((P.i + 1) / qs.length * 100) + "%";
+  document.getElementById("p-prev").disabled = P.i === 0;
+  document.getElementById("p-next").textContent = P.i === qs.length - 1 ? "Finish" : "Next →";
+  document.getElementById("p-reveal").hidden = show;
+}
+
+function pAnswer(v) {
+  const q = allItems(deck)[P.i]; const A = ans(deck);
+  if (q.kind === "mc") A[q.id] = Number(v); else A[q.id] = v === "yes";
+  save(); renderPresent();
+}
+function pMove(d) {
+  const qs = allItems(deck); const n = P.i + d;
+  if (n < 0) return;
+  if (n >= qs.length) { exitPresent(); if (Object.keys(ans(deck)).length) document.getElementById("finish-btn").click(); return; }
+  P.i = n; P.revealed = false; renderPresent();
+}
+
+document.getElementById("present-btn").addEventListener("click", startPresent);
+document.getElementById("p-exit").addEventListener("click", exitPresent);
+document.getElementById("p-prev").addEventListener("click", () => pMove(-1));
+document.getElementById("p-next").addEventListener("click", () => pMove(1));
+document.getElementById("p-reveal").addEventListener("click", () => { P.revealed = true; renderPresent(); });
+document.getElementById("p-body").addEventListener("click", e => {
+  const b = e.target.closest("button[data-pv]"); if (!b || b.disabled) return; pAnswer(b.dataset.pv);
+});
+
+document.addEventListener("keydown", e => {
+  if (!P.on) return;
+  if (e.target.matches("input, textarea")) return;
+  const q = allItems(deck)[P.i]; const A = ans(deck); const answered = A[q.id] !== undefined;
+  const k = e.key;
+  if (k === "Escape") { exitPresent(); }
+  else if (k === "ArrowRight" || k === "PageDown") { pMove(1); }
+  else if (k === "ArrowLeft" || k === "PageUp") { pMove(-1); }
+  else if (k === " " || k === "Enter") { e.preventDefault(); if (P.revealed || answered) pMove(1); else { P.revealed = true; renderPresent(); } }
+  else if (q.kind === "mc" && !answered && /^[a-d1-4]$/i.test(k)) { const idx = /\d/.test(k) ? Number(k) - 1 : "abcd".indexOf(k.toLowerCase()); if (idx < q.o.length) pAnswer(String(idx)); }
+  else if (q.kind === "sa" && (P.revealed || answered) && /^[yn]$/i.test(k)) { pAnswer(k.toLowerCase() === "y" ? "yes" : "no"); }
+  else return;
+  e.preventDefault();
+});
+</script>
+
+</body>
+</html>
