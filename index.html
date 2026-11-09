@@ -495,7 +495,7 @@ function updateScore() {
     const t = DD.mc.length + DD.sa.length + ext;
     const a = Object.keys(ans(d)).length;
     const el = document.getElementById("count-" + d);
-    if (el) el.textContent = `${t} questions · ${DD.mc.length} MC, ${DD.sa.length} short answer, ${ext} beyond the slides${a ? ` · ${a} answered` : ""}`;
+    if (el) el.textContent = `${t} questions · ${DD.mc.length} MC, ${DD.sa.length ? DD.sa.length + " short answer, " : ""}${ext} beyond the slides${a ? ` · ${a} answered` : ""}`;
   });
 }
 
